@@ -1,0 +1,30 @@
+{
+  "$id" : "http://sagebionetworks.org/SageResearch/jsonSchema/JsonChoiceObject.json",
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "definitions" : {
+
+  },
+  "description" : "",
+  "properties" : {
+    "detail" : {
+      "type" : "string"
+    },
+    "exclusive" : {
+      "type" : "boolean"
+    },
+    "icon" : {
+      "$ref" : "InputItem.json#ResourceImageDataObject"
+    },
+    "text" : {
+      "type" : "string"
+    },
+    "value" : {
+
+    }
+  },
+  "required" : [
+
+  ],
+  "title" : "JsonChoiceObject",
+  "type" : "object"
+}

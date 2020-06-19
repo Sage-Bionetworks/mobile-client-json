@@ -1,0 +1,77 @@
+{
+  "$id" : "http://sagebionetworks.org/SageResearch/jsonSchema/ViewThemeElement.json",
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "definitions" : {
+    "ViewThemeElementObject" : {
+      "$id" : "#ViewThemeElementObject",
+      "additionalProperties" : false,
+      "allOf" : [
+        {
+          "$ref" : "ViewThemeElement.json"
+        }
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "bundleIdentifier" : "org.example.SharedResources",
+          "type" : "default",
+          "viewIdentifier" : "FooStepNibIdentifier"
+        },
+        {
+          "storyboardIdentifier" : "FooBarStoryboard",
+          "type" : "default",
+          "viewIdentifier" : "FooStepViewIdentifier"
+        }
+      ],
+      "properties" : {
+        "bundleIdentifier" : {
+          "type" : "string"
+        },
+        "fragmentIdentifier" : {
+          "type" : "string"
+        },
+        "fragmentLayout" : {
+          "type" : "string"
+        },
+        "packageName" : {
+          "type" : "string"
+        },
+        "storyboardIdentifier" : {
+          "type" : "string"
+        },
+        "type" : {
+          "type" : "string"
+        },
+        "viewIdentifier" : {
+          "type" : "string"
+        }
+      },
+      "required" : [
+        "type",
+        "viewIdentifier"
+      ],
+      "title" : "ViewThemeElementObject",
+      "type" : "object"
+    },
+    "ViewThemeElementType" : {
+      "$id" : "#ViewThemeElementType",
+      "description" : "",
+      "examples" : [
+        "default"
+      ],
+      "title" : "ViewThemeElementType",
+      "type" : "string"
+    }
+  },
+  "description" : "`ViewThemeElement` tells the UI where to find the view controller or fragment to use when instantiating the view.",
+  "properties" : {
+    "type" : {
+      "$ref" : "#ViewThemeElementType"
+    }
+  },
+  "required" : [
+    "type"
+  ],
+  "title" : "ViewThemeElement",
+  "type" : "object"
+}

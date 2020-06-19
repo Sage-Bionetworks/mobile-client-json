@@ -1,0 +1,158 @@
+{
+  "$id" : "http://sagebionetworks.org/SageResearch/jsonSchema/AsyncActionConfiguration.json",
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "definitions" : {
+    "AsyncActionType" : {
+      "$id" : "#AsyncActionType",
+      "description" : "",
+      "examples" : [
+        "motion",
+        "distance"
+      ],
+      "title" : "AsyncActionType",
+      "type" : "string"
+    },
+    "DistanceRecorderConfiguration" : {
+      "$id" : "#DistanceRecorderConfiguration",
+      "additionalProperties" : false,
+      "allOf" : [
+        {
+          "$ref" : "AsyncActionConfiguration.json"
+        }
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "identifier" : "distance",
+          "motionStepIdentifier" : "run",
+          "startStepIdentifier" : "countdown",
+          "stopStepIdentifier" : "rest",
+          "type" : "distance"
+        }
+      ],
+      "properties" : {
+        "identifier" : {
+          "type" : "string"
+        },
+        "motionStepIdentifier" : {
+          "type" : "string"
+        },
+        "startStepIdentifier" : {
+          "type" : "string"
+        },
+        "stopStepIdentifier" : {
+          "type" : "string"
+        },
+        "type" : {
+          "$ref" : "#AsyncActionType",
+          "const" : "distance"
+        },
+        "usesCSVEncoding" : {
+          "type" : "boolean"
+        }
+      },
+      "required" : [
+        "identifier",
+        "type"
+      ],
+      "title" : "DistanceRecorderConfiguration",
+      "type" : "object"
+    },
+    "MotionRecorderConfiguration" : {
+      "$id" : "#MotionRecorderConfiguration",
+      "additionalProperties" : false,
+      "allOf" : [
+        {
+          "$ref" : "AsyncActionConfiguration.json"
+        }
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "frequency" : 50,
+          "identifier" : "motion",
+          "recorderTypes" : [
+            "accelerometer",
+            "gyro"
+          ],
+          "requiresBackgroundAudio" : true,
+          "startStepIdentifier" : "start",
+          "stopStepIdentifier" : "stop",
+          "type" : "motion"
+        }
+      ],
+      "properties" : {
+        "frequency" : {
+          "type" : "number"
+        },
+        "identifier" : {
+          "type" : "string"
+        },
+        "recorderTypes" : {
+          "items" : {
+            "$ref" : "#MotionRecorderType"
+          },
+          "type" : "array"
+        },
+        "requiresBackgroundAudio" : {
+          "default" : false,
+          "type" : "boolean"
+        },
+        "shouldDeletePrevious" : {
+          "default" : true,
+          "type" : "boolean"
+        },
+        "startStepIdentifier" : {
+          "type" : "string"
+        },
+        "stopStepIdentifier" : {
+          "type" : "string"
+        },
+        "type" : {
+          "$ref" : "#AsyncActionType",
+          "const" : "motion"
+        },
+        "usesCSVEncoding" : {
+          "type" : "boolean"
+        }
+      },
+      "required" : [
+        "identifier",
+        "type"
+      ],
+      "title" : "MotionRecorderConfiguration",
+      "type" : "object"
+    },
+    "MotionRecorderType" : {
+      "$id" : "#MotionRecorderType",
+      "description" : "",
+      "enum" : [
+        "accelerometer",
+        "gyro",
+        "magnetometer",
+        "attitude",
+        "gravity",
+        "magneticField",
+        "rotationRate",
+        "userAcceleration"
+      ],
+      "title" : "MotionRecorderType",
+      "type" : "string"
+    }
+  },
+  "description" : "`AsyncActionConfiguration` defines general configuration for an asynchronous action that should be run in the background. Depending upon the parameters and how the action is set up, this could be something that is run continuously or else is paused or reset based on a timeout interval.\nThe configuration is intended to be a serializable object and does not call services, record data, or anything else. It does include a step identifier that can be used to let the task controller know when to trigger the async action.",
+  "properties" : {
+    "identifier" : {
+      "type" : "string"
+    },
+    "type" : {
+      "$ref" : "#AsyncActionType"
+    }
+  },
+  "required" : [
+    "type",
+    "identifier"
+  ],
+  "title" : "AsyncActionConfiguration",
+  "type" : "object"
+}

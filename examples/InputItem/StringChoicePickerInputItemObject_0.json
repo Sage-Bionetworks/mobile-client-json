@@ -1,0 +1,1 @@
+{"identifier":"foo","placeholder":"Blue, no! Red!","choices":["never","sometimes","often","always"],"fieldLabel":"Favorite color","type":"stringChoicePicker"}

@@ -1,0 +1,1537 @@
+{
+  "$id" : "http://sagebionetworks.org/SageResearch/jsonSchema/Step.json",
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "definitions" : {
+    "ActiveUIStepCommand" : {
+      "$id" : "#ActiveUIStepCommand",
+      "description" : "",
+      "items" : {
+        "examples" : [
+          "vibrateOnStart",
+          "startTimerAutomatically",
+          "playSoundOnFinish",
+          "continueOnFinish",
+          "playSoundOnStart",
+          "shouldDisableIdleTimer",
+          "speakWarningOnPause",
+          "vibrateOnFinish",
+          "transitionAutomatically",
+          "playSound",
+          "vibrate"
+        ],
+        "jsonType" : "string"
+      },
+      "title" : "ActiveUIStepCommand",
+      "type" : "array"
+    },
+    "ActiveUIStepObject" : {
+      "$id" : "#ActiveUIStepObject",
+      "allOf" : [
+        {
+          "$ref" : "Step.json"
+        }
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "commands" : [
+            "playSoundOnStart",
+            "vibrateOnFinish"
+          ],
+          "detail" : "Some text.",
+          "duration" : 30,
+          "identifier" : "foo",
+          "requiresBackgroundAudio" : true,
+          "spokenInstructions" : {
+            "10" : "Keep going",
+            "end" : "Stop moving",
+            "halfway" : "Halfway there",
+            "start" : "Start moving"
+          },
+          "title" : "Hello World!",
+          "type" : "active"
+        }
+      ],
+      "properties" : {
+        "actions" : {
+          "items" : {
+            "$ref" : "ButtonActionInfo.json"
+          },
+          "type" : "array"
+        },
+        "afterCohortRules" : {
+          "items" : {
+            "$ref" : "CohortNavigationRuleObject.json"
+          },
+          "type" : "array"
+        },
+        "beforeCohortRules" : {
+          "items" : {
+            "$ref" : "CohortNavigationRuleObject.json"
+          },
+          "type" : "array"
+        },
+        "colorMapping" : {
+          "$ref" : "ColorMappingThemeElement.json"
+        },
+        "commands" : {
+          "items" : {
+            "$ref" : "#ActiveUIStepCommand"
+          },
+          "type" : "array"
+        },
+        "detail" : {
+          "type" : "string"
+        },
+        "duration" : {
+          "default" : 0,
+          "type" : "number"
+        },
+        "footnote" : {
+          "type" : "string"
+        },
+        "fullInstructionsOnly" : {
+          "type" : "boolean"
+        },
+        "identifier" : {
+          "type" : "string"
+        },
+        "image" : {
+          "$ref" : "ImageInfo.json"
+        },
+        "nextStepIdentifier" : {
+          "type" : "string"
+        },
+        "permissions" : {
+          "items" : {
+            "$ref" : "StandardPermission.json"
+          },
+          "type" : "array"
+        },
+        "requiresBackgroundAudio" : {
+          "default" : false,
+          "type" : "boolean"
+        },
+        "shouldEndOnInterrupt" : {
+          "default" : false,
+          "type" : "boolean"
+        },
+        "shouldHideActions" : {
+          "items" : {
+            "$ref" : "#ButtonType"
+          },
+          "type" : "array"
+        },
+        "spokenInstructions" : {
+          "additionalProperties" : {
+            "type" : "string"
+          },
+          "type" : "object"
+        },
+        "subtitle" : {
+          "type" : "string"
+        },
+        "title" : {
+          "type" : "string"
+        },
+        "type" : {
+          "$ref" : "#StepType",
+          "const" : "active"
+        },
+        "viewTheme" : {
+          "$ref" : "ViewThemeElement.json"
+        }
+      },
+      "required" : [
+        "identifier",
+        "type"
+      ],
+      "title" : "ActiveUIStepObject",
+      "type" : "object"
+    },
+    "ButtonType" : {
+      "$id" : "#ButtonType",
+      "description" : "",
+      "enum" : [
+        "goForward",
+        "goBackward",
+        "skip",
+        "cancel",
+        "learnMore",
+        "reviewInstructions"
+      ],
+      "title" : "ButtonType",
+      "type" : "string"
+    },
+    "ChoiceQuestionStepObject" : {
+      "$id" : "#ChoiceQuestionStepObject",
+      "allOf" : [
+        {
+          "$ref" : "ResultNode.json"
+        },
+        {
+          "$ref" : "Step.json"
+        }
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "baseType" : "integer",
+          "choices" : [
+            {
+              "icon" : "choice1",
+              "text" : "choice 1",
+              "value" : 1
+            },
+            {
+              "text" : "choice 2",
+              "value" : 2
+            },
+            {
+              "text" : "choice 3",
+              "value" : 3
+            },
+            {
+              "exclusive" : true,
+              "text" : "none of the above"
+            }
+          ],
+          "identifier" : "foo",
+          "optional" : false,
+          "singleChoice" : false,
+          "surveyRules" : [
+            {
+              "matchingAnswer" : 0
+            }
+          ],
+          "title" : "Hello World!",
+          "type" : "choiceQuestion",
+          "uiHint" : "checkmark"
+        }
+      ],
+      "properties" : {
+        "actions" : {
+          "items" : {
+            "$ref" : "ButtonActionInfo.json"
+          },
+          "type" : "array"
+        },
+        "afterCohortRules" : {
+          "items" : {
+            "$ref" : "CohortNavigationRuleObject.json"
+          },
+          "type" : "array"
+        },
+        "baseType" : {
+          "$ref" : "AnswerType.json#JsonType"
+        },
+        "beforeCohortRules" : {
+          "items" : {
+            "$ref" : "CohortNavigationRuleObject.json"
+          },
+          "type" : "array"
+        },
+        "choices" : {
+          "items" : {
+            "$ref" : "JsonChoiceObject.json"
+          },
+          "type" : "array"
+        },
+        "colorMapping" : {
+          "$ref" : "ColorMappingThemeElement.json"
+        },
+        "detail" : {
+          "type" : "string"
+        },
+        "footnote" : {
+          "type" : "string"
+        },
+        "fullInstructionsOnly" : {
+          "type" : "boolean"
+        },
+        "identifier" : {
+          "type" : "string"
+        },
+        "image" : {
+          "$ref" : "ImageInfo.json"
+        },
+        "nextStepIdentifier" : {
+          "type" : "string"
+        },
+        "optional" : {
+          "type" : "boolean"
+        },
+        "permissions" : {
+          "items" : {
+            "$ref" : "StandardPermission.json"
+          },
+          "type" : "array"
+        },
+        "shouldHideActions" : {
+          "items" : {
+            "$ref" : "#ButtonType"
+          },
+          "type" : "array"
+        },
+        "singleChoice" : {
+          "type" : "boolean"
+        },
+        "subtitle" : {
+          "type" : "string"
+        },
+        "surveyRules" : {
+          "items" : {
+            "$ref" : "JsonSurveyRuleObject.json"
+          },
+          "type" : "array"
+        },
+        "title" : {
+          "type" : "string"
+        },
+        "type" : {
+          "$ref" : "#StepType",
+          "const" : "choiceQuestion"
+        },
+        "uiHint" : {
+          "$ref" : "InputItem.json#FormUIHint"
+        },
+        "viewTheme" : {
+          "$ref" : "ViewThemeElement.json"
+        }
+      },
+      "required" : [
+        "identifier",
+        "type",
+        "choices"
+      ],
+      "title" : "ChoiceQuestionStepObject",
+      "type" : "object"
+    },
+    "CompletionStepObject" : {
+      "$id" : "#CompletionStepObject",
+      "allOf" : [
+        {
+          "$ref" : "Step.json"
+        }
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "detail" : "Some text.",
+          "identifier" : "foo",
+          "resultIdentifier" : "boo",
+          "resultTitle" : "This is a title",
+          "title" : "Hello World!",
+          "type" : "completion",
+          "unitText" : "lala"
+        }
+      ],
+      "properties" : {
+        "actions" : {
+          "items" : {
+            "$ref" : "ButtonActionInfo.json"
+          },
+          "type" : "array"
+        },
+        "afterCohortRules" : {
+          "items" : {
+            "$ref" : "CohortNavigationRuleObject.json"
+          },
+          "type" : "array"
+        },
+        "beforeCohortRules" : {
+          "items" : {
+            "$ref" : "CohortNavigationRuleObject.json"
+          },
+          "type" : "array"
+        },
+        "colorMapping" : {
+          "$ref" : "ColorMappingThemeElement.json"
+        },
+        "commands" : {
+          "items" : {
+            "$ref" : "#ActiveUIStepCommand"
+          },
+          "type" : "array"
+        },
+        "detail" : {
+          "type" : "string"
+        },
+        "duration" : {
+          "default" : 0,
+          "type" : "number"
+        },
+        "footnote" : {
+          "type" : "string"
+        },
+        "fullInstructionsOnly" : {
+          "type" : "boolean"
+        },
+        "identifier" : {
+          "type" : "string"
+        },
+        "image" : {
+          "$ref" : "ImageInfo.json"
+        },
+        "nextStepIdentifier" : {
+          "type" : "string"
+        },
+        "permissions" : {
+          "items" : {
+            "$ref" : "StandardPermission.json"
+          },
+          "type" : "array"
+        },
+        "requiresBackgroundAudio" : {
+          "default" : false,
+          "type" : "boolean"
+        },
+        "resultIdentifier" : {
+          "type" : "string"
+        },
+        "resultTitle" : {
+          "type" : "string"
+        },
+        "shouldEndOnInterrupt" : {
+          "default" : false,
+          "type" : "boolean"
+        },
+        "shouldHideActions" : {
+          "items" : {
+            "$ref" : "#ButtonType"
+          },
+          "type" : "array"
+        },
+        "spokenInstructions" : {
+          "additionalProperties" : {
+            "type" : "string"
+          },
+          "type" : "object"
+        },
+        "stepResultIdentifier" : {
+          "type" : "string"
+        },
+        "subtitle" : {
+          "type" : "string"
+        },
+        "title" : {
+          "type" : "string"
+        },
+        "type" : {
+          "$ref" : "#StepType",
+          "const" : "completion"
+        },
+        "unitText" : {
+          "type" : "string"
+        },
+        "viewTheme" : {
+          "$ref" : "ViewThemeElement.json"
+        }
+      },
+      "required" : [
+        "identifier",
+        "type"
+      ],
+      "title" : "CompletionStepObject",
+      "type" : "object"
+    },
+    "CountdownUIStepObject" : {
+      "$id" : "#CountdownUIStepObject",
+      "allOf" : [
+        {
+          "$ref" : "Step.json"
+        }
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "commands" : [
+            "playSoundOnStart",
+            "vibrateOnFinish"
+          ],
+          "detail" : "Some text.",
+          "duration" : 30,
+          "identifier" : "foo",
+          "requiresBackgroundAudio" : true,
+          "spokenInstructions" : {
+            "10" : "Keep going",
+            "end" : "Stop moving",
+            "halfway" : "Halfway there",
+            "start" : "Start moving"
+          },
+          "title" : "Hello World!",
+          "type" : "countdown"
+        }
+      ],
+      "properties" : {
+        "actions" : {
+          "items" : {
+            "$ref" : "ButtonActionInfo.json"
+          },
+          "type" : "array"
+        },
+        "afterCohortRules" : {
+          "items" : {
+            "$ref" : "CohortNavigationRuleObject.json"
+          },
+          "type" : "array"
+        },
+        "beforeCohortRules" : {
+          "items" : {
+            "$ref" : "CohortNavigationRuleObject.json"
+          },
+          "type" : "array"
+        },
+        "colorMapping" : {
+          "$ref" : "ColorMappingThemeElement.json"
+        },
+        "commands" : {
+          "items" : {
+            "$ref" : "#ActiveUIStepCommand"
+          },
+          "type" : "array"
+        },
+        "detail" : {
+          "type" : "string"
+        },
+        "duration" : {
+          "default" : 0,
+          "type" : "number"
+        },
+        "footnote" : {
+          "type" : "string"
+        },
+        "fullInstructionsOnly" : {
+          "type" : "boolean"
+        },
+        "identifier" : {
+          "type" : "string"
+        },
+        "image" : {
+          "$ref" : "ImageInfo.json"
+        },
+        "nextStepIdentifier" : {
+          "type" : "string"
+        },
+        "permissions" : {
+          "items" : {
+            "$ref" : "StandardPermission.json"
+          },
+          "type" : "array"
+        },
+        "requiresBackgroundAudio" : {
+          "default" : false,
+          "type" : "boolean"
+        },
+        "shouldEndOnInterrupt" : {
+          "default" : false,
+          "type" : "boolean"
+        },
+        "shouldHideActions" : {
+          "items" : {
+            "$ref" : "#ButtonType"
+          },
+          "type" : "array"
+        },
+        "spokenInstructions" : {
+          "additionalProperties" : {
+            "type" : "string"
+          },
+          "type" : "object"
+        },
+        "subtitle" : {
+          "type" : "string"
+        },
+        "title" : {
+          "type" : "string"
+        },
+        "type" : {
+          "$ref" : "#StepType",
+          "const" : "countdown"
+        },
+        "viewTheme" : {
+          "$ref" : "ViewThemeElement.json"
+        }
+      },
+      "required" : [
+        "identifier",
+        "type"
+      ],
+      "title" : "CountdownUIStepObject",
+      "type" : "object"
+    },
+    "IconInfo" : {
+      "$id" : "#IconInfo",
+      "additionalProperties" : false,
+      "allOf" : [
+
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "icon" : "foo",
+          "subtitle" : "ba",
+          "title" : "Foo"
+        }
+      ],
+      "properties" : {
+        "icon" : {
+          "$ref" : "InputItem.json#ResourceImageDataObject"
+        },
+        "subtitle" : {
+          "type" : "string"
+        },
+        "title" : {
+          "type" : "string"
+        }
+      },
+      "required" : [
+        "title"
+      ],
+      "title" : "IconInfo",
+      "type" : "object"
+    },
+    "InstructionStepObject" : {
+      "$id" : "#InstructionStepObject",
+      "allOf" : [
+        {
+          "$ref" : "Step.json"
+        }
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "detail" : "Some text.",
+          "fullInstructionsOnly" : true,
+          "identifier" : "foo",
+          "spokenInstructions" : {
+            "end" : "Put your phone back in your pocket.",
+            "start" : "Take your phone out of your pocket to review the instructions."
+          },
+          "title" : "Hello World!",
+          "type" : "instruction"
+        }
+      ],
+      "properties" : {
+        "actions" : {
+          "items" : {
+            "$ref" : "ButtonActionInfo.json"
+          },
+          "type" : "array"
+        },
+        "afterCohortRules" : {
+          "items" : {
+            "$ref" : "CohortNavigationRuleObject.json"
+          },
+          "type" : "array"
+        },
+        "beforeCohortRules" : {
+          "items" : {
+            "$ref" : "CohortNavigationRuleObject.json"
+          },
+          "type" : "array"
+        },
+        "colorMapping" : {
+          "$ref" : "ColorMappingThemeElement.json"
+        },
+        "detail" : {
+          "type" : "string"
+        },
+        "footnote" : {
+          "type" : "string"
+        },
+        "fullInstructionsOnly" : {
+          "type" : "boolean"
+        },
+        "identifier" : {
+          "type" : "string"
+        },
+        "image" : {
+          "$ref" : "ImageInfo.json"
+        },
+        "nextStepIdentifier" : {
+          "type" : "string"
+        },
+        "permissions" : {
+          "items" : {
+            "$ref" : "StandardPermission.json"
+          },
+          "type" : "array"
+        },
+        "shouldHideActions" : {
+          "items" : {
+            "$ref" : "#ButtonType"
+          },
+          "type" : "array"
+        },
+        "spokenInstructions" : {
+          "additionalProperties" : {
+            "type" : "string"
+          },
+          "type" : "object"
+        },
+        "subtitle" : {
+          "type" : "string"
+        },
+        "title" : {
+          "type" : "string"
+        },
+        "type" : {
+          "$ref" : "#StepType",
+          "const" : "instruction"
+        },
+        "viewTheme" : {
+          "$ref" : "ViewThemeElement.json"
+        }
+      },
+      "required" : [
+        "identifier",
+        "type"
+      ],
+      "title" : "InstructionStepObject",
+      "type" : "object"
+    },
+    "MultipleInputQuestionStepObject" : {
+      "$id" : "#MultipleInputQuestionStepObject",
+      "allOf" : [
+        {
+          "$ref" : "Step.json"
+        },
+        {
+          "$ref" : "ResultNode.json"
+        }
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "identifier" : "foo",
+          "inputItems" : [
+            {
+              "identifier" : "year",
+              "type" : "year"
+            },
+            {
+              "identifier" : "name",
+              "type" : "string"
+            }
+          ],
+          "optional" : false,
+          "skipCheckbox" : {
+            "fieldLabel" : "No answer",
+            "type" : "skipCheckbox"
+          },
+          "title" : "Hello World!",
+          "type" : "multipleInputQuestion"
+        }
+      ],
+      "properties" : {
+        "actions" : {
+          "items" : {
+            "$ref" : "ButtonActionInfo.json"
+          },
+          "type" : "array"
+        },
+        "afterCohortRules" : {
+          "items" : {
+            "$ref" : "CohortNavigationRuleObject.json"
+          },
+          "type" : "array"
+        },
+        "beforeCohortRules" : {
+          "items" : {
+            "$ref" : "CohortNavigationRuleObject.json"
+          },
+          "type" : "array"
+        },
+        "colorMapping" : {
+          "$ref" : "ColorMappingThemeElement.json"
+        },
+        "detail" : {
+          "type" : "string"
+        },
+        "footnote" : {
+          "type" : "string"
+        },
+        "fullInstructionsOnly" : {
+          "type" : "boolean"
+        },
+        "identifier" : {
+          "type" : "string"
+        },
+        "image" : {
+          "$ref" : "ImageInfo.json"
+        },
+        "inputItems" : {
+          "items" : {
+            "$ref" : "InputItem.json"
+          },
+          "type" : "array"
+        },
+        "nextStepIdentifier" : {
+          "type" : "string"
+        },
+        "optional" : {
+          "type" : "boolean"
+        },
+        "permissions" : {
+          "items" : {
+            "$ref" : "StandardPermission.json"
+          },
+          "type" : "array"
+        },
+        "sequenceSeparator" : {
+          "type" : "string"
+        },
+        "shouldHideActions" : {
+          "items" : {
+            "$ref" : "#ButtonType"
+          },
+          "type" : "array"
+        },
+        "skipCheckbox" : {
+          "$ref" : "SkipCheckboxInputItemObject.json"
+        },
+        "subtitle" : {
+          "type" : "string"
+        },
+        "surveyRules" : {
+          "items" : {
+            "$ref" : "JsonSurveyRuleObject.json"
+          },
+          "type" : "array"
+        },
+        "title" : {
+          "type" : "string"
+        },
+        "type" : {
+          "$ref" : "#StepType",
+          "const" : "multipleInputQuestion"
+        },
+        "viewTheme" : {
+          "$ref" : "ViewThemeElement.json"
+        }
+      },
+      "required" : [
+        "identifier",
+        "type",
+        "inputItems"
+      ],
+      "title" : "MultipleInputQuestionStepObject",
+      "type" : "object"
+    },
+    "OverviewStepObject" : {
+      "$id" : "#OverviewStepObject",
+      "allOf" : [
+        {
+          "$ref" : "Step.json"
+        }
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "detail" : "Some text.",
+          "icons" : [
+            {
+              "icon" : "Foo1",
+              "title" : "A SMOOTH SURFACE"
+            }
+          ],
+          "identifier" : "foo",
+          "permissions" : [
+            {
+              "permissionType" : "location"
+            }
+          ],
+          "title" : "Hello World!",
+          "type" : "overview"
+        }
+      ],
+      "properties" : {
+        "actions" : {
+          "items" : {
+            "$ref" : "ButtonActionInfo.json"
+          },
+          "type" : "array"
+        },
+        "afterCohortRules" : {
+          "items" : {
+            "$ref" : "CohortNavigationRuleObject.json"
+          },
+          "type" : "array"
+        },
+        "beforeCohortRules" : {
+          "items" : {
+            "$ref" : "CohortNavigationRuleObject.json"
+          },
+          "type" : "array"
+        },
+        "colorMapping" : {
+          "$ref" : "ColorMappingThemeElement.json"
+        },
+        "detail" : {
+          "type" : "string"
+        },
+        "footnote" : {
+          "type" : "string"
+        },
+        "fullInstructionsOnly" : {
+          "type" : "boolean"
+        },
+        "icons" : {
+          "items" : {
+            "$ref" : "#IconInfo"
+          },
+          "type" : "array"
+        },
+        "identifier" : {
+          "type" : "string"
+        },
+        "image" : {
+          "$ref" : "ImageInfo.json"
+        },
+        "nextStepIdentifier" : {
+          "type" : "string"
+        },
+        "permissions" : {
+          "items" : {
+            "$ref" : "StandardPermission.json"
+          },
+          "type" : "array"
+        },
+        "shouldHideActions" : {
+          "items" : {
+            "$ref" : "#ButtonType"
+          },
+          "type" : "array"
+        },
+        "subtitle" : {
+          "type" : "string"
+        },
+        "title" : {
+          "type" : "string"
+        },
+        "type" : {
+          "$ref" : "#StepType",
+          "const" : "overview"
+        },
+        "viewTheme" : {
+          "$ref" : "ViewThemeElement.json"
+        }
+      },
+      "required" : [
+        "identifier",
+        "type"
+      ],
+      "title" : "OverviewStepObject",
+      "type" : "object"
+    },
+    "ResourceTransformerObject" : {
+      "$id" : "#ResourceTransformerObject",
+      "additionalProperties" : false,
+      "allOf" : [
+
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "bundleIdentifier" : "org.sagebase.ResearchTests",
+          "resourceName" : "FactoryTest_TaskFoo"
+        },
+        {
+          "resourceName" : "TaskBar"
+        }
+      ],
+      "properties" : {
+        "bundleIdentifier" : {
+          "description" : "The bundle identifier for the embedded resource.",
+          "type" : "string"
+        },
+        "packageName" : {
+          "description" : "The package name for the embedded resource.",
+          "type" : "string"
+        },
+        "rawFileExtension" : {
+          "description" : "The raw file extension of the resource.",
+          "type" : "string"
+        },
+        "resourceName" : {
+          "description" : "Either a fully qualified URL string or else a relative reference to an embedded resource.",
+          "type" : "string"
+        },
+        "resourceType" : {
+          "description" : "The Android resource type of the resource.",
+          "type" : "string"
+        }
+      },
+      "required" : [
+        "resourceName"
+      ],
+      "title" : "ResourceTransformerObject",
+      "type" : "object"
+    },
+    "ResultSummaryStepObject" : {
+      "$id" : "#ResultSummaryStepObject",
+      "allOf" : [
+        {
+          "$ref" : "Step.json"
+        }
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "detail" : "Some text.",
+          "identifier" : "foo",
+          "resultIdentifier" : "boo",
+          "resultTitle" : "This is a title",
+          "title" : "Hello World!",
+          "type" : "feedback",
+          "unitText" : "lala"
+        }
+      ],
+      "properties" : {
+        "actions" : {
+          "items" : {
+            "$ref" : "ButtonActionInfo.json"
+          },
+          "type" : "array"
+        },
+        "afterCohortRules" : {
+          "items" : {
+            "$ref" : "CohortNavigationRuleObject.json"
+          },
+          "type" : "array"
+        },
+        "beforeCohortRules" : {
+          "items" : {
+            "$ref" : "CohortNavigationRuleObject.json"
+          },
+          "type" : "array"
+        },
+        "colorMapping" : {
+          "$ref" : "ColorMappingThemeElement.json"
+        },
+        "commands" : {
+          "items" : {
+            "$ref" : "#ActiveUIStepCommand"
+          },
+          "type" : "array"
+        },
+        "detail" : {
+          "type" : "string"
+        },
+        "duration" : {
+          "default" : 0,
+          "type" : "number"
+        },
+        "footnote" : {
+          "type" : "string"
+        },
+        "fullInstructionsOnly" : {
+          "type" : "boolean"
+        },
+        "identifier" : {
+          "type" : "string"
+        },
+        "image" : {
+          "$ref" : "ImageInfo.json"
+        },
+        "nextStepIdentifier" : {
+          "type" : "string"
+        },
+        "permissions" : {
+          "items" : {
+            "$ref" : "StandardPermission.json"
+          },
+          "type" : "array"
+        },
+        "requiresBackgroundAudio" : {
+          "default" : false,
+          "type" : "boolean"
+        },
+        "resultIdentifier" : {
+          "type" : "string"
+        },
+        "resultTitle" : {
+          "type" : "string"
+        },
+        "shouldEndOnInterrupt" : {
+          "default" : false,
+          "type" : "boolean"
+        },
+        "shouldHideActions" : {
+          "items" : {
+            "$ref" : "#ButtonType"
+          },
+          "type" : "array"
+        },
+        "spokenInstructions" : {
+          "additionalProperties" : {
+            "type" : "string"
+          },
+          "type" : "object"
+        },
+        "stepResultIdentifier" : {
+          "type" : "string"
+        },
+        "subtitle" : {
+          "type" : "string"
+        },
+        "title" : {
+          "type" : "string"
+        },
+        "type" : {
+          "$ref" : "#StepType",
+          "const" : "feedback"
+        },
+        "unitText" : {
+          "type" : "string"
+        },
+        "viewTheme" : {
+          "$ref" : "ViewThemeElement.json"
+        }
+      },
+      "required" : [
+        "identifier",
+        "type"
+      ],
+      "title" : "ResultSummaryStepObject",
+      "type" : "object"
+    },
+    "SectionStepObject" : {
+      "$id" : "#SectionStepObject",
+      "additionalProperties" : false,
+      "allOf" : [
+        {
+          "$ref" : "Step.json"
+        }
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "identifier" : "foobar",
+          "steps" : [
+            {
+              "identifier" : "step1",
+              "title" : "Step 1",
+              "type" : "instruction"
+            },
+            {
+              "identifier" : "step2",
+              "title" : "Step 2",
+              "type" : "instruction"
+            }
+          ],
+          "type" : "section"
+        }
+      ],
+      "properties" : {
+        "asyncActions" : {
+          "items" : {
+            "$ref" : "AsyncActionConfiguration.json"
+          },
+          "type" : "array"
+        },
+        "identifier" : {
+          "type" : "string"
+        },
+        "progressMarkers" : {
+          "items" : {
+            "type" : "string"
+          },
+          "type" : "array"
+        },
+        "steps" : {
+          "items" : {
+            "$ref" : "Step.json"
+          },
+          "type" : "array"
+        },
+        "type" : {
+          "$ref" : "#StepType",
+          "const" : "section"
+        }
+      },
+      "required" : [
+        "identifier",
+        "type",
+        "steps"
+      ],
+      "title" : "SectionStepObject",
+      "type" : "object"
+    },
+    "SimpleQuestionStepObject" : {
+      "$id" : "#SimpleQuestionStepObject",
+      "allOf" : [
+        {
+          "$ref" : "ResultNode.json"
+        },
+        {
+          "$ref" : "Step.json"
+        }
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "identifier" : "foo",
+          "inputItem" : {
+            "type" : "year"
+          },
+          "optional" : false,
+          "skipCheckbox" : {
+            "fieldLabel" : "No answer",
+            "type" : "skipCheckbox"
+          },
+          "surveyRules" : [
+            {
+              "matchingAnswer" : 1900
+            }
+          ],
+          "title" : "Hello World!",
+          "type" : "simpleQuestion"
+        }
+      ],
+      "properties" : {
+        "actions" : {
+          "items" : {
+            "$ref" : "ButtonActionInfo.json"
+          },
+          "type" : "array"
+        },
+        "afterCohortRules" : {
+          "items" : {
+            "$ref" : "CohortNavigationRuleObject.json"
+          },
+          "type" : "array"
+        },
+        "beforeCohortRules" : {
+          "items" : {
+            "$ref" : "CohortNavigationRuleObject.json"
+          },
+          "type" : "array"
+        },
+        "colorMapping" : {
+          "$ref" : "ColorMappingThemeElement.json"
+        },
+        "detail" : {
+          "type" : "string"
+        },
+        "footnote" : {
+          "type" : "string"
+        },
+        "fullInstructionsOnly" : {
+          "type" : "boolean"
+        },
+        "identifier" : {
+          "type" : "string"
+        },
+        "image" : {
+          "$ref" : "ImageInfo.json"
+        },
+        "inputItem" : {
+          "$ref" : "InputItem.json"
+        },
+        "nextStepIdentifier" : {
+          "type" : "string"
+        },
+        "optional" : {
+          "type" : "boolean"
+        },
+        "permissions" : {
+          "items" : {
+            "$ref" : "StandardPermission.json"
+          },
+          "type" : "array"
+        },
+        "shouldHideActions" : {
+          "items" : {
+            "$ref" : "#ButtonType"
+          },
+          "type" : "array"
+        },
+        "skipCheckbox" : {
+          "$ref" : "SkipCheckboxInputItemObject.json"
+        },
+        "subtitle" : {
+          "type" : "string"
+        },
+        "surveyRules" : {
+          "items" : {
+            "$ref" : "JsonSurveyRuleObject.json"
+          },
+          "type" : "array"
+        },
+        "title" : {
+          "type" : "string"
+        },
+        "type" : {
+          "$ref" : "#StepType",
+          "const" : "simpleQuestion"
+        },
+        "viewTheme" : {
+          "$ref" : "ViewThemeElement.json"
+        }
+      },
+      "required" : [
+        "identifier",
+        "type",
+        "inputItem"
+      ],
+      "title" : "SimpleQuestionStepObject",
+      "type" : "object"
+    },
+    "StepTransformerObject" : {
+      "$id" : "#StepTransformerObject",
+      "additionalProperties" : false,
+      "allOf" : [
+        {
+          "$ref" : "Step.json"
+        }
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "identifier" : "heartRate.before",
+          "resourceTransformer" : {
+            "resourceName" : "HeartrateStep.json"
+          },
+          "type" : "transform"
+        }
+      ],
+      "properties" : {
+        "identifier" : {
+          "type" : "string"
+        },
+        "resourceTransformer" : {
+          "$ref" : "#ResourceTransformerObject"
+        },
+        "type" : {
+          "$ref" : "#StepType",
+          "const" : "transform"
+        }
+      },
+      "required" : [
+        "identifier",
+        "type",
+        "resourceTransformer"
+      ],
+      "title" : "StepTransformerObject",
+      "type" : "object"
+    },
+    "StepType" : {
+      "$id" : "#StepType",
+      "description" : "",
+      "examples" : [
+        "active",
+        "completion",
+        "countdown",
+        "feedback",
+        "instruction",
+        "overview",
+        "section",
+        "transform",
+        "taskInfo",
+        "subtask",
+        "simpleQuestion",
+        "multipleInputQuestion",
+        "choiceQuestion",
+        "stringChoiceQuestion"
+      ],
+      "title" : "StepType",
+      "type" : "string"
+    },
+    "StringChoiceQuestionStepObject" : {
+      "$id" : "#StringChoiceQuestionStepObject",
+      "allOf" : [
+        {
+          "$ref" : "ResultNode.json"
+        },
+        {
+          "$ref" : "Step.json"
+        }
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "choices" : [
+            "choice 1",
+            "choice 2",
+            "choice 3"
+          ],
+          "identifier" : "foo",
+          "optional" : false,
+          "singleChoice" : false,
+          "title" : "Hello World!",
+          "type" : "stringChoiceQuestion",
+          "uiHint" : "checkmark"
+        }
+      ],
+      "properties" : {
+        "actions" : {
+          "items" : {
+            "$ref" : "ButtonActionInfo.json"
+          },
+          "type" : "array"
+        },
+        "afterCohortRules" : {
+          "items" : {
+            "$ref" : "CohortNavigationRuleObject.json"
+          },
+          "type" : "array"
+        },
+        "baseType" : {
+          "$ref" : "AnswerType.json#JsonType"
+        },
+        "beforeCohortRules" : {
+          "items" : {
+            "$ref" : "CohortNavigationRuleObject.json"
+          },
+          "type" : "array"
+        },
+        "choices" : {
+          "items" : {
+            "type" : "string"
+          },
+          "type" : "array"
+        },
+        "colorMapping" : {
+          "$ref" : "ColorMappingThemeElement.json"
+        },
+        "detail" : {
+          "type" : "string"
+        },
+        "footnote" : {
+          "type" : "string"
+        },
+        "fullInstructionsOnly" : {
+          "type" : "boolean"
+        },
+        "identifier" : {
+          "type" : "string"
+        },
+        "image" : {
+          "$ref" : "ImageInfo.json"
+        },
+        "nextStepIdentifier" : {
+          "type" : "string"
+        },
+        "optional" : {
+          "type" : "boolean"
+        },
+        "permissions" : {
+          "items" : {
+            "$ref" : "StandardPermission.json"
+          },
+          "type" : "array"
+        },
+        "shouldHideActions" : {
+          "items" : {
+            "$ref" : "#ButtonType"
+          },
+          "type" : "array"
+        },
+        "singleChoice" : {
+          "type" : "boolean"
+        },
+        "subtitle" : {
+          "type" : "string"
+        },
+        "surveyRules" : {
+          "items" : {
+            "$ref" : "JsonSurveyRuleObject.json"
+          },
+          "type" : "array"
+        },
+        "title" : {
+          "type" : "string"
+        },
+        "type" : {
+          "$ref" : "#StepType",
+          "const" : "stringChoiceQuestion"
+        },
+        "uiHint" : {
+          "$ref" : "InputItem.json#FormUIHint"
+        },
+        "viewTheme" : {
+          "$ref" : "ViewThemeElement.json"
+        }
+      },
+      "required" : [
+        "identifier",
+        "type",
+        "choices"
+      ],
+      "title" : "StringChoiceQuestionStepObject",
+      "type" : "object"
+    },
+    "TaskInfoStepObject" : {
+      "$id" : "#TaskInfoStepObject",
+      "additionalProperties" : false,
+      "allOf" : [
+        {
+          "$ref" : "Step.json"
+        }
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "identifier" : "foo",
+          "type" : "taskInfo"
+        }
+      ],
+      "properties" : {
+        "detail" : {
+          "type" : "string"
+        },
+        "estimatedMinutes" : {
+          "type" : "integer"
+        },
+        "footnote" : {
+          "type" : "string"
+        },
+        "icon" : {
+          "$ref" : "InputItem.json#ResourceImageDataObject"
+        },
+        "identifier" : {
+          "type" : "string"
+        },
+        "schemaInfo" : {
+          "$ref" : "SchemaInfoObject.json"
+        },
+        "subtitle" : {
+          "type" : "string"
+        },
+        "taskTransformer" : {
+          "$ref" : "#ResourceTransformerObject"
+        },
+        "title" : {
+          "type" : "string"
+        },
+        "type" : {
+          "$ref" : "#StepType",
+          "const" : "taskInfo"
+        }
+      },
+      "required" : [
+        "identifier",
+        "type"
+      ],
+      "title" : "TaskInfoStepObject",
+      "type" : "object"
+    }
+  },
+  "description" : "`Step` is the base protocol for the steps that can compose a task for presentation using a controller appropriate to the device and application. Each `RSDStep` object represents one logical piece of data entry, information, or activity in a larger task.",
+  "properties" : {
+    "identifier" : {
+      "type" : "string"
+    },
+    "type" : {
+      "$ref" : "#StepType"
+    }
+  },
+  "required" : [
+    "type",
+    "identifier"
+  ],
+  "title" : "Step",
+  "type" : "object"
+}

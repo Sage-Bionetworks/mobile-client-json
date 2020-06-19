@@ -1,0 +1,36 @@
+{
+  "$id" : "http://sagebionetworks.org/SageResearch/jsonSchema/StandardPermission.json",
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "definitions" : {
+
+  },
+  "description" : "",
+  "properties" : {
+    "deniedMessage" : {
+      "type" : "string"
+    },
+    "optional" : {
+      "type" : "boolean"
+    },
+    "permissionType" : {
+      "$ref" : "Step.json#StandardPermissionType"
+    },
+    "reason" : {
+      "type" : "string"
+    },
+    "requestIfNeeded" : {
+      "type" : "boolean"
+    },
+    "restrictedMessage" : {
+      "type" : "string"
+    },
+    "title" : {
+      "type" : "string"
+    }
+  },
+  "required" : [
+    "permissionType"
+  ],
+  "title" : "StandardPermission",
+  "type" : "object"
+}

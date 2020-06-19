@@ -1,0 +1,71 @@
+{
+  "$id" : "http://sagebionetworks.org/SageResearch/jsonSchema/AssessmentTaskObject.json",
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "allOf" : [
+    {
+      "$ref" : "Task.json"
+    }
+  ],
+  "definitions" : {
+
+  },
+  "description" : "",
+  "properties" : {
+    "actions" : {
+      "items" : {
+        "$ref" : "ButtonActionInfo.json"
+      },
+      "type" : "array"
+    },
+    "asyncActions" : {
+      "items" : {
+        "$ref" : "AsyncActionConfiguration.json"
+      },
+      "type" : "array"
+    },
+    "estimatedMinutes" : {
+      "type" : "integer"
+    },
+    "identifier" : {
+      "type" : "string"
+    },
+    "progressMarkers" : {
+      "items" : {
+        "type" : "string"
+      },
+      "type" : "array"
+    },
+    "resultIdentifier" : {
+      "type" : "string"
+    },
+    "shouldHideActions" : {
+      "items" : {
+        "$ref" : "Step.json#ButtonType"
+      },
+      "type" : "array"
+    },
+    "steps" : {
+      "items" : {
+        "$ref" : "Step.json"
+      },
+      "type" : "array"
+    },
+    "type" : {
+      "$ref" : "Task.json#TaskType",
+      "const" : "assessment"
+    },
+    "usesTrackedData" : {
+      "type" : "boolean"
+    },
+    "versionString" : {
+      "type" : "string"
+    }
+  },
+  "required" : [
+    "type",
+    "identifier",
+    "steps"
+  ],
+  "title" : "AssessmentTaskObject",
+  "type" : "object"
+}

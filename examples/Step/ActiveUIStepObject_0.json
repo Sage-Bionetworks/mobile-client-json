@@ -1,0 +1,1 @@
+{"spokenInstructions":{"end":"Stop moving","10":"Keep going","halfway":"Halfway there","start":"Start moving"},"detail":"Some text.","identifier":"foo","type":"active","title":"Hello World!","duration":30,"requiresBackgroundAudio":true,"commands":["playSoundOnStart","vibrateOnFinish"]}

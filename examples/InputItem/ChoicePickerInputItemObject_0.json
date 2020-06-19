@@ -1,0 +1,1 @@
+{"placeholder":"Blue, no! Red!","choices":[{"value":0,"text":"never"},{"text":"sometimes","value":1},{"text":"often","value":2},{"text":"always","value":3}],"identifier":"foo","type":"choicePicker","fieldLabel":"Favorite color"}

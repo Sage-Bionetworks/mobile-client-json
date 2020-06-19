@@ -1,0 +1,1 @@
+{"keyboardOptions":{},"fieldLabel":"How much?","placeholder":"Enter a value","type":"string","regExValidator":{"pattern":"^[0-9]*$","invalidMessage":"Only entering numbers is allowed."},"identifier":"field1"}

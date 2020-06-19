@@ -1,0 +1,27 @@
+{
+  "$id" : "http://sagebionetworks.org/SageResearch/jsonSchema/CohortNavigationRuleObject.json",
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "definitions" : {
+
+  },
+  "description" : "",
+  "properties" : {
+    "operator" : {
+      "$ref" : "Step.json#CohortRuleOperator"
+    },
+    "requiredCohorts" : {
+      "items" : {
+        "type" : "string"
+      },
+      "type" : "array"
+    },
+    "skipToIdentifier" : {
+      "type" : "string"
+    }
+  },
+  "required" : [
+    "requiredCohorts"
+  ],
+  "title" : "CohortNavigationRuleObject",
+  "type" : "object"
+}

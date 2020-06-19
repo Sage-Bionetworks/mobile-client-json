@@ -1,0 +1,204 @@
+{
+  "$id" : "http://sagebionetworks.org/SageResearch/jsonSchema/ImageInfo.json",
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "definitions" : {
+    "AnimatedImageThemeElementObject" : {
+      "$id" : "#AnimatedImageThemeElementObject",
+      "additionalProperties" : false,
+      "allOf" : [
+        {
+          "$ref" : "ImageInfo.json"
+        }
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "animationDuration" : 2,
+          "animationRepeatCount" : 0,
+          "imageNames" : [
+            "blueDog1",
+            "blueDog2",
+            "blueDog3"
+          ],
+          "type" : "animated"
+        },
+        {
+          "animationDuration" : 2,
+          "animationRepeatCount" : 0,
+          "bundleIdentifier" : "org.example.SharedResources",
+          "imageNames" : [
+            "redCat1",
+            "redCat2",
+            "redCat3"
+          ],
+          "placementType" : "topBackground",
+          "size" : {
+            "height" : 120,
+            "width" : 100
+          },
+          "type" : "animated"
+        }
+      ],
+      "properties" : {
+        "animationDuration" : {
+          "type" : "number"
+        },
+        "animationRepeatCount" : {
+          "type" : "integer"
+        },
+        "bundleIdentifier" : {
+          "type" : "string"
+        },
+        "fileExtension" : {
+          "type" : "string"
+        },
+        "imageNames" : {
+          "items" : {
+            "type" : "string"
+          },
+          "type" : "array"
+        },
+        "packageName" : {
+          "type" : "string"
+        },
+        "placementType" : {
+          "$ref" : "#ImagePlacementType"
+        },
+        "size" : {
+          "$ref" : "#Size"
+        },
+        "type" : {
+          "$ref" : "#ImageThemeElementType",
+          "const" : "animated"
+        }
+      },
+      "required" : [
+        "type",
+        "imageNames",
+        "animationDuration"
+      ],
+      "title" : "AnimatedImageThemeElementObject",
+      "type" : "object"
+    },
+    "FetchableImageThemeElementObject" : {
+      "$id" : "#FetchableImageThemeElementObject",
+      "additionalProperties" : false,
+      "allOf" : [
+        {
+          "$ref" : "ImageInfo.json"
+        }
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "imageName" : "blueDog",
+          "type" : "fetchable"
+        },
+        {
+          "bundleIdentifier" : "org.example.SharedResources",
+          "fileExtension" : "jpeg",
+          "imageName" : "redCat",
+          "packageName" : "org.example.sharedresources",
+          "placementType" : "iconBefore",
+          "size" : {
+            "height" : 30,
+            "width" : 20
+          },
+          "type" : "fetchable"
+        }
+      ],
+      "properties" : {
+        "bundleIdentifier" : {
+          "type" : "string"
+        },
+        "fileExtension" : {
+          "type" : "string"
+        },
+        "imageName" : {
+          "type" : "string"
+        },
+        "packageName" : {
+          "type" : "string"
+        },
+        "placementType" : {
+          "$ref" : "#ImagePlacementType"
+        },
+        "size" : {
+          "$ref" : "#Size"
+        },
+        "type" : {
+          "$ref" : "#ImageThemeElementType",
+          "const" : "animated"
+        }
+      },
+      "required" : [
+        "type",
+        "imageName"
+      ],
+      "title" : "FetchableImageThemeElementObject",
+      "type" : "object"
+    },
+    "ImagePlacementType" : {
+      "$id" : "#ImagePlacementType",
+      "description" : "",
+      "examples" : [
+        "iconBefore",
+        "iconAfter",
+        "fullsizeBackground",
+        "topBackground",
+        "topMarginBackground"
+      ],
+      "title" : "ImagePlacementType",
+      "type" : "string"
+    },
+    "ImageThemeElementType" : {
+      "$id" : "#ImageThemeElementType",
+      "description" : "",
+      "examples" : [
+        "fetchable",
+        "animated"
+      ],
+      "title" : "ImageThemeElementType",
+      "type" : "string"
+    },
+    "Size" : {
+      "$id" : "#Size",
+      "additionalProperties" : false,
+      "allOf" : [
+
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "height" : 20,
+          "width" : 10
+        }
+      ],
+      "properties" : {
+        "height" : {
+          "type" : "number"
+        },
+        "width" : {
+          "type" : "number"
+        }
+      },
+      "required" : [
+        "width",
+        "height"
+      ],
+      "title" : "Size",
+      "type" : "object"
+    }
+  },
+  "description" : "`ImageInfo` extends the UI step to include an image.\"",
+  "properties" : {
+    "type" : {
+      "$ref" : "#ImageThemeElementType"
+    }
+  },
+  "required" : [
+    "type"
+  ],
+  "title" : "ImageInfo",
+  "type" : "object"
+}

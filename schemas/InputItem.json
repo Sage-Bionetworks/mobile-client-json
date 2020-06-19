@@ -1,0 +1,1078 @@
+{
+  "$id" : "http://sagebionetworks.org/SageResearch/jsonSchema/InputItem.json",
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "definitions" : {
+    "CheckboxInputItemObject" : {
+      "$id" : "#CheckboxInputItemObject",
+      "additionalProperties" : false,
+      "allOf" : [
+        {
+          "$ref" : "InputItem.json"
+        }
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "fieldLabel" : "Check the box",
+          "type" : "checkbox"
+        }
+      ],
+      "properties" : {
+        "detail" : {
+          "type" : "string"
+        },
+        "fieldLabel" : {
+          "type" : "string"
+        },
+        "identifier" : {
+          "type" : "string"
+        },
+        "type" : {
+          "$ref" : "#InputItemType",
+          "const" : "checkbox"
+        }
+      },
+      "required" : [
+        "type",
+        "fieldLabel"
+      ],
+      "title" : "CheckboxInputItemObject",
+      "type" : "object"
+    },
+    "ChoicePickerInputItemObject" : {
+      "$id" : "#ChoicePickerInputItemObject",
+      "allOf" : [
+        {
+          "$ref" : "InputItem.json"
+        }
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "choices" : [
+            {
+              "text" : "never",
+              "value" : 0
+            },
+            {
+              "text" : "sometimes",
+              "value" : 1
+            },
+            {
+              "text" : "often",
+              "value" : 2
+            },
+            {
+              "text" : "always",
+              "value" : 3
+            }
+          ],
+          "fieldLabel" : "Favorite color",
+          "identifier" : "foo",
+          "placeholder" : "Blue, no! Red!",
+          "type" : "choicePicker"
+        }
+      ],
+      "properties" : {
+        "choices" : {
+          "items" : {
+            "$ref" : "JsonChoiceObject.json"
+          },
+          "type" : "array"
+        },
+        "exclusive" : {
+          "type" : "boolean"
+        },
+        "fieldLabel" : {
+          "type" : "string"
+        },
+        "identifier" : {
+          "type" : "string"
+        },
+        "optional" : {
+          "type" : "boolean"
+        },
+        "placeholder" : {
+          "type" : "string"
+        },
+        "type" : {
+          "$ref" : "#InputItemType",
+          "const" : "choicePicker"
+        },
+        "uiHint" : {
+          "$ref" : "#FormUIHint"
+        }
+      },
+      "required" : [
+        "type"
+      ],
+      "title" : "ChoicePickerInputItemObject",
+      "type" : "object"
+    },
+    "DateInputItemObject" : {
+      "$id" : "#DateInputItemObject",
+      "additionalProperties" : false,
+      "allOf" : [
+        {
+          "$ref" : "InputItem.json"
+        }
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "formatOptions" : {
+            "allowFuture" : false,
+            "codingFormat" : "yyyy-MM",
+            "minimumValue" : "1900-01"
+          },
+          "identifier" : "foo",
+          "type" : "date"
+        }
+      ],
+      "properties" : {
+        "exclusive" : {
+          "type" : "boolean"
+        },
+        "fieldLabel" : {
+          "type" : "string"
+        },
+        "formatOptions" : {
+          "$ref" : "#DateRangeObject"
+        },
+        "identifier" : {
+          "type" : "string"
+        },
+        "optional" : {
+          "type" : "boolean"
+        },
+        "placeholder" : {
+          "type" : "string"
+        },
+        "type" : {
+          "$ref" : "#InputItemType",
+          "const" : "date"
+        },
+        "uiHint" : {
+          "$ref" : "#FormUIHint"
+        }
+      },
+      "required" : [
+        "type"
+      ],
+      "title" : "DateInputItemObject",
+      "type" : "object"
+    },
+    "DateRangeObject" : {
+      "$id" : "#DateRangeObject",
+      "additionalProperties" : false,
+      "allOf" : [
+
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "allowPast" : false,
+          "codingFormat" : "yyyy-MM-dd",
+          "maximumValue" : "2017-10-17",
+          "minimumValue" : "2017-10-16"
+        },
+        {
+          "allowPast" : false
+        },
+        {
+          "allowFuture" : false
+        },
+        {
+          "codingFormat" : "HH:mm",
+          "minuteInterval" : 15
+        }
+      ],
+      "properties" : {
+        "allowFuture" : {
+          "type" : "boolean"
+        },
+        "allowPast" : {
+          "type" : "boolean"
+        },
+        "codingFormat" : {
+          "description" : "The iso8601 format for the date-time components used by this range.",
+          "type" : "string"
+        },
+        "defaultDate" : {
+          "description" : "The 'defaultDate' key must be a time, date, or timestamp formatted using the 'codingFormat' defined for this range.",
+          "type" : "string"
+        },
+        "maximumValue" : {
+          "description" : "The 'maximumValue' key must be a time, date, or timestamp formatted using the 'codingFormat' defined for this range.",
+          "type" : "string"
+        },
+        "minimumValue" : {
+          "description" : "The 'minimumValue' key must be a time, date, or timestamp formatted using the 'codingFormat' defined for this range.",
+          "type" : "string"
+        },
+        "minuteInterval" : {
+          "type" : "integer"
+        }
+      },
+      "required" : [
+
+      ],
+      "title" : "DateRangeObject",
+      "type" : "object"
+    },
+    "DateTimeInputItemObject" : {
+      "$id" : "#DateTimeInputItemObject",
+      "allOf" : [
+        {
+          "$ref" : "InputItem.json"
+        }
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "identifier" : "foo",
+          "type" : "date-time"
+        }
+      ],
+      "properties" : {
+        "exclusive" : {
+          "type" : "boolean"
+        },
+        "fieldLabel" : {
+          "type" : "string"
+        },
+        "formatOptions" : {
+          "$ref" : "#DateRangeObject"
+        },
+        "identifier" : {
+          "type" : "string"
+        },
+        "optional" : {
+          "type" : "boolean"
+        },
+        "placeholder" : {
+          "type" : "string"
+        },
+        "type" : {
+          "$ref" : "#InputItemType",
+          "const" : "date-time"
+        },
+        "uiHint" : {
+          "$ref" : "#FormUIHint"
+        }
+      },
+      "required" : [
+        "type"
+      ],
+      "title" : "DateTimeInputItemObject",
+      "type" : "object"
+    },
+    "DoubleFormatOptions" : {
+      "$id" : "#DoubleFormatOptions",
+      "additionalProperties" : false,
+      "allOf" : [
+
+      ],
+      "description" : "",
+      "examples" : [
+        {
+
+        },
+        {
+          "invalidMessage" : "This number is not valid",
+          "maximumFractionDigits" : 2,
+          "maximumValue" : 200,
+          "maxInvalidMessage" : "Maximum value is $200",
+          "minimumValue" : 0,
+          "minInvalidMessage" : "Minimum value is zero",
+          "numberStyle" : "currency",
+          "stepInterval" : 0.01,
+          "usesGroupingSeparator" : false
+        }
+      ],
+      "properties" : {
+        "invalidMessage" : {
+          "type" : "string"
+        },
+        "maximumFractionDigits" : {
+          "type" : "integer"
+        },
+        "maximumValue" : {
+          "type" : "number"
+        },
+        "maxInvalidMessage" : {
+          "type" : "string"
+        },
+        "minimumValue" : {
+          "type" : "number"
+        },
+        "minInvalidMessage" : {
+          "type" : "string"
+        },
+        "numberStyle" : {
+          "$ref" : "#NumberFormatStyle"
+        },
+        "stepInterval" : {
+          "type" : "number"
+        },
+        "usesGroupingSeparator" : {
+          "type" : "boolean"
+        }
+      },
+      "required" : [
+
+      ],
+      "title" : "DoubleFormatOptions",
+      "type" : "object"
+    },
+    "DoubleTextInputItemObject" : {
+      "$id" : "#DoubleTextInputItemObject",
+      "additionalProperties" : false,
+      "allOf" : [
+        {
+          "$ref" : "InputItem.json"
+        }
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "type" : "decimal"
+        },
+        {
+          "fieldLabel" : "How much?",
+          "formatOptions" : {
+
+          },
+          "identifier" : "field1",
+          "placeholder" : "Enter a value",
+          "type" : "decimal"
+        }
+      ],
+      "properties" : {
+        "exclusive" : {
+          "type" : "boolean"
+        },
+        "fieldLabel" : {
+          "type" : "string"
+        },
+        "formatOptions" : {
+          "$ref" : "#DoubleFormatOptions"
+        },
+        "identifier" : {
+          "type" : "string"
+        },
+        "optional" : {
+          "type" : "boolean"
+        },
+        "placeholder" : {
+          "type" : "string"
+        },
+        "type" : {
+          "$ref" : "#InputItemType",
+          "const" : "decimal"
+        },
+        "uiHint" : {
+          "$ref" : "#FormUIHint"
+        }
+      },
+      "required" : [
+        "type"
+      ],
+      "title" : "DoubleTextInputItemObject",
+      "type" : "object"
+    },
+    "FormUIHint" : {
+      "$id" : "#FormUIHint",
+      "description" : "",
+      "examples" : [
+        "checkmark",
+        "button",
+        "link",
+        "textfield",
+        "checkbox",
+        "multipleLine",
+        "list",
+        "section",
+        "radioButton",
+        "popover",
+        "toggle",
+        "picker",
+        "disclosureArrow",
+        "slider",
+        "combobox"
+      ],
+      "title" : "FormUIHint",
+      "type" : "string"
+    },
+    "HeightInputItemBuilderObject" : {
+      "$id" : "#HeightInputItemBuilderObject",
+      "additionalProperties" : false,
+      "allOf" : [
+        {
+          "$ref" : "InputItem.json"
+        }
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "type" : "height"
+        }
+      ],
+      "properties" : {
+        "exclusive" : {
+          "type" : "boolean"
+        },
+        "fieldLabel" : {
+          "type" : "string"
+        },
+        "identifier" : {
+          "type" : "string"
+        },
+        "measurementRange" : {
+          "$ref" : "#HumanMeasurementRange"
+        },
+        "optional" : {
+          "type" : "boolean"
+        },
+        "placeholder" : {
+          "type" : "string"
+        },
+        "type" : {
+          "$ref" : "#InputItemType",
+          "const" : "height"
+        },
+        "uiHint" : {
+          "$ref" : "#FormUIHint"
+        }
+      },
+      "required" : [
+        "type"
+      ],
+      "title" : "HeightInputItemBuilderObject",
+      "type" : "object"
+    },
+    "HumanMeasurementRange" : {
+      "$id" : "#HumanMeasurementRange",
+      "description" : "",
+      "enum" : [
+        "adult",
+        "child",
+        "infant"
+      ],
+      "title" : "HumanMeasurementRange",
+      "type" : "string"
+    },
+    "InputItemType" : {
+      "$id" : "#InputItemType",
+      "description" : "",
+      "examples" : [
+        "checkbox",
+        "choicePicker",
+        "date",
+        "date-time",
+        "decimal",
+        "height",
+        "integer",
+        "string",
+        "stringChoicePicker",
+        "time",
+        "weight",
+        "year"
+      ],
+      "title" : "InputItemType",
+      "type" : "string"
+    },
+    "IntegerFormatOptions" : {
+      "$id" : "#IntegerFormatOptions",
+      "additionalProperties" : false,
+      "allOf" : [
+
+      ],
+      "description" : "",
+      "examples" : [
+        {
+
+        },
+        {
+          "invalidMessage" : "This number is not valid",
+          "maximumValue" : 200,
+          "maxInvalidMessage" : "Maximum value is $200",
+          "minimumValue" : 0,
+          "minInvalidMessage" : "Minimum value is zero",
+          "numberStyle" : "currency",
+          "stepInterval" : 5,
+          "usesGroupingSeparator" : false
+        }
+      ],
+      "properties" : {
+        "invalidMessage" : {
+          "type" : "string"
+        },
+        "maximumValue" : {
+          "type" : "integer"
+        },
+        "maxInvalidMessage" : {
+          "type" : "string"
+        },
+        "minimumValue" : {
+          "type" : "integer"
+        },
+        "minInvalidMessage" : {
+          "type" : "string"
+        },
+        "numberStyle" : {
+          "$ref" : "#NumberFormatStyle"
+        },
+        "stepInterval" : {
+          "type" : "integer"
+        },
+        "usesGroupingSeparator" : {
+          "type" : "boolean"
+        }
+      },
+      "required" : [
+
+      ],
+      "title" : "IntegerFormatOptions",
+      "type" : "object"
+    },
+    "IntegerTextInputItemObject" : {
+      "$id" : "#IntegerTextInputItemObject",
+      "additionalProperties" : false,
+      "allOf" : [
+        {
+          "$ref" : "InputItem.json"
+        }
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "type" : "integer"
+        },
+        {
+          "fieldLabel" : "How much?",
+          "formatOptions" : {
+
+          },
+          "identifier" : "field1",
+          "placeholder" : "Enter a value",
+          "type" : "integer"
+        }
+      ],
+      "properties" : {
+        "exclusive" : {
+          "type" : "boolean"
+        },
+        "fieldLabel" : {
+          "type" : "string"
+        },
+        "formatOptions" : {
+          "$ref" : "#IntegerFormatOptions"
+        },
+        "identifier" : {
+          "type" : "string"
+        },
+        "keyboardOptions" : {
+          "$ref" : "#KeyboardOptionsObject"
+        },
+        "optional" : {
+          "type" : "boolean"
+        },
+        "placeholder" : {
+          "type" : "string"
+        },
+        "type" : {
+          "$ref" : "#InputItemType",
+          "const" : "integer"
+        },
+        "uiHint" : {
+          "$ref" : "#FormUIHint"
+        }
+      },
+      "required" : [
+        "type"
+      ],
+      "title" : "IntegerTextInputItemObject",
+      "type" : "object"
+    },
+    "KeyboardOptionsObject" : {
+      "$id" : "#KeyboardOptionsObject",
+      "additionalProperties" : false,
+      "allOf" : [
+
+      ],
+      "description" : "",
+      "examples" : [
+        {
+
+        },
+        {
+          "autocapitalizationType" : "none",
+          "autocorrectionType" : "no",
+          "isSecureTextEntry" : false,
+          "keyboardType" : "decimalPad",
+          "spellCheckingType" : "no"
+        }
+      ],
+      "properties" : {
+        "autocapitalizationType" : {
+          "$ref" : "#TextAutocapitalizationType"
+        },
+        "autocorrectionType" : {
+          "$ref" : "#TextAutocorrectionType"
+        },
+        "isSecureTextEntry" : {
+          "default" : false,
+          "type" : "boolean"
+        },
+        "keyboardType" : {
+          "$ref" : "#KeyboardType"
+        },
+        "spellCheckingType" : {
+          "$ref" : "#TextSpellCheckingType"
+        }
+      },
+      "required" : [
+
+      ],
+      "title" : "KeyboardOptionsObject",
+      "type" : "object"
+    },
+    "KeyboardType" : {
+      "$id" : "#KeyboardType",
+      "description" : "",
+      "enum" : [
+        "default",
+        "asciiCapable",
+        "numbersAndPunctuation",
+        "URL",
+        "numberPad",
+        "phonePad",
+        "namePhonePad",
+        "emailAddress",
+        "decimalPad",
+        "twitter",
+        "webSearch",
+        "asciiCapableNumberPad"
+      ],
+      "title" : "KeyboardType",
+      "type" : "string"
+    },
+    "NumberFormatStyle" : {
+      "$id" : "#NumberFormatStyle",
+      "description" : "",
+      "enum" : [
+        "none",
+        "decimal",
+        "currency",
+        "percent",
+        "scientific",
+        "spellOut",
+        "ordinal"
+      ],
+      "title" : "NumberFormatStyle",
+      "type" : "string"
+    },
+    "RegExValidator" : {
+      "$id" : "#RegExValidator",
+      "additionalProperties" : false,
+      "allOf" : [
+
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "invalidMessage" : "Only entering numbers is allowed.",
+          "pattern" : "^[0-9]*$"
+        }
+      ],
+      "properties" : {
+        "invalidMessage" : {
+          "type" : "string"
+        },
+        "pattern" : {
+          "description" : "The string value must be a valid a regex pattern.",
+          "type" : "string"
+        }
+      },
+      "required" : [
+        "pattern",
+        "invalidMessage"
+      ],
+      "title" : "RegExValidator",
+      "type" : "object"
+    },
+    "StringChoicePickerInputItemObject" : {
+      "$id" : "#StringChoicePickerInputItemObject",
+      "additionalProperties" : false,
+      "allOf" : [
+        {
+          "$ref" : "InputItem.json"
+        }
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "choices" : [
+            "never",
+            "sometimes",
+            "often",
+            "always"
+          ],
+          "fieldLabel" : "Favorite color",
+          "identifier" : "foo",
+          "placeholder" : "Blue, no! Red!",
+          "type" : "stringChoicePicker"
+        }
+      ],
+      "properties" : {
+        "choices" : {
+          "items" : {
+            "$ref" : "JsonChoiceObject.json"
+          },
+          "type" : "array"
+        },
+        "exclusive" : {
+          "type" : "boolean"
+        },
+        "fieldLabel" : {
+          "type" : "string"
+        },
+        "identifier" : {
+          "type" : "string"
+        },
+        "optional" : {
+          "type" : "boolean"
+        },
+        "placeholder" : {
+          "type" : "string"
+        },
+        "type" : {
+          "$ref" : "#InputItemType",
+          "const" : "stringChoicePicker"
+        },
+        "uiHint" : {
+          "$ref" : "#FormUIHint"
+        }
+      },
+      "required" : [
+        "type"
+      ],
+      "title" : "StringChoicePickerInputItemObject",
+      "type" : "object"
+    },
+    "StringTextInputItemObject" : {
+      "$id" : "#StringTextInputItemObject",
+      "additionalProperties" : false,
+      "allOf" : [
+        {
+          "$ref" : "InputItem.json"
+        }
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "type" : "string"
+        },
+        {
+          "fieldLabel" : "How much?",
+          "identifier" : "field1",
+          "keyboardOptions" : {
+
+          },
+          "placeholder" : "Enter a value",
+          "regExValidator" : {
+            "invalidMessage" : "Only entering numbers is allowed.",
+            "pattern" : "^[0-9]*$"
+          },
+          "type" : "string"
+        }
+      ],
+      "properties" : {
+        "exclusive" : {
+          "type" : "boolean"
+        },
+        "fieldLabel" : {
+          "type" : "string"
+        },
+        "identifier" : {
+          "type" : "string"
+        },
+        "keyboardOptions" : {
+          "$ref" : "#KeyboardOptionsObject"
+        },
+        "optional" : {
+          "type" : "boolean"
+        },
+        "placeholder" : {
+          "type" : "string"
+        },
+        "regExValidator" : {
+          "$ref" : "#RegExValidator"
+        },
+        "type" : {
+          "$ref" : "#InputItemType",
+          "const" : "string"
+        },
+        "uiHint" : {
+          "$ref" : "#FormUIHint"
+        }
+      },
+      "required" : [
+        "type"
+      ],
+      "title" : "StringTextInputItemObject",
+      "type" : "object"
+    },
+    "TextAutocapitalizationType" : {
+      "$id" : "#TextAutocapitalizationType",
+      "description" : "",
+      "enum" : [
+        "none",
+        "words",
+        "sentences",
+        "allCharacters"
+      ],
+      "title" : "TextAutocapitalizationType",
+      "type" : "string"
+    },
+    "TextAutocorrectionType" : {
+      "$id" : "#TextAutocorrectionType",
+      "description" : "",
+      "enum" : [
+        "default",
+        "no",
+        "yes"
+      ],
+      "title" : "TextAutocorrectionType",
+      "type" : "string"
+    },
+    "TextSpellCheckingType" : {
+      "$id" : "#TextSpellCheckingType",
+      "description" : "",
+      "enum" : [
+        "default",
+        "no",
+        "yes"
+      ],
+      "title" : "TextSpellCheckingType",
+      "type" : "string"
+    },
+    "TimeInputItemObject" : {
+      "$id" : "#TimeInputItemObject",
+      "additionalProperties" : false,
+      "allOf" : [
+        {
+          "$ref" : "InputItem.json"
+        }
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "formatOptions" : {
+            "allowFuture" : false,
+            "codingFormat" : "HH:mm",
+            "minimumValue" : "06:00"
+          },
+          "identifier" : "foo",
+          "type" : "time"
+        }
+      ],
+      "properties" : {
+        "exclusive" : {
+          "type" : "boolean"
+        },
+        "fieldLabel" : {
+          "type" : "string"
+        },
+        "formatOptions" : {
+          "$ref" : "#DateRangeObject"
+        },
+        "identifier" : {
+          "type" : "string"
+        },
+        "optional" : {
+          "type" : "boolean"
+        },
+        "placeholder" : {
+          "type" : "string"
+        },
+        "type" : {
+          "$ref" : "#InputItemType",
+          "const" : "time"
+        },
+        "uiHint" : {
+          "$ref" : "#FormUIHint"
+        }
+      },
+      "required" : [
+        "type"
+      ],
+      "title" : "TimeInputItemObject",
+      "type" : "object"
+    },
+    "WeightInputItemBuilderObject" : {
+      "$id" : "#WeightInputItemBuilderObject",
+      "additionalProperties" : false,
+      "allOf" : [
+        {
+          "$ref" : "InputItem.json"
+        }
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "type" : "weight"
+        }
+      ],
+      "properties" : {
+        "exclusive" : {
+          "type" : "boolean"
+        },
+        "fieldLabel" : {
+          "type" : "string"
+        },
+        "identifier" : {
+          "type" : "string"
+        },
+        "measurementRange" : {
+          "$ref" : "#HumanMeasurementRange"
+        },
+        "optional" : {
+          "type" : "boolean"
+        },
+        "placeholder" : {
+          "type" : "string"
+        },
+        "type" : {
+          "$ref" : "#InputItemType",
+          "const" : "weight"
+        },
+        "uiHint" : {
+          "$ref" : "#FormUIHint"
+        }
+      },
+      "required" : [
+        "type"
+      ],
+      "title" : "WeightInputItemBuilderObject",
+      "type" : "object"
+    },
+    "YearFormatOptions" : {
+      "$id" : "#YearFormatOptions",
+      "additionalProperties" : false,
+      "allOf" : [
+
+      ],
+      "description" : "",
+      "examples" : [
+        {
+
+        },
+        {
+          "allowPast" : false,
+          "maximumYear" : 2030
+        },
+        {
+          "allowFuture" : false,
+          "minimumYear" : 1900
+        }
+      ],
+      "properties" : {
+        "allowFuture" : {
+          "type" : "boolean"
+        },
+        "allowPast" : {
+          "type" : "boolean"
+        },
+        "invalidMessage" : {
+          "type" : "string"
+        },
+        "maximumYear" : {
+          "type" : "integer"
+        },
+        "maxInvalidMessage" : {
+          "type" : "string"
+        },
+        "minimumYear" : {
+          "type" : "integer"
+        },
+        "minInvalidMessage" : {
+          "type" : "string"
+        }
+      },
+      "required" : [
+
+      ],
+      "title" : "YearFormatOptions",
+      "type" : "object"
+    },
+    "YearTextInputItemObject" : {
+      "$id" : "#YearTextInputItemObject",
+      "additionalProperties" : false,
+      "allOf" : [
+        {
+          "$ref" : "InputItem.json"
+        }
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "type" : "year"
+        },
+        {
+          "fieldLabel" : "How much?",
+          "formatOptions" : {
+
+          },
+          "identifier" : "field1",
+          "placeholder" : "Enter a value",
+          "type" : "year"
+        }
+      ],
+      "properties" : {
+        "exclusive" : {
+          "type" : "boolean"
+        },
+        "fieldLabel" : {
+          "type" : "string"
+        },
+        "formatOptions" : {
+          "$ref" : "#YearFormatOptions"
+        },
+        "identifier" : {
+          "type" : "string"
+        },
+        "optional" : {
+          "type" : "boolean"
+        },
+        "placeholder" : {
+          "type" : "string"
+        },
+        "type" : {
+          "$ref" : "#InputItemType",
+          "const" : "year"
+        },
+        "uiHint" : {
+          "$ref" : "#FormUIHint"
+        }
+      },
+      "required" : [
+        "type"
+      ],
+      "title" : "YearTextInputItemObject",
+      "type" : "object"
+    }
+  },
+  "description" : "An `InputItem` describes a \"part\" of a question representing a single answer.\nFor example, if a question is \"what is your name\" then the input items may include \"given name\" and \"family name\" where separate text fields are used to allow the participant to enter their first and last name, and the question may also include a list of titles from which to choose.\nIn another example, the input item could be a single cell in a list that shows the possible choices for a question. In essence, this is akin to a single cell in a table view though the actual implementation may differ.",
+  "properties" : {
+    "type" : {
+      "$ref" : "#InputItemType"
+    }
+  },
+  "required" : [
+    "type"
+  ],
+  "title" : "InputItem",
+  "type" : "object"
+}

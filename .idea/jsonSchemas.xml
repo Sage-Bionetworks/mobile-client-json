@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JsonSchemaMappingsProjectConfiguration">
+    <state>
+      <map>
+        <entry key="AnswerType">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="AnswerType" />
+              <option name="relativePathToSchema" value="schemas/AnswerType.json" />
+              <option name="schemaVersion" value="JSON schema version 7" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="directory" value="true" />
+                    <option name="path" value="examples/AnswerType" />
+                    <option name="mappingKind" value="Directory" />
+                  </Item>
+                </list>
+              </option>
+            </SchemaInfo>
+          </value>
+        </entry>
+        <entry key="AsyncActionConfiguration">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="AsyncActionConfiguration" />
+              <option name="relativePathToSchema" value="schemas/AsyncActionConfiguration.json" />
+              <option name="schemaVersion" value="JSON schema version 7" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="directory" value="true" />
+                    <option name="path" value="examples/AsyncActionConfiguration" />
+                    <option name="mappingKind" value="Directory" />
+                  </Item>
+                </list>
+              </option>
+            </SchemaInfo>
+          </value>
+        </entry>
+        <entry key="ButtonActionInfo">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="ButtonActionInfo" />
+              <option name="relativePathToSchema" value="schemas/ButtonActionInfo.json" />
+              <option name="schemaVersion" value="JSON schema version 7" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="directory" value="true" />
+                    <option name="path" value="examples/ButtonActionInfo" />
+                    <option name="mappingKind" value="Directory" />
+                  </Item>
+                </list>
+              </option>
+            </SchemaInfo>
+          </value>
+        </entry>
+        <entry key="ColorMappingThemeElement">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="ColorMappingThemeElement" />
+              <option name="relativePathToSchema" value="schemas/ColorMappingThemeElement.json" />
+              <option name="schemaVersion" value="JSON schema version 7" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="directory" value="true" />
+                    <option name="path" value="examples/ColorMappingThemeElement" />
+                    <option name="mappingKind" value="Directory" />
+                  </Item>
+                </list>
+              </option>
+            </SchemaInfo>
+          </value>
+        </entry>
+        <entry key="ImageInfo">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="ImageInfo" />
+              <option name="relativePathToSchema" value="schemas/ImageInfo.json" />
+              <option name="schemaVersion" value="JSON schema version 7" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="directory" value="true" />
+                    <option name="path" value="examples/ImageInfo" />
+                    <option name="mappingKind" value="Directory" />
+                  </Item>
+                </list>
+              </option>
+            </SchemaInfo>
+          </value>
+        </entry>
+        <entry key="InputItem">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="InputItem" />
+              <option name="relativePathToSchema" value="schemas/InputItem.json" />
+              <option name="schemaVersion" value="JSON schema version 7" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="directory" value="true" />
+                    <option name="path" value="examples/InputItem" />
+                    <option name="mappingKind" value="Directory" />
+                  </Item>
+                </list>
+              </option>
+            </SchemaInfo>
+          </value>
+        </entry>
+        <entry key="Result">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="Result" />
+              <option name="relativePathToSchema" value="schemas/Result.json" />
+              <option name="schemaVersion" value="JSON schema version 7" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="directory" value="true" />
+                    <option name="path" value="examples/Result" />
+                    <option name="mappingKind" value="Directory" />
+                  </Item>
+                </list>
+              </option>
+            </SchemaInfo>
+          </value>
+        </entry>
+      </map>
+    </state>
+  </component>
+</project>

@@ -1,0 +1,30 @@
+{
+  "$id" : "http://sagebionetworks.org/SageResearch/jsonSchema/Task.json",
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "definitions" : {
+    "TaskType" : {
+      "$id" : "#TaskType",
+      "description" : "",
+      "examples" : [
+        "assessment"
+      ],
+      "title" : "TaskType",
+      "type" : "string"
+    }
+  },
+  "description" : "`Task` is the interface for running a task. It includes information about how to calculate progress, validation, and the order of display for the steps.",
+  "properties" : {
+    "identifier" : {
+      "type" : "string"
+    },
+    "type" : {
+      "$ref" : "#TaskType"
+    }
+  },
+  "required" : [
+    "type",
+    "identifier"
+  ],
+  "title" : "Task",
+  "type" : "object"
+}

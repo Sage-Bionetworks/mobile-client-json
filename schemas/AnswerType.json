@@ -1,0 +1,289 @@
+{
+  "$id" : "http://sagebionetworks.org/SageResearch/jsonSchema/AnswerType.json",
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "definitions" : {
+    "AnswerTypeArray" : {
+      "$id" : "#AnswerTypeArray",
+      "additionalProperties" : false,
+      "allOf" : [
+        {
+          "$ref" : "AnswerType.json"
+        }
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "baseType" : "number",
+          "type" : "array"
+        },
+        {
+          "baseType" : "integer",
+          "type" : "array"
+        },
+        {
+          "baseType" : "string",
+          "type" : "array"
+        }
+      ],
+      "properties" : {
+        "baseType" : {
+          "$ref" : "#JsonType"
+        },
+        "sequenceSeparator" : {
+          "type" : "string"
+        },
+        "type" : {
+          "$ref" : "#AnswerTypeType",
+          "const" : "array"
+        }
+      },
+      "required" : [
+        "type",
+        "baseType"
+      ],
+      "title" : "AnswerTypeArray",
+      "type" : "object"
+    },
+    "AnswerTypeBoolean" : {
+      "$id" : "#AnswerTypeBoolean",
+      "additionalProperties" : false,
+      "allOf" : [
+        {
+          "$ref" : "AnswerType.json"
+        }
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "type" : "boolean"
+        }
+      ],
+      "properties" : {
+        "type" : {
+          "$ref" : "#AnswerTypeType",
+          "const" : "boolean"
+        }
+      },
+      "required" : [
+        "type"
+      ],
+      "title" : "AnswerTypeBoolean",
+      "type" : "object"
+    },
+    "AnswerTypeDateTime" : {
+      "$id" : "#AnswerTypeDateTime",
+      "additionalProperties" : false,
+      "allOf" : [
+        {
+          "$ref" : "AnswerType.json"
+        }
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "codingFormat" : "yyyy-MM",
+          "type" : "date-time"
+        },
+        {
+          "codingFormat" : "HH:mm",
+          "type" : "date-time"
+        },
+        {
+          "type" : "date-time"
+        }
+      ],
+      "properties" : {
+        "codingFormat" : {
+          "description" : "The iso8601 format for the date-time components used by this answer type.",
+          "type" : "string"
+        },
+        "type" : {
+          "$ref" : "#AnswerTypeType",
+          "const" : "date-time"
+        }
+      },
+      "required" : [
+        "type"
+      ],
+      "title" : "AnswerTypeDateTime",
+      "type" : "object"
+    },
+    "AnswerTypeInteger" : {
+      "$id" : "#AnswerTypeInteger",
+      "additionalProperties" : false,
+      "allOf" : [
+        {
+          "$ref" : "AnswerType.json"
+        }
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "type" : "integer"
+        }
+      ],
+      "properties" : {
+        "type" : {
+          "$ref" : "#AnswerTypeType",
+          "const" : "integer"
+        }
+      },
+      "required" : [
+        "type"
+      ],
+      "title" : "AnswerTypeInteger",
+      "type" : "object"
+    },
+    "AnswerTypeMeasurement" : {
+      "$id" : "#AnswerTypeMeasurement",
+      "additionalProperties" : false,
+      "allOf" : [
+        {
+          "$ref" : "AnswerType.json"
+        }
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "type" : "measurement",
+          "unit" : "cm"
+        }
+      ],
+      "properties" : {
+        "type" : {
+          "$ref" : "#AnswerTypeType",
+          "const" : "measurement"
+        },
+        "unit" : {
+          "description" : "The unit of measurement into which the value is converted for storage.",
+          "type" : "string"
+        }
+      },
+      "required" : [
+        "type"
+      ],
+      "title" : "AnswerTypeMeasurement",
+      "type" : "object"
+    },
+    "AnswerTypeNumber" : {
+      "$id" : "#AnswerTypeNumber",
+      "additionalProperties" : false,
+      "allOf" : [
+        {
+          "$ref" : "AnswerType.json"
+        }
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "type" : "number"
+        }
+      ],
+      "properties" : {
+        "type" : {
+          "$ref" : "#AnswerTypeType",
+          "const" : "number"
+        }
+      },
+      "required" : [
+        "type"
+      ],
+      "title" : "AnswerTypeNumber",
+      "type" : "object"
+    },
+    "AnswerTypeObject" : {
+      "$id" : "#AnswerTypeObject",
+      "additionalProperties" : false,
+      "allOf" : [
+        {
+          "$ref" : "AnswerType.json"
+        }
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "type" : "object"
+        }
+      ],
+      "properties" : {
+        "type" : {
+          "$ref" : "#AnswerTypeType",
+          "const" : "object"
+        }
+      },
+      "required" : [
+        "type"
+      ],
+      "title" : "AnswerTypeObject",
+      "type" : "object"
+    },
+    "AnswerTypeString" : {
+      "$id" : "#AnswerTypeString",
+      "additionalProperties" : false,
+      "allOf" : [
+        {
+          "$ref" : "AnswerType.json"
+        }
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "type" : "string"
+        }
+      ],
+      "properties" : {
+        "type" : {
+          "$ref" : "#AnswerTypeType",
+          "const" : "string"
+        }
+      },
+      "required" : [
+        "type"
+      ],
+      "title" : "AnswerTypeString",
+      "type" : "object"
+    },
+    "AnswerTypeType" : {
+      "$id" : "#AnswerTypeType",
+      "description" : "",
+      "examples" : [
+        "array",
+        "boolean",
+        "date-time",
+        "integer",
+        "measurement",
+        "null",
+        "number",
+        "object"
+      ],
+      "title" : "AnswerTypeType",
+      "type" : "string"
+    },
+    "JsonType" : {
+      "$id" : "#JsonType",
+      "description" : "",
+      "enum" : [
+        "string",
+        "number",
+        "integer",
+        "boolean",
+        "null",
+        "array",
+        "object"
+      ],
+      "title" : "JsonType",
+      "type" : "string"
+    }
+  },
+  "description" : "`AnswerType` is used to allow carrying additional information about the properties of a JSON-encoded `AnswerResult`.",
+  "properties" : {
+    "type" : {
+      "$ref" : "#AnswerTypeType"
+    }
+  },
+  "required" : [
+    "type"
+  ],
+  "title" : "AnswerType",
+  "type" : "object"
+}

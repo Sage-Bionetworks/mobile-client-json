@@ -1,0 +1,27 @@
+{
+  "$id" : "http://sagebionetworks.org/SageResearch/jsonSchema/SkipCheckboxInputItemObject.json",
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "definitions" : {
+
+  },
+  "description" : "",
+  "properties" : {
+    "fieldLabel" : {
+      "type" : "string"
+    },
+    "type" : {
+      "$ref" : "InputItem.json#InputItemType",
+      "const" : "skipCheckbox",
+      "description" : "Kotlin serialization requires a 'type' field for any polymorphic class."
+    },
+    "value" : {
+
+    }
+  },
+  "required" : [
+    "type",
+    "fieldLabel"
+  ],
+  "title" : "SkipCheckboxInputItemObject",
+  "type" : "object"
+}

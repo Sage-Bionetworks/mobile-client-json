@@ -1,0 +1,173 @@
+{
+  "$id" : "http://sagebionetworks.org/SageResearch/jsonSchema/ColorMappingThemeElement.json",
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "definitions" : {
+    "ColorDataObject" : {
+      "$id" : "#ColorDataObject",
+      "additionalProperties" : false,
+      "allOf" : [
+
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "color" : "sky",
+          "usesLightStyle" : false
+        }
+      ],
+      "properties" : {
+        "color" : {
+          "type" : "string"
+        },
+        "usesLightStyle" : {
+          "type" : "boolean"
+        }
+      },
+      "required" : [
+        "color",
+        "usesLightStyle"
+      ],
+      "title" : "ColorDataObject",
+      "type" : "object"
+    },
+    "ColorMappingThemeElementType" : {
+      "$id" : "#ColorMappingThemeElementType",
+      "description" : "",
+      "examples" : [
+        "placementMapping",
+        "singleColor"
+      ],
+      "title" : "ColorMappingThemeElementType",
+      "type" : "string"
+    },
+    "ColorPlacementThemeElementObject" : {
+      "$id" : "#ColorPlacementThemeElementObject",
+      "additionalProperties" : false,
+      "allOf" : [
+        {
+          "$ref" : "ColorMappingThemeElement.json"
+        }
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "bundleIdentifier" : "FooModule",
+          "customColor" : {
+            "color" : "sky",
+            "usesLightStyle" : false
+          },
+          "packageName" : "org.sagebase.foo",
+          "placement" : {
+            "body" : "white",
+            "footer" : "white",
+            "header" : "primary"
+          },
+          "type" : "placementMapping"
+        }
+      ],
+      "properties" : {
+        "bundleIdentifier" : {
+          "type" : "string"
+        },
+        "customColor" : {
+          "$ref" : "#ColorDataObject"
+        },
+        "packageName" : {
+          "type" : "string"
+        },
+        "placement" : {
+          "additionalProperties" : {
+            "$ref" : "#ColorStyle"
+          },
+          "type" : "object"
+        },
+        "type" : {
+          "$ref" : "#ColorMappingThemeElementType",
+          "const" : "placementMapping"
+        }
+      },
+      "required" : [
+        "type",
+        "placement"
+      ],
+      "title" : "ColorPlacementThemeElementObject",
+      "type" : "object"
+    },
+    "ColorStyle" : {
+      "$id" : "#ColorStyle",
+      "description" : "",
+      "enum" : [
+        "white",
+        "black",
+        "background",
+        "primary",
+        "secondary",
+        "accent",
+        "successGreen",
+        "errorRed",
+        "custom"
+      ],
+      "title" : "ColorStyle",
+      "type" : "string"
+    },
+    "SingleColorThemeElementObject" : {
+      "$id" : "#SingleColorThemeElementObject",
+      "additionalProperties" : false,
+      "allOf" : [
+        {
+          "$ref" : "ColorMappingThemeElement.json"
+        }
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "bundleIdentifier" : "FooModule",
+          "customColor" : {
+            "color" : "sky",
+            "usesLightStyle" : false
+          },
+          "packageName" : "org.sagebase.foo",
+          "type" : "singleColor"
+        },
+        {
+          "colorStyle" : "successGreen",
+          "type" : "singleColor"
+        }
+      ],
+      "properties" : {
+        "bundleIdentifier" : {
+          "type" : "string"
+        },
+        "colorStyle" : {
+          "$ref" : "#ColorStyle"
+        },
+        "customColor" : {
+          "$ref" : "#ColorDataObject"
+        },
+        "packageName" : {
+          "type" : "string"
+        },
+        "type" : {
+          "$ref" : "#ColorMappingThemeElementType",
+          "const" : "singleColor"
+        }
+      },
+      "required" : [
+        "type"
+      ],
+      "title" : "SingleColorThemeElementObject",
+      "type" : "object"
+    }
+  },
+  "description" : "`ColorMappingThemeElement` defines the colors to use on a given screen. Typically, this includes the background color for the header or a background color that is applied to the full screen.",
+  "properties" : {
+    "type" : {
+      "$ref" : "#ColorMappingThemeElementType"
+    }
+  },
+  "required" : [
+    "type"
+  ],
+  "title" : "ColorMappingThemeElement",
+  "type" : "object"
+}

@@ -1,0 +1,53 @@
+{
+  "$id" : "http://sagebionetworks.org/SageResearch/jsonSchema/TaskResultObject.json",
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "definitions" : {
+
+  },
+  "description" : "",
+  "properties" : {
+    "asyncResults" : {
+      "items" : {
+        "$ref" : "Result.json"
+      },
+      "type" : "array"
+    },
+    "endDate" : {
+      "format" : "date-time",
+      "type" : "string"
+    },
+    "identifier" : {
+      "type" : "string"
+    },
+    "schemaInfo" : {
+      "$ref" : "SchemaInfoObject.json"
+    },
+    "startDate" : {
+      "format" : "date-time",
+      "type" : "string"
+    },
+    "stepHistory" : {
+      "items" : {
+        "$ref" : "Result.json"
+      },
+      "type" : "array"
+    },
+    "taskRunUUID" : {
+      "type" : "string"
+    },
+    "type" : {
+      "$ref" : "Result.json#ResultType",
+      "const" : "task"
+    }
+  },
+  "required" : [
+    "identifier",
+    "type",
+    "startDate",
+    "endDate",
+    "taskRunUUID",
+    "stepHistory"
+  ],
+  "title" : "TaskResultObject",
+  "type" : "object"
+}

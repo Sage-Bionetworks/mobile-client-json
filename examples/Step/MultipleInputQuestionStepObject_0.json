@@ -1,0 +1,1 @@
+{"optional":false,"skipCheckbox":{"fieldLabel":"No answer","type":"skipCheckbox"},"inputItems":[{"identifier":"year","type":"year"},{"type":"string","identifier":"name"}],"identifier":"foo","type":"multipleInputQuestion","title":"Hello World!"}
