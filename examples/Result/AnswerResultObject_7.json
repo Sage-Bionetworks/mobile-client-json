@@ -1,1 +1,1 @@
-{"endDate":"2017-10-16T22:28:09.000-07:00","value":["foo","ba","lalala"],"identifier":"question8","startDate":"2017-10-16T22:28:09.000-07:00","type":"answer","answerType":{"baseType":"string","type":"array"}}
+{"answerType":{"type":"array","baseType":"string"},"type":"answer","value":["foo","ba","lalala"],"endDate":"2017-10-16T22:28:09.000-07:00","startDate":"2017-10-16T22:28:09.000-07:00","identifier":"question8"}

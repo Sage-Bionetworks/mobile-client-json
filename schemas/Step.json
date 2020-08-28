@@ -7,17 +7,17 @@
       "description" : "",
       "items" : {
         "examples" : [
-          "vibrateOnStart",
-          "startTimerAutomatically",
-          "playSoundOnFinish",
-          "continueOnFinish",
-          "playSoundOnStart",
-          "shouldDisableIdleTimer",
-          "speakWarningOnPause",
           "vibrateOnFinish",
+          "playSoundOnStart",
+          "startTimerAutomatically",
+          "continueOnFinish",
+          "vibrate",
+          "speakWarningOnPause",
+          "shouldDisableIdleTimer",
           "transitionAutomatically",
-          "playSound",
-          "vibrate"
+          "playSoundOnFinish",
+          "vibrateOnStart",
+          "playSound"
         ],
         "jsonType" : "string"
       },
@@ -167,10 +167,10 @@
       "$id" : "#ChoiceQuestionStepObject",
       "allOf" : [
         {
-          "$ref" : "ResultNode.json"
+          "$ref" : "Step.json"
         },
         {
-          "$ref" : "Step.json"
+          "$ref" : "ResultNode.json"
         }
       ],
       "description" : "",
@@ -695,10 +695,10 @@
       "$id" : "#MultipleInputQuestionStepObject",
       "allOf" : [
         {
-          "$ref" : "Step.json"
+          "$ref" : "ResultNode.json"
         },
         {
-          "$ref" : "ResultNode.json"
+          "$ref" : "Step.json"
         }
       ],
       "description" : "",
@@ -1343,10 +1343,10 @@
       "$id" : "#StringChoiceQuestionStepObject",
       "allOf" : [
         {
-          "$ref" : "ResultNode.json"
+          "$ref" : "Step.json"
         },
         {
-          "$ref" : "Step.json"
+          "$ref" : "ResultNode.json"
         }
       ],
       "description" : "",

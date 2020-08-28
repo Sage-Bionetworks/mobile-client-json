@@ -1,1 +1,1 @@
-{"identifier":"question10","endDate":"2017-10-16T22:28:09.000-07:00","startDate":"2017-10-16T22:28:09.000-07:00","type":"answer","answerType":{"type":"date-time","codingFormat":"HH:mm"},"value":"08:30"}
+{"value":"08:30","answerType":{"codingFormat":"HH:mm","type":"date-time"},"startDate":"2017-10-16T22:28:09.000-07:00","endDate":"2017-10-16T22:28:09.000-07:00","identifier":"question10","type":"answer"}

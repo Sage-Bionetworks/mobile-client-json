@@ -1,1 +1,1 @@
-{"type":"countdown","duration":30,"commands":["playSoundOnStart","vibrateOnFinish"],"title":"Hello World!","detail":"Some text.","spokenInstructions":{"start":"Start moving","end":"Stop moving","halfway":"Halfway there","10":"Keep going"},"identifier":"foo","requiresBackgroundAudio":true}
+{"requiresBackgroundAudio":true,"duration":30,"commands":["playSoundOnStart","vibrateOnFinish"],"identifier":"foo","detail":"Some text.","type":"countdown","spokenInstructions":{"start":"Start moving","10":"Keep going","end":"Stop moving","halfway":"Halfway there"},"title":"Hello World!"}

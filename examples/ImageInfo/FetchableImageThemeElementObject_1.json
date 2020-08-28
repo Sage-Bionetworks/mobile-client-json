@@ -1,1 +1,1 @@
-{"placementType":"iconBefore","bundleIdentifier":"org.example.SharedResources","size":{"height":30,"width":20},"imageName":"redCat","type":"fetchable","packageName":"org.example.sharedresources","fileExtension":"jpeg"}
+{"fileExtension":"jpeg","imageName":"redCat","bundleIdentifier":"org.example.SharedResources","placementType":"iconBefore","packageName":"org.example.sharedresources","type":"fetchable","size":{"height":30,"width":20}}

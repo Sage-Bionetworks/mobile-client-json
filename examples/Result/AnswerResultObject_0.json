@@ -1,1 +1,1 @@
-{"identifier":"question1","type":"answer","answerType":{"type":"boolean"},"endDate":"2017-10-16T22:28:09.000-07:00","startDate":"2017-10-16T22:28:09.000-07:00","value":true}
+{"value":true,"startDate":"2017-10-16T22:28:09.000-07:00","type":"answer","endDate":"2017-10-16T22:28:09.000-07:00","identifier":"question1","answerType":{"type":"boolean"}}

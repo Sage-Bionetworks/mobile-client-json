@@ -1,1 +1,1 @@
-{"customColor":{"usesLightStyle":false,"color":"sky"},"bundleIdentifier":"FooModule","type":"singleColor","packageName":"org.sagebase.foo"}
+{"bundleIdentifier":"FooModule","type":"singleColor","packageName":"org.sagebase.foo","customColor":{"usesLightStyle":false,"color":"sky"}}
