@@ -1,1 +1,1 @@
-{"type":"string","keyboardOptions":{},"regExValidator":{"pattern":"^[0-9]*$","invalidMessage":"Only entering numbers is allowed."},"fieldLabel":"How much?","identifier":"field1","placeholder":"Enter a value"}
+{"type":"string","fieldLabel":"How much?","regExValidator":{"invalidMessage":"Only entering numbers is allowed.","pattern":"^[0-9]*$"},"keyboardOptions":{},"placeholder":"Enter a value","identifier":"field1"}

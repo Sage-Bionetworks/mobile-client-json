@@ -1,1 +1,1 @@
-{"type":"date","formatOptions":{"allowFuture":false,"minimumValue":"1900-01","codingFormat":"yyyy-MM"},"identifier":"foo"}
+{"identifier":"foo","formatOptions":{"minimumValue":"1900-01","allowFuture":false,"codingFormat":"yyyy-MM"},"type":"date"}

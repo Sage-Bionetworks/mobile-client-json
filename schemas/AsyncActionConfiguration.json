@@ -1,19 +1,68 @@
 {
-  "$id" : "http://sagebionetworks.org/SageResearch/jsonSchema/AsyncActionConfiguration.json",
+  "$id" : "https://raw.githubusercontent.com/Sage-Bionetworks/AssessmentModel-JsonSchema/main/schemas/AsyncActionConfiguration.json",
   "$schema" : "http://json-schema.org/draft-07/schema#",
   "definitions" : {
     "AsyncActionType" : {
       "$id" : "#AsyncActionType",
       "description" : "",
       "examples" : [
+        "distance",
+        "microphone",
         "motion",
-        "distance"
+        "weather"
       ],
       "title" : "AsyncActionType",
       "type" : "string"
     },
-    "DistanceRecorderConfiguration" : {
-      "$id" : "#DistanceRecorderConfiguration",
+    "AudioRecorderConfigurationObject" : {
+      "$id" : "#AudioRecorderConfigurationObject",
+      "additionalProperties" : false,
+      "allOf" : [
+        {
+          "$ref" : "AsyncActionConfiguration.json"
+        }
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "identifier" : "microphone",
+          "requiresBackgroundAudio" : true,
+          "saveAudioFile" : true,
+          "startStepIdentifier" : "countdown",
+          "stopStepIdentifier" : "rest",
+          "type" : "microphone"
+        }
+      ],
+      "properties" : {
+        "identifier" : {
+          "type" : "string"
+        },
+        "requiresBackgroundAudio" : {
+          "type" : "boolean"
+        },
+        "saveAudioFile" : {
+          "type" : "boolean"
+        },
+        "startStepIdentifier" : {
+          "type" : "string"
+        },
+        "stopStepIdentifier" : {
+          "type" : "string"
+        },
+        "type" : {
+          "$ref" : "#AsyncActionType",
+          "const" : "microphone"
+        }
+      },
+      "required" : [
+        "identifier",
+        "type"
+      ],
+      "title" : "AudioRecorderConfigurationObject",
+      "type" : "object"
+    },
+    "DistanceRecorderConfigurationObject" : {
+      "$id" : "#DistanceRecorderConfigurationObject",
       "additionalProperties" : false,
       "allOf" : [
         {
@@ -55,11 +104,11 @@
         "identifier",
         "type"
       ],
-      "title" : "DistanceRecorderConfiguration",
+      "title" : "DistanceRecorderConfigurationObject",
       "type" : "object"
     },
-    "MotionRecorderConfiguration" : {
-      "$id" : "#MotionRecorderConfiguration",
+    "MotionRecorderConfigurationObject" : {
+      "$id" : "#MotionRecorderConfigurationObject",
       "additionalProperties" : false,
       "allOf" : [
         {
@@ -69,26 +118,35 @@
       "description" : "",
       "examples" : [
         {
-          "frequency" : 50,
-          "identifier" : "motion",
+          "identifier" : "exampleA",
+          "requiresBackgroundAudio" : false,
+          "type" : "motion"
+        },
+        {
+          "frequency" : 200,
+          "identifier" : "exampleB",
           "recorderTypes" : [
-            "accelerometer",
-            "gyro"
+            "gyro",
+            "gravity"
           ],
           "requiresBackgroundAudio" : true,
-          "startStepIdentifier" : "start",
-          "stopStepIdentifier" : "stop",
-          "type" : "motion"
+          "shouldDeletePrevious" : false,
+          "type" : "motion",
+          "usesCSVEncoding" : true
         }
       ],
       "properties" : {
         "frequency" : {
+          "default" : 100,
+          "description" : "The sampling frequency of the motion sensors.",
           "type" : "number"
         },
         "identifier" : {
+          "description" : "A short string that uniquely identifies the asynchronous action within the task.",
           "type" : "string"
         },
         "recorderTypes" : {
+          "description" : "The motion sensor types to include with this configuration.",
           "items" : {
             "$ref" : "#MotionRecorderType"
           },
@@ -96,10 +154,12 @@
         },
         "requiresBackgroundAudio" : {
           "default" : false,
+          "description" : "Whether or not the recorder requires background audio.",
           "type" : "boolean"
         },
         "shouldDeletePrevious" : {
           "default" : true,
+          "description" : "Should the file used in a previous run of a recording be deleted?",
           "type" : "boolean"
         },
         "startStepIdentifier" : {
@@ -113,6 +173,8 @@
           "const" : "motion"
         },
         "usesCSVEncoding" : {
+          "default" : false,
+          "description" : "Should samples be encoded as a CSV file.",
           "type" : "boolean"
         }
       },
@@ -120,7 +182,7 @@
         "identifier",
         "type"
       ],
-      "title" : "MotionRecorderConfiguration",
+      "title" : "MotionRecorderConfigurationObject",
       "type" : "object"
     },
     "MotionRecorderType" : {
@@ -138,9 +200,108 @@
       ],
       "title" : "MotionRecorderType",
       "type" : "string"
+    },
+    "WeatherConfigurationObject" : {
+      "$id" : "#WeatherConfigurationObject",
+      "additionalProperties" : false,
+      "allOf" : [
+        {
+          "$ref" : "AsyncActionConfiguration.json"
+        }
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "identifier" : "weather",
+          "services" : [
+            {
+              "identifier" : "weather",
+              "key" : "ABCD",
+              "provider" : "openWeather"
+            },
+            {
+              "identifier" : "airQuality",
+              "key" : "ABCD",
+              "provider" : "airNow"
+            }
+          ],
+          "startStepIdentifier" : "countdown",
+          "type" : "weather"
+        }
+      ],
+      "properties" : {
+        "identifier" : {
+          "description" : "Identifier for the weather services.",
+          "type" : "string"
+        },
+        "services" : {
+          "description" : "The configuration for each of the weather services used by this recorder.",
+          "items" : {
+            "$ref" : "#WeatherServiceConfigurationObject"
+          },
+          "type" : "array"
+        },
+        "startStepIdentifier" : {
+          "description" : "Identifier for the step (if any) that should be used for starting services.",
+          "type" : "string"
+        },
+        "type" : {
+          "$ref" : "#AsyncActionType",
+          "const" : "weather"
+        }
+      },
+      "required" : [
+        "type",
+        "identifier",
+        "startStepIdentifier",
+        "services"
+      ],
+      "title" : "WeatherConfigurationObject",
+      "type" : "object"
+    },
+    "WeatherServiceConfigurationObject" : {
+      "$id" : "#WeatherServiceConfigurationObject",
+      "additionalProperties" : false,
+      "allOf" : [
+
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "identifier" : "weather",
+          "key" : "ABCD",
+          "provider" : "openWeather"
+        },
+        {
+          "identifier" : "airQuality",
+          "key" : "ABCD",
+          "provider" : "airNow"
+        }
+      ],
+      "properties" : {
+        "identifier" : {
+          "description" : "Identifier for the service (weather or air quality)",
+          "type" : "string"
+        },
+        "key" : {
+          "description" : "The API key to use when accessing the service.",
+          "type" : "string"
+        },
+        "provider" : {
+          "description" : "Name of service provider. For example, openWeather",
+          "type" : "string"
+        }
+      },
+      "required" : [
+        "identifier",
+        "key",
+        "provider"
+      ],
+      "title" : "WeatherServiceConfigurationObject",
+      "type" : "object"
     }
   },
-  "description" : "`AsyncActionConfiguration` defines general configuration for an asynchronous action that should be run in the background. Depending upon the parameters and how the action is set up, this could be something that is run continuously or else is paused or reset based on a timeout interval.\nThe configuration is intended to be a serializable object and does not call services, record data, or anything else. It does include a step identifier that can be used to let the task controller know when to trigger the async action.",
+  "description" : "`AsyncActionConfiguration` defines general configuration for an asynchronous background action that should be run in the background. Depending upon the parameters and how the action is set up, this could be something that is run continuously or else is paused or reset based on a timeout interval.",
   "properties" : {
     "identifier" : {
       "type" : "string"

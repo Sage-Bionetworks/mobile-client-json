@@ -1,13 +1,69 @@
 {
-  "$id" : "http://sagebionetworks.org/SageResearch/jsonSchema/Result.json",
+  "$id" : "https://raw.githubusercontent.com/Sage-Bionetworks/AssessmentModel-JsonSchema/main/schemas/ResultData.json",
   "$schema" : "http://json-schema.org/draft-07/schema#",
   "definitions" : {
+    "AirQualityServiceResult" : {
+      "$id" : "#AirQualityServiceResult",
+      "additionalProperties" : false,
+      "allOf" : [
+        {
+          "$ref" : "ResultData.json"
+        }
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "aqi" : 2,
+          "category" : {
+            "name" : "Moderate",
+            "number" : 2
+          },
+          "identifier" : "airQuality",
+          "provider" : "airNow",
+          "startDate" : "2021-04-03T15:26:59.294-07:00",
+          "type" : "airQuality"
+        }
+      ],
+      "properties" : {
+        "aqi" : {
+          "description" : "Air Quality Index",
+          "type" : "number"
+        },
+        "category" : {
+          "$ref" : "Category.json"
+        },
+        "identifier" : {
+          "type" : "string"
+        },
+        "provider" : {
+          "$ref" : "#WeatherServiceProviderName"
+        },
+        "startDate" : {
+          "format" : "date-time",
+          "type" : "string"
+        },
+        "type" : {
+          "$ref" : "#WeatherServiceType",
+          "const" : "airQuality"
+        }
+      },
+      "required" : [
+        "type",
+        "identifier",
+        "provider",
+        "startDate",
+        "aqi",
+        "category"
+      ],
+      "title" : "AirQualityServiceResult",
+      "type" : "object"
+    },
     "AnswerResultObject" : {
       "$id" : "#AnswerResultObject",
       "additionalProperties" : false,
       "allOf" : [
         {
-          "$ref" : "Result.json"
+          "$ref" : "ResultData.json"
         }
       ],
       "description" : "",
@@ -168,15 +224,12 @@
         "questionText" : {
           "type" : "string"
         },
-        "skipToIdentifier" : {
-          "type" : "string"
-        },
         "startDate" : {
           "format" : "date-time",
           "type" : "string"
         },
         "type" : {
-          "$ref" : "#ResultType",
+          "$ref" : "#SerializableResultType",
           "const" : "answer"
         },
         "value" : {
@@ -196,15 +249,13 @@
       "additionalProperties" : false,
       "allOf" : [
         {
-          "$ref" : "Result.json"
+          "$ref" : "ResultData.json"
         }
       ],
       "description" : "",
       "examples" : [
         {
-          "endDate" : "2017-10-16T22:33:09.000-07:00",
-          "identifier" : "formStep",
-          "inputResults" : [
+          "children" : [
             {
               "answerType" : {
                 "type" : "boolean"
@@ -344,23 +395,25 @@
               "value" : 170.19999999999999
             }
           ],
+          "endDate" : "2017-10-16T22:33:09.000-07:00",
+          "identifier" : "formStep",
           "startDate" : "2017-10-16T22:28:09.000-07:00",
           "type" : "collection"
         }
       ],
       "properties" : {
+        "children" : {
+          "items" : {
+            "$ref" : "ResultData.json"
+          },
+          "type" : "array"
+        },
         "endDate" : {
           "format" : "date-time",
           "type" : "string"
         },
         "identifier" : {
           "type" : "string"
-        },
-        "inputResults" : {
-          "items" : {
-            "$ref" : "Result.json"
-          },
-          "type" : "array"
         },
         "skipToIdentifier" : {
           "type" : "string"
@@ -370,7 +423,7 @@
           "type" : "string"
         },
         "type" : {
-          "$ref" : "#ResultType",
+          "$ref" : "#SerializableResultType",
           "const" : "collection"
         }
       },
@@ -378,7 +431,7 @@
         "identifier",
         "type",
         "startDate",
-        "inputResults"
+        "children"
       ],
       "title" : "CollectionResultObject",
       "type" : "object"
@@ -388,18 +441,18 @@
       "additionalProperties" : false,
       "allOf" : [
         {
-          "$ref" : "Result.json"
+          "$ref" : "ResultData.json"
         }
       ],
       "description" : "",
       "examples" : [
         {
-          "endDate" : "2020-08-28T11:27:35.416-07:00",
+          "endDate" : "2021-04-03T15:26:59.293-07:00",
           "errorCode" : 1,
           "errorDescription" : "example error",
           "errorDomain" : "ExampleDomain",
           "identifier" : "errorResult",
-          "startDate" : "2020-08-28T11:27:35.416-07:00",
+          "startDate" : "2021-04-03T15:26:59.293-07:00",
           "type" : "error"
         }
       ],
@@ -425,13 +478,15 @@
           "type" : "string"
         },
         "type" : {
-          "$ref" : "#ResultType",
+          "$ref" : "#SerializableResultType",
           "const" : "error"
         }
       },
       "required" : [
-        "identifier",
         "type",
+        "identifier",
+        "startDate",
+        "endDate",
         "errorDescription",
         "errorDomain",
         "errorCode"
@@ -444,15 +499,16 @@
       "additionalProperties" : false,
       "allOf" : [
         {
-          "$ref" : "Result.json"
+          "$ref" : "ResultData.json"
         }
       ],
       "description" : "",
       "examples" : [
         {
+          "contentType" : "application/json",
           "endDate" : "2017-10-16T22:33:09.000-07:00",
           "identifier" : "fileResult",
-          "relativePath" : "temp.json",
+          "relativePath" : "/foo.json",
           "startDate" : "2017-10-16T22:28:09.000-07:00",
           "startUptime" : 1234.567,
           "type" : "file"
@@ -480,15 +536,44 @@
           "type" : "number"
         },
         "type" : {
-          "$ref" : "#ResultType",
+          "$ref" : "#SerializableResultType",
           "const" : "file"
         }
       },
       "required" : [
-        "identifier",
-        "type"
+        "type",
+        "identifier"
       ],
       "title" : "FileResultObject",
+      "type" : "object"
+    },
+    "Precipitation" : {
+      "$id" : "#Precipitation",
+      "additionalProperties" : false,
+      "allOf" : [
+
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "pastHour" : 5,
+          "pastThreeHours" : 12
+        }
+      ],
+      "properties" : {
+        "pastHour" : {
+          "description" : "Precipitation in the past hour.",
+          "type" : "number"
+        },
+        "pastThreeHours" : {
+          "description" : "Precipitation in the past 3 hours.",
+          "type" : "number"
+        }
+      },
+      "required" : [
+
+      ],
+      "title" : "Precipitation",
       "type" : "object"
     },
     "ResultObject" : {
@@ -496,7 +581,7 @@
       "additionalProperties" : false,
       "allOf" : [
         {
-          "$ref" : "Result.json"
+          "$ref" : "ResultData.json"
         }
       ],
       "description" : "",
@@ -524,8 +609,8 @@
           "type" : "string"
         },
         "type" : {
-          "$ref" : "#ResultType",
-          "const" : "file"
+          "$ref" : "#SerializableResultType",
+          "const" : "base"
         }
       },
       "required" : [
@@ -537,28 +622,12 @@
       "title" : "ResultObject",
       "type" : "object"
     },
-    "ResultType" : {
-      "$id" : "#ResultType",
-      "description" : "",
-      "examples" : [
-        "base",
-        "answer",
-        "collection",
-        "task",
-        "section",
-        "file",
-        "error",
-        "navigation"
-      ],
-      "title" : "ResultType",
-      "type" : "string"
-    },
     "SectionResultObject" : {
       "$id" : "#SectionResultObject",
       "additionalProperties" : false,
       "allOf" : [
         {
-          "$ref" : "Result.json"
+          "$ref" : "ResultData.json"
         }
       ],
       "description" : "",
@@ -566,9 +635,10 @@
         {
           "asyncResults" : [
             {
+              "contentType" : "application/json",
               "endDate" : "2017-10-16T22:30:29.000-07:00",
               "identifier" : "fileResult",
-              "relativePath" : "temp.json",
+              "relativePath" : "/foo.json",
               "startDate" : "2017-10-16T22:28:29.000-07:00",
               "startUptime" : 1234.567,
               "type" : "file"
@@ -588,9 +658,7 @@
               "type" : "base"
             },
             {
-              "endDate" : "2017-10-16T22:30:29.000-07:00",
-              "identifier" : "formStep",
-              "inputResults" : [
+              "children" : [
                 {
                   "answerType" : {
                     "type" : "boolean"
@@ -730,6 +798,8 @@
                   "value" : 170.19999999999999
                 }
               ],
+              "endDate" : "2017-10-16T22:30:29.000-07:00",
+              "identifier" : "formStep",
               "startDate" : "2017-10-16T22:28:29.000-07:00",
               "type" : "collection"
             },
@@ -746,7 +816,7 @@
       "properties" : {
         "asyncResults" : {
           "items" : {
-            "$ref" : "Result.json"
+            "$ref" : "ResultData.json"
           },
           "type" : "array"
         },
@@ -769,13 +839,13 @@
         },
         "stepHistory" : {
           "items" : {
-            "$ref" : "Result.json"
+            "$ref" : "ResultData.json"
           },
           "type" : "array"
         },
         "type" : {
-          "$ref" : "#ResultType",
-          "const" : "task"
+          "$ref" : "#SerializableResultType",
+          "const" : "section"
         }
       },
       "required" : [
@@ -787,21 +857,154 @@
       ],
       "title" : "SectionResultObject",
       "type" : "object"
+    },
+    "SerializableResultType" : {
+      "$id" : "#SerializableResultType",
+      "description" : "",
+      "examples" : [
+        "jsonValue",
+        "collection",
+        "file",
+        "error"
+      ],
+      "title" : "SerializableResultType",
+      "type" : "string"
+    },
+    "WeatherServiceProviderName" : {
+      "$id" : "#WeatherServiceProviderName",
+      "description" : "",
+      "examples" : [
+        "airNow",
+        "openWeather"
+      ],
+      "title" : "WeatherServiceProviderName",
+      "type" : "string"
+    },
+    "WeatherServiceResult" : {
+      "$id" : "#WeatherServiceResult",
+      "additionalProperties" : false,
+      "allOf" : [
+        {
+          "$ref" : "ResultData.json"
+        }
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "clouds" : 0.40000000000000002,
+          "humidity" : 0.90000000000000002,
+          "identifier" : "weather",
+          "provider" : "openWeather",
+          "startDate" : "2021-04-03T15:26:59.298-07:00",
+          "temperature" : 20,
+          "type" : "weather"
+        }
+      ],
+      "properties" : {
+        "clouds" : {
+          "type" : "number"
+        },
+        "groundLevelPressure" : {
+          "type" : "number"
+        },
+        "humidity" : {
+          "type" : "number"
+        },
+        "identifier" : {
+          "description" : "Result identifier",
+          "type" : "string"
+        },
+        "provider" : {
+          "$ref" : "#WeatherServiceProviderName"
+        },
+        "rain" : {
+          "$ref" : "#Precipitation"
+        },
+        "seaLevelPressure" : {
+          "type" : "number"
+        },
+        "snow" : {
+          "$ref" : "#Precipitation"
+        },
+        "startDate" : {
+          "format" : "date-time",
+          "type" : "string"
+        },
+        "temperature" : {
+          "type" : "number"
+        },
+        "type" : {
+          "$ref" : "#WeatherServiceType",
+          "const" : "weather"
+        },
+        "wind" : {
+          "$ref" : "#Wind"
+        }
+      },
+      "required" : [
+        "type",
+        "identifier",
+        "provider",
+        "startDate"
+      ],
+      "title" : "WeatherServiceResult",
+      "type" : "object"
+    },
+    "WeatherServiceType" : {
+      "$id" : "#WeatherServiceType",
+      "description" : "",
+      "enum" : [
+        "weather",
+        "airQuality"
+      ],
+      "title" : "WeatherServiceType",
+      "type" : "string"
+    },
+    "Wind" : {
+      "$id" : "#Wind",
+      "additionalProperties" : false,
+      "allOf" : [
+
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "degrees" : 20,
+          "gust" : 1,
+          "speed" : 5
+        }
+      ],
+      "properties" : {
+        "degrees" : {
+          "type" : "number"
+        },
+        "gust" : {
+          "type" : "number"
+        },
+        "speed" : {
+          "type" : "number"
+        }
+      },
+      "required" : [
+        "speed"
+      ],
+      "title" : "Wind",
+      "type" : "object"
     }
   },
-  "description" : "`Result` is the base implementation for a result associated with a task, step, or asynchronous action. When running a task, there will be a result of some variety used to mark each step in the task.",
+  "description" : "`JsonResultData` is the base implementation for `ResultData` that is serialized using the `Codable` protocol and the polymorphic serialization defined by this framework.",
   "properties" : {
     "identifier" : {
       "type" : "string"
     },
     "type" : {
-      "$ref" : "#ResultType"
+      "$ref" : "#SerializableResultType"
     }
   },
   "required" : [
     "type",
     "identifier"
   ],
-  "title" : "Result",
+  "title" : "ResultData",
   "type" : "object"
 }

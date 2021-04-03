@@ -1,9 +1,9 @@
 {
-  "$id" : "http://sagebionetworks.org/SageResearch/jsonSchema/TaskResultObject.json",
+  "$id" : "https://raw.githubusercontent.com/Sage-Bionetworks/AssessmentModel-JsonSchema/main/schemas/TaskResultObject.json",
   "$schema" : "http://json-schema.org/draft-07/schema#",
   "allOf" : [
     {
-      "$ref" : "Result.json"
+      "$ref" : "ResultData.json"
     }
   ],
   "definitions" : {
@@ -16,7 +16,7 @@
     },
     "asyncResults" : {
       "items" : {
-        "$ref" : "Result.json"
+        "$ref" : "ResultData.json"
       },
       "type" : "array"
     },
@@ -36,16 +36,13 @@
     "schemaIdentifier" : {
       "type" : "string"
     },
-    "schemaInfo" : {
-      "$ref" : "SchemaInfoObject.json"
-    },
     "startDate" : {
       "format" : "date-time",
       "type" : "string"
     },
     "stepHistory" : {
       "items" : {
-        "$ref" : "Result.json"
+        "$ref" : "ResultData.json"
       },
       "type" : "array"
     },
@@ -53,7 +50,7 @@
       "type" : "string"
     },
     "type" : {
-      "$ref" : "Result.json#ResultType",
+      "$ref" : "ResultData.json#SerializableResultType",
       "const" : "task"
     },
     "versionString" : {

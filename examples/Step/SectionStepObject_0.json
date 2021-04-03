@@ -1,1 +1,1 @@
-{"steps":[{"identifier":"step1","type":"instruction","title":"Step 1"},{"type":"instruction","identifier":"step2","title":"Step 2"}],"identifier":"foobar","type":"section"}
+{"identifier":"foobar","steps":[{"title":"Step 1","identifier":"step1","type":"instruction"},{"identifier":"step2","type":"instruction","title":"Step 2"}],"type":"section"}

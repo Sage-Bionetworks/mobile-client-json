@@ -1,1 +1,1 @@
-{"identifier":"foo","fieldLabel":"Favorite color","placeholder":"Blue, no! Red!","choices":[{"value":0,"text":"never"},{"text":"sometimes","value":1},{"text":"often","value":2},{"text":"always","value":3}],"type":"choicePicker"}
+{"identifier":"foo","fieldLabel":"Favorite color","type":"choicePicker","choices":[{"text":"never","value":0},{"text":"sometimes","value":1},{"text":"often","value":2},{"value":3,"text":"always"}],"placeholder":"Blue, no! Red!"}

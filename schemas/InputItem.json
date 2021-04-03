@@ -1,5 +1,5 @@
 {
-  "$id" : "http://sagebionetworks.org/SageResearch/jsonSchema/InputItem.json",
+  "$id" : "https://raw.githubusercontent.com/Sage-Bionetworks/AssessmentModel-JsonSchema/main/schemas/InputItem.json",
   "$schema" : "http://json-schema.org/draft-07/schema#",
   "definitions" : {
     "CheckboxInputItemObject" : {
@@ -385,21 +385,21 @@
       "$id" : "#FormUIHint",
       "description" : "",
       "examples" : [
-        "combobox",
-        "slider",
-        "checkmark",
-        "checkbox",
-        "toggle",
-        "multipleLine",
-        "link",
-        "list",
-        "radioButton",
-        "button",
         "disclosureArrow",
+        "link",
+        "checkbox",
+        "list",
+        "slider",
+        "toggle",
+        "radioButton",
+        "checkmark",
+        "section",
+        "multipleLine",
+        "textfield",
+        "combobox",
         "picker",
         "popover",
-        "textfield",
-        "section"
+        "button"
       ],
       "title" : "FormUIHint",
       "type" : "string"

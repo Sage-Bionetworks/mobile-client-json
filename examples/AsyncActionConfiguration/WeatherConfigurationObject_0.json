@@ -1,0 +1,1 @@
+{"identifier":"weather","services":[{"identifier":"weather","key":"ABCD","provider":"openWeather"},{"provider":"airNow","key":"ABCD","identifier":"airQuality"}],"startStepIdentifier":"countdown","type":"weather"}

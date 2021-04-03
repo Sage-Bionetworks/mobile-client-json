@@ -1,5 +1,5 @@
 {
-  "$id" : "http://sagebionetworks.org/SageResearch/jsonSchema/AnswerType.json",
+  "$id" : "https://raw.githubusercontent.com/Sage-Bionetworks/AssessmentModel-JsonSchema/main/schemas/AnswerType.json",
   "$schema" : "http://json-schema.org/draft-07/schema#",
   "definitions" : {
     "AnswerTypeArray" : {
@@ -180,6 +180,9 @@
         }
       ],
       "properties" : {
+        "significantDigits" : {
+          "type" : "number"
+        },
         "type" : {
           "$ref" : "#AnswerTypeType",
           "const" : "number"

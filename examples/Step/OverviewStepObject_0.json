@@ -1,1 +1,1 @@
-{"icons":[{"icon":"Foo1","title":"A SMOOTH SURFACE"}],"title":"Hello World!","type":"overview","identifier":"foo","detail":"Some text.","permissions":[{"permissionType":"location"}]}
+{"type":"overview","permissions":[{"permissionType":"location"}],"title":"Hello World!","icons":[{"icon":"Foo1","title":"A SMOOTH SURFACE"}],"identifier":"foo","detail":"Some text."}

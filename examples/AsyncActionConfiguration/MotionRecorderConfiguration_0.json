@@ -1,1 +1,0 @@
-{"frequency":50,"requiresBackgroundAudio":true,"type":"motion","startStepIdentifier":"start","identifier":"motion","recorderTypes":["accelerometer","gyro"],"stopStepIdentifier":"stop"}

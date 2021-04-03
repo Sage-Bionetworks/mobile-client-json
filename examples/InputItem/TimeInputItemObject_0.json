@@ -1,1 +1,1 @@
-{"formatOptions":{"allowFuture":false,"codingFormat":"HH:mm","minimumValue":"06:00"},"type":"time","identifier":"foo"}
+{"type":"time","formatOptions":{"allowFuture":false,"minimumValue":"06:00","codingFormat":"HH:mm"},"identifier":"foo"}
