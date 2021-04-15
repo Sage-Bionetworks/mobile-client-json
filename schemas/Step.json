@@ -1,5 +1,5 @@
 {
-  "$id" : "http://sagebionetworks.org/SageResearch/jsonSchema/Step.json",
+  "$id" : "https://raw.githubusercontent.com/Sage-Bionetworks/AssessmentModel-JsonSchema/main/schemas/Step.json",
   "$schema" : "http://json-schema.org/draft-07/schema#",
   "definitions" : {
     "ActiveUIStepCommand" : {
@@ -7,16 +7,16 @@
       "description" : "",
       "items" : {
         "examples" : [
+          "transitionAutomatically",
           "vibrateOnFinish",
-          "playSoundOnStart",
-          "startTimerAutomatically",
           "continueOnFinish",
-          "vibrate",
+          "playSoundOnFinish",
           "speakWarningOnPause",
           "shouldDisableIdleTimer",
-          "transitionAutomatically",
-          "playSoundOnFinish",
+          "playSoundOnStart",
           "vibrateOnStart",
+          "startTimerAutomatically",
+          "vibrate",
           "playSound"
         ],
         "jsonType" : "string"
@@ -158,7 +158,8 @@
         "skip",
         "cancel",
         "learnMore",
-        "reviewInstructions"
+        "reviewInstructions",
+        "abandonAssessment"
       ],
       "title" : "ButtonType",
       "type" : "string"
@@ -695,10 +696,10 @@
       "$id" : "#MultipleInputQuestionStepObject",
       "allOf" : [
         {
-          "$ref" : "ResultNode.json"
+          "$ref" : "Step.json"
         },
         {
-          "$ref" : "Step.json"
+          "$ref" : "ResultNode.json"
         }
       ],
       "description" : "",
@@ -1097,6 +1098,34 @@
       "title" : "ResultSummaryStepObject",
       "type" : "object"
     },
+    "SchemaInfoObject" : {
+      "$id" : "#SchemaInfoObject",
+      "additionalProperties" : false,
+      "allOf" : [
+
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "identifier" : "foo",
+          "revision" : 2
+        }
+      ],
+      "properties" : {
+        "identifier" : {
+          "type" : "string"
+        },
+        "revision" : {
+          "type" : "integer"
+        }
+      },
+      "required" : [
+        "identifier",
+        "revision"
+      ],
+      "title" : "SchemaInfoObject",
+      "type" : "object"
+    },
     "SectionStepObject" : {
       "$id" : "#SectionStepObject",
       "additionalProperties" : false,
@@ -1163,10 +1192,10 @@
       "$id" : "#SimpleQuestionStepObject",
       "allOf" : [
         {
-          "$ref" : "ResultNode.json"
+          "$ref" : "Step.json"
         },
         {
-          "$ref" : "Step.json"
+          "$ref" : "ResultNode.json"
         }
       ],
       "description" : "",
@@ -1495,7 +1524,7 @@
           "type" : "string"
         },
         "schemaInfo" : {
-          "$ref" : "SchemaInfoObject.json"
+          "$ref" : "#SchemaInfoObject"
         },
         "subtitle" : {
           "type" : "string"

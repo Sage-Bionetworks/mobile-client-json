@@ -1,5 +1,5 @@
 {
-  "$id" : "http://sagebionetworks.org/SageResearch/jsonSchema/AssessmentTaskObject.json",
+  "$id" : "https://raw.githubusercontent.com/Sage-Bionetworks/AssessmentModel-JsonSchema/main/schemas/AssessmentTaskObject.json",
   "$schema" : "http://json-schema.org/draft-07/schema#",
   "allOf" : [
     {
@@ -7,7 +7,83 @@
     }
   ],
   "definitions" : {
+    "AudioSessionSettings" : {
+      "$id" : "#AudioSessionSettings",
+      "additionalProperties" : false,
+      "allOf" : [
 
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "category" : "soloAmbient",
+          "mixingOptions" : "default",
+          "mode" : "default"
+        },
+        {
+          "category" : "continuousPlayback",
+          "mixingOptions" : "interruptSpokenAudioAndMixWithOthers",
+          "mode" : "voicePrompt"
+        },
+        {
+          "category" : "record",
+          "mixingOptions" : "default",
+          "mode" : "measurement"
+        },
+        {
+          "category" : "intermittentPlayback",
+          "mixingOptions" : "duckOthers",
+          "mode" : "voicePrompt"
+        }
+      ],
+      "properties" : {
+        "category" : {
+          "$ref" : "Category.json"
+        },
+        "mixingOptions" : {
+          "$ref" : "#MixingOptions"
+        },
+        "mode" : {
+          "$ref" : "#Mode"
+        }
+      },
+      "required" : [
+        "category",
+        "mode",
+        "mixingOptions"
+      ],
+      "title" : "AudioSessionSettings",
+      "type" : "object"
+    },
+    "MixingOptions" : {
+      "$id" : "#MixingOptions",
+      "description" : "",
+      "enum" : [
+        "default",
+        "mixWithOthers",
+        "interruptSpokenAudioAndMixWithOthers",
+        "duckOthers"
+      ],
+      "title" : "MixingOptions",
+      "type" : "string"
+    },
+    "Mode" : {
+      "$id" : "#Mode",
+      "description" : "",
+      "enum" : [
+        "default",
+        "gameChat",
+        "measurement",
+        "moviePlayback",
+        "spokenAudio",
+        "videoChat",
+        "videoRecording",
+        "voiceChat",
+        "voicePrompt"
+      ],
+      "title" : "Mode",
+      "type" : "string"
+    }
   },
   "description" : "",
   "properties" : {
@@ -23,6 +99,9 @@
       },
       "type" : "array"
     },
+    "audioSessionSettings" : {
+      "$ref" : "#AudioSessionSettings"
+    },
     "estimatedMinutes" : {
       "type" : "integer"
     },
@@ -35,8 +114,12 @@
       },
       "type" : "array"
     },
-    "resultIdentifier" : {
+    "schemaIdentifier" : {
       "type" : "string"
+    },
+    "shouldEndOnInterrupt" : {
+      "description" : "Should the task end early if the task is interrupted by a phone call?",
+      "type" : "boolean"
     },
     "shouldHideActions" : {
       "items" : {

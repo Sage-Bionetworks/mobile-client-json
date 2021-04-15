@@ -1,1 +1,1 @@
-{"fieldLabel":"Favorite color","type":"stringChoicePicker","choices":["never","sometimes","often","always"],"identifier":"foo","placeholder":"Blue, no! Red!"}
+{"choices":["never","sometimes","often","always"],"placeholder":"Blue, no! Red!","type":"stringChoicePicker","identifier":"foo","fieldLabel":"Favorite color"}

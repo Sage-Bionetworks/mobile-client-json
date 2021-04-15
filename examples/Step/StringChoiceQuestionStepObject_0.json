@@ -1,1 +1,1 @@
-{"identifier":"foo","optional":false,"singleChoice":false,"title":"Hello World!","choices":["choice 1","choice 2","choice 3"],"type":"stringChoiceQuestion","uiHint":"checkmark"}
+{"type":"stringChoiceQuestion","optional":false,"title":"Hello World!","identifier":"foo","uiHint":"checkmark","singleChoice":false,"choices":["choice 1","choice 2","choice 3"]}

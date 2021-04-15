@@ -1,5 +1,5 @@
 {
-  "$id" : "http://sagebionetworks.org/SageResearch/jsonSchema/JsonSurveyRuleObject.json",
+  "$id" : "https://raw.githubusercontent.com/Sage-Bionetworks/AssessmentModel-JsonSchema/main/schemas/JsonSurveyRuleObject.json",
   "$schema" : "http://json-schema.org/draft-07/schema#",
   "definitions" : {
 

@@ -1,1 +1,1 @@
-{"fullInstructionsOnly":true,"type":"instruction","title":"Hello World!","identifier":"foo","spokenInstructions":{"end":"Put your phone back in your pocket.","start":"Take your phone out of your pocket to review the instructions."},"detail":"Some text."}
+{"detail":"Some text.","fullInstructionsOnly":true,"type":"instruction","spokenInstructions":{"start":"Take your phone out of your pocket to review the instructions.","end":"Put your phone back in your pocket."},"identifier":"foo","title":"Hello World!"}

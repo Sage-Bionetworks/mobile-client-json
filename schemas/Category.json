@@ -1,0 +1,22 @@
+{
+  "$id" : "https://raw.githubusercontent.com/Sage-Bionetworks/AssessmentModel-JsonSchema/main/schemas/Category.json",
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "definitions" : {
+
+  },
+  "description" : "",
+  "properties" : {
+    "name" : {
+      "type" : "string"
+    },
+    "number" : {
+      "type" : "number"
+    }
+  },
+  "required" : [
+    "number",
+    "name"
+  ],
+  "title" : "Category",
+  "type" : "object"
+}

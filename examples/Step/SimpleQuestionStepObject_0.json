@@ -1,1 +1,1 @@
-{"type":"simpleQuestion","skipCheckbox":{"fieldLabel":"No answer","type":"skipCheckbox"},"title":"Hello World!","identifier":"foo","optional":false,"surveyRules":[{"matchingAnswer":1900}],"inputItem":{"type":"year"}}
+{"surveyRules":[{"matchingAnswer":1900}],"optional":false,"identifier":"foo","title":"Hello World!","inputItem":{"type":"year"},"skipCheckbox":{"fieldLabel":"No answer","type":"skipCheckbox"},"type":"simpleQuestion"}
