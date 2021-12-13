@@ -1,0 +1,123 @@
+{
+  "$id" : "https://raw.githubusercontent.com/Sage-Bionetworks/AssessmentModel-JsonSchema/main/schemas/TaskMetadata.json",
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "definitions" : {
+    "FileManifest" : {
+      "$id" : "#FileManifest",
+      "additionalProperties" : false,
+      "allOf" : [
+
+      ],
+      "description" : "",
+      "examples" : [
+        {
+          "contentType" : "application/json",
+          "filename" : "foo",
+          "identifier" : "foo",
+          "stepPath" : "baroo/foo",
+          "timestamp" : "2021-12-13T15:12:46.545-08:00"
+        }
+      ],
+      "properties" : {
+        "contentType" : {
+          "description" : "The content type of the file.",
+          "type" : "string"
+        },
+        "filename" : {
+          "description" : "The filename of the archive object. This should be unique within the manifest. It may include a relative path that points to a subdirectory.",
+          "type" : "string"
+        },
+        "identifier" : {
+          "description" : "The identifier for the result. This value may *not* be unique if a step is run more than once during a task at different stages.",
+          "type" : "string"
+        },
+        "stepPath" : {
+          "description" : "The full path to the result if it is within the step history.",
+          "type" : "string"
+        },
+        "timestamp" : {
+          "description" : "The file creation date.",
+          "format" : "date-time",
+          "type" : "string"
+        }
+      },
+      "required" : [
+        "filename",
+        "timestamp"
+      ],
+      "title" : "FileManifest",
+      "type" : "object"
+    }
+  },
+  "description" : "",
+  "properties" : {
+    "appName" : {
+      "description" : "The name of the application.",
+      "type" : "string"
+    },
+    "appVersion" : {
+      "description" : "The application version.",
+      "type" : "string"
+    },
+    "deviceInfo" : {
+      "description" : "Information about the specific device.",
+      "type" : "string"
+    },
+    "deviceTypeIdentifier" : {
+      "description" : "Specific model identifier of the device.",
+      "type" : "string"
+    },
+    "endDate" : {
+      "description" : "The timestamp for when the task was ended.",
+      "format" : "date-time",
+      "type" : "string"
+    },
+    "files" : {
+      "description" : "A list of the files included in this package of results.",
+      "items" : {
+        "$ref" : "#FileManifest"
+      },
+      "type" : "array"
+    },
+    "rsdFrameworkVersion" : {
+      "description" : "The version of the SageResearch framework.",
+      "type" : "string"
+    },
+    "schemaIdentifier" : {
+      "description" : "The identifier for the schema associated with this task result.",
+      "type" : "string"
+    },
+    "schemaRevision" : {
+      "description" : "The revision for the schema associated with this task result.",
+      "type" : "string"
+    },
+    "startDate" : {
+      "description" : "The timestamp for when the task was started.",
+      "format" : "date-time",
+      "type" : "string"
+    },
+    "taskIdentifier" : {
+      "description" : "The Task Identifier for the assessment.",
+      "type" : "string"
+    },
+    "taskRunUUID" : {
+      "description" : "The task run UUID.",
+      "format" : "uuid",
+      "type" : "string"
+    },
+    "versionString" : {
+      "description" : "The version string associated with this task.",
+      "type" : "string"
+    }
+  },
+  "required" : [
+    "deviceInfo",
+    "deviceTypeIdentifier",
+    "appName",
+    "appVersion",
+    "taskIdentifier",
+    "files"
+  ],
+  "title" : "TaskMetadata",
+  "type" : "object"
+}
