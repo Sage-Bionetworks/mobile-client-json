@@ -1,1 +1,1 @@
-{"placeholder":"Enter a value","fieldLabel":"How much?","identifier":"field1","formatOptions":{},"type":"year"}
+{"identifier":"field1","type":"year","placeholder":"Enter a value","fieldLabel":"How much?","formatOptions":{}}

@@ -1,1 +1,1 @@
-{"type":"distance","motionStepIdentifier":"run","stopStepIdentifier":"rest","identifier":"distance","startStepIdentifier":"countdown"}
+{"startStepIdentifier":"countdown","motionStepIdentifier":"run","type":"distance","identifier":"distance","stopStepIdentifier":"rest"}

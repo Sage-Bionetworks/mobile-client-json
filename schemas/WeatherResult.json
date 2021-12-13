@@ -1,0 +1,38 @@
+{
+  "$id" : "https://raw.githubusercontent.com/Sage-Bionetworks/AssessmentModel-JsonSchema/main/schemas/WeatherResult.json",
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "definitions" : {
+
+  },
+  "description" : "",
+  "properties" : {
+    "airQuality" : {
+      "$ref" : "ResultData.json#AirQualityServiceResult"
+    },
+    "endDate" : {
+      "format" : "date-time",
+      "type" : "string"
+    },
+    "identifier" : {
+      "type" : "string"
+    },
+    "startDate" : {
+      "format" : "date-time",
+      "type" : "string"
+    },
+    "type" : {
+      "$ref" : "ResultData.json#SerializableResultType",
+      "const" : "weather"
+    },
+    "weather" : {
+      "$ref" : "ResultData.json#WeatherServiceResult"
+    }
+  },
+  "required" : [
+    "identifier",
+    "type",
+    "startDate"
+  ],
+  "title" : "WeatherResult",
+  "type" : "object"
+}

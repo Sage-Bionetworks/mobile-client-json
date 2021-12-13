@@ -1,1 +1,1 @@
-{"animationDuration":2,"placementType":"topBackground","animationRepeatCount":0,"imageNames":["redCat1","redCat2","redCat3"],"bundleIdentifier":"org.example.SharedResources","type":"animated","size":{"width":100,"height":120}}
+{"placementType":"topBackground","bundleIdentifier":"org.example.SharedResources","type":"animated","animationDuration":2,"size":{"height":120,"width":100},"animationRepeatCount":0,"imageNames":["redCat1","redCat2","redCat3"]}

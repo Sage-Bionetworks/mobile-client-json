@@ -20,7 +20,7 @@
           },
           "identifier" : "airQuality",
           "provider" : "airNow",
-          "startDate" : "2021-04-03T15:26:59.294-07:00",
+          "startDate" : "2021-12-13T15:53:28.959-08:00",
           "type" : "airQuality"
         }
       ],
@@ -447,12 +447,12 @@
       "description" : "",
       "examples" : [
         {
-          "endDate" : "2021-04-03T15:26:59.293-07:00",
+          "endDate" : "2021-12-13T15:53:28.968-08:00",
           "errorCode" : 1,
           "errorDescription" : "example error",
           "errorDomain" : "ExampleDomain",
           "identifier" : "errorResult",
-          "startDate" : "2021-04-03T15:26:59.293-07:00",
+          "startDate" : "2021-12-13T15:53:28.968-08:00",
           "type" : "error"
         }
       ],
@@ -545,35 +545,6 @@
         "identifier"
       ],
       "title" : "FileResultObject",
-      "type" : "object"
-    },
-    "Precipitation" : {
-      "$id" : "#Precipitation",
-      "additionalProperties" : false,
-      "allOf" : [
-
-      ],
-      "description" : "",
-      "examples" : [
-        {
-          "pastHour" : 5,
-          "pastThreeHours" : 12
-        }
-      ],
-      "properties" : {
-        "pastHour" : {
-          "description" : "Precipitation in the past hour.",
-          "type" : "number"
-        },
-        "pastThreeHours" : {
-          "description" : "Precipitation in the past 3 hours.",
-          "type" : "number"
-        }
-      },
-      "required" : [
-
-      ],
-      "title" : "Precipitation",
       "type" : "object"
     },
     "ResultObject" : {
@@ -895,7 +866,7 @@
           "humidity" : 0.90000000000000002,
           "identifier" : "weather",
           "provider" : "openWeather",
-          "startDate" : "2021-04-03T15:26:59.298-07:00",
+          "startDate" : "2021-12-13T15:53:28.959-08:00",
           "temperature" : 20,
           "type" : "weather"
         }
@@ -918,13 +889,13 @@
           "$ref" : "#WeatherServiceProviderName"
         },
         "rain" : {
-          "$ref" : "#Precipitation"
+          "$ref" : "Precipitation.json"
         },
         "seaLevelPressure" : {
           "type" : "number"
         },
         "snow" : {
-          "$ref" : "#Precipitation"
+          "$ref" : "Precipitation.json"
         },
         "startDate" : {
           "format" : "date-time",
@@ -938,7 +909,7 @@
           "const" : "weather"
         },
         "wind" : {
-          "$ref" : "#Wind"
+          "$ref" : "Wind.json"
         }
       },
       "required" : [
@@ -959,37 +930,6 @@
       ],
       "title" : "WeatherServiceType",
       "type" : "string"
-    },
-    "Wind" : {
-      "$id" : "#Wind",
-      "additionalProperties" : false,
-      "allOf" : [
-
-      ],
-      "description" : "",
-      "examples" : [
-        {
-          "degrees" : 20,
-          "gust" : 1,
-          "speed" : 5
-        }
-      ],
-      "properties" : {
-        "degrees" : {
-          "type" : "number"
-        },
-        "gust" : {
-          "type" : "number"
-        },
-        "speed" : {
-          "type" : "number"
-        }
-      },
-      "required" : [
-        "speed"
-      ],
-      "title" : "Wind",
-      "type" : "object"
     }
   },
   "description" : "`JsonResultData` is the base implementation for `ResultData` that is serialized using the `Codable` protocol and the polymorphic serialization defined by this framework.",

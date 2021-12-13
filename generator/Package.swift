@@ -15,6 +15,12 @@ let package = Package(
         .package(name: "SageResearch",
                  url: "https://github.com/Sage-Bionetworks/SageResearch.git",
                  from: "4.1.0"),
+        .package(name: "JsonModel",
+                 url: "https://github.com/Sage-Bionetworks/JsonModel-Swift.git",
+                 from: "1.2.0"),
+        .package(name: "MobilePassiveData",
+                 url: "https://github.com/Sage-Bionetworks/MobilePassiveData-SDK.git",
+                 from: "1.0.0"),
     ],
     targets: [
         
@@ -23,7 +29,9 @@ let package = Package(
         .executableTarget(
             name: "generator",
             dependencies: [
-                .product(name: "Research", package: "SageResearch")
+                .product(name: "Research", package: "SageResearch"),
+                .product(name: "AudioRecorder", package: "MobilePassiveData"),
+                .product(name: "MotionSensor", package: "MobilePassiveData"),
             ]),
         .testTarget(
             name: "generatorTests",

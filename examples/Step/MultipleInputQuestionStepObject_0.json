@@ -1,1 +1,1 @@
-{"optional":false,"identifier":"foo","type":"multipleInputQuestion","title":"Hello World!","inputItems":[{"identifier":"year","type":"year"},{"type":"string","identifier":"name"}],"skipCheckbox":{"type":"skipCheckbox","fieldLabel":"No answer"}}
+{"inputItems":[{"identifier":"year","type":"year"},{"type":"string","identifier":"name"}],"skipCheckbox":{"type":"skipCheckbox","fieldLabel":"No answer"},"title":"Hello World!","identifier":"foo","type":"multipleInputQuestion","optional":false}

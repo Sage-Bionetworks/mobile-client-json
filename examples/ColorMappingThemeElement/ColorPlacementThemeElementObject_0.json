@@ -1,1 +1,1 @@
-{"bundleIdentifier":"FooModule","packageName":"org.sagebase.foo","placement":{"footer":"white","header":"primary","body":"white"},"type":"placementMapping","customColor":{"color":"sky","usesLightStyle":false}}
+{"bundleIdentifier":"FooModule","placement":{"footer":"white","body":"white","header":"primary"},"type":"placementMapping","customColor":{"usesLightStyle":false,"color":"sky"},"packageName":"org.sagebase.foo"}

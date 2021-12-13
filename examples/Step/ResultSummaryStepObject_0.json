@@ -1,1 +1,1 @@
-{"type":"feedback","resultTitle":"This is a title","title":"Hello World!","resultIdentifier":"boo","detail":"Some text.","identifier":"foo","unitText":"lala"}
+{"identifier":"foo","title":"Hello World!","detail":"Some text.","resultIdentifier":"boo","resultTitle":"This is a title","type":"feedback","unitText":"lala"}

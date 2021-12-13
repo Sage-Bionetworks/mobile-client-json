@@ -1,0 +1,24 @@
+{
+  "$id" : "https://raw.githubusercontent.com/Sage-Bionetworks/AssessmentModel-JsonSchema/main/schemas/Wind.json",
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "definitions" : {
+
+  },
+  "description" : "",
+  "properties" : {
+    "degrees" : {
+      "type" : "number"
+    },
+    "gust" : {
+      "type" : "number"
+    },
+    "speed" : {
+      "type" : "number"
+    }
+  },
+  "required" : [
+    "speed"
+  ],
+  "title" : "Wind",
+  "type" : "object"
+}

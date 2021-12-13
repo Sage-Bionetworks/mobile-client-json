@@ -1,0 +1,48 @@
+{
+  "$id" : "https://raw.githubusercontent.com/Sage-Bionetworks/AssessmentModel-JsonSchema/main/schemas/AudioLevelRecord.json",
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "definitions" : {
+
+  },
+  "description" : "",
+  "properties" : {
+    "average" : {
+      "description" : "The average meter level over the time interval.",
+      "type" : "number"
+    },
+    "peak" : {
+      "description" : "The peak meter level for the time interval.",
+      "type" : "number"
+    },
+    "stepPath" : {
+      "description" : "An identifier marking the current step.",
+      "type" : "string"
+    },
+    "timeInterval" : {
+      "description" : "The sampling time interval.",
+      "type" : "number"
+    },
+    "timestamp" : {
+      "description" : "Time that the system has been awake since last reboot.",
+      "type" : "number"
+    },
+    "timestampDate" : {
+      "description" : "The date timestamp when the measurement was taken (if available).",
+      "format" : "date-time",
+      "type" : "string"
+    },
+    "unit" : {
+      "description" : "The unit of measurement for the decibel levels.",
+      "type" : "string"
+    },
+    "uptime" : {
+      "description" : "System clock time.",
+      "type" : "number"
+    }
+  },
+  "required" : [
+    "stepPath"
+  ],
+  "title" : "AudioLevelRecord",
+  "type" : "object"
+}

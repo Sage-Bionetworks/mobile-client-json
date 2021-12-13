@@ -1,1 +1,1 @@
-{"errorDescription":"example error","type":"error","endDate":"2021-04-03T15:26:59.293-07:00","startDate":"2021-04-03T15:26:59.293-07:00","errorCode":1,"identifier":"errorResult","errorDomain":"ExampleDomain"}
+{"identifier":"errorResult","errorCode":1,"startDate":"2021-12-13T15:53:28.968-08:00","errorDescription":"example error","errorDomain":"ExampleDomain","endDate":"2021-12-13T15:53:28.968-08:00","type":"error"}

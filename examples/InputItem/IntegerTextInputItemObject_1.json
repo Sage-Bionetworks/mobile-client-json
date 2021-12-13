@@ -1,1 +1,1 @@
-{"placeholder":"Enter a value","fieldLabel":"How much?","identifier":"field1","type":"integer","formatOptions":{}}
+{"identifier":"field1","placeholder":"Enter a value","fieldLabel":"How much?","type":"integer","formatOptions":{}}

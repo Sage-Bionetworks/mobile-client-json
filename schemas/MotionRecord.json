@@ -1,0 +1,73 @@
+{
+  "$id" : "https://raw.githubusercontent.com/Sage-Bionetworks/AssessmentModel-JsonSchema/main/schemas/MotionRecord.json",
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "definitions" : {
+    "AttitudeReferenceFrame" : {
+      "$id" : "#AttitudeReferenceFrame",
+      "description" : "",
+      "enum" : [
+        "Z-Up",
+        "North-West-Up"
+      ],
+      "title" : "AttitudeReferenceFrame",
+      "type" : "string"
+    }
+  },
+  "description" : "",
+  "properties" : {
+    "eventAccuracy" : {
+      "description" : "A number marking the sensor accuracy of the magnetic field sensor.",
+      "type" : "integer"
+    },
+    "heading" : {
+      "description" : "The heading angle in the range [0,360) degrees with respect to the CMAttitude reference frame. A negative value is returned for `CMAttitudeReferenceFrame.xArbitraryZVertical` and `CMAttitudeReferenceFrame.xArbitraryCorrectedZVertical` reference coordinates.",
+      "type" : "number"
+    },
+    "referenceCoordinate" : {
+      "$ref" : "#AttitudeReferenceFrame",
+      "description" : "Used for an `attitude` record type to describe the reference frame."
+    },
+    "sensorType" : {
+      "$ref" : "AsyncActionConfiguration.json#MotionRecorderType",
+      "description" : "The sensor type for this record sample."
+    },
+    "stepPath" : {
+      "description" : "An identifier marking the current step.",
+      "type" : "string"
+    },
+    "timestamp" : {
+      "description" : "Time that the system has been awake since last reboot.",
+      "type" : "number"
+    },
+    "timestampDate" : {
+      "description" : "The date timestamp when the measurement was taken (if available).",
+      "format" : "date-time",
+      "type" : "string"
+    },
+    "uptime" : {
+      "description" : "System clock time.",
+      "type" : "number"
+    },
+    "w" : {
+      "description" : "The `w` component of the vector measurement for this sensor sample. Used by the attitude quaternion.",
+      "type" : "number"
+    },
+    "x" : {
+      "description" : "The `x` component of the vector measurement for this sensor sample.",
+      "type" : "number"
+    },
+    "y" : {
+      "description" : "The `y` component of the vector measurement for this sensor sample.",
+      "type" : "number"
+    },
+    "z" : {
+      "description" : "The `z` component of the vector measurement for this sensor sample.",
+      "type" : "number"
+    }
+  },
+  "required" : [
+    "stepPath"
+  ],
+  "title" : "MotionRecord",
+  "type" : "object"
+}

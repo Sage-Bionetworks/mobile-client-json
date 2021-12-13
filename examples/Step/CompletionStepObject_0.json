@@ -1,1 +1,1 @@
-{"resultTitle":"This is a title","unitText":"lala","type":"completion","identifier":"foo","resultIdentifier":"boo","detail":"Some text.","title":"Hello World!"}
+{"title":"Hello World!","unitText":"lala","resultIdentifier":"boo","identifier":"foo","type":"completion","detail":"Some text.","resultTitle":"This is a title"}

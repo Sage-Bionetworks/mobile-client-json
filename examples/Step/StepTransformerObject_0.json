@@ -1,1 +1,1 @@
-{"type":"transform","resourceTransformer":{"resourceName":"HeartrateStep.json"},"identifier":"heartRate.before"}
+{"resourceTransformer":{"resourceName":"HeartrateStep.json"},"type":"transform","identifier":"heartRate.before"}
