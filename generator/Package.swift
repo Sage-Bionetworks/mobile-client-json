@@ -12,15 +12,19 @@ let package = Package(
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
         // Dependencies declare other packages that this package depends on.
-        .package(name: "SageResearch",
-                 url: "https://github.com/Sage-Bionetworks/SageResearch.git",
-                 from: "4.1.0"),
         .package(name: "JsonModel",
-                 url: "https://github.com/Sage-Bionetworks/JsonModel-Swift.git",
-                 from: "1.2.0"),
+                 path: "../../JsonModel-Swift/"),
+//                 url: "https://github.com/Sage-Bionetworks/JsonModel-Swift.git",
+//                 from: "1.3.4"),
+        .package(name: "MotorControl",
+                 path: "../../MotorControl-iOS/"),
+//                 url: "https://github.com/Sage-Bionetworks/MotorControl-iOS.git",
+//                 .revision("90c418ed59e10ee1fe02083e2015c54bc056e2f5")),
+ //                from: "4.0.1"),
+        .package(name: "SageResearch",
+                 path: "../../SageResearch/"),
         .package(name: "MobilePassiveData",
-                 url: "https://github.com/Sage-Bionetworks/MobilePassiveData-SDK.git",
-                 from: "1.0.0"),
+                 path: "../../MobilePassiveData-SDK/"),
     ],
     targets: [
         
@@ -29,9 +33,10 @@ let package = Package(
         .executableTarget(
             name: "generator",
             dependencies: [
+                .product(name: "MotorControl", package: "MotorControl"),
+                .product(name: "JsonModel", package: "JsonModel"),
                 .product(name: "Research", package: "SageResearch"),
-                .product(name: "AudioRecorder", package: "MobilePassiveData"),
-                .product(name: "MotionSensor", package: "MobilePassiveData"),
+                .product(name: "MobilePassiveData", package: "MobilePassiveData"),
             ]),
         .testTarget(
             name: "generatorTests",
