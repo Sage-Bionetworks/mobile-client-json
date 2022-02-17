@@ -1,0 +1,267 @@
+{
+  "$id" : "https://sage-bionetworks.github.io/mobile-client-json/schemas/v1/WeatherResult.json",
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "type" : "object",
+  "title" : "WeatherResult",
+  "description" : "A `WeatherResult` includes results for both weather and air quality in a consolidated result.",
+  "definitions" : {
+    "AirQualityServiceResult" : {
+      "$id" : "#AirQualityServiceResult",
+      "type" : "object",
+      "title" : "AirQualityServiceResult",
+      "description" : "",
+      "properties" : {
+        "type" : {
+          "const" : "airQuality",
+          "$ref" : "#WeatherServiceType"
+        },
+        "provider" : {
+          "$ref" : "#WeatherServiceProviderName"
+        },
+        "aqi" : {
+          "type" : "number",
+          "description" : "Air Quality Index"
+        },
+        "category" : {
+          "$ref" : "#Category"
+        }
+      },
+      "required" : [
+        "type",
+        "provider",
+        "aqi",
+        "category"
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "type" : "airQuality",
+          "identifier" : "airQuality",
+          "provider" : "airNow",
+          "startDate" : "2022-02-21T14:01:41.569-08:00",
+          "aqi" : 2,
+          "category" : {
+            "name" : "Moderate",
+            "number" : 2
+          }
+        }
+      ]
+    },
+    "Category" : {
+      "$id" : "#Category",
+      "type" : "object",
+      "title" : "Category",
+      "description" : "",
+      "properties" : {
+        "number" : {
+          "type" : "number"
+        },
+        "name" : {
+          "type" : "string"
+        }
+      },
+      "required" : [
+        "number",
+        "name"
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "number" : 1,
+          "name" : "Good"
+        }
+      ]
+    },
+    "Precipitation" : {
+      "$id" : "#Precipitation",
+      "type" : "object",
+      "title" : "Precipitation",
+      "description" : "",
+      "properties" : {
+        "pastHour" : {
+          "type" : "number",
+          "description" : "Precipitation in the past hour."
+        },
+        "pastThreeHours" : {
+          "type" : "number",
+          "description" : "Precipitation in the past 3 hours."
+        }
+      },
+      "required" : [
+
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "pastHour" : 5,
+          "pastThreeHours" : 12
+        }
+      ]
+    },
+    "WeatherServiceProviderName" : {
+      "$id" : "#WeatherServiceProviderName",
+      "type" : "string",
+      "title" : "WeatherServiceProviderName",
+      "description" : "",
+      "examples" : [
+        "airNow",
+        "openWeather"
+      ]
+    },
+    "WeatherServiceResult" : {
+      "$id" : "#WeatherServiceResult",
+      "type" : "object",
+      "title" : "WeatherServiceResult",
+      "description" : "",
+      "properties" : {
+        "type" : {
+          "const" : "weather",
+          "$ref" : "#WeatherServiceType"
+        },
+        "provider" : {
+          "$ref" : "#WeatherServiceProviderName"
+        },
+        "temperature" : {
+          "type" : "number"
+        },
+        "seaLevelPressure" : {
+          "type" : "number"
+        },
+        "groundLevelPressure" : {
+          "type" : "number"
+        },
+        "humidity" : {
+          "type" : "number"
+        },
+        "clouds" : {
+          "type" : "number"
+        },
+        "rain" : {
+          "$ref" : "#Precipitation"
+        },
+        "snow" : {
+          "$ref" : "#Precipitation"
+        },
+        "wind" : {
+          "$ref" : "#Wind"
+        }
+      },
+      "required" : [
+        "type",
+        "provider"
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "type" : "weather",
+          "identifier" : "weather",
+          "provider" : "openWeather",
+          "startDate" : "2022-02-21T14:01:41.571-08:00",
+          "temperature" : 20,
+          "humidity" : 0.90000000000000002,
+          "clouds" : 0.40000000000000002
+        }
+      ]
+    },
+    "WeatherServiceType" : {
+      "$id" : "#WeatherServiceType",
+      "type" : "string",
+      "title" : "WeatherServiceType",
+      "description" : "",
+      "enum" : [
+        "weather",
+        "airQuality"
+      ]
+    },
+    "Wind" : {
+      "$id" : "#Wind",
+      "type" : "object",
+      "title" : "Wind",
+      "description" : "",
+      "properties" : {
+        "speed" : {
+          "type" : "number"
+        },
+        "degrees" : {
+          "type" : "number"
+        },
+        "gust" : {
+          "type" : "number"
+        }
+      },
+      "required" : [
+        "speed"
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "speed" : 5,
+          "degrees" : 20,
+          "gust" : 1
+        }
+      ]
+    }
+  },
+  "properties" : {
+    "identifier" : {
+      "type" : "string"
+    },
+    "type" : {
+      "const" : "weather",
+      "$ref" : "ResultData.json#SerializableResultType"
+    },
+    "startDate" : {
+      "type" : "string",
+      "format" : "date-time"
+    },
+    "endDate" : {
+      "type" : "string",
+      "format" : "date-time"
+    },
+    "weather" : {
+      "$ref" : "#WeatherServiceResult"
+    },
+    "airQuality" : {
+      "$ref" : "#AirQualityServiceResult"
+    }
+  },
+  "required" : [
+    "identifier",
+    "type",
+    "startDate"
+  ],
+  "allOf" : [
+    {
+      "$ref" : "ResultData.json"
+    }
+  ],
+  "additionalProperties" : false,
+  "examples" : [
+    {
+      "identifier" : "weather",
+      "type" : "weather",
+      "startDate" : "2022-02-21T14:01:41.573-08:00",
+      "endDate" : "2022-02-21T14:01:41.573-08:00",
+      "weather" : {
+        "clouds" : 0.40000000000000002,
+        "humidity" : 0.90000000000000002,
+        "identifier" : "weather",
+        "provider" : "openWeather",
+        "startDate" : "2022-02-21T14:01:41.573-08:00",
+        "temperature" : 20,
+        "type" : "weather"
+      },
+      "airQuality" : {
+        "aqi" : 2,
+        "category" : {
+          "name" : "Moderate",
+          "number" : 2
+        },
+        "identifier" : "airQuality",
+        "provider" : "airNow",
+        "startDate" : "2022-02-21T14:01:41.573-08:00",
+        "type" : "airQuality"
+      }
+    }
+  ]
+}

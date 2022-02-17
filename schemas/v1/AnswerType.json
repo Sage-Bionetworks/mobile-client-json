@@ -1,0 +1,296 @@
+{
+  "$id" : "https://sage-bionetworks.github.io/mobile-client-json/schemas/v1/AnswerType.json",
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "type" : "object",
+  "title" : "AnswerType",
+  "description" : "`AnswerType` is used to allow carrying additional information about the properties of a JSON-encoded `AnswerResult`.",
+  "definitions" : {
+    "AnswerTypeArray" : {
+      "$id" : "#AnswerTypeArray",
+      "type" : "object",
+      "title" : "AnswerTypeArray",
+      "description" : "",
+      "properties" : {
+        "type" : {
+          "const" : "array",
+          "$ref" : "#AnswerTypeType"
+        },
+        "baseType" : {
+          "$ref" : "#JsonType",
+          "description" : "The base type of the array."
+        },
+        "sequenceSeparator" : {
+          "type" : "string",
+          "description" : "The sequence separator to use for arrays that should be encoded as strings."
+        }
+      },
+      "required" : [
+        "type",
+        "baseType"
+      ],
+      "allOf" : [
+        {
+          "$ref" : "#"
+        }
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "type" : "array",
+          "baseType" : "number"
+        },
+        {
+          "type" : "array",
+          "baseType" : "integer"
+        },
+        {
+          "type" : "array",
+          "baseType" : "string"
+        }
+      ]
+    },
+    "AnswerTypeBoolean" : {
+      "$id" : "#AnswerTypeBoolean",
+      "type" : "object",
+      "title" : "AnswerTypeBoolean",
+      "description" : "",
+      "properties" : {
+        "type" : {
+          "const" : "boolean",
+          "$ref" : "#AnswerTypeType"
+        }
+      },
+      "required" : [
+        "type"
+      ],
+      "allOf" : [
+        {
+          "$ref" : "#"
+        }
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "type" : "boolean"
+        }
+      ]
+    },
+    "AnswerTypeDateTime" : {
+      "$id" : "#AnswerTypeDateTime",
+      "type" : "object",
+      "title" : "AnswerTypeDateTime",
+      "description" : "",
+      "properties" : {
+        "type" : {
+          "const" : "date-time",
+          "$ref" : "#AnswerTypeType"
+        },
+        "codingFormat" : {
+          "type" : "string",
+          "description" : "The iso8601 format for the date-time components used by this answer type."
+        }
+      },
+      "required" : [
+        "type"
+      ],
+      "allOf" : [
+        {
+          "$ref" : "#"
+        }
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "type" : "date-time",
+          "codingFormat" : "yyyy-MM"
+        },
+        {
+          "type" : "date-time",
+          "codingFormat" : "HH:mm"
+        },
+        {
+          "type" : "date-time"
+        }
+      ]
+    },
+    "AnswerTypeInteger" : {
+      "$id" : "#AnswerTypeInteger",
+      "type" : "object",
+      "title" : "AnswerTypeInteger",
+      "description" : "",
+      "properties" : {
+        "type" : {
+          "const" : "integer",
+          "$ref" : "#AnswerTypeType"
+        }
+      },
+      "required" : [
+        "type"
+      ],
+      "allOf" : [
+        {
+          "$ref" : "#"
+        }
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "type" : "integer"
+        }
+      ]
+    },
+    "AnswerTypeMeasurement" : {
+      "$id" : "#AnswerTypeMeasurement",
+      "type" : "object",
+      "title" : "AnswerTypeMeasurement",
+      "description" : "",
+      "properties" : {
+        "type" : {
+          "const" : "measurement",
+          "$ref" : "#AnswerTypeType"
+        },
+        "unit" : {
+          "type" : "string",
+          "description" : "The unit of measurement into which the value is converted for storage."
+        }
+      },
+      "required" : [
+        "type"
+      ],
+      "allOf" : [
+        {
+          "$ref" : "#"
+        }
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "type" : "measurement",
+          "unit" : "cm"
+        }
+      ]
+    },
+    "AnswerTypeNumber" : {
+      "$id" : "#AnswerTypeNumber",
+      "type" : "object",
+      "title" : "AnswerTypeNumber",
+      "description" : "",
+      "properties" : {
+        "type" : {
+          "const" : "number",
+          "$ref" : "#AnswerTypeType"
+        },
+        "significantDigits" : {
+          "type" : "number",
+          "description" : "The number of significant digits to use in encoding the answer."
+        }
+      },
+      "required" : [
+        "type"
+      ],
+      "allOf" : [
+        {
+          "$ref" : "#"
+        }
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "type" : "number"
+        }
+      ]
+    },
+    "AnswerTypeObject" : {
+      "$id" : "#AnswerTypeObject",
+      "type" : "object",
+      "title" : "AnswerTypeObject",
+      "description" : "",
+      "properties" : {
+        "type" : {
+          "const" : "object",
+          "$ref" : "#AnswerTypeType"
+        }
+      },
+      "required" : [
+        "type"
+      ],
+      "allOf" : [
+        {
+          "$ref" : "#"
+        }
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "type" : "object"
+        }
+      ]
+    },
+    "AnswerTypeString" : {
+      "$id" : "#AnswerTypeString",
+      "type" : "object",
+      "title" : "AnswerTypeString",
+      "description" : "",
+      "properties" : {
+        "type" : {
+          "const" : "string",
+          "$ref" : "#AnswerTypeType"
+        }
+      },
+      "required" : [
+        "type"
+      ],
+      "allOf" : [
+        {
+          "$ref" : "#"
+        }
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "type" : "string"
+        }
+      ]
+    },
+    "AnswerTypeType" : {
+      "$id" : "#AnswerTypeType",
+      "type" : "string",
+      "title" : "AnswerTypeType",
+      "description" : "",
+      "examples" : [
+        "measurement",
+        "date-time",
+        "array",
+        "boolean",
+        "integer",
+        "null",
+        "number",
+        "object",
+        "string"
+      ]
+    },
+    "JsonType" : {
+      "$id" : "#JsonType",
+      "type" : "string",
+      "title" : "JsonType",
+      "description" : "",
+      "enum" : [
+        "string",
+        "number",
+        "integer",
+        "boolean",
+        "null",
+        "array",
+        "object"
+      ]
+    }
+  },
+  "properties" : {
+    "type" : {
+      "$ref" : "#AnswerTypeType"
+    }
+  },
+  "required" : [
+    "type"
+  ]
+}

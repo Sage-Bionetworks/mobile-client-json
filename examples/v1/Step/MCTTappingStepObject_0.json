@@ -1,0 +1,1 @@
+{"detail":"Some text.","title":"Hello World!","type":"tapping","identifier":"foo","spokenInstructions":{"10":"Keep going","end":"Stop moving","start":"Start moving","halfway":"Halfway there"},"requiresBackgroundAudio":true,"commands":["playSoundOnStart","vibrateOnFinish"],"duration":30}

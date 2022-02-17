@@ -1,0 +1,170 @@
+{
+  "$id" : "https://sage-bionetworks.github.io/mobile-client-json/schemas/v1/ColorMappingThemeElement.json",
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "type" : "object",
+  "title" : "ColorMappingThemeElement",
+  "description" : "`ColorMappingThemeElement` defines the colors to use on a given screen. Typically, this includes the background color for the header or a background color that is applied to the full screen.",
+  "definitions" : {
+    "ColorDataObject" : {
+      "$id" : "#ColorDataObject",
+      "type" : "object",
+      "title" : "ColorDataObject",
+      "description" : "",
+      "properties" : {
+        "color" : {
+          "type" : "string"
+        },
+        "usesLightStyle" : {
+          "type" : "boolean"
+        }
+      },
+      "required" : [
+        "color",
+        "usesLightStyle"
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "color" : "sky",
+          "usesLightStyle" : false
+        }
+      ]
+    },
+    "ColorMappingThemeElementType" : {
+      "$id" : "#ColorMappingThemeElementType",
+      "type" : "string",
+      "title" : "ColorMappingThemeElementType",
+      "description" : "",
+      "examples" : [
+        "placementMapping",
+        "singleColor"
+      ]
+    },
+    "ColorPlacementThemeElementObject" : {
+      "$id" : "#ColorPlacementThemeElementObject",
+      "type" : "object",
+      "title" : "ColorPlacementThemeElementObject",
+      "description" : "",
+      "properties" : {
+        "type" : {
+          "const" : "placementMapping",
+          "$ref" : "#ColorMappingThemeElementType"
+        },
+        "bundleIdentifier" : {
+          "type" : "string"
+        },
+        "packageName" : {
+          "type" : "string"
+        },
+        "placement" : {
+          "type" : "object",
+          "additionalProperties" : {
+            "$ref" : "#ColorStyle"
+          }
+        },
+        "customColor" : {
+          "$ref" : "#ColorDataObject"
+        }
+      },
+      "required" : [
+        "type",
+        "placement"
+      ],
+      "allOf" : [
+        {
+          "$ref" : "#"
+        }
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "type" : "placementMapping",
+          "bundleIdentifier" : "FooModule",
+          "packageName" : "org.sagebase.foo",
+          "placement" : {
+            "body" : "white",
+            "footer" : "white",
+            "header" : "primary"
+          },
+          "customColor" : {
+            "color" : "sky",
+            "usesLightStyle" : false
+          }
+        }
+      ]
+    },
+    "ColorStyle" : {
+      "$id" : "#ColorStyle",
+      "type" : "string",
+      "title" : "ColorStyle",
+      "description" : "",
+      "enum" : [
+        "white",
+        "black",
+        "background",
+        "primary",
+        "secondary",
+        "accent",
+        "successGreen",
+        "errorRed",
+        "custom"
+      ]
+    },
+    "SingleColorThemeElementObject" : {
+      "$id" : "#SingleColorThemeElementObject",
+      "type" : "object",
+      "title" : "SingleColorThemeElementObject",
+      "description" : "",
+      "properties" : {
+        "type" : {
+          "const" : "singleColor",
+          "$ref" : "#ColorMappingThemeElementType"
+        },
+        "bundleIdentifier" : {
+          "type" : "string"
+        },
+        "packageName" : {
+          "type" : "string"
+        },
+        "colorStyle" : {
+          "$ref" : "#ColorStyle"
+        },
+        "customColor" : {
+          "$ref" : "#ColorDataObject"
+        }
+      },
+      "required" : [
+        "type"
+      ],
+      "allOf" : [
+        {
+          "$ref" : "#"
+        }
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "type" : "singleColor",
+          "bundleIdentifier" : "FooModule",
+          "packageName" : "org.sagebase.foo",
+          "customColor" : {
+            "color" : "sky",
+            "usesLightStyle" : false
+          }
+        },
+        {
+          "type" : "singleColor",
+          "colorStyle" : "successGreen"
+        }
+      ]
+    }
+  },
+  "properties" : {
+    "type" : {
+      "$ref" : "#ColorMappingThemeElementType"
+    }
+  },
+  "required" : [
+    "type"
+  ]
+}

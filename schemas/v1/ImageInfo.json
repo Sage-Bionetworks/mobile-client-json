@@ -1,0 +1,201 @@
+{
+  "$id" : "https://sage-bionetworks.github.io/mobile-client-json/schemas/v1/ImageInfo.json",
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "type" : "object",
+  "title" : "ImageInfo",
+  "description" : "`ImageInfo` extends the UI step to include an image.\"",
+  "definitions" : {
+    "AnimatedImageThemeElementObject" : {
+      "$id" : "#AnimatedImageThemeElementObject",
+      "type" : "object",
+      "title" : "AnimatedImageThemeElementObject",
+      "description" : "",
+      "properties" : {
+        "type" : {
+          "const" : "animated",
+          "$ref" : "#ImageThemeElementType"
+        },
+        "imageNames" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "animationDuration" : {
+          "type" : "number"
+        },
+        "animationRepeatCount" : {
+          "type" : "integer"
+        },
+        "bundleIdentifier" : {
+          "type" : "string"
+        },
+        "packageName" : {
+          "type" : "string"
+        },
+        "placementType" : {
+          "$ref" : "#ImagePlacementType"
+        },
+        "size" : {
+          "$ref" : "#Size"
+        },
+        "fileExtension" : {
+          "type" : "string"
+        }
+      },
+      "required" : [
+        "type",
+        "imageNames",
+        "animationDuration"
+      ],
+      "allOf" : [
+        {
+          "$ref" : "#"
+        }
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "type" : "animated",
+          "imageNames" : [
+            "blueDog1",
+            "blueDog2",
+            "blueDog3"
+          ],
+          "animationDuration" : 2,
+          "animationRepeatCount" : 0
+        },
+        {
+          "type" : "animated",
+          "imageNames" : [
+            "redCat1",
+            "redCat2",
+            "redCat3"
+          ],
+          "animationDuration" : 2,
+          "animationRepeatCount" : 0,
+          "bundleIdentifier" : "org.example.SharedResources",
+          "placementType" : "topBackground",
+          "size" : {
+            "height" : 120,
+            "width" : 100
+          }
+        }
+      ]
+    },
+    "FetchableImageThemeElementObject" : {
+      "$id" : "#FetchableImageThemeElementObject",
+      "type" : "object",
+      "title" : "FetchableImageThemeElementObject",
+      "description" : "",
+      "properties" : {
+        "type" : {
+          "const" : "animated",
+          "$ref" : "#ImageThemeElementType"
+        },
+        "imageName" : {
+          "type" : "string"
+        },
+        "bundleIdentifier" : {
+          "type" : "string"
+        },
+        "packageName" : {
+          "type" : "string"
+        },
+        "size" : {
+          "$ref" : "#Size"
+        },
+        "placementType" : {
+          "$ref" : "#ImagePlacementType"
+        },
+        "fileExtension" : {
+          "type" : "string"
+        }
+      },
+      "required" : [
+        "type",
+        "imageName"
+      ],
+      "allOf" : [
+        {
+          "$ref" : "#"
+        }
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "type" : "fetchable",
+          "imageName" : "blueDog"
+        },
+        {
+          "type" : "fetchable",
+          "imageName" : "redCat",
+          "bundleIdentifier" : "org.example.SharedResources",
+          "packageName" : "org.example.sharedresources",
+          "size" : {
+            "height" : 30,
+            "width" : 20
+          },
+          "placementType" : "iconBefore",
+          "fileExtension" : "jpeg"
+        }
+      ]
+    },
+    "ImagePlacementType" : {
+      "$id" : "#ImagePlacementType",
+      "type" : "string",
+      "title" : "ImagePlacementType",
+      "description" : "",
+      "examples" : [
+        "iconBefore",
+        "iconAfter",
+        "fullsizeBackground",
+        "topBackground",
+        "topMarginBackground"
+      ]
+    },
+    "ImageThemeElementType" : {
+      "$id" : "#ImageThemeElementType",
+      "type" : "string",
+      "title" : "ImageThemeElementType",
+      "description" : "",
+      "examples" : [
+        "fetchable",
+        "animated"
+      ]
+    },
+    "Size" : {
+      "$id" : "#Size",
+      "type" : "object",
+      "title" : "Size",
+      "description" : "",
+      "properties" : {
+        "width" : {
+          "type" : "number"
+        },
+        "height" : {
+          "type" : "number"
+        }
+      },
+      "required" : [
+        "width",
+        "height"
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "width" : 10,
+          "height" : 20
+        }
+      ]
+    }
+  },
+  "properties" : {
+    "type" : {
+      "$ref" : "#ImageThemeElementType"
+    }
+  },
+  "required" : [
+    "type"
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "$id" : "https://sage-bionetworks.github.io/mobile-client-json/schemas/v1/ViewThemeElement.json",
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "type" : "object",
+  "title" : "ViewThemeElement",
+  "description" : "`ViewThemeElement` tells the UI where to find the view controller or fragment to use when instantiating the view.",
+  "definitions" : {
+    "ViewThemeElementObject" : {
+      "$id" : "#ViewThemeElementObject",
+      "type" : "object",
+      "title" : "ViewThemeElementObject",
+      "description" : "",
+      "properties" : {
+        "type" : {
+          "type" : "string"
+        },
+        "storyboardIdentifier" : {
+          "type" : "string"
+        },
+        "viewIdentifier" : {
+          "type" : "string"
+        },
+        "bundleIdentifier" : {
+          "type" : "string"
+        },
+        "packageName" : {
+          "type" : "string"
+        },
+        "fragmentIdentifier" : {
+          "type" : "string"
+        },
+        "fragmentLayout" : {
+          "type" : "string"
+        }
+      },
+      "required" : [
+        "type",
+        "viewIdentifier"
+      ],
+      "allOf" : [
+        {
+          "$ref" : "#"
+        }
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "type" : "default",
+          "viewIdentifier" : "FooStepNibIdentifier",
+          "bundleIdentifier" : "org.example.SharedResources"
+        },
+        {
+          "type" : "default",
+          "storyboardIdentifier" : "FooBarStoryboard",
+          "viewIdentifier" : "FooStepViewIdentifier"
+        }
+      ]
+    },
+    "ViewThemeElementType" : {
+      "$id" : "#ViewThemeElementType",
+      "type" : "string",
+      "title" : "ViewThemeElementType",
+      "description" : "",
+      "examples" : [
+        "default"
+      ]
+    }
+  },
+  "properties" : {
+    "type" : {
+      "$ref" : "#ViewThemeElementType"
+    }
+  },
+  "required" : [
+    "type"
+  ]
+}

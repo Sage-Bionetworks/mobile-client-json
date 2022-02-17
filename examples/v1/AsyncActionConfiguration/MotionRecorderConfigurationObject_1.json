@@ -1,0 +1,1 @@
+{"frequency":200,"type":"motion","shouldDeletePrevious":false,"identifier":"exampleB","recorderTypes":["gyro","gravity"],"usesCSVEncoding":true,"requiresBackgroundAudio":true}

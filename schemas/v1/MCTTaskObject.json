@@ -1,0 +1,63 @@
+{
+  "$id" : "https://sage-bionetworks.github.io/mobile-client-json/schemas/v1/MCTTaskObject.json",
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "type" : "object",
+  "title" : "MCTTaskObject",
+  "description" : "",
+  "definitions" : {
+    "MCTTaskIdentifier" : {
+      "$id" : "#MCTTaskIdentifier",
+      "type" : "string",
+      "title" : "MCTTaskIdentifier",
+      "description" : "",
+      "enum" : [
+        "WalkAndBalance",
+        "Tremor",
+        "Kinetic Tremor",
+        "Tapping",
+        "Walk30Seconds"
+      ]
+    }
+  },
+  "properties" : {
+    "type" : {
+      "const" : "motorControlTask",
+      "$ref" : "Task.json#TaskType"
+    },
+    "identifier" : {
+      "$ref" : "#MCTTaskIdentifier",
+      "description" : "The identifier is used to determine which assessment to run."
+    },
+    "schemaIdentifier" : {
+      "type" : "string",
+      "description" : "An identifier that can be used to archive the result."
+    },
+    "versionString" : {
+      "type" : "string",
+      "description" : "Optional version of the assessment (if versioning is supported)."
+    },
+    "title" : {
+      "type" : "string",
+      "description" : "Title to show to the participant when displaying the assessment overview."
+    },
+    "subtitle" : {
+      "type" : "string",
+      "description" : "Subtitle to show to the participant when displaying the assessment overview."
+    }
+  },
+  "required" : [
+    "type",
+    "identifier"
+  ],
+  "allOf" : [
+    {
+      "$ref" : "Task.json"
+    }
+  ],
+  "examples" : [
+    {
+      "type" : "motorControlTask",
+      "identifier" : "tapping"
+    }
+  ]
+}

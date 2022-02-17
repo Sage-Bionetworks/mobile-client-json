@@ -1,0 +1,1 @@
+{"fieldLabel":"Favorite color","placeholder":"Blue, no! Red!","identifier":"foo","choices":["never","sometimes","often","always"],"type":"stringChoicePicker"}
