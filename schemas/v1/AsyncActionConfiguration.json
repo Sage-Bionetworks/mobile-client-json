@@ -3,7 +3,7 @@
   "$schema" : "http://json-schema.org/draft-07/schema#",
   "type" : "object",
   "title" : "AsyncActionConfiguration",
-  "description" : "`AsyncActionConfiguration` defines general configuration for an asynchronous background action that should be run in the background. Depending upon the parameters and how the action is set up, this could be something that is run continuously or else is paused or reset based on a timeout interval.",
+  "description" : "`AsyncActionConfiguration` defines general configuration for an asynchronous action that should be run in the background. Depending upon the parameters and how the action is set up, this could be something that is run continuously or else is paused or reset based on a timeout interval.",
   "definitions" : {
     "AsyncActionType" : {
       "$id" : "#AsyncActionType",
@@ -137,7 +137,7 @@
         },
         "usesCSVEncoding" : {
           "type" : "boolean",
-          "description" : "Should samples be encoded as a CSV file.",
+          "description" : "Should samples be encoded as a CSV file?",
           "default" : false
         },
         "shouldDeletePrevious" : {

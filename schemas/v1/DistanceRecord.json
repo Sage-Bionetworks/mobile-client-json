@@ -47,7 +47,7 @@
       },
       "verticalAccuracy" : {
         "type" : "number",
-        "description" : "The vertical accuracy of the location in meters; null if the lateral location is invalid."
+        "description" : "The vertical accuracy of the location in meters; null if the vertical location is invalid."
       },
       "altitude" : {
         "type" : "number",
