@@ -1,0 +1,717 @@
+{
+  "$id" : "https://sage-bionetworks.github.io/mobile-client-json/schemas/v1/ResultNode.json",
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "type" : "object",
+  "title" : "ResultNode",
+  "description" : "`ResultNode` is an interface used to allow for a related grouping of questions.",
+  "definitions" : {
+    "ChoiceQuestionStepObject" : {
+      "$id" : "#ChoiceQuestionStepObject",
+      "type" : "object",
+      "title" : "ChoiceQuestionStepObject",
+      "description" : "",
+      "properties" : {
+        "type" : {
+          "const" : "choiceQuestion",
+          "$ref" : "Step.json#StepType"
+        },
+        "title" : {
+          "type" : "string"
+        },
+        "subtitle" : {
+          "type" : "string"
+        },
+        "detail" : {
+          "type" : "string"
+        },
+        "footnote" : {
+          "type" : "string"
+        },
+        "fullInstructionsOnly" : {
+          "type" : "boolean"
+        },
+        "nextStepIdentifier" : {
+          "type" : "string"
+        },
+        "permissions" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#StandardPermission"
+          }
+        },
+        "viewTheme" : {
+          "$ref" : "ViewThemeElement.json"
+        },
+        "colorMapping" : {
+          "$ref" : "ColorMappingThemeElement.json"
+        },
+        "image" : {
+          "$ref" : "ImageInfo.json"
+        },
+        "beforeCohortRules" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#CohortNavigationRuleObject"
+          }
+        },
+        "afterCohortRules" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#CohortNavigationRuleObject"
+          }
+        },
+        "surveyRules" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#JsonSurveyRuleObject"
+          }
+        },
+        "optional" : {
+          "type" : "boolean"
+        },
+        "baseType" : {
+          "$ref" : "AnswerType.json#JsonType"
+        },
+        "choices" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "InputItem.json#JsonChoiceObject"
+          }
+        },
+        "singleChoice" : {
+          "type" : "boolean"
+        },
+        "uiHint" : {
+          "$ref" : "InputItem.json#FormUIHint"
+        },
+        "actions" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "ButtonActionInfo.json"
+          }
+        },
+        "shouldHideActions" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "AssessmentTaskObject.json#ButtonType"
+          }
+        }
+      },
+      "required" : [
+        "type",
+        "choices"
+      ],
+      "allOf" : [
+        {
+          "$ref" : "Step.json"
+        },
+        {
+          "$ref" : "#"
+        }
+      ],
+      "examples" : [
+        {
+          "type" : "choiceQuestion",
+          "identifier" : "foo",
+          "title" : "Hello World!",
+          "surveyRules" : [
+            {
+              "matchingAnswer" : 0
+            }
+          ],
+          "optional" : false,
+          "baseType" : "integer",
+          "choices" : [
+            {
+              "icon" : "choice1",
+              "text" : "choice 1",
+              "value" : 1
+            },
+            {
+              "text" : "choice 2",
+              "value" : 2
+            },
+            {
+              "text" : "choice 3",
+              "value" : 3
+            },
+            {
+              "exclusive" : true,
+              "text" : "none of the above"
+            }
+          ],
+          "singleChoice" : false,
+          "uiHint" : "checkmark"
+        }
+      ]
+    },
+    "CohortNavigationRuleObject" : {
+      "$id" : "#CohortNavigationRuleObject",
+      "type" : "object",
+      "title" : "CohortNavigationRuleObject",
+      "description" : "",
+      "properties" : {
+        "requiredCohorts" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "operator" : {
+          "$ref" : "#CohortRuleOperator"
+        },
+        "skipToIdentifier" : {
+          "type" : "string"
+        }
+      },
+      "required" : [
+        "requiredCohorts"
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "requiredCohorts" : [
+            "goo",
+            "foo"
+          ]
+        },
+        {
+          "requiredCohorts" : [
+            "blue",
+            "moo"
+          ],
+          "operator" : "any",
+          "skipToIdentifier" : "magoo"
+        }
+      ]
+    },
+    "CohortRuleOperator" : {
+      "$id" : "#CohortRuleOperator",
+      "type" : "string",
+      "title" : "CohortRuleOperator",
+      "description" : "",
+      "enum" : [
+        "all",
+        "any"
+      ]
+    },
+    "JsonSurveyRuleObject" : {
+      "$id" : "#JsonSurveyRuleObject",
+      "type" : "object",
+      "title" : "JsonSurveyRuleObject",
+      "description" : "",
+      "properties" : {
+        "skipToIdentifier" : {
+          "type" : "string"
+        },
+        "matchingAnswer" : {
+
+        },
+        "ruleOperator" : {
+          "$ref" : "#SurveyRuleOperator"
+        },
+        "cohort" : {
+          "type" : "string"
+        }
+      },
+      "required" : [
+
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "skipToIdentifier" : "foo",
+          "matchingAnswer" : true
+        },
+        {
+          "matchingAnswer" : 5,
+          "ruleOperator" : "eq",
+          "cohort" : "baloo"
+        }
+      ]
+    },
+    "MultipleInputQuestionStepObject" : {
+      "$id" : "#MultipleInputQuestionStepObject",
+      "type" : "object",
+      "title" : "MultipleInputQuestionStepObject",
+      "description" : "",
+      "properties" : {
+        "type" : {
+          "const" : "multipleInputQuestion",
+          "$ref" : "Step.json#StepType"
+        },
+        "title" : {
+          "type" : "string"
+        },
+        "subtitle" : {
+          "type" : "string"
+        },
+        "detail" : {
+          "type" : "string"
+        },
+        "footnote" : {
+          "type" : "string"
+        },
+        "fullInstructionsOnly" : {
+          "type" : "boolean"
+        },
+        "nextStepIdentifier" : {
+          "type" : "string"
+        },
+        "permissions" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#StandardPermission"
+          }
+        },
+        "viewTheme" : {
+          "$ref" : "ViewThemeElement.json"
+        },
+        "colorMapping" : {
+          "$ref" : "ColorMappingThemeElement.json"
+        },
+        "image" : {
+          "$ref" : "ImageInfo.json"
+        },
+        "beforeCohortRules" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#CohortNavigationRuleObject"
+          }
+        },
+        "afterCohortRules" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#CohortNavigationRuleObject"
+          }
+        },
+        "surveyRules" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#JsonSurveyRuleObject"
+          }
+        },
+        "optional" : {
+          "type" : "boolean"
+        },
+        "skipCheckbox" : {
+          "$ref" : "#SkipCheckboxInputItemObject"
+        },
+        "inputItems" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "InputItem.json"
+          }
+        },
+        "sequenceSeparator" : {
+          "type" : "string"
+        },
+        "actions" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "ButtonActionInfo.json"
+          }
+        },
+        "shouldHideActions" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "AssessmentTaskObject.json#ButtonType"
+          }
+        }
+      },
+      "required" : [
+        "type",
+        "inputItems"
+      ],
+      "allOf" : [
+        {
+          "$ref" : "#"
+        },
+        {
+          "$ref" : "Step.json"
+        }
+      ],
+      "examples" : [
+        {
+          "type" : "multipleInputQuestion",
+          "identifier" : "foo",
+          "title" : "Hello World!",
+          "optional" : false,
+          "skipCheckbox" : {
+            "fieldLabel" : "No answer",
+            "type" : "skipCheckbox"
+          },
+          "inputItems" : [
+            {
+              "identifier" : "year",
+              "type" : "year"
+            },
+            {
+              "identifier" : "name",
+              "type" : "string"
+            }
+          ]
+        }
+      ]
+    },
+    "SimpleQuestionStepObject" : {
+      "$id" : "#SimpleQuestionStepObject",
+      "type" : "object",
+      "title" : "SimpleQuestionStepObject",
+      "description" : "",
+      "properties" : {
+        "type" : {
+          "const" : "simpleQuestion",
+          "$ref" : "Step.json#StepType"
+        },
+        "title" : {
+          "type" : "string"
+        },
+        "subtitle" : {
+          "type" : "string"
+        },
+        "detail" : {
+          "type" : "string"
+        },
+        "footnote" : {
+          "type" : "string"
+        },
+        "fullInstructionsOnly" : {
+          "type" : "boolean"
+        },
+        "nextStepIdentifier" : {
+          "type" : "string"
+        },
+        "permissions" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#StandardPermission"
+          }
+        },
+        "viewTheme" : {
+          "$ref" : "ViewThemeElement.json"
+        },
+        "colorMapping" : {
+          "$ref" : "ColorMappingThemeElement.json"
+        },
+        "image" : {
+          "$ref" : "ImageInfo.json"
+        },
+        "beforeCohortRules" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#CohortNavigationRuleObject"
+          }
+        },
+        "afterCohortRules" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#CohortNavigationRuleObject"
+          }
+        },
+        "surveyRules" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#JsonSurveyRuleObject"
+          }
+        },
+        "optional" : {
+          "type" : "boolean"
+        },
+        "skipCheckbox" : {
+          "$ref" : "#SkipCheckboxInputItemObject"
+        },
+        "inputItem" : {
+          "$ref" : "InputItem.json"
+        },
+        "actions" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "ButtonActionInfo.json"
+          }
+        },
+        "shouldHideActions" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "AssessmentTaskObject.json#ButtonType"
+          }
+        }
+      },
+      "required" : [
+        "type",
+        "inputItem"
+      ],
+      "allOf" : [
+        {
+          "$ref" : "#"
+        },
+        {
+          "$ref" : "Step.json"
+        }
+      ],
+      "examples" : [
+        {
+          "type" : "simpleQuestion",
+          "identifier" : "foo",
+          "title" : "Hello World!",
+          "surveyRules" : [
+            {
+              "matchingAnswer" : 1900
+            }
+          ],
+          "optional" : false,
+          "skipCheckbox" : {
+            "fieldLabel" : "No answer",
+            "type" : "skipCheckbox"
+          },
+          "inputItem" : {
+            "type" : "year"
+          }
+        }
+      ]
+    },
+    "SkipCheckboxInputItemObject" : {
+      "$id" : "#SkipCheckboxInputItemObject",
+      "type" : "object",
+      "title" : "SkipCheckboxInputItemObject",
+      "description" : "",
+      "properties" : {
+        "type" : {
+          "const" : "skipCheckbox",
+          "$ref" : "InputItem.json#InputItemType",
+          "description" : "Kotlin serialization requires a 'type' field for any polymorphic class."
+        },
+        "fieldLabel" : {
+          "type" : "string"
+        },
+        "value" : {
+
+        }
+      },
+      "required" : [
+        "type",
+        "fieldLabel"
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "type" : "skipCheckbox",
+          "fieldLabel" : "Perfer not to answer",
+          "value" : -1
+        }
+      ]
+    },
+    "StandardPermission" : {
+      "$id" : "#StandardPermission",
+      "type" : "object",
+      "title" : "StandardPermission",
+      "description" : "",
+      "properties" : {
+        "permissionType" : {
+          "$ref" : "#StandardPermissionType"
+        },
+        "title" : {
+          "type" : "string"
+        },
+        "reason" : {
+          "type" : "string"
+        },
+        "restrictedMessage" : {
+          "type" : "string"
+        },
+        "deniedMessage" : {
+          "type" : "string"
+        },
+        "requestIfNeeded" : {
+          "type" : "boolean"
+        },
+        "optional" : {
+          "type" : "boolean"
+        }
+      },
+      "required" : [
+        "permissionType"
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "permissionType" : "motion"
+        },
+        {
+          "permissionType" : "camera",
+          "title" : "Permission to use the camera",
+          "reason" : "Because we want to take a picture.",
+          "restrictedMessage" : "Your camera access is restricted",
+          "deniedMessage" : "You didn't give permission",
+          "requestIfNeeded" : false,
+          "optional" : true
+        }
+      ]
+    },
+    "StandardPermissionType" : {
+      "$id" : "#StandardPermissionType",
+      "type" : "string",
+      "title" : "StandardPermissionType",
+      "description" : "",
+      "enum" : [
+        "camera",
+        "locationWhenInUse",
+        "location",
+        "microphone",
+        "motion",
+        "photoLibrary",
+        "notifications"
+      ]
+    },
+    "StringChoiceQuestionStepObject" : {
+      "$id" : "#StringChoiceQuestionStepObject",
+      "type" : "object",
+      "title" : "StringChoiceQuestionStepObject",
+      "description" : "",
+      "properties" : {
+        "type" : {
+          "const" : "stringChoiceQuestion",
+          "$ref" : "Step.json#StepType"
+        },
+        "title" : {
+          "type" : "string"
+        },
+        "subtitle" : {
+          "type" : "string"
+        },
+        "detail" : {
+          "type" : "string"
+        },
+        "footnote" : {
+          "type" : "string"
+        },
+        "fullInstructionsOnly" : {
+          "type" : "boolean"
+        },
+        "nextStepIdentifier" : {
+          "type" : "string"
+        },
+        "permissions" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#StandardPermission"
+          }
+        },
+        "viewTheme" : {
+          "$ref" : "ViewThemeElement.json"
+        },
+        "colorMapping" : {
+          "$ref" : "ColorMappingThemeElement.json"
+        },
+        "image" : {
+          "$ref" : "ImageInfo.json"
+        },
+        "beforeCohortRules" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#CohortNavigationRuleObject"
+          }
+        },
+        "afterCohortRules" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#CohortNavigationRuleObject"
+          }
+        },
+        "surveyRules" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#JsonSurveyRuleObject"
+          }
+        },
+        "optional" : {
+          "type" : "boolean"
+        },
+        "baseType" : {
+          "$ref" : "AnswerType.json#JsonType"
+        },
+        "choices" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "singleChoice" : {
+          "type" : "boolean"
+        },
+        "uiHint" : {
+          "$ref" : "InputItem.json#FormUIHint"
+        },
+        "actions" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "ButtonActionInfo.json"
+          }
+        },
+        "shouldHideActions" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "AssessmentTaskObject.json#ButtonType"
+          }
+        }
+      },
+      "required" : [
+        "type",
+        "choices"
+      ],
+      "allOf" : [
+        {
+          "$ref" : "Step.json"
+        },
+        {
+          "$ref" : "#"
+        }
+      ],
+      "examples" : [
+        {
+          "type" : "stringChoiceQuestion",
+          "identifier" : "foo",
+          "title" : "Hello World!",
+          "optional" : false,
+          "choices" : [
+            "choice 1",
+            "choice 2",
+            "choice 3"
+          ],
+          "singleChoice" : false,
+          "uiHint" : "checkmark"
+        }
+      ]
+    },
+    "SurveyRuleOperator" : {
+      "$id" : "#SurveyRuleOperator",
+      "type" : "string",
+      "title" : "SurveyRuleOperator",
+      "description" : "",
+      "enum" : [
+        "de",
+        "eq",
+        "ne",
+        "lt",
+        "gt",
+        "le",
+        "ge",
+        "ot",
+        "always"
+      ]
+    }
+  },
+  "properties" : {
+    "type" : {
+      "type" : "string"
+    },
+    "identifier" : {
+      "type" : "string",
+      "description" : "The identifier associated with the task, step, or asynchronous action."
+    }
+  },
+  "required" : [
+    "type",
+    "identifier"
+  ]
+}

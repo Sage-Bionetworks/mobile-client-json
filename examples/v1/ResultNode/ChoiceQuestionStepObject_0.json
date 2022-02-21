@@ -1,0 +1,1 @@
+{"optional":false,"identifier":"foo","uiHint":"checkmark","type":"choiceQuestion","singleChoice":false,"baseType":"integer","title":"Hello World!","surveyRules":[{"matchingAnswer":0}],"choices":[{"value":1,"icon":"choice1","text":"choice 1"},{"text":"choice 2","value":2},{"value":3,"text":"choice 3"},{"text":"none of the above","exclusive":true}]}

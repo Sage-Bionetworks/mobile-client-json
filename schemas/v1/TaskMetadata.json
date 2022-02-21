@@ -1,0 +1,156 @@
+{
+  "$id" : "https://sage-bionetworks.github.io/mobile-client-json/schemas/v1/TaskMetadata.json",
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "type" : "object",
+  "title" : "TaskMetadata",
+  "description" : "The metadata for a task result archive that can be zipped using the app developer's choice of third-party archival tools.",
+  "definitions" : {
+    "FileManifest" : {
+      "$id" : "#FileManifest",
+      "type" : "object",
+      "title" : "FileManifest",
+      "description" : "",
+      "properties" : {
+        "filename" : {
+          "type" : "string",
+          "description" : "The filename of the archive object. This should be unique within the manifest.",
+          "format" : "uri-relative"
+        },
+        "timestamp" : {
+          "type" : "string",
+          "description" : "The file creation date.",
+          "format" : "date-time"
+        },
+        "contentType" : {
+          "type" : "string",
+          "description" : "The content type of the file."
+        },
+        "identifier" : {
+          "type" : "string",
+          "description" : "The identifier for the result."
+        },
+        "stepPath" : {
+          "type" : "string",
+          "description" : "The full path to the result if it is within the step history."
+        },
+        "jsonSchema" : {
+          "type" : "string",
+          "description" : "The uri for the json schema if the content type is 'application/json'.",
+          "format" : "uri"
+        },
+        "metadata" : {
+          "description" : "Any additional metadata about this file."
+        }
+      },
+      "required" : [
+        "filename",
+        "timestamp"
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "filename" : "foo.json",
+          "timestamp" : "2022-02-21T14:01:41.590-08:00",
+          "contentType" : "application/json",
+          "identifier" : "foo",
+          "stepPath" : "Bar/foo",
+          "jsonSchema" : "http://example.org/schemas/v1/Foo.json",
+          "metadata" : {
+            "value" : 1
+          }
+        }
+      ]
+    }
+  },
+  "properties" : {
+    "deviceInfo" : {
+      "type" : "string",
+      "description" : "Information about the specific device."
+    },
+    "deviceTypeIdentifier" : {
+      "type" : "string",
+      "description" : "Specific model identifier of the device."
+    },
+    "appName" : {
+      "type" : "string",
+      "description" : "Name of the app that built the archive."
+    },
+    "appVersion" : {
+      "type" : "string",
+      "description" : "Version of the app that built the archive."
+    },
+    "rsdFrameworkVersion" : {
+      "type" : "string",
+      "description" : "Research framework version."
+    },
+    "taskIdentifier" : {
+      "type" : "string",
+      "description" : "The identifier for the task."
+    },
+    "taskRunUUID" : {
+      "type" : "string",
+      "description" : "The task run UUID."
+    },
+    "startDate" : {
+      "type" : "string",
+      "format" : "date-time"
+    },
+    "endDate" : {
+      "type" : "string",
+      "format" : "date-time"
+    },
+    "schemaIdentifier" : {
+      "type" : "string",
+      "description" : "The Bridge Exporter 2.0 Schema Identifier used to map to Synapse."
+    },
+    "schemaRevision" : {
+      "type" : "integer",
+      "description" : "The Bridge Exporter 2.0 Schema Revision used to map to Synapse."
+    },
+    "versionString" : {
+      "type" : "string",
+      "description" : "A version string that can be used by an assessment to track version."
+    },
+    "files" : {
+      "type" : "array",
+      "description" : "A list of the files included in this archive.",
+      "items" : {
+        "$ref" : "#FileManifest"
+      }
+    }
+  },
+  "required" : [
+    "deviceInfo",
+    "deviceTypeIdentifier",
+    "appName",
+    "appVersion",
+    "taskIdentifier"
+  ],
+  "additionalProperties" : false,
+  "examples" : [
+    {
+      "deviceInfo" : "Mac Version 11.6.2 (Build 20G314)",
+      "deviceTypeIdentifier" : "Mac",
+      "appName" : "???",
+      "appVersion" : "???",
+      "rsdFrameworkVersion" : "Unknown",
+      "taskIdentifier" : "example",
+      "taskRunUUID" : "0989502F-8967-46AB-AD2B-30B4B8AD9667",
+      "startDate" : "2022-02-21T14:01:41.591-08:00",
+      "endDate" : "2022-02-21T14:01:41.591-08:00",
+      "files" : [
+        {
+          "contentType" : "application/json",
+          "filename" : "foo.json",
+          "identifier" : "foo",
+          "jsonSchema" : "https://example.com/foo.json",
+          "metadata" : {
+            "foo" : "baroo"
+          },
+          "stepPath" : "Goo/foo",
+          "timestamp" : "2017-10-16T22:28:09.000-07:00"
+        }
+      ]
+    }
+  ]
+}

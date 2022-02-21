@@ -1,0 +1,1 @@
+{"title":"Go outside","identifier":"goOutside","image":{"type":"fetchable","placementType":"topBackground","imageName":"goOutsideIcon"},"actions":{"goForward":{"buttonTitle":"I am outside","type":"default"}},"type":"instruction"}

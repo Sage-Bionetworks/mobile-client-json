@@ -1,0 +1,207 @@
+{
+  "$id" : "https://sage-bionetworks.github.io/mobile-client-json/schemas/v1/AssessmentTaskObject.json",
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "type" : "object",
+  "title" : "AssessmentTaskObject",
+  "description" : "An assessment that explictly describes the steps and async actions for the assessment as part of serialization.",
+  "definitions" : {
+    "AudioSessionSettings" : {
+      "$id" : "#AudioSessionSettings",
+      "type" : "object",
+      "title" : "AudioSessionSettings",
+      "description" : "",
+      "properties" : {
+        "category" : {
+          "$ref" : "WeatherResult.json#Category"
+        },
+        "mode" : {
+          "$ref" : "#Mode"
+        },
+        "mixingOptions" : {
+          "$ref" : "#MixingOptions"
+        }
+      },
+      "required" : [
+        "category",
+        "mode",
+        "mixingOptions"
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "category" : "soloAmbient",
+          "mode" : "default",
+          "mixingOptions" : "default"
+        },
+        {
+          "category" : "continuousPlayback",
+          "mode" : "voicePrompt",
+          "mixingOptions" : "interruptSpokenAudioAndMixWithOthers"
+        },
+        {
+          "category" : "record",
+          "mode" : "measurement",
+          "mixingOptions" : "default"
+        },
+        {
+          "category" : "intermittentPlayback",
+          "mode" : "voicePrompt",
+          "mixingOptions" : "duckOthers"
+        }
+      ]
+    },
+    "ButtonType" : {
+      "$id" : "#ButtonType",
+      "type" : "string",
+      "title" : "ButtonType",
+      "description" : "",
+      "enum" : [
+        "goForward",
+        "goBackward",
+        "skip",
+        "cancel",
+        "learnMore",
+        "reviewInstructions",
+        "abandonAssessment"
+      ]
+    },
+    "MixingOptions" : {
+      "$id" : "#MixingOptions",
+      "type" : "string",
+      "title" : "MixingOptions",
+      "description" : "",
+      "enum" : [
+        "default",
+        "mixWithOthers",
+        "interruptSpokenAudioAndMixWithOthers",
+        "duckOthers"
+      ]
+    },
+    "Mode" : {
+      "$id" : "#Mode",
+      "type" : "string",
+      "title" : "Mode",
+      "description" : "",
+      "enum" : [
+        "default",
+        "gameChat",
+        "measurement",
+        "moviePlayback",
+        "spokenAudio",
+        "videoChat",
+        "videoRecording",
+        "voiceChat",
+        "voicePrompt"
+      ]
+    }
+  },
+  "properties" : {
+    "type" : {
+      "const" : "assessment",
+      "$ref" : "Task.json#TaskType"
+    },
+    "identifier" : {
+      "type" : "string"
+    },
+    "schemaIdentifier" : {
+      "type" : "string"
+    },
+    "versionString" : {
+      "type" : "string"
+    },
+    "estimatedMinutes" : {
+      "type" : "integer"
+    },
+    "usesTrackedData" : {
+      "type" : "boolean"
+    },
+    "progressMarkers" : {
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "steps" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "Step.json"
+      }
+    },
+    "asyncActions" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "AsyncActionConfiguration.json"
+      }
+    },
+    "actions" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "ButtonActionInfo.json"
+      }
+    },
+    "shouldHideActions" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#ButtonType"
+      }
+    },
+    "shouldEndOnInterrupt" : {
+      "type" : "boolean",
+      "description" : "Should the task end early if the task is interrupted by a phone call?"
+    },
+    "audioSessionSettings" : {
+      "$ref" : "#AudioSessionSettings"
+    }
+  },
+  "required" : [
+    "type",
+    "identifier",
+    "steps"
+  ],
+  "allOf" : [
+    {
+      "$ref" : "Task.json"
+    }
+  ],
+  "examples" : [
+    {
+      "type" : "assessment",
+      "identifier" : "foo",
+      "steps" : [
+        {
+          "identifier" : "step1",
+          "title" : "Step 1",
+          "type" : "instruction"
+        },
+        {
+          "identifier" : "step2",
+          "title" : "Step 2",
+          "type" : "instruction"
+        }
+      ]
+    },
+    {
+      "type" : "assessment",
+      "identifier" : "baloo",
+      "schemaIdentifier" : "ragu",
+      "versionString" : "2.2.22",
+      "estimatedMinutes" : 3,
+      "usesTrackedData" : true,
+      "progressMarkers" : [
+
+      ],
+      "steps" : [
+        {
+          "identifier" : "step1",
+          "title" : "Step 1",
+          "type" : "instruction"
+        },
+        {
+          "identifier" : "step2",
+          "title" : "Step 2",
+          "type" : "instruction"
+        }
+      ]
+    }
+  ]
+}

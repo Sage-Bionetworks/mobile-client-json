@@ -1,0 +1,100 @@
+{
+  "$id" : "https://sage-bionetworks.github.io/mobile-client-json/schemas/v1/DistanceRecord.json",
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "type" : "array",
+  "description" : "An array of `DistanceRecord` objects.",
+  "items" : {
+    "type" : "object",
+    "title" : "DistanceRecord",
+    "description" : "A list of distance measurements that are defined relative to one another rather than using GPS coordinates.",
+    "properties" : {
+      "uptime" : {
+        "type" : "number",
+        "description" : "System clock time."
+      },
+      "timestamp" : {
+        "type" : "number",
+        "description" : "Time that the system has been awake since last reboot."
+      },
+      "stepPath" : {
+        "type" : "string",
+        "description" : "An identifier marking the current step."
+      },
+      "timestampDate" : {
+        "type" : "string",
+        "description" : "The date timestamp when the measurement was taken (if available).",
+        "format" : "date-time"
+      },
+      "timestampUnix" : {
+        "type" : "number",
+        "description" : "The Unix timestamp (seconds since 1970-01-01T00:00:00.000Z) when the measurement was taken."
+      },
+      "horizontalAccuracy" : {
+        "type" : "number",
+        "description" : "The horizontal accuracy of the location in meters; null if the lateral location is invalid."
+      },
+      "relativeDistance" : {
+        "type" : "number",
+        "description" : "The lateral distance between the current location and the previous location in meters."
+      },
+      "latitude" : {
+        "type" : "number",
+        "description" : "The latitude coordinate of the current location; null if *only* relative distance should be recorded."
+      },
+      "longitude" : {
+        "type" : "number",
+        "description" : "The longitude coordinate of the current location; null if *only* relative distance should be recorded."
+      },
+      "verticalAccuracy" : {
+        "type" : "number",
+        "description" : "The vertical accuracy of the location in meters; null if the vertical location is invalid."
+      },
+      "altitude" : {
+        "type" : "number",
+        "description" : "The altitude of the location in meters. Can be positive (above sea level) or negative (below sea level)."
+      },
+      "totalDistance" : {
+        "type" : "number",
+        "description" : "Sum of the relative distance measurements if the participant is supposed to be moving; null if participant is supposed to be standing still."
+      },
+      "course" : {
+        "type" : "number",
+        "description" : "The course of the location in degrees true North; null if course is invalid. Range: 0.0 - 359.9 degrees, 0 being true North."
+      },
+      "bearingRadians" : {
+        "type" : "number",
+        "description" : "The bearing to the location from the previous location in radians (clockwise from) true North. Range: [0.0..2π), 0 being true North."
+      },
+      "speed" : {
+        "type" : "number",
+        "description" : "The speed of the location in meters/second; null if speed is invalid."
+      },
+      "floor" : {
+        "type" : "integer",
+        "description" : "The floor of the building where the location was recorded; null if floor is not available."
+      }
+    },
+    "required" : [
+      "stepPath"
+    ],
+    "additionalProperties" : false,
+    "examples" : [
+      {
+        "uptime" : 99494.629004376795,
+        "timestamp" : 52.422324001789093,
+        "stepPath" : "Cardio 12MT/run/runDistance",
+        "timestampDate" : "2022-02-21T14:01:41.563-08:00",
+        "timestampUnix" : 1645480901.5625548,
+        "horizontalAccuracy" : 6,
+        "relativeDistance" : 2.1164507282484935,
+        "verticalAccuracy" : 3,
+        "altitude" : 23.375564581136974,
+        "totalDistance" : 63.484948023273581,
+        "course" : 76.873546882061802,
+        "bearingRadians" : 1.3416965000000001,
+        "speed" : 1.0289180278778076,
+        "floor" : 3
+      }
+    ]
+  }
+}

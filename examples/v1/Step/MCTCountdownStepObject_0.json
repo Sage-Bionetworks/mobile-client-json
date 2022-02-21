@@ -1,0 +1,1 @@
+{"identifier":"foo","type":"countdown","spokenInstructions":{"end":"Stop moving","10":"Keep going","halfway":"Halfway there","start":"Start moving"},"duration":30,"requiresBackgroundAudio":true,"commands":["playSoundOnStart","vibrateOnFinish"],"detail":"Some text.","title":"Hello World!"}

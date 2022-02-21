@@ -1,0 +1,31 @@
+{
+  "$id" : "https://sage-bionetworks.github.io/mobile-client-json/schemas/v1/Task.json",
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "type" : "object",
+  "title" : "Task",
+  "description" : "`Task` is the interface for running a task. It includes information about how to calculate progress, validation, and the order of display for the steps.",
+  "definitions" : {
+    "TaskType" : {
+      "$id" : "#TaskType",
+      "type" : "string",
+      "title" : "TaskType",
+      "description" : "",
+      "examples" : [
+        "assessment"
+      ]
+    }
+  },
+  "properties" : {
+    "type" : {
+      "$ref" : "#TaskType"
+    },
+    "identifier" : {
+      "type" : "string",
+      "description" : "The identifier associated with the task, step, or asynchronous action."
+    }
+  },
+  "required" : [
+    "type",
+    "identifier"
+  ]
+}

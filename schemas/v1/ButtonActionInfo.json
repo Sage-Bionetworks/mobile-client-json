@@ -1,0 +1,275 @@
+{
+  "$id" : "https://sage-bionetworks.github.io/mobile-client-json/schemas/v1/ButtonActionInfo.json",
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "type" : "object",
+  "title" : "ButtonActionInfo",
+  "description" : "`ButtonActionInfo` protocol can be used to customize the title and image displayed for a given action of the UI.",
+  "definitions" : {
+    "ButtonObject" : {
+      "$id" : "#ButtonObject",
+      "type" : "object",
+      "title" : "ButtonObject",
+      "description" : "",
+      "properties" : {
+        "type" : {
+          "const" : "default",
+          "$ref" : "#ButtonObjectType"
+        },
+        "buttonTitle" : {
+          "type" : "string"
+        },
+        "iconName" : {
+          "type" : "string"
+        },
+        "bundleIdentifier" : {
+          "type" : "string"
+        },
+        "packageName" : {
+          "type" : "string"
+        }
+      },
+      "required" : [
+        "type"
+      ],
+      "allOf" : [
+        {
+          "$ref" : "#"
+        }
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "type" : "default",
+          "buttonTitle" : "Go, Dogs! Go"
+        },
+        {
+          "type" : "default",
+          "iconName" : "closeX",
+          "bundleIdentifier" : "org.example.SharedResources"
+        }
+      ]
+    },
+    "ButtonObjectType" : {
+      "$id" : "#ButtonObjectType",
+      "type" : "string",
+      "title" : "ButtonObjectType",
+      "description" : "",
+      "examples" : [
+        "default",
+        "webView",
+        "videoView",
+        "navigation",
+        "reminder"
+      ]
+    },
+    "NavigationButtonObject" : {
+      "$id" : "#NavigationButtonObject",
+      "type" : "object",
+      "title" : "NavigationButtonObject",
+      "description" : "",
+      "properties" : {
+        "type" : {
+          "const" : "navigation",
+          "$ref" : "#ButtonObjectType"
+        },
+        "skipToIdentifier" : {
+          "type" : "string"
+        },
+        "buttonTitle" : {
+          "type" : "string"
+        },
+        "iconName" : {
+          "type" : "string"
+        },
+        "bundleIdentifier" : {
+          "type" : "string"
+        },
+        "packageName" : {
+          "type" : "string"
+        }
+      },
+      "required" : [
+        "type",
+        "skipToIdentifier"
+      ],
+      "allOf" : [
+        {
+          "$ref" : "#"
+        }
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "type" : "navigation",
+          "skipToIdentifier" : "nextSection",
+          "buttonTitle" : "Go, Dogs! Go"
+        }
+      ]
+    },
+    "ReminderButtonObject" : {
+      "$id" : "#ReminderButtonObject",
+      "type" : "object",
+      "title" : "ReminderButtonObject",
+      "description" : "",
+      "properties" : {
+        "type" : {
+          "const" : "navigation",
+          "$ref" : "#ButtonObjectType"
+        },
+        "reminderIdentifier" : {
+          "type" : "string"
+        },
+        "buttonTitle" : {
+          "type" : "string"
+        },
+        "iconName" : {
+          "type" : "string"
+        },
+        "bundleIdentifier" : {
+          "type" : "string"
+        },
+        "packageName" : {
+          "type" : "string"
+        }
+      },
+      "required" : [
+        "type",
+        "reminderIdentifier"
+      ],
+      "allOf" : [
+        {
+          "$ref" : "#"
+        }
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "type" : "reminder",
+          "reminderIdentifier" : "foo",
+          "buttonTitle" : "Remind me later"
+        }
+      ]
+    },
+    "VideoViewButtonObject" : {
+      "$id" : "#VideoViewButtonObject",
+      "type" : "object",
+      "title" : "VideoViewButtonObject",
+      "description" : "",
+      "properties" : {
+        "type" : {
+          "const" : "default",
+          "$ref" : "#ButtonObjectType"
+        },
+        "url" : {
+          "type" : "string",
+          "format" : "uri"
+        },
+        "buttonTitle" : {
+          "type" : "string"
+        },
+        "iconName" : {
+          "type" : "string"
+        },
+        "bundleIdentifier" : {
+          "type" : "string"
+        },
+        "packageName" : {
+          "type" : "string"
+        }
+      },
+      "required" : [
+        "type",
+        "url"
+      ],
+      "allOf" : [
+        {
+          "$ref" : "#"
+        }
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "type" : "videoView",
+          "url" : "About_Dogs.mp4",
+          "buttonTitle" : "Go, Dogs! Go"
+        },
+        {
+          "type" : "videoView",
+          "url" : "About_Dogs.mp4",
+          "iconName" : "iconInfo",
+          "bundleIdentifier" : "org.example.SharedResources"
+        }
+      ]
+    },
+    "WebViewButtonObject" : {
+      "$id" : "#WebViewButtonObject",
+      "type" : "object",
+      "title" : "WebViewButtonObject",
+      "description" : "",
+      "properties" : {
+        "type" : {
+          "const" : "default",
+          "$ref" : "#ButtonObjectType"
+        },
+        "url" : {
+          "type" : "string",
+          "format" : "uri"
+        },
+        "usesBackButton" : {
+          "type" : "boolean"
+        },
+        "title" : {
+          "type" : "string"
+        },
+        "closeButtonTitle" : {
+          "type" : "string"
+        },
+        "buttonTitle" : {
+          "type" : "string"
+        },
+        "iconName" : {
+          "type" : "string"
+        },
+        "bundleIdentifier" : {
+          "type" : "string"
+        },
+        "packageName" : {
+          "type" : "string"
+        }
+      },
+      "required" : [
+        "type",
+        "url"
+      ],
+      "allOf" : [
+        {
+          "$ref" : "#"
+        }
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "type" : "webView",
+          "url" : "About_Dogs.html",
+          "usesBackButton" : true,
+          "title" : "Go, Dogs! Go",
+          "buttonTitle" : "Go, Dogs! Go"
+        },
+        {
+          "type" : "webView",
+          "url" : "About_Dogs.html",
+          "iconName" : "iconInfo",
+          "bundleIdentifier" : "org.example.SharedResources"
+        }
+      ]
+    }
+  },
+  "properties" : {
+    "type" : {
+      "$ref" : "#ButtonObjectType"
+    }
+  },
+  "required" : [
+    "type"
+  ]
+}

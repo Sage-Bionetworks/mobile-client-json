@@ -1,0 +1,1 @@
+{"fieldLabel":"How much?","identifier":"field1","type":"string","placeholder":"Enter a value","regExValidator":{"pattern":"^[0-9]*$","invalidMessage":"Only entering numbers is allowed."},"keyboardOptions":{}}
