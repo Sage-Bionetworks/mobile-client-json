@@ -1,0 +1,237 @@
+{
+  "$id": "https://sage-bionetworks.github.io/mobile-client-json/archive-map.json",
+  "$schema": "https://sage-bionetworks.github.io/mobile-client-json/schemas/v1/ArchiveMap.json",
+  "allOf": [
+    {
+      "filename": "metadata.json",
+      "contentType": "application/json",
+      "description": "Metadata associated with this archive including a file manifest and version information.",
+      "isRequired": true,
+      "jsonSchema": "https://sage-bionetworks.github.io/mobile-client-json/schemas/v1/TaskMetadata.json"
+    },
+    {
+      "filename": "taskResult.json",
+      "contentType": "application/json",
+      "description": "The polymorphism serialized result of running an assessment. This structure includes all the step results in the chronological order in which they were presented as well as asynchronous results that may be recorded across multiple steps.",
+      "isRequired": false,
+      "jsonSchema": "https://sage-bionetworks.github.io/mobile-client-json/schemas/v1/TaskResultObject.json"
+    },
+    {
+      "filename": "answers.json",
+      "contentType": "application/json",
+      "description": "A file used by Exporter 2.0 to export Bridge 1.0 surveys to synapse.",
+      "deprecated": true
+    },
+    {
+      "filename": "info.json",
+      "contentType": "application/json",
+      "description": "A file used by Exporter 2.0 to export data to synapse.",
+      "deprecated": true
+    }
+  ],
+  "assessments" : [
+    {
+      "assessmentIdentifier" : "spelling",
+      "assessmentRevision": 5,
+      "organization": "Northwestern (MTB)",
+      "taskIdentifier": "MTB Spelling Form 1",
+      "versionString": "1.2.0",
+      "files": [
+        {
+          "filename": "taskData.json",
+          "contentType": "application/json",
+          "isRequired": true,
+          "jsonSchema": "https://github.com/MobileToolbox/MTBfx/blob/master/JSONschema/taskData_combinedSchema.json"
+        }
+      ]
+    },
+    {
+      "assessmentIdentifier" : "fnamea",
+      "assessmentRevision": 5,
+      "organization": "Northwestern (MTB)",
+      "taskIdentifier": "FNAME Learning Form 1",
+      "versionString": "1.2.0",
+      "files": [
+        {
+          "filename": "taskData.json",
+          "contentType": "application/json",
+          "isRequired": true,
+          "jsonSchema": "https://github.com/MobileToolbox/MTBfx/blob/master/JSONschema/taskData_combinedSchema.json"
+        }
+      ]
+    },
+    {
+      "assessmentIdentifier" : "fnameb",
+      "assessmentRevision": 5,
+      "organization": "Northwestern (MTB)",
+      "taskIdentifier": "FNAME Test Form 1",
+      "versionString": "1.2.0",
+      "files": [
+        {
+          "filename": "taskData.json",
+          "contentType": "application/json",
+          "isRequired": true,
+          "jsonSchema": "https://github.com/MobileToolbox/MTBfx/blob/master/JSONschema/taskData_combinedSchema.json"
+        }
+      ]
+    },
+    {
+      "assessmentIdentifier" : "vocabulary",
+      "assessmentRevision": 5,
+      "organization": "Northwestern (MTB)",
+      "taskIdentifier": "Vocabulary Form 1",
+      "versionString": "1.2.0",
+      "files": [
+        {
+          "filename": "taskData.json",
+          "contentType": "application/json",
+          "isRequired": true,
+          "jsonSchema": "https://github.com/MobileToolbox/MTBfx/blob/master/JSONschema/taskData_combinedSchema.json"
+        }
+      ]
+    },
+    {
+      "assessmentIdentifier" : "flanker",
+      "assessmentRevision": 5,
+      "organization": "Northwestern (MTB)",
+      "taskIdentifier": "Flanker Inhibitory Control",
+      "versionString": "1.2.0",
+      "files": [
+        {
+          "filename": "taskData.json",
+          "contentType": "application/json",
+          "isRequired": true,
+          "jsonSchema": "https://github.com/MobileToolbox/MTBfx/blob/master/JSONschema/taskData_combinedSchema.json"
+        }
+      ]
+    },
+    {
+      "assessmentIdentifier" : "psm",
+      "assessmentRevision": 6,
+      "organization": "Northwestern (MTB)",
+      "taskIdentifier": "Picture Sequence MemoryV1",
+      "versionString": "1.2.0",
+      "files": [
+        {
+          "filename": "taskData.json",
+          "contentType": "application/json",
+          "isRequired": true,
+          "jsonSchema": "https://github.com/MobileToolbox/MTBfx/blob/master/JSONschema/taskData_combinedSchema.json"
+        }
+      ]
+    },
+    {
+      "assessmentIdentifier" : "memory-for-sequences",
+      "assessmentRevision": 7,
+      "organization": "Northwestern (MTB)",
+      "taskIdentifier": "MFS pilot 2",
+      "versionString": "1.2.0",
+      "files": [
+        {
+          "filename": "taskData.json",
+          "contentType": "application/json",
+          "isRequired": true,
+          "jsonSchema": "https://github.com/MobileToolbox/MTBfx/blob/master/JSONschema/taskData_combinedSchema.json"
+        }
+      ]
+    },
+    {
+      "assessmentIdentifier" : "dccs",
+      "assessmentRevision": 6,
+      "organization": "Northwestern (MTB)",
+      "taskIdentifier": "Dimensional Change Card Sort",
+      "versionString": "1.2.0",
+      "files": [
+        {
+          "filename": "taskData.json",
+          "contentType": "application/json",
+          "isRequired": true,
+          "jsonSchema": "https://github.com/MobileToolbox/MTBfx/blob/master/JSONschema/taskData_combinedSchema.json"
+        }
+      ]
+    },
+    {
+      "assessmentIdentifier" : "number-match",
+      "assessmentRevision": 4,
+      "organization": "Northwestern (MTB)",
+      "taskIdentifier": "Number Match",
+      "versionString": "1.2.0",
+      "files": [
+        {
+          "filename": "taskData.json",
+          "contentType": "application/json",
+          "isRequired": true,
+          "jsonSchema": "https://github.com/MobileToolbox/MTBfx/blob/master/JSONschema/taskData_combinedSchema.json"
+        }
+      ]
+    }
+  ],
+  "apps": [
+    {
+      "appId": "mobile-toolbox",
+      "iOS": 0,
+      "android": 0,
+      "allOf": [
+        {
+          "filename": "motion.json",
+          "description": "Motion sensor data recorded while running the assessment.",
+          "contentType": "application/json",
+          "isRequired": false,
+          "jsonSchema": "https://sage-bionetworks.github.io/mobile-client-json/schemas/v1/MotionRecord.json"
+        },
+        {
+          "filename": "weather.json",
+          "description": "The most recent weather conditions for the participant's location when the assessment is started.",
+          "contentType": "application/json",
+          "isRequired": false,
+          "jsonSchema": "https://sage-bionetworks.github.io/mobile-client-json/schemas/v1/WeatherResult.json"
+        },
+        {
+          "filename": "microphone_levels.json",
+          "description": "The microphone levels recorded while running the assessment.",
+          "contentType": "application/json",
+          "isRequired": false,
+          "jsonSchema": "https://sage-bionetworks.github.io/mobile-client-json/schemas/v1/AudioLevelRecord.json"
+        }
+      ],
+      "assessments": [
+        {
+          "assessmentIdentifier": "spelling",
+          "assessmentRevision": 5
+        },
+        {
+          "assessmentIdentifier" : "fnamea",
+          "assessmentRevision": 5
+        },
+        {
+          "assessmentIdentifier" : "fnameb",
+          "assessmentRevision": 5
+        },
+        {
+          "assessmentIdentifier" : "vocabulary",
+          "assessmentRevision": 5
+        },
+        {
+          "assessmentIdentifier" : "flanker",
+          "assessmentRevision": 5
+        },
+        {
+          "assessmentIdentifier" : "psm",
+          "assessmentRevision": 6
+        },
+        {
+          "assessmentIdentifier" : "memory-for-sequences",
+          "assessmentRevision": 7
+        },
+        {
+          "assessmentIdentifier" : "dccs",
+          "assessmentRevision": 6
+        },
+        {
+          "assessmentIdentifier" : "number-match",
+          "assessmentRevision": 4
+        }
+      ]
+    }
+  ]
+}
