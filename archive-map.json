@@ -41,7 +41,7 @@
           "filename": "taskData.json",
           "contentType": "application/json",
           "isRequired": true,
-          "jsonSchema": "https://github.com/MobileToolbox/MTBfx/blob/master/JSONschema/taskData_combinedSchema.json"
+          "jsonSchema": "https://raw.githubusercontent.com/MobileToolbox/MTBfx/937cdd1bf3b09815e97b53632c58208a14255b34/JSONschema/taskData_combinedSchema.json"
         }
       ]
     },
@@ -56,7 +56,7 @@
           "filename": "taskData.json",
           "contentType": "application/json",
           "isRequired": true,
-          "jsonSchema": "https://github.com/MobileToolbox/MTBfx/blob/master/JSONschema/taskData_combinedSchema.json"
+          "jsonSchema": "https://raw.githubusercontent.com/MobileToolbox/MTBfx/937cdd1bf3b09815e97b53632c58208a14255b34/JSONschema/taskData_combinedSchema.json"
         }
       ]
     },
@@ -71,7 +71,7 @@
           "filename": "taskData.json",
           "contentType": "application/json",
           "isRequired": true,
-          "jsonSchema": "https://github.com/MobileToolbox/MTBfx/blob/master/JSONschema/taskData_combinedSchema.json"
+          "jsonSchema": "https://raw.githubusercontent.com/MobileToolbox/MTBfx/937cdd1bf3b09815e97b53632c58208a14255b34/JSONschema/taskData_combinedSchema.json"
         }
       ]
     },
@@ -86,7 +86,7 @@
           "filename": "taskData.json",
           "contentType": "application/json",
           "isRequired": true,
-          "jsonSchema": "https://github.com/MobileToolbox/MTBfx/blob/master/JSONschema/taskData_combinedSchema.json"
+          "jsonSchema": "https://raw.githubusercontent.com/MobileToolbox/MTBfx/937cdd1bf3b09815e97b53632c58208a14255b34/JSONschema/taskData_combinedSchema.json"
         }
       ]
     },
@@ -101,7 +101,7 @@
           "filename": "taskData.json",
           "contentType": "application/json",
           "isRequired": true,
-          "jsonSchema": "https://github.com/MobileToolbox/MTBfx/blob/master/JSONschema/taskData_combinedSchema.json"
+          "jsonSchema": "https://raw.githubusercontent.com/MobileToolbox/MTBfx/937cdd1bf3b09815e97b53632c58208a14255b34/JSONschema/taskData_combinedSchema.json"
         }
       ]
     },
@@ -116,7 +116,7 @@
           "filename": "taskData.json",
           "contentType": "application/json",
           "isRequired": true,
-          "jsonSchema": "https://github.com/MobileToolbox/MTBfx/blob/master/JSONschema/taskData_combinedSchema.json"
+          "jsonSchema": "https://raw.githubusercontent.com/MobileToolbox/MTBfx/937cdd1bf3b09815e97b53632c58208a14255b34/JSONschema/taskData_combinedSchema.json"
         }
       ]
     },
@@ -131,7 +131,7 @@
           "filename": "taskData.json",
           "contentType": "application/json",
           "isRequired": true,
-          "jsonSchema": "https://github.com/MobileToolbox/MTBfx/blob/master/JSONschema/taskData_combinedSchema.json"
+          "jsonSchema": "https://raw.githubusercontent.com/MobileToolbox/MTBfx/937cdd1bf3b09815e97b53632c58208a14255b34/JSONschema/taskData_combinedSchema.json"
         }
       ]
     },
@@ -146,7 +146,7 @@
           "filename": "taskData.json",
           "contentType": "application/json",
           "isRequired": true,
-          "jsonSchema": "https://github.com/MobileToolbox/MTBfx/blob/master/JSONschema/taskData_combinedSchema.json"
+          "jsonSchema": "https://raw.githubusercontent.com/MobileToolbox/MTBfx/937cdd1bf3b09815e97b53632c58208a14255b34/JSONschema/taskData_combinedSchema.json"
         }
       ]
     },
@@ -161,7 +161,7 @@
           "filename": "taskData.json",
           "contentType": "application/json",
           "isRequired": true,
-          "jsonSchema": "https://github.com/MobileToolbox/MTBfx/blob/master/JSONschema/taskData_combinedSchema.json"
+          "jsonSchema": "https://raw.githubusercontent.com/MobileToolbox/MTBfx/937cdd1bf3b09815e97b53632c58208a14255b34/JSONschema/taskData_combinedSchema.json"
         }
       ]
     },
