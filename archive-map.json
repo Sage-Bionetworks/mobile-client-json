@@ -164,6 +164,97 @@
           "jsonSchema": "https://github.com/MobileToolbox/MTBfx/blob/master/JSONschema/taskData_combinedSchema.json"
         }
       ]
+    },
+    {
+      "assessmentIdentifier": "walk-and-balance",
+      "assessmentRevision": 1,
+      "organization": "Sage Bionetworks",
+      "taskIdentifier": "WalkAndBalance",
+      "versionString": "2.0.0",
+      "files": [
+        {
+          "filename": "walk_motion.json",
+          "description": "Motion sensor data recorded while the participant is walking.",
+          "contentType": "application/json",
+          "isRequired": false,
+          "$comment": "This is marked as 'not required' because simulator testing will not include this file.",
+          "jsonSchema": "https://sage-bionetworks.github.io/mobile-client-json/schemas/v1/MotionRecord.json"
+        },
+        {
+          "filename": "balance_motion.json",
+          "description": "Motion sensor data recorded while the participant is standing still.",
+          "contentType": "application/json",
+          "isRequired": false,
+          "$comment": "This is marked as 'not required' because simulator testing will not include this file.",
+          "jsonSchema": "https://sage-bionetworks.github.io/mobile-client-json/schemas/v1/MotionRecord.json"
+        }
+      ]
+    },
+    {
+      "assessmentIdentifier": "tremor",
+      "assessmentRevision": 1,
+      "organization": "Sage Bionetworks",
+      "taskIdentifier": "Tremor",
+      "versionString": "2.0.0",
+      "files": [
+        {
+          "filename": "left_motion.json",
+          "description": "Motion sensor data recorded while the participant is holding the phone in their left hand.",
+          "contentType": "application/json",
+          "isRequired": false,
+          "$comment": "This is marked as 'not required' because simulator testing will not include this file.",
+          "jsonSchema": "https://sage-bionetworks.github.io/mobile-client-json/schemas/v1/MotionRecord.json"
+        },
+        {
+          "filename": "right_motion.json",
+          "description": "Motion sensor data recorded while the participant is holding the phone in their right hand.",
+          "contentType": "application/json",
+          "isRequired": false,
+          "$comment": "This is marked as 'not required' because simulator testing will not include this file.",
+          "jsonSchema": "https://sage-bionetworks.github.io/mobile-client-json/schemas/v1/MotionRecord.json"
+        }
+      ]
+    },
+    {
+      "assessmentIdentifier": "finger-tapping",
+      "assessmentRevision": 1,
+      "organization": "Sage Bionetworks",
+      "taskIdentifier": "Tapping",
+      "versionString": "2.0.0",
+      "files": [
+        {
+          "filename": "left_motion.json",
+          "description": "Motion sensor data recorded while the participant is tapping the phone with their left hand.",
+          "contentType": "application/json",
+          "isRequired": false,
+          "$comment": "This is marked as 'not required' because simulator testing will not include this file.",
+          "jsonSchema": "https://sage-bionetworks.github.io/mobile-client-json/schemas/v1/MotionRecord.json"
+        },
+        {
+          "filename": "right_motion.json",
+          "description": "Motion sensor data recorded while the participant is tapping the phone with their right hand.",
+          "contentType": "application/json",
+          "isRequired": false,
+          "$comment": "This is marked as 'not required' because simulator testing will not include this file.",
+          "jsonSchema": "https://sage-bionetworks.github.io/mobile-client-json/schemas/v1/MotionRecord.json"
+        },
+        {
+          "filename": "right_tapping",
+          "$comment": "This filename does not include the '.json' file extension because of file naming conventions required by Exporter 1.0.",
+          "description": "The tapping test results for the participant's right hand.",
+          "contentType": "application/json",
+          "isRequired": true,
+          "jsonSchema": "https://sage-bionetworks.github.io/mobile-client-json/schemas/v1/TappingResultObject.json"
+        },
+        {
+          "filename": "left_tapping",
+          "$comment": "This filename does not include the '.json' file extension because of file naming conventions required by Exporter 1.0.",
+          "description": "The tapping test results for the participant's left hand.",
+          "contentType": "application/json",
+          "isRequired": true,
+          "jsonSchema": "https://sage-bionetworks.github.io/mobile-client-json/schemas/v1/TappingResultObject.json"
+        }
+      ]
     }
   ],
   "apps": [
