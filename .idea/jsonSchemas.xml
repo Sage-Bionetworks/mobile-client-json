@@ -7,125 +7,114 @@
           <value>
             <SchemaInfo>
               <option name="name" value="AnswerType" />
-              <option name="relativePathToSchema" value="schemas/AnswerType.json" />
-              <option name="schemaVersion" value="JSON schema version 7" />
+              <option name="relativePathToSchema" value="schemas/v1/AnswerType.json" />
+              <option name="schemaVersion" value="JSON Schema version 7" />
+            </SchemaInfo>
+          </value>
+        </entry>
+        <entry key="ArchiveMap">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="ArchiveMap" />
+              <option name="relativePathToSchema" value="schemas/v1/ArchiveMap.json" />
+              <option name="schemaVersion" value="JSON Schema version 7" />
               <option name="patterns">
                 <list>
                   <Item>
-                    <option name="directory" value="true" />
-                    <option name="path" value="examples/AnswerType" />
-                    <option name="mappingKind" value="Directory" />
+                    <option name="path" value="archive-map.json" />
                   </Item>
                 </list>
               </option>
             </SchemaInfo>
           </value>
         </entry>
-        <entry key="AsyncActionConfiguration">
+        <entry key="AssessmentTaskObject">
           <value>
             <SchemaInfo>
-              <option name="name" value="AsyncActionConfiguration" />
-              <option name="relativePathToSchema" value="schemas/AsyncActionConfiguration.json" />
-              <option name="schemaVersion" value="JSON schema version 7" />
-              <option name="patterns">
-                <list>
-                  <Item>
-                    <option name="directory" value="true" />
-                    <option name="path" value="examples/AsyncActionConfiguration" />
-                    <option name="mappingKind" value="Directory" />
-                  </Item>
-                </list>
-              </option>
+              <option name="name" value="AssessmentTaskObject" />
+              <option name="relativePathToSchema" value="schemas/v1/AssessmentTaskObject.json" />
+              <option name="schemaVersion" value="JSON Schema version 7" />
             </SchemaInfo>
           </value>
         </entry>
-        <entry key="ButtonActionInfo">
+        <entry key="AudioLevelRecord">
           <value>
             <SchemaInfo>
-              <option name="name" value="ButtonActionInfo" />
-              <option name="relativePathToSchema" value="schemas/ButtonActionInfo.json" />
-              <option name="schemaVersion" value="JSON schema version 7" />
-              <option name="patterns">
-                <list>
-                  <Item>
-                    <option name="directory" value="true" />
-                    <option name="path" value="examples/ButtonActionInfo" />
-                    <option name="mappingKind" value="Directory" />
-                  </Item>
-                </list>
-              </option>
+              <option name="name" value="AudioLevelRecord" />
+              <option name="relativePathToSchema" value="schemas/v1/AudioLevelRecord.json" />
+              <option name="schemaVersion" value="JSON Schema version 7" />
             </SchemaInfo>
           </value>
         </entry>
-        <entry key="ColorMappingThemeElement">
+        <entry key="DistanceRecord">
           <value>
             <SchemaInfo>
-              <option name="name" value="ColorMappingThemeElement" />
-              <option name="relativePathToSchema" value="schemas/ColorMappingThemeElement.json" />
-              <option name="schemaVersion" value="JSON schema version 7" />
-              <option name="patterns">
-                <list>
-                  <Item>
-                    <option name="directory" value="true" />
-                    <option name="path" value="examples/ColorMappingThemeElement" />
-                    <option name="mappingKind" value="Directory" />
-                  </Item>
-                </list>
-              </option>
+              <option name="name" value="DistanceRecord" />
+              <option name="relativePathToSchema" value="schemas/v1/DistanceRecord.json" />
+              <option name="schemaVersion" value="JSON Schema version 7" />
             </SchemaInfo>
           </value>
         </entry>
-        <entry key="ImageInfo">
+        <entry key="MCTTaskObject">
           <value>
             <SchemaInfo>
-              <option name="name" value="ImageInfo" />
-              <option name="relativePathToSchema" value="schemas/ImageInfo.json" />
-              <option name="schemaVersion" value="JSON schema version 7" />
-              <option name="patterns">
-                <list>
-                  <Item>
-                    <option name="directory" value="true" />
-                    <option name="path" value="examples/ImageInfo" />
-                    <option name="mappingKind" value="Directory" />
-                  </Item>
-                </list>
-              </option>
+              <option name="name" value="MCTTaskObject" />
+              <option name="relativePathToSchema" value="schemas/v1/MCTTaskObject.json" />
+              <option name="schemaVersion" value="JSON Schema version 7" />
             </SchemaInfo>
           </value>
         </entry>
-        <entry key="InputItem">
+        <entry key="MotionRecord">
           <value>
             <SchemaInfo>
-              <option name="name" value="InputItem" />
-              <option name="relativePathToSchema" value="schemas/InputItem.json" />
-              <option name="schemaVersion" value="JSON schema version 7" />
-              <option name="patterns">
-                <list>
-                  <Item>
-                    <option name="directory" value="true" />
-                    <option name="path" value="examples/InputItem" />
-                    <option name="mappingKind" value="Directory" />
-                  </Item>
-                </list>
-              </option>
+              <option name="name" value="MotionRecord" />
+              <option name="relativePathToSchema" value="schemas/v1/MotionRecord.json" />
+              <option name="schemaVersion" value="JSON Schema version 7" />
             </SchemaInfo>
           </value>
         </entry>
-        <entry key="Result">
+        <entry key="ResultData">
           <value>
             <SchemaInfo>
-              <option name="name" value="Result" />
-              <option name="relativePathToSchema" value="schemas/Result.json" />
-              <option name="schemaVersion" value="JSON schema version 7" />
-              <option name="patterns">
-                <list>
-                  <Item>
-                    <option name="directory" value="true" />
-                    <option name="path" value="examples/Result" />
-                    <option name="mappingKind" value="Directory" />
-                  </Item>
-                </list>
-              </option>
+              <option name="name" value="ResultData" />
+              <option name="relativePathToSchema" value="schemas/v1/ResultData.json" />
+              <option name="schemaVersion" value="JSON Schema version 7" />
+            </SchemaInfo>
+          </value>
+        </entry>
+        <entry key="TappingResultObject">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="TappingResultObject" />
+              <option name="relativePathToSchema" value="schemas/v1/TappingResultObject.json" />
+              <option name="schemaVersion" value="JSON Schema version 7" />
+            </SchemaInfo>
+          </value>
+        </entry>
+        <entry key="TaskMetadata">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="TaskMetadata" />
+              <option name="relativePathToSchema" value="schemas/v1/TaskMetadata.json" />
+              <option name="schemaVersion" value="JSON Schema version 7" />
+            </SchemaInfo>
+          </value>
+        </entry>
+        <entry key="TaskResultObject">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="TaskResultObject" />
+              <option name="relativePathToSchema" value="schemas/v1/TaskResultObject.json" />
+              <option name="schemaVersion" value="JSON Schema version 7" />
+            </SchemaInfo>
+          </value>
+        </entry>
+        <entry key="WeatherResult">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="WeatherResult" />
+              <option name="relativePathToSchema" value="schemas/v1/WeatherResult.json" />
+              <option name="schemaVersion" value="JSON Schema version 7" />
             </SchemaInfo>
           </value>
         </entry>
