@@ -1,0 +1,304 @@
+{
+  "$id" : "https://sage-bionetworks.github.io/mobile-client-json/schemas/v2/AssessmentResultObject.json",
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "type" : "object",
+  "title" : "AssessmentResultObject",
+  "description" : "A top-level result for this assessment.",
+  "definitions" : {
+    "Direction" : {
+      "$id" : "#Direction",
+      "type" : "string",
+      "title" : "Direction",
+      "description" : "",
+      "enum" : [
+        "forward",
+        "backward",
+        "exit"
+      ]
+    },
+    "PathMarker" : {
+      "$id" : "#PathMarker",
+      "type" : "object",
+      "title" : "PathMarker",
+      "description" : "",
+      "properties" : {
+        "direction" : {
+          "$ref" : "#Direction",
+          "description" : "The direction of the path navigation."
+        }
+      },
+      "required" : [
+        "direction"
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "identifier" : "foo",
+          "direction" : "forward"
+        }
+      ]
+    }
+  },
+  "properties" : {
+    "type" : {
+      "const" : "assessment",
+      "$ref" : "ResultData.json#SerializableResultType"
+    },
+    "identifier" : {
+      "type" : "string"
+    },
+    "schemaIdentifier" : {
+      "type" : "string",
+      "description" : "An identifier that can be used either by the developer or researcher for custom mapping."
+    },
+    "startDate" : {
+      "type" : "string",
+      "format" : "date-time"
+    },
+    "endDate" : {
+      "type" : "string",
+      "format" : "date-time"
+    },
+    "assessmentIdentifier" : {
+      "type" : "string",
+      "description" : "An identifier for the assessment model associated with this result. If included, this is intended to match the identifier used by the services that requested running the assessment. This could be a schedule identifier or an identifier in a different namespace than the \"task identifier\" used by the assessment developers to identify their assessments."
+    },
+    "versionString" : {
+      "type" : "string",
+      "description" : "The versioning key used by the developer to version this assessment."
+    },
+    "taskRunUUID" : {
+      "type" : "string",
+      "description" : "A unique identifier for this run of the assessment. This property is defined as readwrite to allow the controller for the task to set this on the ``AssessmentResult`` children included in this run."
+    },
+    "stepHistory" : {
+      "type" : "array",
+      "description" : "The ``stepHistory`` includes the history of the node results that were traversed as a part of running an assessment.",
+      "items" : {
+        "$ref" : "ResultData.json"
+      }
+    },
+    "asyncResults" : {
+      "type" : "array",
+      "description" : "A list of all the asynchronous results for this task. The list should include uniquely identified results.",
+      "items" : {
+        "$ref" : "ResultData.json"
+      }
+    },
+    "path" : {
+      "type" : "array",
+      "description" : "The path traversed by this branch.",
+      "items" : {
+        "$ref" : "#PathMarker"
+      }
+    }
+  },
+  "required" : [
+    "type",
+    "identifier",
+    "startDate",
+    "taskRunUUID",
+    "stepHistory"
+  ],
+  "allOf" : [
+    {
+      "$ref" : "ResultData.json"
+    }
+  ],
+  "additionalProperties" : false,
+  "examples" : [
+    {
+      "type" : "assessment",
+      "identifier" : "example",
+      "startDate" : "2017-10-16T22:28:09.000-07:00",
+      "endDate" : "2017-10-16T22:30:49.000-07:00",
+      "taskRunUUID" : "D8656FF9-736E-482B-B72A-B0EA53301C07",
+      "stepHistory" : [
+        {
+          "endDate" : "2017-10-16T22:28:29.000-07:00",
+          "identifier" : "introduction",
+          "startDate" : "2017-10-16T22:28:09.000-07:00",
+          "type" : "base"
+        },
+        {
+          "children" : [
+            {
+              "answerType" : {
+                "type" : "boolean"
+              },
+              "endDate" : "2017-10-16T22:28:09.000-07:00",
+              "identifier" : "question1",
+              "startDate" : "2017-10-16T22:28:09.000-07:00",
+              "type" : "answer",
+              "value" : true
+            },
+            {
+              "answerType" : {
+                "type" : "integer"
+              },
+              "endDate" : "2017-10-16T22:28:09.000-07:00",
+              "identifier" : "question2",
+              "startDate" : "2017-10-16T22:28:09.000-07:00",
+              "type" : "answer",
+              "value" : 42
+            },
+            {
+              "answerType" : {
+                "type" : "number"
+              },
+              "endDate" : "2017-10-16T22:28:09.000-07:00",
+              "identifier" : "question3",
+              "startDate" : "2017-10-16T22:28:09.000-07:00",
+              "type" : "answer",
+              "value" : 3.1400000000000001
+            },
+            {
+              "answerType" : {
+                "type" : "object"
+              },
+              "endDate" : "2017-10-16T22:28:09.000-07:00",
+              "identifier" : "question4",
+              "startDate" : "2017-10-16T22:28:09.000-07:00",
+              "type" : "answer",
+              "value" : {
+                "foo" : "ba"
+              }
+            },
+            {
+              "answerType" : {
+                "type" : "string"
+              },
+              "endDate" : "2017-10-16T22:28:09.000-07:00",
+              "identifier" : "question5",
+              "startDate" : "2017-10-16T22:28:09.000-07:00",
+              "type" : "answer",
+              "value" : "foo"
+            },
+            {
+              "answerType" : {
+                "baseType" : "number",
+                "type" : "array"
+              },
+              "endDate" : "2017-10-16T22:28:09.000-07:00",
+              "identifier" : "question6",
+              "startDate" : "2017-10-16T22:28:09.000-07:00",
+              "type" : "answer",
+              "value" : [
+                3.2000000000000002,
+                5.0999999999999996
+              ]
+            },
+            {
+              "answerType" : {
+                "baseType" : "integer",
+                "type" : "array"
+              },
+              "endDate" : "2017-10-16T22:28:09.000-07:00",
+              "identifier" : "question7",
+              "startDate" : "2017-10-16T22:28:09.000-07:00",
+              "type" : "answer",
+              "value" : [
+                1,
+                5
+              ]
+            },
+            {
+              "answerType" : {
+                "baseType" : "string",
+                "type" : "array"
+              },
+              "endDate" : "2017-10-16T22:28:09.000-07:00",
+              "identifier" : "question8",
+              "startDate" : "2017-10-16T22:28:09.000-07:00",
+              "type" : "answer",
+              "value" : [
+                "foo",
+                "ba",
+                "lalala"
+              ]
+            },
+            {
+              "answerType" : {
+                "codingFormat" : "yyyy-MM",
+                "type" : "date-time"
+              },
+              "endDate" : "2017-10-16T22:28:09.000-07:00",
+              "identifier" : "question9",
+              "startDate" : "2017-10-16T22:28:09.000-07:00",
+              "type" : "answer",
+              "value" : "2020-04"
+            },
+            {
+              "answerType" : {
+                "codingFormat" : "HH:mm",
+                "type" : "date-time"
+              },
+              "endDate" : "2017-10-16T22:28:09.000-07:00",
+              "identifier" : "question10",
+              "startDate" : "2017-10-16T22:28:09.000-07:00",
+              "type" : "answer",
+              "value" : "08:30"
+            },
+            {
+              "answerType" : {
+                "type" : "date-time"
+              },
+              "endDate" : "2017-10-16T22:28:09.000-07:00",
+              "identifier" : "question11",
+              "startDate" : "2017-10-16T22:28:09.000-07:00",
+              "type" : "answer",
+              "value" : "2017-10-16T22:28:09.000-07:00"
+            },
+            {
+              "answerType" : {
+                "type" : "measurement",
+                "unit" : "cm"
+              },
+              "endDate" : "2017-10-16T22:28:09.000-07:00",
+              "identifier" : "question12",
+              "startDate" : "2017-10-16T22:28:09.000-07:00",
+              "type" : "answer",
+              "value" : 170.19999999999999
+            }
+          ],
+          "endDate" : "2017-10-16T22:30:29.000-07:00",
+          "identifier" : "answers",
+          "startDate" : "2017-10-16T22:28:29.000-07:00",
+          "type" : "collection"
+        },
+        {
+          "endDate" : "2017-10-16T22:30:49.000-07:00",
+          "identifier" : "conclusion",
+          "startDate" : "2017-10-16T22:30:29.000-07:00",
+          "type" : "base"
+        }
+      ],
+      "asyncResults" : [
+        {
+          "contentType" : "application/json",
+          "endDate" : "2017-10-16T22:30:29.000-07:00",
+          "identifier" : "fileResult",
+          "jsonSchema" : "file://temp/foo.schema.json",
+          "relativePath" : "/foo.json",
+          "startDate" : "2017-10-16T22:28:29.000-07:00",
+          "startUptime" : 1234.567,
+          "type" : "file"
+        }
+      ],
+      "path" : [
+        {
+          "direction" : "forward",
+          "identifier" : "introduction"
+        },
+        {
+          "direction" : "forward",
+          "identifier" : "answers"
+        },
+        {
+          "direction" : "forward",
+          "identifier" : "conclusion"
+        }
+      ]
+    }
+  ]
+}

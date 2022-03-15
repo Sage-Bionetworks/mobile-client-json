@@ -1,0 +1,204 @@
+{
+  "$id" : "https://sage-bionetworks.github.io/mobile-client-json/schemas/v2/ImageInfo.json",
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "type" : "object",
+  "title" : "ImageInfo",
+  "description" : "`ImageInfo` extends the UI step to include an image.\"",
+  "definitions" : {
+    "AnimatedImage" : {
+      "$id" : "#AnimatedImage",
+      "type" : "object",
+      "title" : "AnimatedImage",
+      "description" : "",
+      "properties" : {
+        "type" : {
+          "const" : "animated",
+          "$ref" : "#ImageInfoType"
+        },
+        "imageNames" : {
+          "type" : "array",
+          "description" : "The list of the names of the images to animate through in order.",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "animationDuration" : {
+          "type" : "number",
+          "description" : "The animation duration."
+        },
+        "animationRepeatCount" : {
+          "type" : "integer",
+          "description" : "This is used to set how many times the animation should be repeated where `0` means infinite."
+        },
+        "label" : {
+          "type" : "string",
+          "description" : "A caption or label to display for the image in a localized string."
+        },
+        "bundleIdentifier" : {
+          "type" : "string",
+          "description" : "The identifier of the bundle within which the resource is embedded on Apple platforms."
+        },
+        "packageName" : {
+          "type" : "string",
+          "description" : "The package within which the resource is embedded on Android platforms."
+        },
+        "fileExtension" : {
+          "type" : "string",
+          "description" : "For a raw resource file, this is the file extension for getting at the resource."
+        },
+        "placementType" : {
+          "type" : "string",
+          "description" : "A hint to the preferred placement of the image."
+        },
+        "size" : {
+          "$ref" : "#ImageSize",
+          "description" : "The preferred size (in pixels) of the image."
+        },
+        "imageIdentifier" : {
+          "type" : "string",
+          "description" : "An identifier for the image."
+        }
+      },
+      "required" : [
+        "type",
+        "imageNames",
+        "animationDuration"
+      ],
+      "allOf" : [
+        {
+          "$ref" : "#"
+        }
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "type" : "animated",
+          "imageNames" : [
+            "blueDog1",
+            "blueDog2",
+            "blueDog3"
+          ],
+          "animationDuration" : 2,
+          "animationRepeatCount" : 0
+        },
+        {
+          "type" : "animated",
+          "imageNames" : [
+            "redCat1",
+            "redCat2",
+            "redCat3"
+          ],
+          "animationDuration" : 2,
+          "animationRepeatCount" : 0,
+          "bundleIdentifier" : "org.example.SharedResources"
+        }
+      ]
+    },
+    "FetchableImage" : {
+      "$id" : "#FetchableImage",
+      "type" : "object",
+      "title" : "FetchableImage",
+      "description" : "",
+      "properties" : {
+        "type" : {
+          "const" : "fetchable",
+          "$ref" : "#ImageInfoType"
+        },
+        "imageName" : {
+          "type" : "string",
+          "description" : "The image name for the image to draw."
+        },
+        "label" : {
+          "type" : "string",
+          "description" : "A caption or label to display for the image in a localized string."
+        },
+        "bundleIdentifier" : {
+          "type" : "string",
+          "description" : "The identifier of the bundle within which the resource is embedded on Apple platforms."
+        },
+        "packageName" : {
+          "type" : "string",
+          "description" : "The package within which the resource is embedded on Android platforms."
+        },
+        "fileExtension" : {
+          "type" : "string",
+          "description" : "For a raw resource file, this is the file extension for getting at the resource."
+        },
+        "placementType" : {
+          "type" : "string",
+          "description" : "A hint to the preferred placement of the image."
+        },
+        "size" : {
+          "$ref" : "#ImageSize",
+          "description" : "The preferred size (in pixels) of the image."
+        }
+      },
+      "required" : [
+        "type",
+        "imageName"
+      ],
+      "allOf" : [
+        {
+          "$ref" : "#"
+        }
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "type" : "fetchable",
+          "imageName" : "blueDog"
+        },
+        {
+          "type" : "fetchable",
+          "imageName" : "redCat",
+          "bundleIdentifier" : "org.example.SharedResources",
+          "packageName" : "org.example.sharedresources",
+          "fileExtension" : "jpeg"
+        }
+      ]
+    },
+    "ImageInfoType" : {
+      "$id" : "#ImageInfoType",
+      "type" : "string",
+      "title" : "ImageInfoType",
+      "description" : "",
+      "examples" : [
+        "fetchable",
+        "animated"
+      ]
+    },
+    "ImageSize" : {
+      "$id" : "#ImageSize",
+      "type" : "object",
+      "title" : "ImageSize",
+      "description" : "",
+      "properties" : {
+        "width" : {
+          "type" : "number"
+        },
+        "height" : {
+          "type" : "number"
+        }
+      },
+      "required" : [
+        "width",
+        "height"
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "width" : 10,
+          "height" : 20
+        }
+      ]
+    }
+  },
+  "properties" : {
+    "type" : {
+      "$ref" : "#ImageInfoType"
+    }
+  },
+  "required" : [
+    "type"
+  ]
+}

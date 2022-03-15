@@ -1,0 +1,561 @@
+{
+  "$id" : "https://sage-bionetworks.github.io/mobile-client-json/schemas/v2/Node.json",
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "type" : "object",
+  "title" : "Node",
+  "description" : "The interface for any `Node` that is serialized using the `Codable` protocol and the polymorphic serialization defined by this framework.",
+  "definitions" : {
+    "ChoiceQuestionStepObject" : {
+      "$id" : "#ChoiceQuestionStepObject",
+      "type" : "object",
+      "title" : "ChoiceQuestionStepObject",
+      "description" : "",
+      "properties" : {
+        "type" : {
+          "const" : "choiceQuestion",
+          "$ref" : "#SerializableNodeType"
+        },
+        "comment" : {
+          "type" : "string",
+          "description" : "A developer-facing comment about this node."
+        },
+        "shouldHideActions" : {
+          "type" : "array",
+          "description" : "A list of buttons that should be hidden even if the default is to show them.",
+          "items" : {
+            "$ref" : "AssessmentObject.json#ButtonType"
+          }
+        },
+        "actions" : {
+          "type" : "object",
+          "description" : "A mapping of button action to content information for that button.",
+          "additionalProperties" : {
+            "$ref" : "ButtonActionInfo.json"
+          }
+        },
+        "title" : {
+          "type" : "string",
+          "description" : "The primary text to display for the node in a localized string. The UI should display this using a larger font."
+        },
+        "subtitle" : {
+          "type" : "string",
+          "description" : "A subtitle to display for the node in a localized string."
+        },
+        "detail" : {
+          "type" : "string",
+          "description" : "Detail text to display for the node in a localized string."
+        },
+        "image" : {
+          "$ref" : "ImageInfo.json",
+          "description" : "An image or animation to display with this node."
+        },
+        "optional" : {
+          "type" : "boolean",
+          "description" : "If `true`, then the forward button should *always* enabled. If `false`, then the forward button should be disabled until the question is answered. This is different from \"skipping\" a question. Whether or not the skip button is shown in the UI is defined by the `shouldHideActions` property.",
+          "default" : false
+        },
+        "uiHint" : {
+          "$ref" : "#QuestionUIHint",
+          "description" : "This is a \"hint\" that can be used to vend a view that is appropriate to the given question. If the library responsible for rendering the question doesn't know how to handle the hint, then it will be ignored."
+        },
+        "baseType" : {
+          "$ref" : "AnswerType.json#JsonType",
+          "description" : "The json type of the choices in this collection. The `value` for all choices should be either of the same json type or null."
+        },
+        "singleChoice" : {
+          "type" : "boolean",
+          "description" : "Is there a single choice for this question? (Default = true)"
+        },
+        "choices" : {
+          "type" : "array",
+          "description" : "The list of choices for this question.",
+          "items" : {
+            "$ref" : "#JsonChoice"
+          }
+        },
+        "other" : {
+          "$ref" : "TextInputItem.json",
+          "description" : "An input item that defines the properties of the textfield used to add free text as another choice."
+        }
+      },
+      "required" : [
+        "type",
+        "baseType",
+        "choices"
+      ],
+      "allOf" : [
+        {
+          "$ref" : "#"
+        }
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "type" : "choiceQuestion",
+          "identifier" : "foo",
+          "optional" : false,
+          "baseType" : "string",
+          "singleChoice" : true,
+          "choices" : [
+            {
+              "text" : "ba",
+              "value" : "ba"
+            },
+            {
+              "text" : "la",
+              "value" : "la"
+            },
+            {
+              "text" : "lala",
+              "value" : "lala"
+            }
+          ]
+        }
+      ]
+    },
+    "ChoiceSelectorType" : {
+      "$id" : "#ChoiceSelectorType",
+      "type" : "string",
+      "title" : "ChoiceSelectorType",
+      "description" : "",
+      "enum" : [
+        "default",
+        "exclusive",
+        "all"
+      ]
+    },
+    "CompletionStepObject" : {
+      "$id" : "#CompletionStepObject",
+      "type" : "object",
+      "title" : "CompletionStepObject",
+      "description" : "",
+      "properties" : {
+        "type" : {
+          "const" : "completion",
+          "$ref" : "#SerializableNodeType"
+        },
+        "comment" : {
+          "type" : "string",
+          "description" : "A developer-facing comment about this node."
+        },
+        "shouldHideActions" : {
+          "type" : "array",
+          "description" : "A list of buttons that should be hidden even if the default is to show them.",
+          "items" : {
+            "$ref" : "AssessmentObject.json#ButtonType"
+          }
+        },
+        "actions" : {
+          "type" : "object",
+          "description" : "A mapping of button action to content information for that button.",
+          "additionalProperties" : {
+            "$ref" : "ButtonActionInfo.json"
+          }
+        },
+        "title" : {
+          "type" : "string",
+          "description" : "The primary text to display for the node in a localized string. The UI should display this using a larger font."
+        },
+        "subtitle" : {
+          "type" : "string",
+          "description" : "A subtitle to display for the node in a localized string."
+        },
+        "detail" : {
+          "type" : "string",
+          "description" : "Detail text to display for the node in a localized string."
+        },
+        "image" : {
+          "$ref" : "ImageInfo.json",
+          "description" : "An image or animation to display with this node."
+        }
+      },
+      "required" : [
+        "type"
+      ],
+      "allOf" : [
+        {
+          "$ref" : "#"
+        }
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "type" : "completion",
+          "identifier" : "example"
+        }
+      ]
+    },
+    "InstructionStepObject" : {
+      "$id" : "#InstructionStepObject",
+      "type" : "object",
+      "title" : "InstructionStepObject",
+      "description" : "",
+      "properties" : {
+        "type" : {
+          "const" : "instruction",
+          "$ref" : "#SerializableNodeType"
+        },
+        "comment" : {
+          "type" : "string",
+          "description" : "A developer-facing comment about this node."
+        },
+        "shouldHideActions" : {
+          "type" : "array",
+          "description" : "A list of buttons that should be hidden even if the default is to show them.",
+          "items" : {
+            "$ref" : "AssessmentObject.json#ButtonType"
+          }
+        },
+        "actions" : {
+          "type" : "object",
+          "description" : "A mapping of button action to content information for that button.",
+          "additionalProperties" : {
+            "$ref" : "ButtonActionInfo.json"
+          }
+        },
+        "title" : {
+          "type" : "string",
+          "description" : "The primary text to display for the node in a localized string. The UI should display this using a larger font."
+        },
+        "subtitle" : {
+          "type" : "string",
+          "description" : "A subtitle to display for the node in a localized string."
+        },
+        "detail" : {
+          "type" : "string",
+          "description" : "Detail text to display for the node in a localized string."
+        },
+        "image" : {
+          "$ref" : "ImageInfo.json",
+          "description" : "An image or animation to display with this node."
+        },
+        "fullInstructionsOnly" : {
+          "type" : "boolean",
+          "description" : "Should this instruction step be displayed when displaying full instructions only?",
+          "default" : false
+        },
+        "spokenInstructions" : {
+          "type" : "object",
+          "description" : "A mapping of a localized spoken instruction to a key where the key is either 'start' or 'end'.",
+          "additionalProperties" : {
+            "type" : "string"
+          }
+        }
+      },
+      "required" : [
+        "type"
+      ],
+      "allOf" : [
+        {
+          "$ref" : "#"
+        }
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "type" : "instruction",
+          "identifier" : "example"
+        }
+      ]
+    },
+    "JsonChoice" : {
+      "$id" : "#JsonChoice",
+      "type" : "object",
+      "title" : "JsonChoice",
+      "description" : "",
+      "properties" : {
+        "value" : {
+          "description" : "The matching value is any json element, but all json elements within the collection of choices should have the same json type."
+        },
+        "text" : {
+          "type" : "string",
+          "description" : "A localized string to show as the selection label."
+        },
+        "detail" : {
+          "type" : "string",
+          "description" : "Additional detail to display below the primary label."
+        },
+        "icon" : {
+          "type" : "string",
+          "description" : "An image associated with this choice."
+        },
+        "selectorType" : {
+          "$ref" : "#ChoiceSelectorType",
+          "description" : "Does selecting this choice mean that the other options should be deselected or selected as well?\nFor example, this can be used in a multiple selection question to allow for a 'none of the above' choice that is `exclusive` to the other items or an 'all of the above' choice that should select `all` other choices as well (except those that are marked as `exclusive`)."
+        }
+      },
+      "required" : [
+        "text"
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "value" : 1,
+          "text" : "One"
+        }
+      ]
+    },
+    "OverviewStepObject" : {
+      "$id" : "#OverviewStepObject",
+      "type" : "object",
+      "title" : "OverviewStepObject",
+      "description" : "",
+      "properties" : {
+        "type" : {
+          "const" : "overview",
+          "$ref" : "#SerializableNodeType"
+        },
+        "comment" : {
+          "type" : "string",
+          "description" : "A developer-facing comment about this node."
+        },
+        "shouldHideActions" : {
+          "type" : "array",
+          "description" : "A list of buttons that should be hidden even if the default is to show them.",
+          "items" : {
+            "$ref" : "AssessmentObject.json#ButtonType"
+          }
+        },
+        "actions" : {
+          "type" : "object",
+          "description" : "A mapping of button action to content information for that button.",
+          "additionalProperties" : {
+            "$ref" : "ButtonActionInfo.json"
+          }
+        },
+        "title" : {
+          "type" : "string",
+          "description" : "The primary text to display for the node in a localized string. The UI should display this using a larger font."
+        },
+        "subtitle" : {
+          "type" : "string",
+          "description" : "A subtitle to display for the node in a localized string."
+        },
+        "detail" : {
+          "type" : "string",
+          "description" : "Detail text to display for the node in a localized string."
+        },
+        "image" : {
+          "$ref" : "ImageInfo.json",
+          "description" : "An image or animation to display with this node."
+        }
+      },
+      "required" : [
+        "type"
+      ],
+      "allOf" : [
+        {
+          "$ref" : "#"
+        }
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "type" : "overview",
+          "identifier" : "example"
+        }
+      ]
+    },
+    "QuestionUIHint" : {
+      "$id" : "#QuestionUIHint",
+      "type" : "string",
+      "title" : "QuestionUIHint",
+      "description" : "",
+      "examples" : [
+        "radioButton",
+        "slider",
+        "textfield",
+        "multipleLine",
+        "likert",
+        "checkbox"
+      ]
+    },
+    "SectionObject" : {
+      "$id" : "#SectionObject",
+      "type" : "object",
+      "title" : "SectionObject",
+      "description" : "",
+      "properties" : {
+        "type" : {
+          "const" : "section",
+          "$ref" : "#SerializableNodeType"
+        },
+        "comment" : {
+          "type" : "string",
+          "description" : "A developer-facing comment about this node."
+        },
+        "shouldHideActions" : {
+          "type" : "array",
+          "description" : "A list of buttons that should be hidden even if the default is to show them.",
+          "items" : {
+            "$ref" : "AssessmentObject.json#ButtonType"
+          }
+        },
+        "actions" : {
+          "type" : "object",
+          "description" : "A mapping of button action to content information for that button.",
+          "additionalProperties" : {
+            "$ref" : "ButtonActionInfo.json"
+          }
+        },
+        "title" : {
+          "type" : "string",
+          "description" : "The primary text to display for the node in a localized string. The UI should display this using a larger font."
+        },
+        "subtitle" : {
+          "type" : "string",
+          "description" : "A subtitle to display for the node in a localized string."
+        },
+        "detail" : {
+          "type" : "string",
+          "description" : "Detail text to display for the node in a localized string."
+        },
+        "image" : {
+          "$ref" : "ImageInfo.json",
+          "description" : "An image or animation to display with this node."
+        },
+        "steps" : {
+          "type" : "array",
+          "description" : "A sequential list of the nodes to display for this assessment or section.",
+          "items" : {
+            "$ref" : "#"
+          }
+        }
+      },
+      "required" : [
+        "type",
+        "steps"
+      ],
+      "allOf" : [
+        {
+          "$ref" : "#"
+        }
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "type" : "section",
+          "identifier" : "section",
+          "steps" : [
+            {
+              "identifier" : "favoriteColor",
+              "inputItem" : {
+                "type" : "string"
+              },
+              "optional" : false,
+              "title" : "What is your favorite color",
+              "type" : "simpleQuestion"
+            }
+          ]
+        }
+      ]
+    },
+    "SerializableNodeType" : {
+      "$id" : "#SerializableNodeType",
+      "type" : "string",
+      "title" : "SerializableNodeType",
+      "description" : "",
+      "examples" : [
+        "assessment",
+        "section",
+        "overview",
+        "instruction",
+        "choiceQuestion",
+        "simpleQuestion",
+        "completion"
+      ]
+    },
+    "SimpleQuestionStepObject" : {
+      "$id" : "#SimpleQuestionStepObject",
+      "type" : "object",
+      "title" : "SimpleQuestionStepObject",
+      "description" : "",
+      "properties" : {
+        "type" : {
+          "const" : "simpleQuestion",
+          "$ref" : "#SerializableNodeType"
+        },
+        "comment" : {
+          "type" : "string",
+          "description" : "A developer-facing comment about this node."
+        },
+        "shouldHideActions" : {
+          "type" : "array",
+          "description" : "A list of buttons that should be hidden even if the default is to show them.",
+          "items" : {
+            "$ref" : "AssessmentObject.json#ButtonType"
+          }
+        },
+        "actions" : {
+          "type" : "object",
+          "description" : "A mapping of button action to content information for that button.",
+          "additionalProperties" : {
+            "$ref" : "ButtonActionInfo.json"
+          }
+        },
+        "title" : {
+          "type" : "string",
+          "description" : "The primary text to display for the node in a localized string. The UI should display this using a larger font."
+        },
+        "subtitle" : {
+          "type" : "string",
+          "description" : "A subtitle to display for the node in a localized string."
+        },
+        "detail" : {
+          "type" : "string",
+          "description" : "Detail text to display for the node in a localized string."
+        },
+        "image" : {
+          "$ref" : "ImageInfo.json",
+          "description" : "An image or animation to display with this node."
+        },
+        "optional" : {
+          "type" : "boolean",
+          "description" : "If `true`, then the forward button should *always* enabled. If `false`, then the forward button should be disabled until the question is answered. This is different from \"skipping\" a question. Whether or not the skip button is shown in the UI is defined by the `shouldHideActions` property.",
+          "default" : false
+        },
+        "uiHint" : {
+          "$ref" : "#QuestionUIHint",
+          "description" : "This is a \"hint\" that can be used to vend a view that is appropriate to the given question. If the library responsible for rendering the question doesn't know how to handle the hint, then it will be ignored."
+        },
+        "inputItem" : {
+          "$ref" : "TextInputItem.json",
+          "description" : "The single text input for this question."
+        }
+      },
+      "required" : [
+        "type",
+        "inputItem"
+      ],
+      "allOf" : [
+        {
+          "$ref" : "#"
+        }
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "type" : "simpleQuestion",
+          "identifier" : "foo",
+          "optional" : false,
+          "inputItem" : {
+            "type" : "string"
+          }
+        }
+      ]
+    }
+  },
+  "properties" : {
+    "type" : {
+      "$ref" : "#SerializableNodeType"
+    },
+    "identifier" : {
+      "type" : "string",
+      "description" : "The identifier associated with the task, step, or asynchronous action."
+    }
+  },
+  "required" : [
+    "type",
+    "identifier"
+  ]
+}

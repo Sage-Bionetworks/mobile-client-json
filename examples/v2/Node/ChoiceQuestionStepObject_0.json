@@ -1,0 +1,1 @@
+{"singleChoice":true,"identifier":"foo","baseType":"string","type":"choiceQuestion","choices":[{"value":"ba","text":"ba"},{"text":"la","value":"la"},{"text":"lala","value":"lala"}],"optional":false}

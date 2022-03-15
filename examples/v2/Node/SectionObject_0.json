@@ -1,0 +1,1 @@
+{"steps":[{"type":"simpleQuestion","optional":false,"title":"What is your favorite color","inputItem":{"type":"string"},"identifier":"favoriteColor"}],"identifier":"section","type":"section"}

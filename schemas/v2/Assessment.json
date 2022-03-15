@@ -1,0 +1,20 @@
+{
+  "$id" : "https://sage-bionetworks.github.io/mobile-client-json/schemas/v2/Assessment.json",
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "type" : "object",
+  "title" : "Assessment",
+  "description" : "The interface for any `Assessment` that is serialized using the `Codable` protocol and the polymorphic serialization defined by this framework.",
+  "properties" : {
+    "type" : {
+      "type" : "string"
+    },
+    "identifier" : {
+      "type" : "string",
+      "description" : "The identifier associated with the task, step, or asynchronous action."
+    }
+  },
+  "required" : [
+    "type",
+    "identifier"
+  ]
+}
