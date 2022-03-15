@@ -1,0 +1,456 @@
+{
+  "$id" : "https://sage-bionetworks.github.io/mobile-client-json/schemas/v2/TextInputItem.json",
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "type" : "object",
+  "title" : "TextInputItem",
+  "description" : "An `TextInputItem` describes input entry that is freeform with ranges and validation. Typically, this is presented as a text field, but depending upon the requirements of the survey designer, it may use a slider, likert scale, date picker, or other custom UI/UX to allow for validation of the entered value.",
+  "definitions" : {
+    "DoubleFormatOptions" : {
+      "$id" : "#DoubleFormatOptions",
+      "type" : "object",
+      "title" : "DoubleFormatOptions",
+      "description" : "",
+      "properties" : {
+        "numberStyle" : {
+          "$ref" : "#NumberFormatStyle"
+        },
+        "usesGroupingSeparator" : {
+          "type" : "boolean"
+        },
+        "maximumFractionDigits" : {
+          "type" : "integer"
+        },
+        "minimumValue" : {
+          "type" : "number"
+        },
+        "maximumValue" : {
+          "type" : "number"
+        },
+        "stepInterval" : {
+          "type" : "number"
+        },
+        "minInvalidMessage" : {
+          "type" : "string"
+        },
+        "maxInvalidMessage" : {
+          "type" : "string"
+        },
+        "invalidMessage" : {
+          "type" : "string"
+        }
+      },
+      "required" : [
+
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+
+        },
+        {
+          "numberStyle" : "currency",
+          "usesGroupingSeparator" : false,
+          "maximumFractionDigits" : 2,
+          "minimumValue" : 0,
+          "maximumValue" : 200,
+          "stepInterval" : 0.01,
+          "minInvalidMessage" : "Minimum value is zero",
+          "maxInvalidMessage" : "Maximum value is $200",
+          "invalidMessage" : "This number is not valid"
+        }
+      ]
+    },
+    "DoubleTextInputItemObject" : {
+      "$id" : "#DoubleTextInputItemObject",
+      "type" : "object",
+      "title" : "DoubleTextInputItemObject",
+      "description" : "",
+      "properties" : {
+        "type" : {
+          "const" : "number",
+          "$ref" : "#TextInputType"
+        },
+        "formatOptions" : {
+          "$ref" : "#DoubleFormatOptions",
+          "description" : "The formatting and range options to use with input item."
+        }
+      },
+      "required" : [
+        "type"
+      ],
+      "allOf" : [
+        {
+          "$ref" : "#"
+        }
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "type" : "number"
+        }
+      ]
+    },
+    "IntegerFormatOptions" : {
+      "$id" : "#IntegerFormatOptions",
+      "type" : "object",
+      "title" : "IntegerFormatOptions",
+      "description" : "",
+      "properties" : {
+        "numberStyle" : {
+          "$ref" : "#NumberFormatStyle"
+        },
+        "usesGroupingSeparator" : {
+          "type" : "boolean"
+        },
+        "minimumValue" : {
+          "type" : "integer"
+        },
+        "maximumValue" : {
+          "type" : "integer"
+        },
+        "stepInterval" : {
+          "type" : "integer"
+        },
+        "minInvalidMessage" : {
+          "type" : "string"
+        },
+        "maxInvalidMessage" : {
+          "type" : "string"
+        },
+        "invalidMessage" : {
+          "type" : "string"
+        }
+      },
+      "required" : [
+
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+
+        },
+        {
+          "numberStyle" : "currency",
+          "usesGroupingSeparator" : false,
+          "minimumValue" : 0,
+          "maximumValue" : 200,
+          "stepInterval" : 5,
+          "minInvalidMessage" : "Minimum value is zero",
+          "maxInvalidMessage" : "Maximum value is $200",
+          "invalidMessage" : "This number is not valid"
+        }
+      ]
+    },
+    "IntegerTextInputItemObject" : {
+      "$id" : "#IntegerTextInputItemObject",
+      "type" : "object",
+      "title" : "IntegerTextInputItemObject",
+      "description" : "",
+      "properties" : {
+        "type" : {
+          "const" : "integer",
+          "$ref" : "#TextInputType"
+        },
+        "formatOptions" : {
+          "$ref" : "#IntegerFormatOptions",
+          "description" : "The formatting and range options to use with input item."
+        }
+      },
+      "required" : [
+        "type"
+      ],
+      "allOf" : [
+        {
+          "$ref" : "#"
+        }
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "type" : "integer"
+        }
+      ]
+    },
+    "KeyboardOptionsObject" : {
+      "$id" : "#KeyboardOptionsObject",
+      "type" : "object",
+      "title" : "KeyboardOptionsObject",
+      "description" : "",
+      "properties" : {
+        "isSecureTextEntry" : {
+          "type" : "boolean",
+          "default" : false
+        },
+        "autocapitalizationType" : {
+          "$ref" : "#TextAutoCapitalizationType"
+        },
+        "autocorrectionType" : {
+          "$ref" : "#TextAutoCorrectionType"
+        },
+        "spellCheckingType" : {
+          "$ref" : "#TextSpellCheckingType"
+        },
+        "keyboardType" : {
+          "$ref" : "#KeyboardType"
+        }
+      },
+      "required" : [
+
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+
+        },
+        {
+          "isSecureTextEntry" : false,
+          "autocapitalizationType" : "none",
+          "autocorrectionType" : "no",
+          "spellCheckingType" : "no",
+          "keyboardType" : "decimalPad"
+        }
+      ]
+    },
+    "KeyboardType" : {
+      "$id" : "#KeyboardType",
+      "type" : "string",
+      "title" : "KeyboardType",
+      "description" : "",
+      "enum" : [
+        "default",
+        "asciiCapable",
+        "numbersAndPunctuation",
+        "URL",
+        "numberPad",
+        "phonePad",
+        "namePhonePad",
+        "emailAddress",
+        "decimalPad",
+        "twitter",
+        "webSearch",
+        "asciiCapableNumberPad"
+      ]
+    },
+    "NumberFormatStyle" : {
+      "$id" : "#NumberFormatStyle",
+      "type" : "string",
+      "title" : "NumberFormatStyle",
+      "description" : "",
+      "enum" : [
+        "none",
+        "decimal",
+        "currency",
+        "percent",
+        "scientific",
+        "spellOut",
+        "ordinal"
+      ]
+    },
+    "RegExValidator" : {
+      "$id" : "#RegExValidator",
+      "type" : "object",
+      "title" : "RegExValidator",
+      "description" : "",
+      "properties" : {
+        "pattern" : {
+          "type" : "string",
+          "description" : "The string value must be a valid a regex pattern."
+        },
+        "invalidMessage" : {
+          "type" : "string",
+          "description" : "The invalid message is the localized message to display to the participant if the text entered is invalid."
+        }
+      },
+      "required" : [
+        "pattern",
+        "invalidMessage"
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "pattern" : "^[0-9]*$",
+          "invalidMessage" : "Only entering numbers is allowed."
+        }
+      ]
+    },
+    "StringTextInputItemObject" : {
+      "$id" : "#StringTextInputItemObject",
+      "type" : "object",
+      "title" : "StringTextInputItemObject",
+      "description" : "",
+      "properties" : {
+        "type" : {
+          "const" : "string",
+          "$ref" : "#TextInputType"
+        },
+        "keyboardOptions" : {
+          "$ref" : "#KeyboardOptionsObject",
+          "description" : "The keyboard options to use with this text field."
+        },
+        "regExValidator" : {
+          "$ref" : "#RegExValidator",
+          "description" : "The regex validator to use to validate this text field."
+        }
+      },
+      "required" : [
+        "type"
+      ],
+      "allOf" : [
+        {
+          "$ref" : "#"
+        }
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "type" : "string"
+        }
+      ]
+    },
+    "TextAutoCapitalizationType" : {
+      "$id" : "#TextAutoCapitalizationType",
+      "type" : "string",
+      "title" : "TextAutoCapitalizationType",
+      "description" : "",
+      "enum" : [
+        "none",
+        "words",
+        "sentences",
+        "allCharacters"
+      ]
+    },
+    "TextAutoCorrectionType" : {
+      "$id" : "#TextAutoCorrectionType",
+      "type" : "string",
+      "title" : "TextAutoCorrectionType",
+      "description" : "",
+      "enum" : [
+        "default",
+        "no",
+        "yes"
+      ]
+    },
+    "TextInputType" : {
+      "$id" : "#TextInputType",
+      "type" : "string",
+      "title" : "TextInputType",
+      "description" : "",
+      "enum" : [
+        "number",
+        "integer",
+        "string",
+        "year"
+      ]
+    },
+    "TextSpellCheckingType" : {
+      "$id" : "#TextSpellCheckingType",
+      "type" : "string",
+      "title" : "TextSpellCheckingType",
+      "description" : "",
+      "enum" : [
+        "default",
+        "no",
+        "yes"
+      ]
+    },
+    "YearFormatOptions" : {
+      "$id" : "#YearFormatOptions",
+      "type" : "object",
+      "title" : "YearFormatOptions",
+      "description" : "",
+      "properties" : {
+        "allowFuture" : {
+          "type" : "boolean"
+        },
+        "allowPast" : {
+          "type" : "boolean"
+        },
+        "minimumYear" : {
+          "type" : "integer"
+        },
+        "maximumYear" : {
+          "type" : "integer"
+        },
+        "minInvalidMessage" : {
+          "type" : "string"
+        },
+        "maxInvalidMessage" : {
+          "type" : "string"
+        },
+        "invalidMessage" : {
+          "type" : "string"
+        }
+      },
+      "required" : [
+
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+
+        },
+        {
+          "allowPast" : false,
+          "maximumYear" : 2030
+        },
+        {
+          "allowFuture" : false,
+          "minimumYear" : 1900
+        }
+      ]
+    },
+    "YearTextInputItemObject" : {
+      "$id" : "#YearTextInputItemObject",
+      "type" : "object",
+      "title" : "YearTextInputItemObject",
+      "description" : "",
+      "properties" : {
+        "type" : {
+          "const" : "year",
+          "$ref" : "#TextInputType"
+        },
+        "formatOptions" : {
+          "$ref" : "#YearFormatOptions",
+          "description" : "The formatting and range options to use with input item."
+        }
+      },
+      "required" : [
+        "type"
+      ],
+      "allOf" : [
+        {
+          "$ref" : "#"
+        }
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "type" : "year"
+        }
+      ]
+    }
+  },
+  "properties" : {
+    "type" : {
+      "$ref" : "#TextInputType"
+    },
+    "identifier" : {
+      "type" : "string",
+      "description" : "The result identifier is an optional value that can be used to help in building the serializable answer result from this ``InputItem``. If null, then it is assumed that the ``Question`` that holds this ``InputItem`` has some custom serialization strategy or only contains a single field and this property can be ignored."
+    },
+    "fieldLabel" : {
+      "type" : "string",
+      "description" : "A localized string that displays a short text offering a hint to the user of the data to be entered for this field."
+    },
+    "placeholder" : {
+      "type" : "string",
+      "description" : "A localized string that displays placeholder information for the ``InputItem``."
+    }
+  },
+  "required" : [
+    "type",
+    "identifier",
+    "fieldLabel",
+    "placeholder"
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "$id" : "https://sage-bionetworks.github.io/mobile-client-json/schemas/v2/ButtonActionInfo.json",
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "type" : "object",
+  "title" : "ButtonActionInfo",
+  "description" : "`ButtonActionInfo` protocol can be used to customize the title and image displayed for a given action of the UI.",
+  "definitions" : {
+    "ButtonActionInfoObject" : {
+      "$id" : "#ButtonActionInfoObject",
+      "type" : "object",
+      "title" : "ButtonActionInfoObject",
+      "description" : "",
+      "properties" : {
+        "type" : {
+          "const" : "default",
+          "$ref" : "#ButtonActionInfoType"
+        }
+      },
+      "required" : [
+        "type"
+      ],
+      "allOf" : [
+        {
+          "$ref" : "#"
+        }
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "type" : "default",
+          "buttonTitle" : "Go, Dogs! Go"
+        },
+        {
+          "type" : "default",
+          "iconName" : "closeX",
+          "bundleIdentifier" : "org.example.SharedResources"
+        }
+      ]
+    },
+    "ButtonActionInfoType" : {
+      "$id" : "#ButtonActionInfoType",
+      "type" : "string",
+      "title" : "ButtonActionInfoType",
+      "description" : "",
+      "examples" : [
+        "default"
+      ]
+    }
+  },
+  "properties" : {
+    "type" : {
+      "$ref" : "#ButtonActionInfoType"
+    },
+    "buttonTitle" : {
+      "type" : "string",
+      "description" : "The localized title for the button."
+    },
+    "iconName" : {
+      "type" : "string",
+      "description" : "The icon name for the embedded icon."
+    },
+    "bundleIdentifier" : {
+      "type" : "string",
+      "description" : "The bundle identifier for the iOS resource bundle that contains the image."
+    },
+    "packageName" : {
+      "type" : "string",
+      "description" : "The Android package for the resource."
+    }
+  },
+  "required" : [
+    "type"
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "$id" : "https://sage-bionetworks.github.io/mobile-client-json/schemas/v2/AssessmentObject.json",
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "type" : "object",
+  "title" : "AssessmentObject",
+  "description" : "An assessment that is defined by a sequential series of steps.",
+  "definitions" : {
+    "ButtonType" : {
+      "$id" : "#ButtonType",
+      "type" : "string",
+      "title" : "ButtonType",
+      "description" : "",
+      "enum" : [
+        "goForward",
+        "goBackward",
+        "skip",
+        "cancel",
+        "pause",
+        "reviewInstructions"
+      ]
+    }
+  },
+  "properties" : {
+    "type" : {
+      "const" : "assessment",
+      "$ref" : "Node.json#SerializableNodeType"
+    },
+    "identifier" : {
+      "type" : "string"
+    },
+    "comment" : {
+      "type" : "string",
+      "description" : "A developer-facing comment about this node."
+    },
+    "shouldHideActions" : {
+      "type" : "array",
+      "description" : "A list of buttons that should be hidden even if the default is to show them.",
+      "items" : {
+        "$ref" : "#ButtonType"
+      }
+    },
+    "actions" : {
+      "type" : "object",
+      "description" : "A mapping of button action to content information for that button.",
+      "additionalProperties" : {
+        "$ref" : "ButtonActionInfo.json"
+      }
+    },
+    "version" : {
+      "type" : "string",
+      "description" : "A version for the assessment."
+    },
+    "estimatedMinutes" : {
+      "type" : "integer",
+      "description" : "Estimated number of minutes to perform the assessment.",
+      "default" : 0
+    },
+    "copyright" : {
+      "type" : "string",
+      "description" : "Copyright information for the assessment."
+    },
+    "title" : {
+      "type" : "string",
+      "description" : "The primary text to display for the node in a localized string. The UI should display this using a larger font."
+    },
+    "subtitle" : {
+      "type" : "string",
+      "description" : "A subtitle to display for the node in a localized string."
+    },
+    "detail" : {
+      "type" : "string",
+      "description" : "Detail text to display for the node in a localized string."
+    },
+    "image" : {
+      "$ref" : "ImageInfo.json",
+      "description" : "An image or animation to display with this node."
+    },
+    "steps" : {
+      "type" : "array",
+      "description" : "A sequential list of the nodes to display for this assessment or section.",
+      "items" : {
+        "$ref" : "Node.json"
+      }
+    }
+  },
+  "required" : [
+    "type",
+    "identifier",
+    "steps"
+  ],
+  "allOf" : [
+    {
+      "$ref" : "Node.json"
+    },
+    {
+      "$ref" : "Assessment.json"
+    }
+  ],
+  "additionalProperties" : false,
+  "examples" : [
+    {
+      "type" : "assessment",
+      "identifier" : "assessment",
+      "steps" : [
+        {
+          "identifier" : "favoriteColor",
+          "inputItem" : {
+            "type" : "string"
+          },
+          "optional" : false,
+          "title" : "What is your favorite color",
+          "type" : "simpleQuestion"
+        }
+      ]
+    }
+  ]
+}
