@@ -1,0 +1,49 @@
+{
+  "$id" : "https://sage-bionetworks.github.io/mobile-client-json/schemas/v2/AsyncActionConfiguration.json",
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "type" : "object",
+  "title" : "AsyncActionConfiguration",
+  "description" : "`AsyncActionConfiguration` defines general configuration for an asynchronous action that should be run in the background. Depending upon the parameters and how the action is set up, this could be something that is run continuously or else is paused or reset based on a timeout interval.",
+  "definitions" : {
+    "ExampleAsyncActionConfiguration" : {
+      "$id" : "#ExampleAsyncActionConfiguration",
+      "type" : "object",
+      "title" : "ExampleAsyncActionConfiguration",
+      "description" : "",
+      "properties" : {
+        "type" : {
+          "type" : "string",
+          "description" : "",
+          "default" : "example"
+        }
+      },
+      "required" : [
+        "type"
+      ],
+      "allOf" : [
+        {
+          "$ref" : "#"
+        }
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "type" : "example"
+        }
+      ]
+    }
+  },
+  "properties" : {
+    "type" : {
+      "type" : "string"
+    },
+    "identifier" : {
+      "type" : "string",
+      "description" : "The identifier associated with the task, step, or asynchronous action."
+    }
+  },
+  "required" : [
+    "type",
+    "identifier"
+  ]
+}

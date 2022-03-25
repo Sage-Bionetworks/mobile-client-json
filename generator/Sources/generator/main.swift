@@ -1,11 +1,9 @@
 import Foundation
 import JsonModel
-import MotorControl
-import Research
-import MobilePassiveData
+import AssessmentModel
 
 func buildJson() {
-    let factory = MCTFactory()
+    let factory = AssessmentFactory()
     let baseUrl = factory.jsonSchemaBaseURL
     let downloadsDirectory = FileManager.default.urls(for: .downloadsDirectory, in: .userDomainMask).first!
     let schemasDirectory = baseUrl.pathComponents.dropFirst().reduce(downloadsDirectory, { $0.appendingPathComponent($1) })

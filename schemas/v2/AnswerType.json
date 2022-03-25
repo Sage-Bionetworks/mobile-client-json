@@ -152,6 +152,10 @@
         "unit" : {
           "type" : "string",
           "description" : "The unit of measurement into which the value is converted for storage."
+        },
+        "significantDigits" : {
+          "type" : "number",
+          "description" : "The number of significant digits to use in encoding the answer."
         }
       },
       "required" : [

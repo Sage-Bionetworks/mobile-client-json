@@ -186,16 +186,16 @@
       "title" : "BranchNodeResultObject",
       "description" : "",
       "properties" : {
-        "type" : {
-          "const" : "section",
-          "$ref" : "#SerializableResultType"
-        },
         "stepHistory" : {
           "type" : "array",
           "description" : "The ``stepHistory`` includes the history of the node results that were traversed as a part of running an assessment.",
           "items" : {
             "$ref" : "#"
           }
+        },
+        "type" : {
+          "const" : "section",
+          "$ref" : "#SerializableResultType"
         },
         "asyncResults" : {
           "type" : "array",
@@ -224,10 +224,6 @@
       "additionalProperties" : false,
       "examples" : [
         {
-          "type" : "section",
-          "identifier" : "example",
-          "startDate" : "2017-10-16T22:28:09.000-07:00",
-          "endDate" : "2017-10-16T22:30:49.000-07:00",
           "stepHistory" : [
             {
               "endDate" : "2017-10-16T22:28:29.000-07:00",
@@ -388,6 +384,7 @@
               "type" : "base"
             }
           ],
+          "type" : "section",
           "asyncResults" : [
             {
               "contentType" : "application/json",
@@ -400,6 +397,7 @@
               "type" : "file"
             }
           ],
+          "identifier" : "example",
           "path" : [
             {
               "direction" : "forward",
@@ -413,7 +411,9 @@
               "direction" : "forward",
               "identifier" : "conclusion"
             }
-          ]
+          ],
+          "startDate" : "2017-10-16T22:28:09.000-07:00",
+          "endDate" : "2017-10-16T22:30:49.000-07:00"
         }
       ]
     },
@@ -423,16 +423,16 @@
       "title" : "CollectionResultObject",
       "description" : "",
       "properties" : {
-        "type" : {
-          "const" : "collection",
-          "$ref" : "#SerializableResultType"
-        },
         "children" : {
           "type" : "array",
           "description" : "The list of input results associated with this step or recorder.",
           "items" : {
             "$ref" : "#"
           }
+        },
+        "type" : {
+          "const" : "collection",
+          "$ref" : "#SerializableResultType"
         }
       },
       "required" : [
@@ -447,10 +447,6 @@
       "additionalProperties" : false,
       "examples" : [
         {
-          "type" : "collection",
-          "identifier" : "answers",
-          "startDate" : "2017-10-16T22:28:09.000-07:00",
-          "endDate" : "2017-10-16T22:33:09.000-07:00",
           "children" : [
             {
               "answerType" : {
@@ -590,7 +586,11 @@
               "type" : "answer",
               "value" : 170.19999999999999
             }
-          ]
+          ],
+          "type" : "collection",
+          "identifier" : "answers",
+          "startDate" : "2017-10-16T22:28:09.000-07:00",
+          "endDate" : "2017-10-16T22:33:09.000-07:00"
         }
       ]
     },
@@ -633,7 +633,7 @@
         {
           "type" : "error",
           "identifier" : "errorResult",
-          "startDate" : "2022-03-15T13:17:39.735-07:00",
+          "startDate" : "2022-03-24T21:12:36.564-07:00",
           "errorDescription" : "example error",
           "errorDomain" : "ExampleDomain",
           "errorCode" : 1

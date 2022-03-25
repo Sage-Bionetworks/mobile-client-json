@@ -3,7 +3,7 @@
   "$schema" : "http://json-schema.org/draft-07/schema#",
   "type" : "object",
   "title" : "TextInputItem",
-  "description" : "An `TextInputItem` describes input entry that is freeform with ranges and validation. Typically, this is presented as a text field, but depending upon the requirements of the survey designer, it may use a slider, likert scale, date picker, or other custom UI/UX to allow for validation of the entered value.",
+  "description" : "An `TextInputItem` describes input entry that is freeform with ranges and validation. Typically, this is presented as a text field, but depending upon the requirements of the survey designer, it may use a slider, Likert scale, date picker, or other custom UI/UX to allow for validation of the entered value.",
   "definitions" : {
     "DoubleFormatOptions" : {
       "$id" : "#DoubleFormatOptions",

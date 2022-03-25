@@ -33,6 +33,10 @@
             "$ref" : "ButtonActionInfo.json"
           }
         },
+        "nextStepIdentifier" : {
+          "$ref" : "#NavigationIdentifier",
+          "description" : "Used in direct navigation to allow the node to indicate that the navigator should jump to the given node identifier."
+        },
         "title" : {
           "type" : "string",
           "description" : "The primary text to display for the node in a localized string. The UI should display this using a larger font."
@@ -57,6 +61,13 @@
         "uiHint" : {
           "$ref" : "#QuestionUIHint",
           "description" : "This is a \"hint\" that can be used to vend a view that is appropriate to the given question. If the library responsible for rendering the question doesn't know how to handle the hint, then it will be ignored."
+        },
+        "surveyRules" : {
+          "type" : "array",
+          "description" : "A list of rules that may be applied to determine navigation.",
+          "items" : {
+            "$ref" : "#JsonSurveyRuleObject"
+          }
         },
         "baseType" : {
           "$ref" : "AnswerType.json#JsonType",
@@ -93,7 +104,6 @@
         {
           "type" : "choiceQuestion",
           "identifier" : "foo",
-          "optional" : false,
           "baseType" : "string",
           "singleChoice" : true,
           "choices" : [
@@ -151,6 +161,10 @@
           "additionalProperties" : {
             "$ref" : "ButtonActionInfo.json"
           }
+        },
+        "nextStepIdentifier" : {
+          "$ref" : "#NavigationIdentifier",
+          "description" : "Used in direct navigation to allow the node to indicate that the navigator should jump to the given node identifier."
         },
         "title" : {
           "type" : "string",
@@ -212,6 +226,10 @@
           "additionalProperties" : {
             "$ref" : "ButtonActionInfo.json"
           }
+        },
+        "nextStepIdentifier" : {
+          "$ref" : "#NavigationIdentifier",
+          "description" : "Used in direct navigation to allow the node to indicate that the navigator should jump to the given node identifier."
         },
         "title" : {
           "type" : "string",
@@ -295,6 +313,46 @@
         }
       ]
     },
+    "JsonSurveyRuleObject" : {
+      "$id" : "#JsonSurveyRuleObject",
+      "type" : "object",
+      "title" : "JsonSurveyRuleObject",
+      "description" : "",
+      "properties" : {
+        "matchingAnswer" : {
+          "description" : "The json value to evaluate against a result answer."
+        },
+        "skipToIdentifier" : {
+          "$ref" : "#NavigationIdentifier",
+          "description" : "The node identifier or reversed key to jump to if the answer matches."
+        },
+        "ruleOperator" : {
+          "$ref" : "#SurveyRuleOperator",
+          "description" : "The rule operator to apply to the result comparison."
+        }
+      },
+      "required" : [
+        "skipToIdentifier"
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "matchingAnswer" : "Stop",
+          "skipToIdentifier" : "exit",
+          "ruleOperator" : "eq"
+        }
+      ]
+    },
+    "NavigationIdentifier" : {
+      "$id" : "#NavigationIdentifier",
+      "type" : "string",
+      "title" : "NavigationIdentifier",
+      "description" : "A string identifying the next node to navigate to.",
+      "examples" : [
+        "exit",
+        "nextSection"
+      ]
+    },
     "OverviewStepObject" : {
       "$id" : "#OverviewStepObject",
       "type" : "object",
@@ -323,6 +381,10 @@
             "$ref" : "ButtonActionInfo.json"
           }
         },
+        "nextStepIdentifier" : {
+          "$ref" : "#NavigationIdentifier",
+          "description" : "Used in direct navigation to allow the node to indicate that the navigator should jump to the given node identifier."
+        },
         "title" : {
           "type" : "string",
           "description" : "The primary text to display for the node in a localized string. The UI should display this using a larger font."
@@ -338,6 +400,13 @@
         "image" : {
           "$ref" : "ImageInfo.json",
           "description" : "An image or animation to display with this node."
+        },
+        "permissions" : {
+          "type" : "array",
+          "description" : "A list of permissions to request for this assessment.",
+          "items" : {
+            "$ref" : "#PermissionInfoObject"
+          }
         }
       },
       "required" : [
@@ -356,18 +425,171 @@
         }
       ]
     },
+    "PermissionInfoObject" : {
+      "$id" : "#PermissionInfoObject",
+      "type" : "object",
+      "title" : "PermissionInfoObject",
+      "description" : "",
+      "properties" : {
+        "permissionType" : {
+          "$ref" : "#PermissionType"
+        },
+        "optional" : {
+          "type" : "boolean"
+        },
+        "deniedMessage" : {
+          "type" : "string"
+        },
+        "restrictedMessage" : {
+          "type" : "string"
+        }
+      },
+      "required" : [
+        "permissionType"
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "permissionType" : "motion"
+        },
+        {
+          "permissionType" : "camera",
+          "optional" : false,
+          "deniedMessage" : "You didn't give permission",
+          "restrictedMessage" : "Your camera access is restricted"
+        }
+      ]
+    },
+    "PermissionStepObject" : {
+      "$id" : "#PermissionStepObject",
+      "type" : "object",
+      "title" : "PermissionStepObject",
+      "description" : "",
+      "properties" : {
+        "type" : {
+          "const" : "permission",
+          "$ref" : "#SerializableNodeType"
+        },
+        "comment" : {
+          "type" : "string",
+          "description" : "A developer-facing comment about this node."
+        },
+        "shouldHideActions" : {
+          "type" : "array",
+          "description" : "A list of buttons that should be hidden even if the default is to show them.",
+          "items" : {
+            "$ref" : "AssessmentObject.json#ButtonType"
+          }
+        },
+        "actions" : {
+          "type" : "object",
+          "description" : "A mapping of button action to content information for that button.",
+          "additionalProperties" : {
+            "$ref" : "ButtonActionInfo.json"
+          }
+        },
+        "nextStepIdentifier" : {
+          "$ref" : "#NavigationIdentifier",
+          "description" : "Used in direct navigation to allow the node to indicate that the navigator should jump to the given node identifier."
+        },
+        "title" : {
+          "type" : "string",
+          "description" : "The primary text to display for the node in a localized string. The UI should display this using a larger font."
+        },
+        "subtitle" : {
+          "type" : "string",
+          "description" : "A subtitle to display for the node in a localized string."
+        },
+        "detail" : {
+          "type" : "string",
+          "description" : "Detail text to display for the node in a localized string."
+        },
+        "image" : {
+          "$ref" : "ImageInfo.json",
+          "description" : "An image or animation to display with this node."
+        },
+        "fullInstructionsOnly" : {
+          "type" : "boolean",
+          "description" : "Should this instruction step be displayed when displaying full instructions only?",
+          "default" : false
+        },
+        "spokenInstructions" : {
+          "type" : "object",
+          "description" : "A mapping of a localized spoken instruction to a key where the key is either 'start' or 'end'.",
+          "additionalProperties" : {
+            "type" : "string"
+          }
+        },
+        "permissionType" : {
+          "$ref" : "#PermissionType",
+          "description" : "The permission type to request when showing this step."
+        },
+        "optional" : {
+          "type" : "boolean",
+          "description" : "Whether or not the permission is required to continue.",
+          "default" : true
+        },
+        "restrictedMessage" : {
+          "type" : "string",
+          "description" : "The localized message to display when the permission is restricted. Typically, this is only shown when the permission is not optional."
+        },
+        "deniedMessage" : {
+          "type" : "string",
+          "description" : "The localized message to display when the permission is denied. Typically, this is only shown when the permission is not optional."
+        }
+      },
+      "required" : [
+        "type",
+        "permissionType"
+      ],
+      "allOf" : [
+        {
+          "$ref" : "#"
+        }
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "type" : "permission",
+          "identifier" : "example",
+          "permissionType" : "motion"
+        }
+      ]
+    },
+    "PermissionType" : {
+      "$id" : "#PermissionType",
+      "anyOf" : [
+        {
+          "type" : "string"
+        },
+        {
+          "properties" : {
+            "name" : {
+              "type" : "string"
+            },
+            "userInfo" : {
+              "type" : "object"
+            }
+          },
+          "required" : [
+            "name"
+          ],
+          "type" : "object"
+        }
+      ]
+    },
     "QuestionUIHint" : {
       "$id" : "#QuestionUIHint",
       "type" : "string",
       "title" : "QuestionUIHint",
       "description" : "",
       "examples" : [
+        "checkbox",
         "radioButton",
-        "slider",
-        "textfield",
-        "multipleLine",
         "likert",
-        "checkbox"
+        "multipleLine",
+        "textfield",
+        "slider"
       ]
     },
     "SectionObject" : {
@@ -398,6 +620,10 @@
             "$ref" : "ButtonActionInfo.json"
           }
         },
+        "nextStepIdentifier" : {
+          "$ref" : "#NavigationIdentifier",
+          "description" : "Used in direct navigation to allow the node to indicate that the navigator should jump to the given node identifier."
+        },
         "title" : {
           "type" : "string",
           "description" : "The primary text to display for the node in a localized string. The UI should display this using a larger font."
@@ -419,6 +645,13 @@
           "description" : "A sequential list of the nodes to display for this assessment or section.",
           "items" : {
             "$ref" : "#"
+          }
+        },
+        "asyncActions" : {
+          "type" : "array",
+          "description" : "A list of elements used to describe the configuration for background actions.",
+          "items" : {
+            "$ref" : "AsyncActionConfiguration.json"
           }
         }
       },
@@ -442,7 +675,6 @@
               "inputItem" : {
                 "type" : "string"
               },
-              "optional" : false,
               "title" : "What is your favorite color",
               "type" : "simpleQuestion"
             }
@@ -460,6 +692,7 @@
         "section",
         "overview",
         "instruction",
+        "permission",
         "choiceQuestion",
         "simpleQuestion",
         "completion"
@@ -493,6 +726,10 @@
             "$ref" : "ButtonActionInfo.json"
           }
         },
+        "nextStepIdentifier" : {
+          "$ref" : "#NavigationIdentifier",
+          "description" : "Used in direct navigation to allow the node to indicate that the navigator should jump to the given node identifier."
+        },
         "title" : {
           "type" : "string",
           "description" : "The primary text to display for the node in a localized string. The UI should display this using a larger font."
@@ -518,6 +755,13 @@
           "$ref" : "#QuestionUIHint",
           "description" : "This is a \"hint\" that can be used to vend a view that is appropriate to the given question. If the library responsible for rendering the question doesn't know how to handle the hint, then it will be ignored."
         },
+        "surveyRules" : {
+          "type" : "array",
+          "description" : "A list of rules that may be applied to determine navigation.",
+          "items" : {
+            "$ref" : "#JsonSurveyRuleObject"
+          }
+        },
         "inputItem" : {
           "$ref" : "TextInputItem.json",
           "description" : "The single text input for this question."
@@ -537,11 +781,24 @@
         {
           "type" : "simpleQuestion",
           "identifier" : "foo",
-          "optional" : false,
           "inputItem" : {
             "type" : "string"
           }
         }
+      ]
+    },
+    "SurveyRuleOperator" : {
+      "$id" : "#SurveyRuleOperator",
+      "type" : "string",
+      "title" : "SurveyRuleOperator",
+      "description" : "",
+      "enum" : [
+        "eq",
+        "ne",
+        "lt",
+        "gt",
+        "le",
+        "ge"
       ]
     }
   },
