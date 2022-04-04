@@ -1,1 +1,1 @@
-{"type":"file","identifier":"fileResult","startUptime":1234.567,"contentType":"application\/json","relativePath":"\/foo.json","jsonSchema":"file:\/\/temp\/foo.schema.json","startDate":"2017-10-16T22:28:09.000-07:00","endDate":"2017-10-16T22:33:09.000-07:00"}
+{"identifier":"fileResult","startUptime":1234.567,"relativePath":"\/foo.json","contentType":"application\/json","jsonSchema":"file:\/\/temp\/foo.schema.json","type":"file","endDate":"2017-10-16T22:33:09.000-07:00","startDate":"2017-10-16T22:28:09.000-07:00"}

@@ -46,7 +46,7 @@
         "$ref" : "ButtonActionInfo.json"
       }
     },
-    "version" : {
+    "versionString" : {
       "type" : "string",
       "description" : "A version for the assessment."
     },
@@ -81,6 +81,13 @@
       "items" : {
         "$ref" : "Node.json"
       }
+    },
+    "asyncActions" : {
+      "type" : "array",
+      "description" : "A list of elements used to describe the configuration for background actions.",
+      "items" : {
+        "$ref" : "AsyncActionConfiguration.json"
+      }
     }
   },
   "required" : [
@@ -90,10 +97,10 @@
   ],
   "allOf" : [
     {
-      "$ref" : "Node.json"
+      "$ref" : "Assessment.json"
     },
     {
-      "$ref" : "Assessment.json"
+      "$ref" : "Node.json"
     }
   ],
   "additionalProperties" : false,
@@ -107,7 +114,6 @@
           "inputItem" : {
             "type" : "string"
           },
-          "optional" : false,
           "title" : "What is your favorite color",
           "type" : "simpleQuestion"
         }

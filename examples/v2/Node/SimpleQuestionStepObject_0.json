@@ -1,1 +1,1 @@
-{"inputItem":{"type":"string"},"identifier":"foo","optional":false,"type":"simpleQuestion"}
+{"inputItem":{"type":"string"},"type":"simpleQuestion","identifier":"foo"}

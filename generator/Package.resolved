@@ -2,39 +2,21 @@
   "object": {
     "pins": [
       {
+        "package": "AssessmentModel",
+        "repositoryURL": "https://github.com/Sage-Bionetworks/AssessmentModelKMM.git",
+        "state": {
+          "branch": null,
+          "revision": "1ab650cf86d5f15af8d179827c8830b0de985f45",
+          "version": "0.5.5"
+        }
+      },
+      {
         "package": "JsonModel",
         "repositoryURL": "https://github.com/Sage-Bionetworks/JsonModel-Swift.git",
         "state": {
           "branch": null,
-          "revision": "f451abe21ff7fe4cb44ea1a58f74e1a4adf55146",
-          "version": "1.3.5"
-        }
-      },
-      {
-        "package": "MobilePassiveData",
-        "repositoryURL": "https://github.com/Sage-Bionetworks/MobilePassiveData-SDK.git",
-        "state": {
-          "branch": null,
-          "revision": "064e91d8593fb871c62bc54936828c82a04cc0d6",
-          "version": "1.2.3"
-        }
-      },
-      {
-        "package": "MotorControl",
-        "repositoryURL": "https://github.com/Sage-Bionetworks/MotorControl-iOS.git",
-        "state": {
-          "branch": null,
-          "revision": "028ebed1ac81e727038120f77b73869a7eb23c92",
-          "version": "4.0.1"
-        }
-      },
-      {
-        "package": "SageResearch",
-        "repositoryURL": "https://github.com/Sage-Bionetworks/SageResearch.git",
-        "state": {
-          "branch": null,
-          "revision": "04c9ffca4411c56d42293158088c45751765ac5b",
-          "version": "4.3.5"
+          "revision": "b6eca57507288ffc0aa755bda96386e888cf80e5",
+          "version": "1.4.5"
         }
       }
     ]
