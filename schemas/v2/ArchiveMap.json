@@ -1,0 +1,198 @@
+{
+  "$id" : "https://sage-bionetworks.github.io/mobile-client-json/schemas/v1/ArchiveMap.json",
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "type" : "object",
+  "title" : "ArchiveMap",
+  "definitions" : {
+    "AssessmentIdentifier" : {
+      "$id" : "#AssessmentIdentifier",
+      "type" : "object",
+      "properties" : {
+        "assessmentIdentifier": {
+          "type": "string",
+          "description": "The assessment identifier defined within the Bridge namespace for the assessment. This identifier will map to the participant timeline."
+        },
+        "assessmentRevision": {
+          "type": "integer",
+          "description": "The min assessment revision as defined within the Bridge namespace for this archive manifest."
+        }
+      },
+      "required" : [
+        "assessmentIdentifier",
+        "assessmentRevision"
+      ]
+    },
+    "AssessmentArchive" : {
+      "$id" : "#AssessmentArchive",
+      "type" : "object",
+      "title" : "AssessmentArchive",
+      "description" : "The mappings for a given assessment archive.",
+      "allOf": [
+        {
+          "$ref": "#AssessmentIdentifier"
+        }
+      ],
+      "properties" : {
+        "organization" : {
+          "type" : "string",
+          "description" : "The name or description of the assessment developer's organization. This is included for readability, is not necessarily the official organization name, and should not be used for searches or identifying the assessment."
+        },
+        "taskIdentifier" : {
+          "type" : "string",
+          "description" : "The identifier assigned by the assessment developer. This identifier is unique only within the developer's framework namespace."
+        },
+        "versionString" : {
+          "type" : "string",
+          "description" : "The min assessment version as defined by the assessment developer for this archive manifest."
+        },
+        "files" : {
+          "type" : "array",
+          "description": "The list of the files included in the assessment archive.",
+          "items": {
+            "$ref": "#FileInfo"
+          }
+        }
+      }
+    },
+    "FileInfo" : {
+      "$id" : "#FileInfo",
+      "type" : "object",
+      "title" : "FileInfo",
+      "description" : "Information about a given file within the archive.",
+      "additionalProperties": false,
+      "properties" : {
+        "filename" : {
+          "type" : "string",
+          "description" : "The filename of the archive object. This should be unique within the manifest.",
+          "format" : "uri-relative"
+        },
+        "description" : {
+          "type": "string",
+          "description": "Description of the file content."
+        },
+        "contentType" : {
+          "type" : "string",
+          "description" : "The content type of the file.",
+          "default": "application/json"
+        },
+        "jsonSchema" : {
+          "type" : "string",
+          "description" : "The uri for the json schema if the content type is 'application/json'.",
+          "format" : "uri"
+        },
+        "isRequired" : {
+          "type" : "boolean",
+          "description" : "Whether or not the file is required.",
+          "default" : false
+        },
+        "deprecated" : {
+          "type" : "boolean",
+          "description" : "Whether or not the file is deprecated and included for reverse-compatibility to older services and/or applications.",
+          "default" : false
+        },
+        "$comment" : {
+          "type": "string"
+        }
+      },
+      "required" : [
+        "filename"
+      ]
+    },
+    "AppInfo" : {
+      "$id" : "#AppInfo",
+      "type" : "object",
+      "title" : "AppInfo",
+      "description" : "Bridge App Information",
+      "additionalProperties": false,
+      "properties" : {
+        "appId" : {
+          "type" : "string",
+          "description" : "Bridge 'APP ID' for the application that is sending the data."
+        },
+        "iOS" : {
+          "type" : "integer",
+          "description" : "The min version sent to Bridge to identify the version of the iOS application.",
+          "default" : 0
+        },
+        "android" : {
+          "type" : "integer",
+          "description" : "The min version sent to Bridge to identify the version of the Android application.",
+          "default" : 0
+        },
+        "assessments" : {
+          "type" : "array",
+          "description": "The list of assessments supported by this application.",
+          "items": {
+            "$ref" : "#AssessmentIdentifier"
+          }
+        },
+        "anyOf" : {
+          "type": "array",
+          "description": "A list of files that may be included in any assessment archive for *this* application. These files can be associated with the assessments within this application but are *not* inclusive to a different application that hosts the same assessment.",
+          "items": {
+            "$ref": "#FileInfo"
+          }
+        },
+        "default" : {
+            "type" : "object",
+            "description" : "The default archive mapping to use for an assessment identifier/revision that is not explicitly mapped by the incluced the list of assessments. This is used to provide a default archive for things like surveys which may not have a one-to-one mapping of schema to assessment.",
+            "properties" : {
+              "organization" : {
+                "type" : "string",
+                "description" : "The name or description of the assessment developer's organization. This is included for readability, is not necessarily the official organization name, and should not be used for searches or identifying the assessment."
+              },
+              "files" : {
+                "type" : "array",
+                "description": "The list of the files included in the assessment archive.",
+                "items": {
+                  "$ref": "#FileInfo"
+                }
+              }
+            }
+          }
+      },
+      "required" : [
+        "appId",
+        "assessments"
+      ]
+    }
+  },
+  "properties": {
+    "$id" : {
+      "type": "string",
+      "format": "uri"
+    },
+    "$schema" : {
+      "type": "string",
+      "format": "uri"
+    },
+    "anyOf" : {
+      "type": "array",
+      "description": "A list of files that are included by default in all archives across all applications.",
+      "items": {
+        "$ref": "#FileInfo"
+      }
+    },
+    "assessments" : {
+      "type": "array",
+      "description": "A list of assessment archives uniquely indexed by `assessmentIdentifier` and `assessmentRevision`.",
+      "items": {
+        "$ref": "#AssessmentArchive"
+      }
+    },
+    "apps" : {
+      "type": "array",
+      "description": "A list of apps uniquely indexed by identifier and version.",
+      "items": {
+        "$ref": "#AppInfo"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "$id",
+    "$schema",
+    "assessments"
+  ]
+}
+

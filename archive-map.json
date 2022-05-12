@@ -1,7 +1,7 @@
 {
   "$id": "https://sage-bionetworks.github.io/mobile-client-json/archive-map.json",
-  "$schema": "https://sage-bionetworks.github.io/mobile-client-json/schemas/v1/ArchiveMap.json",
-  "allOf": [
+  "$schema": "https://sage-bionetworks.github.io/mobile-client-json/schemas/v2/ArchiveMap.json",
+  "anyOf": [
     {
       "filename": "metadata.json",
       "contentType": "application/json",
@@ -261,8 +261,20 @@
     {
       "appId": "mobile-toolbox",
       "iOS": 0,
-      "android": 0,
-      "allOf": [
+      "android" : 0,
+      "default" : {
+          "organization": "Sage Bionetworks",
+          "files": [
+            {
+              "filename": "assessmentResult.json",
+              "description": "This is the archive used for Bridge 2.0 surveys.",
+              "contentType": "application/json",
+              "isRequired": true,
+              "jsonSchema": "https://sage-bionetworks.github.io/mobile-client-json/schemas/v2/AssessmentResultObject.json"
+            }
+          ]
+      },
+      "anyOf": [
         {
           "filename": "motion.json",
           "description": "Motion sensor data recorded while running the assessment.",
@@ -326,3 +338,4 @@
     }
   ]
 }
+
