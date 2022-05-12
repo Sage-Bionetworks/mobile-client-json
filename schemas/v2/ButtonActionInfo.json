@@ -24,7 +24,6 @@
           "$ref" : "#"
         }
       ],
-      "additionalProperties" : false,
       "examples" : [
         {
           "type" : "default",
@@ -44,6 +43,54 @@
       "description" : "",
       "examples" : [
         "default"
+      ]
+    },
+    "NavigationButtonActionInfoObject" : {
+      "$id" : "#NavigationButtonActionInfoObject",
+      "type" : "object",
+      "title" : "NavigationButtonActionInfoObject",
+      "description" : "",
+      "properties" : {
+        "type" : {
+          "const" : "navigation",
+          "$ref" : "#ButtonActionInfoType"
+        },
+        "skipToIdentifier" : {
+          "$ref" : "#NavigationIdentifier",
+          "description" : "The identifier to navigate to when tapping this button."
+        }
+      },
+      "required" : [
+        "type"
+      ],
+      "allOf" : [
+        {
+          "$ref" : "#"
+        }
+      ],
+      "examples" : [
+        {
+          "type" : "navigation",
+          "skipToIdentifier" : "foo",
+          "buttonTitle" : "Go, Dogs! Go"
+        },
+        {
+          "type" : "navigation",
+          "skipToIdentifier" : "foo",
+          "iconName" : "closeX",
+          "bundleIdentifier" : "org.example.SharedResources"
+        }
+      ]
+    },
+    "NavigationIdentifier" : {
+      "$id" : "#NavigationIdentifier",
+      "type" : "string",
+      "title" : "NavigationIdentifier",
+      "description" : "",
+      "examples" : [
+        "exit",
+        "nextSection",
+        "beginning"
       ]
     }
   },

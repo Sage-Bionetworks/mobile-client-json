@@ -1,1 +1,1 @@
-{"answerType":{"type":"array","baseType":"integer"},"startDate":"2017-10-16T22:28:09.000-07:00","endDate":"2017-10-16T22:28:09.000-07:00","identifier":"question7","value":[1,5],"type":"answer"}
+{"identifier":"question7","value":[1,5],"answerType":{"type":"array","baseType":"integer"},"startDate":"2017-10-16T22:28:09.000-07:00","type":"answer","endDate":"2017-10-16T22:28:09.000-07:00"}

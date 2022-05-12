@@ -34,7 +34,7 @@
           }
         },
         "nextStepIdentifier" : {
-          "$ref" : "#NavigationIdentifier",
+          "$ref" : "ButtonActionInfo.json#NavigationIdentifier",
           "description" : "Used in direct navigation to allow the node to indicate that the navigator should jump to the given node identifier."
         },
         "title" : {
@@ -99,7 +99,6 @@
           "$ref" : "#"
         }
       ],
-      "additionalProperties" : false,
       "examples" : [
         {
           "type" : "choiceQuestion",
@@ -163,7 +162,7 @@
           }
         },
         "nextStepIdentifier" : {
-          "$ref" : "#NavigationIdentifier",
+          "$ref" : "ButtonActionInfo.json#NavigationIdentifier",
           "description" : "Used in direct navigation to allow the node to indicate that the navigator should jump to the given node identifier."
         },
         "title" : {
@@ -191,7 +190,6 @@
           "$ref" : "#"
         }
       ],
-      "additionalProperties" : false,
       "examples" : [
         {
           "type" : "completion",
@@ -228,7 +226,7 @@
           }
         },
         "nextStepIdentifier" : {
-          "$ref" : "#NavigationIdentifier",
+          "$ref" : "ButtonActionInfo.json#NavigationIdentifier",
           "description" : "Used in direct navigation to allow the node to indicate that the navigator should jump to the given node identifier."
         },
         "title" : {
@@ -268,7 +266,6 @@
           "$ref" : "#"
         }
       ],
-      "additionalProperties" : false,
       "examples" : [
         {
           "type" : "instruction",
@@ -323,7 +320,7 @@
           "description" : "The json value to evaluate against a result answer."
         },
         "skipToIdentifier" : {
-          "$ref" : "#NavigationIdentifier",
+          "$ref" : "ButtonActionInfo.json#NavigationIdentifier",
           "description" : "The node identifier or reversed key to jump to if the answer matches."
         },
         "ruleOperator" : {
@@ -341,16 +338,6 @@
           "skipToIdentifier" : "exit",
           "ruleOperator" : "eq"
         }
-      ]
-    },
-    "NavigationIdentifier" : {
-      "$id" : "#NavigationIdentifier",
-      "type" : "string",
-      "title" : "NavigationIdentifier",
-      "description" : "A string identifying the next node to navigate to.",
-      "examples" : [
-        "exit",
-        "nextSection"
       ]
     },
     "OverviewStepObject" : {
@@ -382,7 +369,7 @@
           }
         },
         "nextStepIdentifier" : {
-          "$ref" : "#NavigationIdentifier",
+          "$ref" : "ButtonActionInfo.json#NavigationIdentifier",
           "description" : "Used in direct navigation to allow the node to indicate that the navigator should jump to the given node identifier."
         },
         "title" : {
@@ -417,7 +404,6 @@
           "$ref" : "#"
         }
       ],
-      "additionalProperties" : false,
       "examples" : [
         {
           "type" : "overview",
@@ -489,7 +475,7 @@
           }
         },
         "nextStepIdentifier" : {
-          "$ref" : "#NavigationIdentifier",
+          "$ref" : "ButtonActionInfo.json#NavigationIdentifier",
           "description" : "Used in direct navigation to allow the node to indicate that the navigator should jump to the given node identifier."
         },
         "title" : {
@@ -547,7 +533,6 @@
           "$ref" : "#"
         }
       ],
-      "additionalProperties" : false,
       "examples" : [
         {
           "type" : "permission",
@@ -584,12 +569,13 @@
       "title" : "QuestionUIHint",
       "description" : "",
       "examples" : [
-        "checkbox",
-        "radioButton",
-        "likert",
         "multipleLine",
+        "likert",
+        "radioButton",
+        "picker",
+        "slider",
         "textfield",
-        "slider"
+        "checkbox"
       ]
     },
     "SectionObject" : {
@@ -621,7 +607,7 @@
           }
         },
         "nextStepIdentifier" : {
-          "$ref" : "#NavigationIdentifier",
+          "$ref" : "ButtonActionInfo.json#NavigationIdentifier",
           "description" : "Used in direct navigation to allow the node to indicate that the navigator should jump to the given node identifier."
         },
         "title" : {
@@ -664,7 +650,6 @@
           "$ref" : "#"
         }
       ],
-      "additionalProperties" : false,
       "examples" : [
         {
           "type" : "section",
@@ -727,7 +712,7 @@
           }
         },
         "nextStepIdentifier" : {
-          "$ref" : "#NavigationIdentifier",
+          "$ref" : "ButtonActionInfo.json#NavigationIdentifier",
           "description" : "Used in direct navigation to allow the node to indicate that the navigator should jump to the given node identifier."
         },
         "title" : {
@@ -776,7 +761,6 @@
           "$ref" : "#"
         }
       ],
-      "additionalProperties" : false,
       "examples" : [
         {
           "type" : "simpleQuestion",

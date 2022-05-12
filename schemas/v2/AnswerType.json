@@ -33,7 +33,6 @@
           "$ref" : "#"
         }
       ],
-      "additionalProperties" : false,
       "examples" : [
         {
           "type" : "array",
@@ -68,7 +67,6 @@
           "$ref" : "#"
         }
       ],
-      "additionalProperties" : false,
       "examples" : [
         {
           "type" : "boolean"
@@ -98,7 +96,6 @@
           "$ref" : "#"
         }
       ],
-      "additionalProperties" : false,
       "examples" : [
         {
           "type" : "date-time",
@@ -109,7 +106,49 @@
           "codingFormat" : "HH:mm"
         },
         {
-          "type" : "date-time"
+          "type" : "date-time",
+          "codingFormat" : "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
+        }
+      ]
+    },
+    "AnswerTypeDuration" : {
+      "$id" : "#AnswerTypeDuration",
+      "type" : "object",
+      "title" : "AnswerTypeDuration",
+      "description" : "",
+      "properties" : {
+        "type" : {
+          "const" : "duration",
+          "$ref" : "#AnswerTypeType"
+        },
+        "displayUnits" : {
+          "type" : "array",
+          "description" : "The units used to display the duration as a question.",
+          "items" : {
+            "$ref" : "#DurationUnit"
+          }
+        },
+        "significantDigits" : {
+          "type" : "number",
+          "description" : "The number of significant digits to use in encoding the answer."
+        }
+      },
+      "required" : [
+        "type"
+      ],
+      "allOf" : [
+        {
+          "$ref" : "#"
+        }
+      ],
+      "examples" : [
+        {
+          "type" : "duration",
+          "displayUnits" : [
+            "hour",
+            "minute"
+          ],
+          "significantDigits" : 0
         }
       ]
     },
@@ -132,7 +171,6 @@
           "$ref" : "#"
         }
       ],
-      "additionalProperties" : false,
       "examples" : [
         {
           "type" : "integer"
@@ -166,7 +204,6 @@
           "$ref" : "#"
         }
       ],
-      "additionalProperties" : false,
       "examples" : [
         {
           "type" : "measurement",
@@ -197,7 +234,6 @@
           "$ref" : "#"
         }
       ],
-      "additionalProperties" : false,
       "examples" : [
         {
           "type" : "number"
@@ -223,7 +259,6 @@
           "$ref" : "#"
         }
       ],
-      "additionalProperties" : false,
       "examples" : [
         {
           "type" : "object"
@@ -249,10 +284,39 @@
           "$ref" : "#"
         }
       ],
-      "additionalProperties" : false,
       "examples" : [
         {
           "type" : "string"
+        }
+      ]
+    },
+    "AnswerTypeTime" : {
+      "$id" : "#AnswerTypeTime",
+      "type" : "object",
+      "title" : "AnswerTypeTime",
+      "description" : "",
+      "properties" : {
+        "type" : {
+          "const" : "time",
+          "$ref" : "#AnswerTypeType"
+        },
+        "codingFormat" : {
+          "type" : "string",
+          "description" : "The iso8601 format for the time components used by this answer type."
+        }
+      },
+      "required" : [
+        "type"
+      ],
+      "allOf" : [
+        {
+          "$ref" : "#"
+        }
+      ],
+      "examples" : [
+        {
+          "type" : "time",
+          "codingFormat" : "HH:mm:ss.SSS"
         }
       ]
     },
@@ -264,12 +328,25 @@
       "examples" : [
         "measurement",
         "date-time",
+        "time",
+        "duration",
         "array",
         "boolean",
         "integer",
         "number",
         "object",
         "string"
+      ]
+    },
+    "DurationUnit" : {
+      "$id" : "#DurationUnit",
+      "type" : "string",
+      "title" : "DurationUnit",
+      "description" : "",
+      "enum" : [
+        "hour",
+        "minute",
+        "second"
       ]
     },
     "JsonType" : {
