@@ -1,0 +1,118 @@
+{
+  "$id" : "https://sage-bionetworks.github.io/mobile-client-json/schemas/v2/ArchiveMetadata.json",
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "type" : "object",
+  "title" : "ArchiveMetadata",
+  "description" : "The metadata for an archive that can be zipped using the app developer's choice of third-party archival tools.",
+  "definitions" : {
+    "FileInfo" : {
+      "$id" : "#FileInfo",
+      "type" : "object",
+      "title" : "FileInfo",
+      "description" : "",
+      "properties" : {
+        "filename" : {
+          "type" : "string",
+          "description" : "The filename of the archive object. This should be unique within the manifest.",
+          "format" : "uri-relative"
+        },
+        "timestamp" : {
+          "type" : "string",
+          "description" : "The file creation date.",
+          "format" : "date-time"
+        },
+        "contentType" : {
+          "type" : "string",
+          "description" : "The content type of the file."
+        },
+        "identifier" : {
+          "type" : "string",
+          "description" : "The identifier for the result."
+        },
+        "stepPath" : {
+          "type" : "string",
+          "description" : "The full path to the result if it is within the step history."
+        },
+        "jsonSchema" : {
+          "type" : "string",
+          "description" : "The uri for the json schema if the content type is 'application/json'.",
+          "format" : "uri"
+        },
+        "metadata" : {
+          "description" : "Any additional metadata about this file."
+        }
+      },
+      "required" : [
+        "filename",
+        "timestamp"
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "filename" : "foo.json",
+          "timestamp" : "2022-05-12T16:41:56.854-07:00",
+          "contentType" : "application/json",
+          "identifier" : "foo",
+          "stepPath" : "Bar/foo",
+          "jsonSchema" : "http://example.org/schemas/v1/Foo.json",
+          "metadata" : {
+            "value" : 1
+          }
+        }
+      ]
+    }
+  },
+  "properties" : {
+    "appName" : {
+      "type" : "string",
+      "description" : "Name of the app that built the archive."
+    },
+    "appVersion" : {
+      "type" : "string",
+      "description" : "Version of the app that built the archive."
+    },
+    "deviceInfo" : {
+      "type" : "string",
+      "description" : "Information about the specific device."
+    },
+    "deviceTypeIdentifier" : {
+      "type" : "string",
+      "description" : "Specific model identifier of the device."
+    },
+    "files" : {
+      "type" : "array",
+      "description" : "A list of the files included in this archive.",
+      "items" : {
+        "$ref" : "#FileInfo"
+      }
+    }
+  },
+  "required" : [
+    "appName",
+    "appVersion",
+    "deviceInfo",
+    "deviceTypeIdentifier",
+    "files"
+  ],
+  "examples" : [
+    {
+      "appName" : "???",
+      "appVersion" : "???",
+      "deviceInfo" : "Mac Version 11.6.5 (Build 20G527)",
+      "deviceTypeIdentifier" : "Mac",
+      "files" : [
+        {
+          "contentType" : "application/json",
+          "filename" : "foo.json",
+          "identifier" : "foo",
+          "jsonSchema" : "https://example.com/foo.json",
+          "metadata" : {
+            "foo" : "baroo"
+          },
+          "stepPath" : "Goo/foo",
+          "timestamp" : "2017-10-16T22:28:09.000-07:00"
+        }
+      ]
+    }
+  ]
+}
