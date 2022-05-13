@@ -1,20 +1,21 @@
 {
   "$id": "https://sage-bionetworks.github.io/mobile-client-json/archive-map.json",
-  "$schema": "https://sage-bionetworks.github.io/mobile-client-json/schemas/v1/ArchiveMap.json",
-  "allOf": [
+  "$schema": "https://sage-bionetworks.github.io/mobile-client-json/schemas/v2/ArchiveMap.json",
+  "anyOf": [
     {
       "filename": "metadata.json",
       "contentType": "application/json",
       "description": "Metadata associated with this archive including a file manifest and version information.",
       "isRequired": true,
-      "jsonSchema": "https://sage-bionetworks.github.io/mobile-client-json/schemas/v1/TaskMetadata.json"
+      "jsonSchema": "https://sage-bionetworks.github.io/mobile-client-json/schemas/v2/ArchiveMetadata.json"
     },
     {
       "filename": "taskResult.json",
       "contentType": "application/json",
       "description": "The polymorphism serialized result of running an assessment. This structure includes all the step results in the chronological order in which they were presented as well as asynchronous results that may be recorded across multiple steps.",
       "isRequired": false,
-      "jsonSchema": "https://sage-bionetworks.github.io/mobile-client-json/schemas/v1/TaskResultObject.json"
+      "jsonSchema": "https://sage-bionetworks.github.io/mobile-client-json/schemas/v1/TaskResultObject.json",
+      "deprecated": true
     },
     {
       "filename": "answers.json",
@@ -261,8 +262,20 @@
     {
       "appId": "mobile-toolbox",
       "iOS": 0,
-      "android": 0,
-      "allOf": [
+      "android" : 0,
+      "default" : {
+          "organization": "Sage Bionetworks",
+          "files": [
+            {
+              "filename": "assessmentResult.json",
+              "description": "This is the archive used for Bridge 2.0 surveys.",
+              "contentType": "application/json",
+              "isRequired": true,
+              "jsonSchema": "https://sage-bionetworks.github.io/mobile-client-json/schemas/v2/AssessmentResultObject.json"
+            }
+          ]
+      },
+      "anyOf": [
         {
           "filename": "motion.json",
           "description": "Motion sensor data recorded while running the assessment.",
@@ -326,3 +339,4 @@
     }
   ]
 }
+

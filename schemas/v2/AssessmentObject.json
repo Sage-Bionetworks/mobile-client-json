@@ -18,6 +18,45 @@
         "pause",
         "reviewInstructions"
       ]
+    },
+    "InterruptionHandlingObject" : {
+      "$id" : "#InterruptionHandlingObject",
+      "type" : "object",
+      "title" : "InterruptionHandlingObject",
+      "description" : "",
+      "properties" : {
+        "canResume" : {
+          "type" : "boolean",
+          "description" : "Can this assessment be resumed following an interruption?",
+          "default" : true
+        },
+        "reviewIdentifier" : {
+          "type" : "string",
+          "description" : "An assessment might be designed to allow reviewing the instructions for that assessment with direct navigation to the first instruction node."
+        },
+        "canSkip" : {
+          "type" : "boolean",
+          "description" : "Can this assessment be skipped (ie. declined) without affecting subsequent assessments?",
+          "default" : true
+        },
+        "canSaveForLater" : {
+          "type" : "boolean",
+          "description" : "Can partial results of this assessment be restored if the assessment is ended and continued later?",
+          "default" : true
+        }
+      },
+      "required" : [
+
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+          "canResume" : false,
+          "reviewIdentifier" : "instruction1",
+          "canSkip" : true,
+          "canSaveForLater" : false
+        }
+      ]
     }
   },
   "properties" : {
@@ -46,6 +85,11 @@
         "$ref" : "ButtonActionInfo.json"
       }
     },
+    "$schema" : {
+      "type" : "string",
+      "description" : "The URI for the json schema for this assessment.",
+      "format" : "uri"
+    },
     "versionString" : {
       "type" : "string",
       "description" : "A version for the assessment."
@@ -58,6 +102,14 @@
     "copyright" : {
       "type" : "string",
       "description" : "Copyright information for the assessment."
+    },
+    "interruptionHandling" : {
+      "$ref" : "#InterruptionHandlingObject",
+      "description" : "The interruption handling for this assessment."
+    },
+    "guid" : {
+      "type" : "string",
+      "description" : "For assessments from Bridge this is the unique identifier for a particular revision of an assessment."
     },
     "title" : {
       "type" : "string",
@@ -103,11 +155,11 @@
       "$ref" : "Node.json"
     }
   ],
-  "additionalProperties" : false,
   "examples" : [
     {
       "type" : "assessment",
       "identifier" : "assessment",
+      "$schema" : "https://sage-bionetworks.github.io/mobile-client-json/schemas/v2/AssessmentObject.json",
       "steps" : [
         {
           "identifier" : "favoriteColor",

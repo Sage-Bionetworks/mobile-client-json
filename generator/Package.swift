@@ -14,7 +14,10 @@ let package = Package(
         // Dependencies declare other packages that this package depends on.
         .package(name: "AssessmentModel",
                  url: "https://github.com/Sage-Bionetworks/AssessmentModelKMM.git",
-                 from: "0.5.5"),
+                 from: "0.5.7"),
+        .package(name: "JsonModel",
+                 url: "https://github.com/Sage-Bionetworks/JsonModel-Swift.git",
+                 from: "1.4.8"),
     ],
     targets: [
         
@@ -24,6 +27,7 @@ let package = Package(
             name: "generator",
             dependencies: [
                 .product(name: "AssessmentModel", package: "AssessmentModel"),
+                .product(name: "JsonModel", package: "JsonModel"),
             ]),
         .testTarget(
             name: "generatorTests",

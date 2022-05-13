@@ -25,7 +25,6 @@
           "$ref" : "#"
         }
       ],
-      "additionalProperties" : false,
       "examples" : [
         {
           "type" : "example"

@@ -37,6 +37,12 @@
         },
         "invalidMessage" : {
           "type" : "string"
+        },
+        "minimumLabel" : {
+          "type" : "string"
+        },
+        "maximumLabel" : {
+          "type" : "string"
         }
       },
       "required" : [
@@ -83,10 +89,41 @@
           "$ref" : "#"
         }
       ],
-      "additionalProperties" : false,
       "examples" : [
         {
           "type" : "number"
+        }
+      ]
+    },
+    "DurationTextInputItemObject" : {
+      "$id" : "#DurationTextInputItemObject",
+      "type" : "object",
+      "title" : "DurationTextInputItemObject",
+      "description" : "",
+      "properties" : {
+        "type" : {
+          "const" : "number",
+          "$ref" : "#TextInputType"
+        },
+        "displayUnits" : {
+          "type" : "array",
+          "description" : "The display units to show for duration.",
+          "items" : {
+            "$ref" : "AnswerType.json#DurationUnit"
+          }
+        }
+      },
+      "required" : [
+        "type"
+      ],
+      "allOf" : [
+        {
+          "$ref" : "#"
+        }
+      ],
+      "examples" : [
+        {
+          "type" : "duration"
         }
       ]
     },
@@ -118,6 +155,12 @@
           "type" : "string"
         },
         "invalidMessage" : {
+          "type" : "string"
+        },
+        "minimumLabel" : {
+          "type" : "string"
+        },
+        "maximumLabel" : {
           "type" : "string"
         }
       },
@@ -164,7 +207,6 @@
           "$ref" : "#"
         }
       ],
-      "additionalProperties" : false,
       "examples" : [
         {
           "type" : "integer"
@@ -290,6 +332,10 @@
         "regExValidator" : {
           "$ref" : "#RegExValidator",
           "description" : "The regex validator to use to validate this text field."
+        },
+        "characterLimit" : {
+          "type" : "integer",
+          "description" : "The character limit for text entry."
         }
       },
       "required" : [
@@ -300,7 +346,6 @@
           "$ref" : "#"
         }
       ],
-      "additionalProperties" : false,
       "examples" : [
         {
           "type" : "string"
@@ -339,7 +384,9 @@
         "number",
         "integer",
         "string",
-        "year"
+        "year",
+        "duration",
+        "time"
       ]
     },
     "TextSpellCheckingType" : {
@@ -351,6 +398,80 @@
         "default",
         "no",
         "yes"
+      ]
+    },
+    "TimeFormatOptions" : {
+      "$id" : "#TimeFormatOptions",
+      "type" : "object",
+      "title" : "TimeFormatOptions",
+      "description" : "",
+      "properties" : {
+        "allowFuture" : {
+          "type" : "boolean",
+          "description" : "Should this time range allow times that occur in the future? (ie. later today)"
+        },
+        "allowPast" : {
+          "type" : "boolean",
+          "description" : "Should this time range allow times that occured in the past? (ie. earlier today)"
+        },
+        "minimumValue" : {
+          "type" : "string",
+          "description" : "Should this time range be timeboxed to have a minimum time of day?",
+          "format" : "time"
+        },
+        "maximumValue" : {
+          "type" : "string",
+          "description" : "Should this time range be timeboxed to have a maximum time of day?",
+          "format" : "time"
+        }
+      },
+      "required" : [
+
+      ],
+      "additionalProperties" : false,
+      "examples" : [
+        {
+
+        },
+        {
+          "allowFuture" : false
+        },
+        {
+          "allowPast" : false
+        },
+        {
+          "minimumValue" : "06:00:00.000",
+          "maximumValue" : "10:30:00.000"
+        }
+      ]
+    },
+    "TimeTextInputItemObject" : {
+      "$id" : "#TimeTextInputItemObject",
+      "type" : "object",
+      "title" : "TimeTextInputItemObject",
+      "description" : "",
+      "properties" : {
+        "type" : {
+          "const" : "year",
+          "$ref" : "#TextInputType"
+        },
+        "formatOptions" : {
+          "$ref" : "#TimeFormatOptions",
+          "description" : "The formatting and range options to use with input item."
+        }
+      },
+      "required" : [
+        "type"
+      ],
+      "allOf" : [
+        {
+          "$ref" : "#"
+        }
+      ],
+      "examples" : [
+        {
+          "type" : "time"
+        }
       ]
     },
     "YearFormatOptions" : {
@@ -422,10 +543,10 @@
           "$ref" : "#"
         }
       ],
-      "additionalProperties" : false,
       "examples" : [
         {
-          "type" : "year"
+          "type" : "year",
+          "placeholder" : "YYYY"
         }
       ]
     }

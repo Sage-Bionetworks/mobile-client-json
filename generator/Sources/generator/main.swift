@@ -3,7 +3,7 @@ import JsonModel
 import AssessmentModel
 
 func buildJson() {
-    let factory = AssessmentFactory()
+    let factory = GeneratorFactory()
     let baseUrl = factory.jsonSchemaBaseURL
     let downloadsDirectory = FileManager.default.urls(for: .downloadsDirectory, in: .userDomainMask).first!
     let schemasDirectory = baseUrl.pathComponents.dropFirst().reduce(downloadsDirectory, { $0.appendingPathComponent($1) })
@@ -69,3 +69,11 @@ func buildJson() {
 }
 
 buildJson()
+
+class GeneratorFactory : AssessmentFactory {
+    required init() {
+        super.init()
+        self.registerRootObject(ArchiveMetadata())
+    }
+}
+

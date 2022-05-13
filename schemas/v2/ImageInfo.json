@@ -69,7 +69,6 @@
           "$ref" : "#"
         }
       ],
-      "additionalProperties" : false,
       "examples" : [
         {
           "type" : "animated",
@@ -142,7 +141,6 @@
           "$ref" : "#"
         }
       ],
-      "additionalProperties" : false,
       "examples" : [
         {
           "type" : "fetchable",
@@ -164,7 +162,8 @@
       "description" : "",
       "examples" : [
         "fetchable",
-        "animated"
+        "animated",
+        "sageResource"
       ]
     },
     "ImageSize" : {
@@ -189,6 +188,50 @@
         {
           "width" : 10,
           "height" : 20
+        }
+      ]
+    },
+    "Name" : {
+      "$id" : "#Name",
+      "type" : "string",
+      "title" : "Name",
+      "description" : "",
+      "enum" : [
+        "survey"
+      ]
+    },
+    "SageResourceImage" : {
+      "$id" : "#SageResourceImage",
+      "type" : "object",
+      "title" : "SageResourceImage",
+      "description" : "",
+      "properties" : {
+        "type" : {
+          "const" : "sageResource",
+          "$ref" : "#ImageInfoType"
+        },
+        "imageName" : {
+          "$ref" : "#Name",
+          "description" : "The image name for the image to draw."
+        },
+        "label" : {
+          "type" : "string",
+          "description" : "A caption or label to display for the image in a localized string."
+        }
+      },
+      "required" : [
+        "type",
+        "imageName"
+      ],
+      "allOf" : [
+        {
+          "$ref" : "#"
+        }
+      ],
+      "examples" : [
+        {
+          "type" : "sageResource",
+          "imageName" : "survey"
         }
       ]
     }
