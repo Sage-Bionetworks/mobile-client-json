@@ -135,7 +135,7 @@
         },
         "default" : {
             "type" : "object",
-            "description" : "The default archive mapping to use for an assessment identifier/revision that is not explicitly mapped by the incluced the list of assessments. This is used to provide a default archive for things like surveys which may not have a one-to-one mapping of schema to assessment.",
+            "description" : "The default archive mapping to use for an assessment identifier/revision that is not explicitly mapped by the included the list of assessments. This is used to provide a default archive for things like surveys which may not have a one-to-one mapping of schema to assessment.",
             "properties" : {
               "organization" : {
                 "type" : "string",
