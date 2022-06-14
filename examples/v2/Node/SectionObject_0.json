@@ -1,1 +1,1 @@
-{"type":"section","steps":[{"identifier":"favoriteColor","title":"What is your favorite color","inputItem":{"type":"string"},"type":"simpleQuestion"}],"identifier":"section"}
+{"identifier":"section","steps":[{"title":"What is your favorite color","identifier":"favoriteColor","type":"simpleQuestion","inputItem":{"type":"string"}}],"type":"section"}

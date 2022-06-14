@@ -75,7 +75,7 @@
       "type" : "array",
       "description" : "A list of buttons that should be hidden even if the default is to show them.",
       "items" : {
-        "$ref" : "#ButtonType"
+        "$ref" : "#/definitions/ButtonType"
       }
     },
     "actions" : {
@@ -84,6 +84,9 @@
       "additionalProperties" : {
         "$ref" : "ButtonActionInfo.json"
       }
+    },
+    "webConfig" : {
+      "description" : "A blob of JSON that can be used by a web-based survey building tool."
     },
     "$schema" : {
       "type" : "string",
@@ -104,7 +107,7 @@
       "description" : "Copyright information for the assessment."
     },
     "interruptionHandling" : {
-      "$ref" : "#InterruptionHandlingObject",
+      "$ref" : "#/definitions/InterruptionHandlingObject",
       "description" : "The interruption handling for this assessment."
     },
     "guid" : {

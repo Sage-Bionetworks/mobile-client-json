@@ -1,1 +1,1 @@
-{"type":"choiceQuestion","choices":[{"value":"ba","text":"ba"},{"value":"la","text":"la"},{"text":"lala","value":"lala"}],"baseType":"string","singleChoice":true,"identifier":"foo"}
+{"choices":[{"text":"ba","value":"ba"},{"value":"la","text":"la"},{"text":"lala","value":"lala"}],"identifier":"foo","type":"choiceQuestion","singleChoice":true,"baseType":"string"}

@@ -1,0 +1,61 @@
+{
+  "$id" : "https://sage-bionetworks.github.io/mobile-client-json/schemas/v2/AudioLevelRecord.json",
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "type" : "array",
+  "description" : "An array of `AudioLevelRecord` objects.",
+  "items" : {
+    "type" : "object",
+    "title" : "AudioLevelRecord",
+    "description" : "A list of timestamped dbFS audio level records recorded for the duration of an assessment.",
+    "properties" : {
+      "uptime" : {
+        "type" : "number",
+        "description" : "System clock time."
+      },
+      "timestamp" : {
+        "type" : "number",
+        "description" : "Time that the system has been awake since last reboot."
+      },
+      "stepPath" : {
+        "type" : "string",
+        "description" : "An identifier marking the current step."
+      },
+      "timestampDate" : {
+        "type" : "string",
+        "description" : "The date timestamp when the measurement was taken (if available).",
+        "format" : "date-time"
+      },
+      "timeInterval" : {
+        "type" : "number",
+        "description" : "The sampling time interval."
+      },
+      "average" : {
+        "type" : "number",
+        "description" : "The average meter level over the time interval."
+      },
+      "peak" : {
+        "type" : "number",
+        "description" : "The peak meter level for the time interval."
+      },
+      "unit" : {
+        "type" : "string",
+        "description" : "The unit of measurement for the decibel levels."
+      }
+    },
+    "required" : [
+      "stepPath"
+    ],
+    "additionalProperties" : false,
+    "examples" : [
+      {
+        "uptime" : 1234567,
+        "timestamp" : 0,
+        "stepPath" : "foo/one",
+        "timeInterval" : 1,
+        "average" : 40.5,
+        "peak" : 56.700000762939453,
+        "unit" : "dbFS"
+      }
+    ]
+  }
+}

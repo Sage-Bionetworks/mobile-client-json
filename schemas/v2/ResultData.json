@@ -13,7 +13,7 @@
       "properties" : {
         "type" : {
           "const" : "answer",
-          "$ref" : "#SerializableResultType"
+          "$ref" : "#/definitions/SerializableResultType"
         },
         "answerType" : {
           "$ref" : "AnswerType.json",
@@ -221,7 +221,7 @@
         },
         "type" : {
           "const" : "section",
-          "$ref" : "#SerializableResultType"
+          "$ref" : "#/definitions/SerializableResultType"
         },
         "asyncResults" : {
           "type" : "array",
@@ -484,7 +484,7 @@
         },
         "type" : {
           "const" : "collection",
-          "$ref" : "#SerializableResultType"
+          "$ref" : "#/definitions/SerializableResultType"
         }
       },
       "required" : [
@@ -680,7 +680,7 @@
       "properties" : {
         "type" : {
           "const" : "error",
-          "$ref" : "#SerializableResultType"
+          "$ref" : "#/definitions/SerializableResultType"
         },
         "errorDescription" : {
           "type" : "string",
@@ -710,7 +710,7 @@
         {
           "type" : "error",
           "identifier" : "errorResult",
-          "startDate" : "2022-05-12T16:15:03.158-07:00",
+          "startDate" : "2022-06-14T11:29:59.943-07:00",
           "errorDescription" : "example error",
           "errorDomain" : "ExampleDomain",
           "errorCode" : 1
@@ -725,7 +725,7 @@
       "properties" : {
         "type" : {
           "const" : "file",
-          "$ref" : "#SerializableResultType"
+          "$ref" : "#/definitions/SerializableResultType"
         },
         "relativePath" : {
           "type" : "string",
@@ -774,7 +774,7 @@
       "properties" : {
         "type" : {
           "const" : "base",
-          "$ref" : "#SerializableResultType"
+          "$ref" : "#/definitions/SerializableResultType"
         }
       },
       "required" : [
@@ -812,7 +812,7 @@
   },
   "properties" : {
     "type" : {
-      "$ref" : "#SerializableResultType"
+      "$ref" : "#/definitions/SerializableResultType"
     },
     "identifier" : {
       "type" : "string",

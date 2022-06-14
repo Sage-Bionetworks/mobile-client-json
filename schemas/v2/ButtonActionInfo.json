@@ -13,7 +13,7 @@
       "properties" : {
         "type" : {
           "const" : "default",
-          "$ref" : "#ButtonActionInfoType"
+          "$ref" : "#/definitions/ButtonActionInfoType"
         }
       },
       "required" : [
@@ -53,10 +53,10 @@
       "properties" : {
         "type" : {
           "const" : "navigation",
-          "$ref" : "#ButtonActionInfoType"
+          "$ref" : "#/definitions/ButtonActionInfoType"
         },
         "skipToIdentifier" : {
-          "$ref" : "#NavigationIdentifier",
+          "$ref" : "#/definitions/NavigationIdentifier",
           "description" : "The identifier to navigate to when tapping this button."
         }
       },
@@ -96,7 +96,7 @@
   },
   "properties" : {
     "type" : {
-      "$ref" : "#ButtonActionInfoType"
+      "$ref" : "#/definitions/ButtonActionInfoType"
     },
     "buttonTitle" : {
       "type" : "string",

@@ -50,7 +50,7 @@
       "examples" : [
         {
           "filename" : "foo.json",
-          "timestamp" : "2022-05-12T16:41:56.854-07:00",
+          "timestamp" : "2022-06-14T11:29:59.915-07:00",
           "contentType" : "application/json",
           "identifier" : "foo",
           "stepPath" : "Bar/foo",
@@ -83,7 +83,7 @@
       "type" : "array",
       "description" : "A list of the files included in this archive.",
       "items" : {
-        "$ref" : "#FileInfo"
+        "$ref" : "#/definitions/FileInfo"
       }
     }
   },
@@ -98,7 +98,7 @@
     {
       "appName" : "???",
       "appVersion" : "???",
-      "deviceInfo" : "Mac Version 11.6.5 (Build 20G527)",
+      "deviceInfo" : "Mac Version 12.4 (Build 21F79)",
       "deviceTypeIdentifier" : "Mac",
       "files" : [
         {
