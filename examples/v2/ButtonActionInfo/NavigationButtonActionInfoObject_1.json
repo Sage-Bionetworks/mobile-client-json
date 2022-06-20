@@ -1,1 +1,1 @@
-{"bundleIdentifier":"org.example.SharedResources","type":"navigation","iconName":"closeX","skipToIdentifier":"foo"}
+{"iconName":"closeX","bundleIdentifier":"org.example.SharedResources","skipToIdentifier":"foo","type":"navigation"}

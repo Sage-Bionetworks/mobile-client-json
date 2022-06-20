@@ -12,7 +12,7 @@
       "description" : "",
       "properties" : {
         "numberStyle" : {
-          "$ref" : "#NumberFormatStyle"
+          "$ref" : "#/definitions/NumberFormatStyle"
         },
         "usesGroupingSeparator" : {
           "type" : "boolean"
@@ -74,10 +74,10 @@
       "properties" : {
         "type" : {
           "const" : "number",
-          "$ref" : "#TextInputType"
+          "$ref" : "#/definitions/TextInputType"
         },
         "formatOptions" : {
-          "$ref" : "#DoubleFormatOptions",
+          "$ref" : "#/definitions/DoubleFormatOptions",
           "description" : "The formatting and range options to use with input item."
         }
       },
@@ -103,7 +103,7 @@
       "properties" : {
         "type" : {
           "const" : "number",
-          "$ref" : "#TextInputType"
+          "$ref" : "#/definitions/TextInputType"
         },
         "displayUnits" : {
           "type" : "array",
@@ -134,7 +134,7 @@
       "description" : "",
       "properties" : {
         "numberStyle" : {
-          "$ref" : "#NumberFormatStyle"
+          "$ref" : "#/definitions/NumberFormatStyle"
         },
         "usesGroupingSeparator" : {
           "type" : "boolean"
@@ -192,10 +192,10 @@
       "properties" : {
         "type" : {
           "const" : "integer",
-          "$ref" : "#TextInputType"
+          "$ref" : "#/definitions/TextInputType"
         },
         "formatOptions" : {
-          "$ref" : "#IntegerFormatOptions",
+          "$ref" : "#/definitions/IntegerFormatOptions",
           "description" : "The formatting and range options to use with input item."
         }
       },
@@ -224,16 +224,16 @@
           "default" : false
         },
         "autocapitalizationType" : {
-          "$ref" : "#TextAutoCapitalizationType"
+          "$ref" : "#/definitions/TextAutoCapitalizationType"
         },
         "autocorrectionType" : {
-          "$ref" : "#TextAutoCorrectionType"
+          "$ref" : "#/definitions/TextAutoCorrectionType"
         },
         "spellCheckingType" : {
-          "$ref" : "#TextSpellCheckingType"
+          "$ref" : "#/definitions/TextSpellCheckingType"
         },
         "keyboardType" : {
-          "$ref" : "#KeyboardType"
+          "$ref" : "#/definitions/KeyboardType"
         }
       },
       "required" : [
@@ -323,14 +323,14 @@
       "properties" : {
         "type" : {
           "const" : "string",
-          "$ref" : "#TextInputType"
+          "$ref" : "#/definitions/TextInputType"
         },
         "keyboardOptions" : {
-          "$ref" : "#KeyboardOptionsObject",
+          "$ref" : "#/definitions/KeyboardOptionsObject",
           "description" : "The keyboard options to use with this text field."
         },
         "regExValidator" : {
-          "$ref" : "#RegExValidator",
+          "$ref" : "#/definitions/RegExValidator",
           "description" : "The regex validator to use to validate this text field."
         },
         "characterLimit" : {
@@ -453,10 +453,10 @@
       "properties" : {
         "type" : {
           "const" : "year",
-          "$ref" : "#TextInputType"
+          "$ref" : "#/definitions/TextInputType"
         },
         "formatOptions" : {
-          "$ref" : "#TimeFormatOptions",
+          "$ref" : "#/definitions/TimeFormatOptions",
           "description" : "The formatting and range options to use with input item."
         }
       },
@@ -528,10 +528,10 @@
       "properties" : {
         "type" : {
           "const" : "year",
-          "$ref" : "#TextInputType"
+          "$ref" : "#/definitions/TextInputType"
         },
         "formatOptions" : {
-          "$ref" : "#YearFormatOptions",
+          "$ref" : "#/definitions/YearFormatOptions",
           "description" : "The formatting and range options to use with input item."
         }
       },
@@ -553,7 +553,7 @@
   },
   "properties" : {
     "type" : {
-      "$ref" : "#TextInputType"
+      "$ref" : "#/definitions/TextInputType"
     },
     "identifier" : {
       "type" : "string",

@@ -13,7 +13,7 @@
       "properties" : {
         "type" : {
           "const" : "choiceQuestion",
-          "$ref" : "#SerializableNodeType"
+          "$ref" : "#/definitions/SerializableNodeType"
         },
         "comment" : {
           "type" : "string",
@@ -37,6 +37,9 @@
           "$ref" : "ButtonActionInfo.json#NavigationIdentifier",
           "description" : "Used in direct navigation to allow the node to indicate that the navigator should jump to the given node identifier."
         },
+        "webConfig" : {
+          "description" : "A blob of JSON that can be used by a web-based survey building tool."
+        },
         "title" : {
           "type" : "string",
           "description" : "The primary text to display for the node in a localized string. The UI should display this using a larger font."
@@ -59,14 +62,14 @@
           "default" : false
         },
         "uiHint" : {
-          "$ref" : "#QuestionUIHint",
+          "$ref" : "#/definitions/QuestionUIHint",
           "description" : "This is a \"hint\" that can be used to vend a view that is appropriate to the given question. If the library responsible for rendering the question doesn't know how to handle the hint, then it will be ignored."
         },
         "surveyRules" : {
           "type" : "array",
           "description" : "A list of rules that may be applied to determine navigation.",
           "items" : {
-            "$ref" : "#JsonSurveyRuleObject"
+            "$ref" : "#/definitions/JsonSurveyRuleObject"
           }
         },
         "baseType" : {
@@ -81,7 +84,7 @@
           "type" : "array",
           "description" : "The list of choices for this question.",
           "items" : {
-            "$ref" : "#JsonChoice"
+            "$ref" : "#/definitions/JsonChoice"
           }
         },
         "other" : {
@@ -141,7 +144,7 @@
       "properties" : {
         "type" : {
           "const" : "completion",
-          "$ref" : "#SerializableNodeType"
+          "$ref" : "#/definitions/SerializableNodeType"
         },
         "comment" : {
           "type" : "string",
@@ -164,6 +167,9 @@
         "nextStepIdentifier" : {
           "$ref" : "ButtonActionInfo.json#NavigationIdentifier",
           "description" : "Used in direct navigation to allow the node to indicate that the navigator should jump to the given node identifier."
+        },
+        "webConfig" : {
+          "description" : "A blob of JSON that can be used by a web-based survey building tool."
         },
         "title" : {
           "type" : "string",
@@ -205,7 +211,7 @@
       "properties" : {
         "type" : {
           "const" : "instruction",
-          "$ref" : "#SerializableNodeType"
+          "$ref" : "#/definitions/SerializableNodeType"
         },
         "comment" : {
           "type" : "string",
@@ -228,6 +234,9 @@
         "nextStepIdentifier" : {
           "$ref" : "ButtonActionInfo.json#NavigationIdentifier",
           "description" : "Used in direct navigation to allow the node to indicate that the navigator should jump to the given node identifier."
+        },
+        "webConfig" : {
+          "description" : "A blob of JSON that can be used by a web-based survey building tool."
         },
         "title" : {
           "type" : "string",
@@ -295,7 +304,7 @@
           "description" : "An image associated with this choice."
         },
         "selectorType" : {
-          "$ref" : "#ChoiceSelectorType",
+          "$ref" : "#/definitions/ChoiceSelectorType",
           "description" : "Does selecting this choice mean that the other options should be deselected or selected as well?\nFor example, this can be used in a multiple selection question to allow for a 'none of the above' choice that is `exclusive` to the other items or an 'all of the above' choice that should select `all` other choices as well (except those that are marked as `exclusive`)."
         }
       },
@@ -324,7 +333,7 @@
           "description" : "The node identifier or reversed key to jump to if the answer matches."
         },
         "ruleOperator" : {
-          "$ref" : "#SurveyRuleOperator",
+          "$ref" : "#/definitions/SurveyRuleOperator",
           "description" : "The rule operator to apply to the result comparison."
         }
       },
@@ -348,7 +357,7 @@
       "properties" : {
         "type" : {
           "const" : "overview",
-          "$ref" : "#SerializableNodeType"
+          "$ref" : "#/definitions/SerializableNodeType"
         },
         "comment" : {
           "type" : "string",
@@ -372,6 +381,9 @@
           "$ref" : "ButtonActionInfo.json#NavigationIdentifier",
           "description" : "Used in direct navigation to allow the node to indicate that the navigator should jump to the given node identifier."
         },
+        "webConfig" : {
+          "description" : "A blob of JSON that can be used by a web-based survey building tool."
+        },
         "title" : {
           "type" : "string",
           "description" : "The primary text to display for the node in a localized string. The UI should display this using a larger font."
@@ -392,7 +404,7 @@
           "type" : "array",
           "description" : "A list of permissions to request for this assessment.",
           "items" : {
-            "$ref" : "#PermissionInfoObject"
+            "$ref" : "#/definitions/PermissionInfoObject"
           }
         }
       },
@@ -418,16 +430,21 @@
       "description" : "",
       "properties" : {
         "permissionType" : {
-          "$ref" : "#PermissionType"
+          "$ref" : "AsyncActionConfiguration.json#AsyncActionType",
+          "description" : "The permission type to request when showing this step."
         },
         "optional" : {
-          "type" : "boolean"
-        },
-        "deniedMessage" : {
-          "type" : "string"
+          "type" : "boolean",
+          "description" : "Whether or not the permission is required to continue.",
+          "default" : true
         },
         "restrictedMessage" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "The localized message to display when the permission is restricted. Typically, this is only shown when the permission is not optional."
+        },
+        "deniedMessage" : {
+          "type" : "string",
+          "description" : "The localized message to display when the permission is denied. Typically, this is only shown when the permission is not optional."
         }
       },
       "required" : [
@@ -437,12 +454,6 @@
       "examples" : [
         {
           "permissionType" : "motion"
-        },
-        {
-          "permissionType" : "camera",
-          "optional" : false,
-          "deniedMessage" : "You didn't give permission",
-          "restrictedMessage" : "Your camera access is restricted"
         }
       ]
     },
@@ -454,7 +465,7 @@
       "properties" : {
         "type" : {
           "const" : "permission",
-          "$ref" : "#SerializableNodeType"
+          "$ref" : "#/definitions/SerializableNodeType"
         },
         "comment" : {
           "type" : "string",
@@ -477,6 +488,9 @@
         "nextStepIdentifier" : {
           "$ref" : "ButtonActionInfo.json#NavigationIdentifier",
           "description" : "Used in direct navigation to allow the node to indicate that the navigator should jump to the given node identifier."
+        },
+        "webConfig" : {
+          "description" : "A blob of JSON that can be used by a web-based survey building tool."
         },
         "title" : {
           "type" : "string",
@@ -507,7 +521,7 @@
           }
         },
         "permissionType" : {
-          "$ref" : "#PermissionType",
+          "$ref" : "AsyncActionConfiguration.json#AsyncActionType",
           "description" : "The permission type to request when showing this step."
         },
         "optional" : {
@@ -541,40 +555,18 @@
         }
       ]
     },
-    "PermissionType" : {
-      "$id" : "#PermissionType",
-      "anyOf" : [
-        {
-          "type" : "string"
-        },
-        {
-          "properties" : {
-            "name" : {
-              "type" : "string"
-            },
-            "userInfo" : {
-              "type" : "object"
-            }
-          },
-          "required" : [
-            "name"
-          ],
-          "type" : "object"
-        }
-      ]
-    },
     "QuestionUIHint" : {
       "$id" : "#QuestionUIHint",
       "type" : "string",
       "title" : "QuestionUIHint",
       "description" : "",
       "examples" : [
-        "multipleLine",
-        "likert",
+        "textfield",
         "radioButton",
         "picker",
+        "likert",
+        "multipleLine",
         "slider",
-        "textfield",
         "checkbox"
       ]
     },
@@ -586,7 +578,7 @@
       "properties" : {
         "type" : {
           "const" : "section",
-          "$ref" : "#SerializableNodeType"
+          "$ref" : "#/definitions/SerializableNodeType"
         },
         "comment" : {
           "type" : "string",
@@ -609,6 +601,9 @@
         "nextStepIdentifier" : {
           "$ref" : "ButtonActionInfo.json#NavigationIdentifier",
           "description" : "Used in direct navigation to allow the node to indicate that the navigator should jump to the given node identifier."
+        },
+        "webConfig" : {
+          "description" : "A blob of JSON that can be used by a web-based survey building tool."
         },
         "title" : {
           "type" : "string",
@@ -691,7 +686,7 @@
       "properties" : {
         "type" : {
           "const" : "simpleQuestion",
-          "$ref" : "#SerializableNodeType"
+          "$ref" : "#/definitions/SerializableNodeType"
         },
         "comment" : {
           "type" : "string",
@@ -715,6 +710,9 @@
           "$ref" : "ButtonActionInfo.json#NavigationIdentifier",
           "description" : "Used in direct navigation to allow the node to indicate that the navigator should jump to the given node identifier."
         },
+        "webConfig" : {
+          "description" : "A blob of JSON that can be used by a web-based survey building tool."
+        },
         "title" : {
           "type" : "string",
           "description" : "The primary text to display for the node in a localized string. The UI should display this using a larger font."
@@ -737,14 +735,14 @@
           "default" : false
         },
         "uiHint" : {
-          "$ref" : "#QuestionUIHint",
+          "$ref" : "#/definitions/QuestionUIHint",
           "description" : "This is a \"hint\" that can be used to vend a view that is appropriate to the given question. If the library responsible for rendering the question doesn't know how to handle the hint, then it will be ignored."
         },
         "surveyRules" : {
           "type" : "array",
           "description" : "A list of rules that may be applied to determine navigation.",
           "items" : {
-            "$ref" : "#JsonSurveyRuleObject"
+            "$ref" : "#/definitions/JsonSurveyRuleObject"
           }
         },
         "inputItem" : {
@@ -788,7 +786,7 @@
   },
   "properties" : {
     "type" : {
-      "$ref" : "#SerializableNodeType"
+      "$ref" : "#/definitions/SerializableNodeType"
     },
     "identifier" : {
       "type" : "string",

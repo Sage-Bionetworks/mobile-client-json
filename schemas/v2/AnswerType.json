@@ -13,10 +13,10 @@
       "properties" : {
         "type" : {
           "const" : "array",
-          "$ref" : "#AnswerTypeType"
+          "$ref" : "#/definitions/AnswerTypeType"
         },
         "baseType" : {
-          "$ref" : "#JsonType",
+          "$ref" : "#/definitions/JsonType",
           "description" : "The base type of the array."
         },
         "sequenceSeparator" : {
@@ -56,7 +56,7 @@
       "properties" : {
         "type" : {
           "const" : "boolean",
-          "$ref" : "#AnswerTypeType"
+          "$ref" : "#/definitions/AnswerTypeType"
         }
       },
       "required" : [
@@ -81,7 +81,7 @@
       "properties" : {
         "type" : {
           "const" : "date-time",
-          "$ref" : "#AnswerTypeType"
+          "$ref" : "#/definitions/AnswerTypeType"
         },
         "codingFormat" : {
           "type" : "string",
@@ -119,13 +119,13 @@
       "properties" : {
         "type" : {
           "const" : "duration",
-          "$ref" : "#AnswerTypeType"
+          "$ref" : "#/definitions/AnswerTypeType"
         },
         "displayUnits" : {
           "type" : "array",
           "description" : "The units used to display the duration as a question.",
           "items" : {
-            "$ref" : "#DurationUnit"
+            "$ref" : "#/definitions/DurationUnit"
           }
         },
         "significantDigits" : {
@@ -160,7 +160,7 @@
       "properties" : {
         "type" : {
           "const" : "integer",
-          "$ref" : "#AnswerTypeType"
+          "$ref" : "#/definitions/AnswerTypeType"
         }
       },
       "required" : [
@@ -185,7 +185,7 @@
       "properties" : {
         "type" : {
           "const" : "measurement",
-          "$ref" : "#AnswerTypeType"
+          "$ref" : "#/definitions/AnswerTypeType"
         },
         "unit" : {
           "type" : "string",
@@ -219,7 +219,7 @@
       "properties" : {
         "type" : {
           "const" : "number",
-          "$ref" : "#AnswerTypeType"
+          "$ref" : "#/definitions/AnswerTypeType"
         },
         "significantDigits" : {
           "type" : "number",
@@ -248,7 +248,7 @@
       "properties" : {
         "type" : {
           "const" : "object",
-          "$ref" : "#AnswerTypeType"
+          "$ref" : "#/definitions/AnswerTypeType"
         }
       },
       "required" : [
@@ -273,7 +273,7 @@
       "properties" : {
         "type" : {
           "const" : "string",
-          "$ref" : "#AnswerTypeType"
+          "$ref" : "#/definitions/AnswerTypeType"
         }
       },
       "required" : [
@@ -298,7 +298,7 @@
       "properties" : {
         "type" : {
           "const" : "time",
-          "$ref" : "#AnswerTypeType"
+          "$ref" : "#/definitions/AnswerTypeType"
         },
         "codingFormat" : {
           "type" : "string",
@@ -367,7 +367,7 @@
   },
   "properties" : {
     "type" : {
-      "$ref" : "#AnswerTypeType"
+      "$ref" : "#/definitions/AnswerTypeType"
     }
   },
   "required" : [

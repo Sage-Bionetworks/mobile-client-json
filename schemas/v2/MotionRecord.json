@@ -1,0 +1,173 @@
+{
+  "$id" : "https://sage-bionetworks.github.io/mobile-client-json/schemas/v2/MotionRecord.json",
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "type" : "array",
+  "description" : "An array of `MotionRecord` objects.",
+  "definitions" : {
+    "AttitudeReferenceFrame" : {
+      "$id" : "#AttitudeReferenceFrame",
+      "type" : "string",
+      "title" : "AttitudeReferenceFrame",
+      "description" : "",
+      "enum" : [
+        "Z-Up",
+        "North-West-Up"
+      ]
+    },
+    "MotionRecorderType" : {
+      "$id" : "#MotionRecorderType",
+      "type" : "string",
+      "title" : "MotionRecorderType",
+      "description" : "",
+      "enum" : [
+        "accelerometer",
+        "gyro",
+        "magnetometer",
+        "attitude",
+        "gravity",
+        "magneticField",
+        "rotationRate",
+        "userAcceleration"
+      ]
+    }
+  },
+  "items" : {
+    "type" : "object",
+    "title" : "MotionRecord",
+    "description" : "A list of motion sensor records.",
+    "properties" : {
+      "uptime" : {
+        "type" : "number",
+        "description" : "System clock time."
+      },
+      "timestamp" : {
+        "type" : "number",
+        "description" : "Time that the system has been awake since last reboot."
+      },
+      "stepPath" : {
+        "type" : "string",
+        "description" : "An identifier marking the current step."
+      },
+      "timestampDate" : {
+        "type" : "string",
+        "description" : "The date timestamp when the measurement was taken (if available).",
+        "format" : "date-time"
+      },
+      "sensorType" : {
+        "$ref" : "#/definitions/MotionRecorderType",
+        "description" : "The sensor type for this record sample."
+      },
+      "eventAccuracy" : {
+        "type" : "integer",
+        "description" : "A number marking the sensor accuracy of the magnetic field sensor."
+      },
+      "referenceCoordinate" : {
+        "$ref" : "#/definitions/AttitudeReferenceFrame",
+        "description" : "Used for an `attitude` record type to describe the reference frame."
+      },
+      "heading" : {
+        "type" : "number",
+        "description" : "The heading angle in the range [0,360) degrees with respect to the CMAttitude reference frame. A negative value is returned for `CMAttitudeReferenceFrame.xArbitraryZVertical` and `CMAttitudeReferenceFrame.xArbitraryCorrectedZVertical` reference coordinates."
+      },
+      "x" : {
+        "type" : "number",
+        "description" : "The `x` component of the vector measurement for this sensor sample."
+      },
+      "y" : {
+        "type" : "number",
+        "description" : "The `y` component of the vector measurement for this sensor sample."
+      },
+      "z" : {
+        "type" : "number",
+        "description" : "The `z` component of the vector measurement for this sensor sample."
+      },
+      "w" : {
+        "type" : "number",
+        "description" : "The `w` component of the vector measurement for this sensor sample. Used by the attitude quaternion."
+      }
+    },
+    "required" : [
+      "stepPath"
+    ],
+    "additionalProperties" : false,
+    "examples" : [
+      {
+        "uptime" : 70448.193452805994,
+        "timestamp" : 0,
+        "stepPath" : "step1",
+        "sensorType" : "gyro",
+        "x" : 0.064788818359375,
+        "y" : -0.1324615478515625,
+        "z" : -0.9501953125
+      },
+      {
+        "uptime" : 70448.193452805994,
+        "timestamp" : 0,
+        "stepPath" : "step1",
+        "sensorType" : "accelerometer",
+        "x" : 0.064788818359375,
+        "y" : -0.1324615478515625,
+        "z" : -0.9501953125
+      },
+      {
+        "uptime" : 70448.193452805994,
+        "timestamp" : 0,
+        "stepPath" : "step1",
+        "sensorType" : "magnetometer",
+        "x" : 0.064788818359375,
+        "y" : -0.1324615478515625,
+        "z" : -0.9501953125
+      },
+      {
+        "uptime" : 70448.193452805994,
+        "timestamp" : 0,
+        "stepPath" : "step1",
+        "sensorType" : "gravity",
+        "x" : 0.064788818359375,
+        "y" : -0.1324615478515625,
+        "z" : -0.9501953125
+      },
+      {
+        "uptime" : 70448.193452805994,
+        "timestamp" : 0,
+        "stepPath" : "step1",
+        "sensorType" : "userAcceleration",
+        "x" : 0.064788818359375,
+        "y" : -0.1324615478515625,
+        "z" : -0.9501953125
+      },
+      {
+        "uptime" : 70448.193452805994,
+        "timestamp" : 0,
+        "stepPath" : "step1",
+        "sensorType" : "userAcceleration",
+        "x" : 0.064788818359375,
+        "y" : -0.1324615478515625,
+        "z" : -0.9501953125
+      },
+      {
+        "uptime" : 70448.193452805994,
+        "timestamp" : 0,
+        "stepPath" : "step1",
+        "sensorType" : "attitude",
+        "referenceCoordinate" : "Z-Up",
+        "x" : 0.064788818359375,
+        "y" : -0.1324615478515625,
+        "z" : -0.9501953125,
+        "w" : 1
+      },
+      {
+        "uptime" : 70448.193452805994,
+        "timestamp" : 0,
+        "stepPath" : "step1",
+        "sensorType" : "magneticField",
+        "eventAccuracy" : 4,
+        "heading" : 270,
+        "x" : 0.064788818359375,
+        "y" : -0.1324615478515625,
+        "z" : -0.9501953125,
+        "w" : 1
+      }
+    ]
+  }
+}

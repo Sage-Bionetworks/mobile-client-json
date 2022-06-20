@@ -23,7 +23,7 @@
       "description" : "",
       "properties" : {
         "direction" : {
-          "$ref" : "#Direction",
+          "$ref" : "#/definitions/Direction",
           "description" : "The direction of the path navigation."
         }
       },
@@ -73,7 +73,7 @@
       "type" : "array",
       "description" : "The path traversed by this branch.",
       "items" : {
-        "$ref" : "#PathMarker"
+        "$ref" : "#/definitions/PathMarker"
       }
     },
     "startDate" : {
@@ -323,7 +323,7 @@
         }
       ],
       "startDate" : "2017-10-16T22:28:09.000-07:00",
-      "taskRunUUID" : "983CD329-52F4-44F7-A6D2-5459DD949B5A",
+      "taskRunUUID" : "6112F03C-D52A-42F7-8634-74403DA59554",
       "endDate" : "2017-10-16T22:30:49.000-07:00"
     }
   ]

@@ -44,7 +44,7 @@ func buildJson() {
             try definitions.forEach { (definition) in
                 guard case .object(let value) = definition,
                     let interfaces = value.allOf,
-                    interfaces.contains(where: { $0.ref == "#"}),
+                    interfaces.contains(where: { $0.refId == nil }),
                     let examples = value.examples,
                     let className = value.className
                 else {

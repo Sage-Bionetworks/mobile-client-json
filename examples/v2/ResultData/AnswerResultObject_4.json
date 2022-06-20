@@ -1,1 +1,1 @@
-{"answerType":{"type":"string"},"endDate":"2017-10-16T22:28:09.000-07:00","type":"answer","startDate":"2017-10-16T22:28:09.000-07:00","identifier":"question5","value":"foo"}
+{"endDate":"2017-10-16T22:28:09.000-07:00","identifier":"question5","startDate":"2017-10-16T22:28:09.000-07:00","value":"foo","answerType":{"type":"string"},"type":"answer"}

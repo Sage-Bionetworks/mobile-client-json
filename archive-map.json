@@ -14,19 +14,20 @@
       "contentType": "application/json",
       "description": "The polymorphism serialized result of running an assessment. This structure includes all the step results in the chronological order in which they were presented as well as asynchronous results that may be recorded across multiple steps.",
       "isRequired": false,
-      "jsonSchema": "https://sage-bionetworks.github.io/mobile-client-json/schemas/v1/TaskResultObject.json",
       "deprecated": true
     },
     {
       "filename": "answers.json",
       "contentType": "application/json",
       "description": "A file used by Exporter 2.0 to export Bridge 1.0 surveys to synapse.",
+      "isRequired": false,
       "deprecated": true
     },
     {
       "filename": "info.json",
       "contentType": "application/json",
       "description": "A file used by Exporter 2.0 to export data to synapse.",
+      "isRequired": false,
       "deprecated": true
     }
   ],
@@ -179,7 +180,7 @@
           "contentType": "application/json",
           "isRequired": false,
           "$comment": "This is marked as 'not required' because simulator testing will not include this file.",
-          "jsonSchema": "https://sage-bionetworks.github.io/mobile-client-json/schemas/v1/MotionRecord.json"
+          "jsonSchema": "https://sage-bionetworks.github.io/mobile-client-json/schemas/v2/MotionRecord.json"
         },
         {
           "filename": "balance_motion.json",
@@ -187,7 +188,7 @@
           "contentType": "application/json",
           "isRequired": false,
           "$comment": "This is marked as 'not required' because simulator testing will not include this file.",
-          "jsonSchema": "https://sage-bionetworks.github.io/mobile-client-json/schemas/v1/MotionRecord.json"
+          "jsonSchema": "https://sage-bionetworks.github.io/mobile-client-json/schemas/v2/MotionRecord.json"
         }
       ]
     },
@@ -204,7 +205,7 @@
           "contentType": "application/json",
           "isRequired": false,
           "$comment": "This is marked as 'not required' because simulator testing will not include this file.",
-          "jsonSchema": "https://sage-bionetworks.github.io/mobile-client-json/schemas/v1/MotionRecord.json"
+          "jsonSchema": "https://sage-bionetworks.github.io/mobile-client-json/schemas/v2/MotionRecord.json"
         },
         {
           "filename": "right_motion.json",
@@ -212,7 +213,7 @@
           "contentType": "application/json",
           "isRequired": false,
           "$comment": "This is marked as 'not required' because simulator testing will not include this file.",
-          "jsonSchema": "https://sage-bionetworks.github.io/mobile-client-json/schemas/v1/MotionRecord.json"
+          "jsonSchema": "https://sage-bionetworks.github.io/mobile-client-json/schemas/v2/MotionRecord.json"
         }
       ]
     },
@@ -229,7 +230,7 @@
           "contentType": "application/json",
           "isRequired": false,
           "$comment": "This is marked as 'not required' because simulator testing will not include this file.",
-          "jsonSchema": "https://sage-bionetworks.github.io/mobile-client-json/schemas/v1/MotionRecord.json"
+          "jsonSchema": "https://sage-bionetworks.github.io/mobile-client-json/schemas/v2/MotionRecord.json"
         },
         {
           "filename": "right_motion.json",
@@ -237,14 +238,14 @@
           "contentType": "application/json",
           "isRequired": false,
           "$comment": "This is marked as 'not required' because simulator testing will not include this file.",
-          "jsonSchema": "https://sage-bionetworks.github.io/mobile-client-json/schemas/v1/MotionRecord.json"
+          "jsonSchema": "https://sage-bionetworks.github.io/mobile-client-json/schemas/v2/MotionRecord.json"
         },
         {
           "filename": "right_tapping",
           "$comment": "This filename does not include the '.json' file extension because of file naming conventions required by Exporter 1.0.",
           "description": "The tapping test results for the participant's right hand.",
           "contentType": "application/json",
-          "isRequired": true,
+          "isRequired": false,
           "jsonSchema": "https://sage-bionetworks.github.io/mobile-client-json/schemas/v1/TappingResultObject.json"
         },
         {
@@ -252,7 +253,7 @@
           "$comment": "This filename does not include the '.json' file extension because of file naming conventions required by Exporter 1.0.",
           "description": "The tapping test results for the participant's left hand.",
           "contentType": "application/json",
-          "isRequired": true,
+          "isRequired": false,
           "jsonSchema": "https://sage-bionetworks.github.io/mobile-client-json/schemas/v1/TappingResultObject.json"
         }
       ]
@@ -281,21 +282,21 @@
           "description": "Motion sensor data recorded while running the assessment.",
           "contentType": "application/json",
           "isRequired": false,
-          "jsonSchema": "https://sage-bionetworks.github.io/mobile-client-json/schemas/v1/MotionRecord.json"
+          "jsonSchema": "https://sage-bionetworks.github.io/mobile-client-json/schemas/v2/MotionRecord.json"
         },
         {
           "filename": "weather.json",
           "description": "The most recent weather conditions for the participant's location when the assessment is started.",
           "contentType": "application/json",
           "isRequired": false,
-          "jsonSchema": "https://sage-bionetworks.github.io/mobile-client-json/schemas/v1/WeatherResult.json"
+          "jsonSchema": "https://sage-bionetworks.github.io/mobile-client-json/schemas/v2/WeatherResult.json"
         },
         {
           "filename": "microphone_levels.json",
           "description": "The microphone levels recorded while running the assessment.",
           "contentType": "application/json",
           "isRequired": false,
-          "jsonSchema": "https://sage-bionetworks.github.io/mobile-client-json/schemas/v1/AudioLevelRecord.json"
+          "jsonSchema": "https://sage-bionetworks.github.io/mobile-client-json/schemas/v2/AudioLevelRecord.json"
         }
       ],
       "assessments": [

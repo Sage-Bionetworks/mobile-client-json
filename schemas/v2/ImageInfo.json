@@ -13,7 +13,7 @@
       "properties" : {
         "type" : {
           "const" : "animated",
-          "$ref" : "#ImageInfoType"
+          "$ref" : "#/definitions/ImageInfoType"
         },
         "imageNames" : {
           "type" : "array",
@@ -51,7 +51,7 @@
           "description" : "A hint to the preferred placement of the image."
         },
         "size" : {
-          "$ref" : "#ImageSize",
+          "$ref" : "#/definitions/ImageSize",
           "description" : "The preferred size (in pixels) of the image."
         },
         "imageIdentifier" : {
@@ -101,7 +101,7 @@
       "properties" : {
         "type" : {
           "const" : "fetchable",
-          "$ref" : "#ImageInfoType"
+          "$ref" : "#/definitions/ImageInfoType"
         },
         "imageName" : {
           "type" : "string",
@@ -128,7 +128,7 @@
           "description" : "A hint to the preferred placement of the image."
         },
         "size" : {
-          "$ref" : "#ImageSize",
+          "$ref" : "#/definitions/ImageSize",
           "description" : "The preferred size (in pixels) of the image."
         }
       },
@@ -148,10 +148,9 @@
         },
         {
           "type" : "fetchable",
-          "imageName" : "redCat",
+          "imageName" : "redCat.jpeg",
           "bundleIdentifier" : "org.example.SharedResources",
-          "packageName" : "org.example.sharedresources",
-          "fileExtension" : "jpeg"
+          "packageName" : "org.example.sharedresources"
         }
       ]
     },
@@ -208,10 +207,10 @@
       "properties" : {
         "type" : {
           "const" : "sageResource",
-          "$ref" : "#ImageInfoType"
+          "$ref" : "#/definitions/ImageInfoType"
         },
         "imageName" : {
-          "$ref" : "#Name",
+          "$ref" : "#/definitions/Name",
           "description" : "The image name for the image to draw."
         },
         "label" : {
@@ -238,7 +237,7 @@
   },
   "properties" : {
     "type" : {
-      "$ref" : "#ImageInfoType"
+      "$ref" : "#/definitions/ImageInfoType"
     }
   },
   "required" : [
