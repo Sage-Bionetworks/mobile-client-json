@@ -15,6 +15,13 @@
           "const" : "airQuality",
           "$ref" : "#/definitions/WeatherServiceType"
         },
+        "identifier" : {
+          "type" : "string"
+        },
+        "startDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
         "provider" : {
           "$ref" : "#/definitions/WeatherServiceProviderName"
         },
@@ -28,9 +35,9 @@
       },
       "required" : [
         "type",
-        "provider",
-        "aqi",
-        "category"
+        "identifier",
+        "startDate",
+        "provider"
       ],
       "additionalProperties" : false,
       "examples" : [
@@ -118,6 +125,13 @@
           "const" : "weather",
           "$ref" : "#/definitions/WeatherServiceType"
         },
+        "identifier" : {
+          "type" : "string"
+        },
+        "startDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
         "provider" : {
           "$ref" : "#/definitions/WeatherServiceProviderName"
         },
@@ -148,6 +162,8 @@
       },
       "required" : [
         "type",
+        "identifier",
+        "startDate",
         "provider"
       ],
       "additionalProperties" : false,
