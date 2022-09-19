@@ -39,7 +39,7 @@ The "type" keys supported by the [AssessmentModel][1] library are:
     - "permission" : This is a special step used to describe a permission required by the assessment.
 - [Question Steps](#question-steps)
     - "simpleQuestion" : A single input field that *can* be entered as text.
-    - "choiceQuestion" : A question where the participant is asked to select from a list of questions.
+    - "choiceQuestion" : A question where the participant is asked to select from a list of choices.
 
 ### Content Information Keys
 
