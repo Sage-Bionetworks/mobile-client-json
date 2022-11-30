@@ -43,7 +43,6 @@
       }
     },
     "required" : [
-      "stepPath"
     ],
     "additionalProperties" : false,
     "examples" : [
