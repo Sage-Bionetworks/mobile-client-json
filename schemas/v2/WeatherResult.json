@@ -34,7 +34,6 @@
         }
       },
       "required" : [
-        "type",
         "identifier",
         "startDate",
         "provider"
@@ -243,7 +242,6 @@
   },
   "required" : [
     "identifier",
-    "type",
     "startDate"
   ],
   "allOf" : [
