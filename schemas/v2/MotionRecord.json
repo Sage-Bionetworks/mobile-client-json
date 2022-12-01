@@ -88,7 +88,6 @@
     },
     "required" : [
     ],
-    "additionalProperties" : false,
     "examples" : [
       {
         "uptime" : 70448.193452805994,
