@@ -48,7 +48,6 @@
       "required" : [
 
       ],
-      "additionalProperties" : false,
       "examples" : [
         {
 
@@ -167,7 +166,6 @@
       "required" : [
 
       ],
-      "additionalProperties" : false,
       "examples" : [
         {
 
@@ -239,7 +237,6 @@
       "required" : [
 
       ],
-      "additionalProperties" : false,
       "examples" : [
         {
 
@@ -307,7 +304,6 @@
         "pattern",
         "invalidMessage"
       ],
-      "additionalProperties" : false,
       "examples" : [
         {
           "pattern" : "^[0-9]*$",
@@ -428,7 +424,6 @@
       "required" : [
 
       ],
-      "additionalProperties" : false,
       "examples" : [
         {
 
@@ -505,7 +500,6 @@
       "required" : [
 
       ],
-      "additionalProperties" : false,
       "examples" : [
         {
 

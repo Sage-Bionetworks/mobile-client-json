@@ -48,7 +48,6 @@
       "required" : [
 
       ],
-      "additionalProperties" : false,
       "examples" : [
         {
           "canResume" : false,
