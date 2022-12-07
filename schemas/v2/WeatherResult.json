@@ -38,7 +38,6 @@
         "startDate",
         "provider"
       ],
-      "additionalProperties" : false,
       "examples" : [
         {
           "type" : "airQuality",
@@ -70,7 +69,6 @@
         "number",
         "name"
       ],
-      "additionalProperties" : false,
       "examples" : [
         {
           "number" : 1,
@@ -96,7 +94,6 @@
       "required" : [
 
       ],
-      "additionalProperties" : false,
       "examples" : [
         {
           "pastHour" : 5,
@@ -165,7 +162,6 @@
         "startDate",
         "provider"
       ],
-      "additionalProperties" : false,
       "examples" : [
         {
           "type" : "weather",
@@ -207,7 +203,6 @@
       "required" : [
         "speed"
       ],
-      "additionalProperties" : false,
       "examples" : [
         {
           "speed" : 5,

@@ -44,7 +44,6 @@
     },
     "required" : [
     ],
-    "additionalProperties" : false,
     "examples" : [
       {
         "uptime" : 1234567,
