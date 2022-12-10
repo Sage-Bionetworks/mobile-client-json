@@ -39,7 +39,7 @@
                 "filename": "taskData.json",
                 "contentType": "application/json",
                 "isRequired": true,
-                "jsonSchema": "https://github.com/MobileToolbox/MTBfx/blob/6ebb57da8534922529537356e31474af7cc65604/JSONschema/2022_12_01_taskData_GradualOnset_Schema.json"
+                "jsonSchema": "https://github.com/MobileToolbox/MTBfx/blob/9f7ab73ae52127d46ef417ae807286fcd4bb9d0c/JSONschema/2022_12_01_taskData_GradualOnset_Schema.json"
             }]
         },
         {
