@@ -1,6 +1,7 @@
 import Foundation
 import JsonModel
 import AssessmentModel
+import ResultModel
 
 func buildJson() {
     let factory = GeneratorFactory()
@@ -20,8 +21,9 @@ func buildJson() {
         let doc = JsonDocumentBuilder(factory: factory)
 
         let docs = try doc.buildSchemas()
-        let encoder = factory.createJSONEncoder()
+        let encoder = factory.createJSONEncoder() as! OrderedJSONEncoder
         encoder.outputFormatting = [.prettyPrinted, .sortedKeys, .withoutEscapingSlashes]
+        encoder.shouldOrderKeys = true
 
         try docs.forEach { (doc) in
         
@@ -57,7 +59,7 @@ func buildJson() {
                     try fileManager.createDirectory(at: subdir, withIntermediateDirectories: true, attributes: nil)
                     let filename = "\(className)_\(index).json"
                     let url = subdir.appendingPathComponent(filename)
-                    let exampleJson = try JSONSerialization.data(withJSONObject: example, options: [])
+                    let exampleJson = try JSONSerialization.data(withJSONObject: example, options: [.sortedKeys, .prettyPrinted, .withoutEscapingSlashes])
                     try exampleJson.write(to: url)
                     print(url)
                 }

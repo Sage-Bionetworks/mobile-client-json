@@ -14,10 +14,13 @@ let package = Package(
         // Dependencies declare other packages that this package depends on.
         .package(name: "AssessmentModel",
                  url: "https://github.com/Sage-Bionetworks/AssessmentModelKMM.git",
-                 from: "0.7.0"),
+                 from: "0.11.0"),
+        .package(name: "MobilePassiveData",
+                 url: "https://github.com/Sage-Bionetworks/MobilePassiveData-SDK.git",
+                 from: "1.5.3"),
         .package(name: "JsonModel",
                  url: "https://github.com/Sage-Bionetworks/JsonModel-Swift.git",
-                 from: "1.4.10"),
+                 from: "2.1.1"),
     ],
     targets: [
         
