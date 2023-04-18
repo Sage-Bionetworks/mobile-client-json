@@ -46,11 +46,10 @@
         "filename",
         "timestamp"
       ],
-      "additionalProperties" : false,
       "examples" : [
         {
           "filename" : "foo.json",
-          "timestamp" : "2022-06-14T11:29:59.915-07:00",
+          "timestamp" : "2023-04-18T16:11:54.228-07:00",
           "contentType" : "application/json",
           "identifier" : "foo",
           "stepPath" : "Bar/foo",
@@ -98,7 +97,7 @@
     {
       "appName" : "???",
       "appVersion" : "???",
-      "deviceInfo" : "Mac Version 12.4 (Build 21F79)",
+      "deviceInfo" : "Mac Version 13.2.1 (Build 22D68)",
       "deviceTypeIdentifier" : "Mac",
       "files" : [
         {

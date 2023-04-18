@@ -86,11 +86,9 @@
         "description" : "The `w` component of the vector measurement for this sensor sample. Used by the attitude quaternion."
       }
     },
-    "required" : [
-    ],
     "examples" : [
       {
-        "uptime" : 70448.193452805994,
+        "uptime" : 4855323.7011648333,
         "timestamp" : 0,
         "stepPath" : "step1",
         "sensorType" : "gyro",
@@ -99,7 +97,7 @@
         "z" : -0.9501953125
       },
       {
-        "uptime" : 70448.193452805994,
+        "uptime" : 4855323.7011648333,
         "timestamp" : 0,
         "stepPath" : "step1",
         "sensorType" : "accelerometer",
@@ -108,7 +106,7 @@
         "z" : -0.9501953125
       },
       {
-        "uptime" : 70448.193452805994,
+        "uptime" : 4855323.7011648333,
         "timestamp" : 0,
         "stepPath" : "step1",
         "sensorType" : "magnetometer",
@@ -117,7 +115,7 @@
         "z" : -0.9501953125
       },
       {
-        "uptime" : 70448.193452805994,
+        "uptime" : 4855323.7011648333,
         "timestamp" : 0,
         "stepPath" : "step1",
         "sensorType" : "gravity",
@@ -126,7 +124,7 @@
         "z" : -0.9501953125
       },
       {
-        "uptime" : 70448.193452805994,
+        "uptime" : 4855323.7011648333,
         "timestamp" : 0,
         "stepPath" : "step1",
         "sensorType" : "userAcceleration",
@@ -135,7 +133,7 @@
         "z" : -0.9501953125
       },
       {
-        "uptime" : 70448.193452805994,
+        "uptime" : 4855323.7011648333,
         "timestamp" : 0,
         "stepPath" : "step1",
         "sensorType" : "userAcceleration",
@@ -144,7 +142,7 @@
         "z" : -0.9501953125
       },
       {
-        "uptime" : 70448.193452805994,
+        "uptime" : 4855323.7011648333,
         "timestamp" : 0,
         "stepPath" : "step1",
         "sensorType" : "attitude",
@@ -155,7 +153,7 @@
         "w" : 1
       },
       {
-        "uptime" : 70448.193452805994,
+        "uptime" : 4855323.7011648333,
         "timestamp" : 0,
         "stepPath" : "step1",
         "sensorType" : "magneticField",

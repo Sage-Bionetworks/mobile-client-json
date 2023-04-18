@@ -42,8 +42,6 @@
         "description" : "The unit of measurement for the decibel levels."
       }
     },
-    "required" : [
-    ],
     "examples" : [
       {
         "uptime" : 1234567,

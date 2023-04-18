@@ -45,9 +45,6 @@
           "type" : "string"
         }
       },
-      "required" : [
-
-      ],
       "examples" : [
         {
 
@@ -163,9 +160,6 @@
           "type" : "string"
         }
       },
-      "required" : [
-
-      ],
       "examples" : [
         {
 
@@ -234,9 +228,6 @@
           "$ref" : "#/definitions/KeyboardType"
         }
       },
-      "required" : [
-
-      ],
       "examples" : [
         {
 
@@ -421,9 +412,6 @@
           "format" : "time"
         }
       },
-      "required" : [
-
-      ],
       "examples" : [
         {
 
@@ -497,9 +485,6 @@
           "type" : "string"
         }
       },
-      "required" : [
-
-      ],
       "examples" : [
         {
 
