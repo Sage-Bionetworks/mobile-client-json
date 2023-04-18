@@ -1,1 +1,8 @@
-{"errorDomain":"ExampleDomain","startDate":"2022-06-14T11:29:59.943-07:00","type":"error","errorCode":1,"errorDescription":"example error","identifier":"errorResult"}
+{
+  "errorCode" : 1,
+  "errorDescription" : "example error",
+  "errorDomain" : "ExampleDomain",
+  "identifier" : "errorResult",
+  "startDate" : "2023-04-18T16:11:54.235-07:00",
+  "type" : "error"
+}

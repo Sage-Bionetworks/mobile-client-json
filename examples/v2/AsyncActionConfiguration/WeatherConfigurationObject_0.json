@@ -1,1 +1,17 @@
-{"services":[{"identifier":"weather","key":"ABCD","provider":"openWeather"},{"key":"ABCD","identifier":"airQuality","provider":"airNow"}],"identifier":"weather","startStepIdentifier":"countdown","type":"weather"}
+{
+  "identifier" : "weather",
+  "services" : [
+    {
+      "identifier" : "weather",
+      "key" : "ABCD",
+      "provider" : "openWeather"
+    },
+    {
+      "identifier" : "airQuality",
+      "key" : "ABCD",
+      "provider" : "airNow"
+    }
+  ],
+  "startStepIdentifier" : "countdown",
+  "type" : "weather"
+}

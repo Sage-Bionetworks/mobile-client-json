@@ -1,1 +1,12 @@
-{"endDate":"2017-10-16T22:28:09.000-07:00","value":{"foo":"ba"},"type":"answer","answerType":{"type":"object"},"identifier":"question4","startDate":"2017-10-16T22:28:09.000-07:00"}
+{
+  "answerType" : {
+    "type" : "object"
+  },
+  "endDate" : "2017-10-16T22:28:09.000-07:00",
+  "identifier" : "question4",
+  "startDate" : "2017-10-16T22:28:09.000-07:00",
+  "type" : "answer",
+  "value" : {
+    "foo" : "ba"
+  }
+}

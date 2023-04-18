@@ -1,1 +1,5 @@
-{"iconName":"closeX","bundleIdentifier":"org.example.SharedResources","type":"default"}
+{
+  "bundleIdentifier" : "org.example.SharedResources",
+  "iconName" : "closeX",
+  "type" : "default"
+}

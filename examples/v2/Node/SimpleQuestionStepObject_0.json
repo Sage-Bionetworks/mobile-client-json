@@ -1,1 +1,7 @@
-{"inputItem":{"type":"string"},"type":"simpleQuestion","identifier":"foo"}
+{
+  "identifier" : "foo",
+  "inputItem" : {
+    "type" : "string"
+  },
+  "type" : "simpleQuestion"
+}

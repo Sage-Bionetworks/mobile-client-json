@@ -1,1 +1,8 @@
-{"type":"duration","displayUnits":["hour","minute"],"significantDigits":0}
+{
+  "displayUnits" : [
+    "hour",
+    "minute"
+  ],
+  "significantDigits" : 0,
+  "type" : "duration"
+}

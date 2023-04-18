@@ -1,1 +1,4 @@
-{"placeholder":"YYYY","type":"year"}
+{
+  "placeholder" : "YYYY",
+  "type" : "year"
+}

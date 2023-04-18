@@ -1,1 +1,6 @@
-{"packageName":"org.example.sharedresources","bundleIdentifier":"org.example.SharedResources","type":"fetchable","imageName":"redCat.jpeg"}
+{
+  "bundleIdentifier" : "org.example.SharedResources",
+  "imageName" : "redCat.jpeg",
+  "packageName" : "org.example.sharedresources",
+  "type" : "fetchable"
+}

@@ -1,1 +1,6 @@
-{"iconName":"closeX","bundleIdentifier":"org.example.SharedResources","skipToIdentifier":"foo","type":"navigation"}
+{
+  "bundleIdentifier" : "org.example.SharedResources",
+  "iconName" : "closeX",
+  "skipToIdentifier" : "foo",
+  "type" : "navigation"
+}
