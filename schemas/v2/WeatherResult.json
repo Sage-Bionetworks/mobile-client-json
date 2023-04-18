@@ -11,19 +11,15 @@
       "title" : "AirQualityServiceResult",
       "description" : "",
       "properties" : {
-        "type" : {
-          "const" : "airQuality",
-          "$ref" : "#/definitions/WeatherServiceType"
-        },
         "identifier" : {
           "type" : "string"
+        },
+        "provider" : {
+          "$ref" : "#/definitions/WeatherServiceProviderName"
         },
         "startDate" : {
           "type" : "string",
           "format" : "date-time"
-        },
-        "provider" : {
-          "$ref" : "#/definitions/WeatherServiceProviderName"
         },
         "aqi" : {
           "type" : "number",
@@ -35,15 +31,14 @@
       },
       "required" : [
         "identifier",
-        "startDate",
-        "provider"
+        "provider",
+        "startDate"
       ],
       "examples" : [
         {
-          "type" : "airQuality",
           "identifier" : "airQuality",
           "provider" : "airNow",
-          "startDate" : "2022-06-14T11:29:59.897-07:00",
+          "startDate" : "2023-04-18T16:11:54.220-07:00",
           "aqi" : 2,
           "category" : {
             "name" : "Moderate",
@@ -91,9 +86,6 @@
           "description" : "Precipitation in the past 3 hours."
         }
       },
-      "required" : [
-
-      ],
       "examples" : [
         {
           "pastHour" : 5,
@@ -117,19 +109,16 @@
       "title" : "WeatherServiceResult",
       "description" : "",
       "properties" : {
-        "type" : {
-          "const" : "weather",
-          "$ref" : "#/definitions/WeatherServiceType"
-        },
         "identifier" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "Result identifier"
+        },
+        "provider" : {
+          "$ref" : "#/definitions/WeatherServiceProviderName"
         },
         "startDate" : {
           "type" : "string",
           "format" : "date-time"
-        },
-        "provider" : {
-          "$ref" : "#/definitions/WeatherServiceProviderName"
         },
         "temperature" : {
           "type" : "number"
@@ -157,31 +146,19 @@
         }
       },
       "required" : [
-        "type",
         "identifier",
-        "startDate",
-        "provider"
+        "provider",
+        "startDate"
       ],
       "examples" : [
         {
-          "type" : "weather",
           "identifier" : "weather",
           "provider" : "openWeather",
-          "startDate" : "2022-06-14T11:29:59.895-07:00",
+          "startDate" : "2023-04-18T16:11:54.220-07:00",
           "temperature" : 20,
           "humidity" : 0.90000000000000002,
           "clouds" : 0.40000000000000002
         }
-      ]
-    },
-    "WeatherServiceType" : {
-      "$id" : "#WeatherServiceType",
-      "type" : "string",
-      "title" : "WeatherServiceType",
-      "description" : "",
-      "enum" : [
-        "weather",
-        "airQuality"
       ]
     },
     "Wind" : {
@@ -237,6 +214,7 @@
   },
   "required" : [
     "identifier",
+    "type",
     "startDate"
   ],
   "allOf" : [
@@ -248,16 +226,15 @@
     {
       "identifier" : "weather",
       "type" : "weather",
-      "startDate" : "2022-06-14T11:29:59.898-07:00",
-      "endDate" : "2022-06-14T11:29:59.898-07:00",
+      "startDate" : "2023-04-18T16:11:54.221-07:00",
+      "endDate" : "2023-04-18T16:11:54.221-07:00",
       "weather" : {
         "clouds" : 0.40000000000000002,
         "humidity" : 0.90000000000000002,
         "identifier" : "weather",
         "provider" : "openWeather",
-        "startDate" : "2022-06-14T11:29:59.898-07:00",
-        "temperature" : 20,
-        "type" : "weather"
+        "startDate" : "2023-04-18T16:11:54.221-07:00",
+        "temperature" : 20
       },
       "airQuality" : {
         "aqi" : 2,
@@ -267,8 +244,7 @@
         },
         "identifier" : "airQuality",
         "provider" : "airNow",
-        "startDate" : "2022-06-14T11:29:59.898-07:00",
-        "type" : "airQuality"
+        "startDate" : "2023-04-18T16:11:54.221-07:00"
       }
     }
   ]
