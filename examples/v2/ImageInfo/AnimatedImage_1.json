@@ -1,1 +1,11 @@
-{"animationDuration":2,"animationRepeatCount":0,"bundleIdentifier":"org.example.SharedResources","imageNames":["redCat1","redCat2","redCat3"],"type":"animated"}
+{
+  "animationDuration" : 2,
+  "animationRepeatCount" : 0,
+  "bundleIdentifier" : "org.example.SharedResources",
+  "imageNames" : [
+    "redCat1",
+    "redCat2",
+    "redCat3"
+  ],
+  "type" : "animated"
+}

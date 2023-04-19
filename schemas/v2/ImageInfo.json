@@ -182,7 +182,6 @@
         "width",
         "height"
       ],
-      "additionalProperties" : false,
       "examples" : [
         {
           "width" : 10,
@@ -196,7 +195,26 @@
       "title" : "Name",
       "description" : "",
       "enum" : [
-        "survey"
+        "default",
+        "cognition",
+        "day_to_day",
+        "demographics",
+        "energy",
+        "environment",
+        "excercise",
+        "exit",
+        "finance",
+        "food",
+        "health",
+        "leisure",
+        "medicine",
+        "mental_health",
+        "mood",
+        "pain",
+        "quality_of_life",
+        "social",
+        "screening",
+        "sleep"
       ]
     },
     "SageResourceImage" : {
@@ -230,7 +248,7 @@
       "examples" : [
         {
           "type" : "sageResource",
-          "imageName" : "survey"
+          "imageName" : "default"
         }
       ]
     }

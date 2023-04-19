@@ -1,1 +1,12 @@
-{"usesCSVEncoding":true,"type":"motion","identifier":"exampleB","frequency":200,"shouldDeletePrevious":false,"requiresBackgroundAudio":true,"recorderTypes":["gyro","gravity"]}
+{
+  "frequency" : 200,
+  "identifier" : "exampleB",
+  "recorderTypes" : [
+    "gyro",
+    "gravity"
+  ],
+  "requiresBackgroundAudio" : true,
+  "shouldDeletePrevious" : false,
+  "type" : "motion",
+  "usesCSVEncoding" : true
+}

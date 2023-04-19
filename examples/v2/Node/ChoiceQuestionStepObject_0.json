@@ -1,1 +1,20 @@
-{"choices":[{"text":"ba","value":"ba"},{"value":"la","text":"la"},{"text":"lala","value":"lala"}],"identifier":"foo","type":"choiceQuestion","singleChoice":true,"baseType":"string"}
+{
+  "baseType" : "string",
+  "choices" : [
+    {
+      "text" : "ba",
+      "value" : "ba"
+    },
+    {
+      "text" : "la",
+      "value" : "la"
+    },
+    {
+      "text" : "lala",
+      "value" : "lala"
+    }
+  ],
+  "identifier" : "foo",
+  "singleChoice" : true,
+  "type" : "choiceQuestion"
+}

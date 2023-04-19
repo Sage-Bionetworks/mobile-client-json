@@ -77,14 +77,13 @@
     "required" : [
       "stepPath"
     ],
-    "additionalProperties" : false,
     "examples" : [
       {
         "uptime" : 99494.629004376795,
         "timestamp" : 52.422324001789093,
         "stepPath" : "Cardio 12MT/run/runDistance",
-        "timestampDate" : "2022-06-14T11:29:59.888-07:00",
-        "timestampUnix" : 1655231399.888211,
+        "timestampDate" : "2023-04-18T15:07:56.105-07:00",
+        "timestampUnix" : 1681855676.104666,
         "horizontalAccuracy" : 6,
         "relativeDistance" : 2.1164507282484935,
         "verticalAccuracy" : 3,

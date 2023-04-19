@@ -22,15 +22,19 @@
       "title" : "PathMarker",
       "description" : "",
       "properties" : {
+        "identifier" : {
+          "type" : "string",
+          "description" : "The node identifier for this path marker."
+        },
         "direction" : {
           "$ref" : "#/definitions/Direction",
           "description" : "The direction of the path navigation."
         }
       },
       "required" : [
+        "identifier",
         "direction"
       ],
-      "additionalProperties" : false,
       "examples" : [
         {
           "identifier" : "foo",
@@ -40,9 +44,41 @@
     }
   },
   "properties" : {
+    "type" : {
+      "const" : "assessment",
+      "$ref" : "ResultData.json#SerializableResultType"
+    },
+    "identifier" : {
+      "type" : "string"
+    },
+    "startDate" : {
+      "type" : "string",
+      "format" : "date-time"
+    },
+    "endDate" : {
+      "type" : "string",
+      "format" : "date-time"
+    },
     "assessmentIdentifier" : {
       "type" : "string",
       "description" : "An identifier for the assessment model associated with this result. If included, this is intended to match the identifier used by the services that requested running the assessment. This could be a schedule identifier or an identifier in a different namespace than the \"task identifier\" used by the assessment developers to identify their assessments."
+    },
+    "versionString" : {
+      "type" : "string",
+      "description" : "The versioning key used by the developer to version this assessment."
+    },
+    "taskRunUUID" : {
+      "type" : "string",
+      "description" : "A unique identifier for this run of the assessment. This property is defined as readwrite to allow the controller for the task to set this on the ``AssessmentResult`` children included in this run."
+    },
+    "schemaIdentifier" : {
+      "type" : "string",
+      "description" : "An identifier that can be used either by the developer or researcher for custom mapping."
+    },
+    "$schema" : {
+      "type" : "string",
+      "description" : "The json schema URI for this result.",
+      "format" : "uri"
     },
     "stepHistory" : {
       "type" : "array",
@@ -51,10 +87,6 @@
         "$ref" : "ResultData.json"
       }
     },
-    "type" : {
-      "const" : "assessment",
-      "$ref" : "ResultData.json#SerializableResultType"
-    },
     "asyncResults" : {
       "type" : "array",
       "description" : "A list of all the asynchronous results for this task. The list should include uniquely identified results.",
@@ -62,35 +94,12 @@
         "$ref" : "ResultData.json"
       }
     },
-    "identifier" : {
-      "type" : "string"
-    },
-    "versionString" : {
-      "type" : "string",
-      "description" : "The versioning key used by the developer to version this assessment."
-    },
     "path" : {
       "type" : "array",
       "description" : "The path traversed by this branch.",
       "items" : {
         "$ref" : "#/definitions/PathMarker"
       }
-    },
-    "startDate" : {
-      "type" : "string",
-      "format" : "date-time"
-    },
-    "taskRunUUID" : {
-      "type" : "string",
-      "description" : "A unique identifier for this run of the assessment. This property is defined as readwrite to allow the controller for the task to set this on the ``AssessmentResult`` children included in this run."
-    },
-    "endDate" : {
-      "type" : "string",
-      "format" : "date-time"
-    },
-    "schemaIdentifier" : {
-      "type" : "string",
-      "description" : "An identifier that can be used either by the developer or researcher for custom mapping."
     }
   },
   "required" : [
@@ -107,6 +116,12 @@
   ],
   "examples" : [
     {
+      "type" : "assessment",
+      "identifier" : "example",
+      "startDate" : "2017-10-16T22:28:09.000-07:00",
+      "endDate" : "2017-10-16T22:30:49.000-07:00",
+      "taskRunUUID" : "17C6DBC8-6F7F-47FF-94E8-56D659A39332",
+      "$schema" : "https://sage-bionetworks.github.io/mobile-client-json/schemas/v2/AssessmentResultObject.json",
       "stepHistory" : [
         {
           "endDate" : "2017-10-16T22:28:29.000-07:00",
@@ -294,7 +309,6 @@
           "type" : "base"
         }
       ],
-      "type" : "assessment",
       "asyncResults" : [
         {
           "contentType" : "application/json",
@@ -307,7 +321,6 @@
           "type" : "file"
         }
       ],
-      "identifier" : "example",
       "path" : [
         {
           "direction" : "forward",
@@ -321,10 +334,7 @@
           "direction" : "forward",
           "identifier" : "conclusion"
         }
-      ],
-      "startDate" : "2017-10-16T22:28:09.000-07:00",
-      "taskRunUUID" : "6112F03C-D52A-42F7-8634-74403DA59554",
-      "endDate" : "2017-10-16T22:30:49.000-07:00"
+      ]
     }
   ]
 }

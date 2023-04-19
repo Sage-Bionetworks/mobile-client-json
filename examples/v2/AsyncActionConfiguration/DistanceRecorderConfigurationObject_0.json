@@ -1,1 +1,7 @@
-{"stopStepIdentifier":"rest","identifier":"distance","startStepIdentifier":"countdown","motionStepIdentifier":"run","type":"distance"}
+{
+  "identifier" : "distance",
+  "motionStepIdentifier" : "run",
+  "startStepIdentifier" : "countdown",
+  "stopStepIdentifier" : "rest",
+  "type" : "distance"
+}

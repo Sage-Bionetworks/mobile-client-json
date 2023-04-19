@@ -1,1 +1,5 @@
-{"type":"permission","permissionType":"motion","identifier":"example"}
+{
+  "identifier" : "example",
+  "permissionType" : "motion",
+  "type" : "permission"
+}

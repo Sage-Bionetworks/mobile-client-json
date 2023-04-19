@@ -45,9 +45,6 @@
           "default" : true
         }
       },
-      "required" : [
-
-      ],
       "examples" : [
         {
           "canResume" : false,
@@ -151,10 +148,10 @@
   ],
   "allOf" : [
     {
-      "$ref" : "Assessment.json"
+      "$ref" : "Node.json"
     },
     {
-      "$ref" : "Node.json"
+      "$ref" : "Assessment.json"
     }
   ],
   "examples" : [

@@ -1,1 +1,11 @@
-{"endDate":"2017-10-16T22:28:09.000-07:00","value":"2020-04","answerType":{"type":"date-time","codingFormat":"yyyy-MM"},"identifier":"question9","type":"answer","startDate":"2017-10-16T22:28:09.000-07:00"}
+{
+  "answerType" : {
+    "codingFormat" : "yyyy-MM",
+    "type" : "date-time"
+  },
+  "endDate" : "2017-10-16T22:28:09.000-07:00",
+  "identifier" : "question9",
+  "startDate" : "2017-10-16T22:28:09.000-07:00",
+  "type" : "answer",
+  "value" : "2020-04"
+}

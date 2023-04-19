@@ -1,1 +1,5 @@
-{"skipToIdentifier":"foo","type":"navigation","buttonTitle":"Go, Dogs! Go"}
+{
+  "buttonTitle" : "Go, Dogs! Go",
+  "skipToIdentifier" : "foo",
+  "type" : "navigation"
+}

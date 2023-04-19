@@ -1,1 +1,4 @@
-{"imageName":"blueDog","type":"fetchable"}
+{
+  "imageName" : "blueDog",
+  "type" : "fetchable"
+}

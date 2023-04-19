@@ -1,1 +1,4 @@
-{"codingFormat":"yyyy-MM","type":"date-time"}
+{
+  "codingFormat" : "yyyy-MM",
+  "type" : "date-time"
+}

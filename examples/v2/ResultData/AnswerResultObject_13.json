@@ -1,1 +1,11 @@
-{"endDate":"2017-10-16T22:28:09.000-07:00","startDate":"2017-10-16T22:28:09.000-07:00","identifier":"question14","type":"answer","answerType":{"unit":"cm","type":"measurement"},"value":170.19999999999999}
+{
+  "answerType" : {
+    "type" : "measurement",
+    "unit" : "cm"
+  },
+  "endDate" : "2017-10-16T22:28:09.000-07:00",
+  "identifier" : "question14",
+  "startDate" : "2017-10-16T22:28:09.000-07:00",
+  "type" : "answer",
+  "value" : 170.19999999999999
+}

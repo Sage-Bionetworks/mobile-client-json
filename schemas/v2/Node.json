@@ -186,6 +186,13 @@
         "image" : {
           "$ref" : "ImageInfo.json",
           "description" : "An image or animation to display with this node."
+        },
+        "spokenInstructions" : {
+          "type" : "object",
+          "description" : "A mapping of a localized spoken instruction to a key where the key is either 'start' or 'end'.",
+          "additionalProperties" : {
+            "type" : "string"
+          }
         }
       },
       "required" : [
@@ -200,6 +207,90 @@
         {
           "type" : "completion",
           "identifier" : "example"
+        }
+      ]
+    },
+    "CountdownStepObject" : {
+      "$id" : "#CountdownStepObject",
+      "type" : "object",
+      "title" : "CountdownStepObject",
+      "description" : "",
+      "properties" : {
+        "type" : {
+          "const" : "countdown",
+          "$ref" : "#/definitions/SerializableNodeType"
+        },
+        "comment" : {
+          "type" : "string",
+          "description" : "A developer-facing comment about this node."
+        },
+        "shouldHideActions" : {
+          "type" : "array",
+          "description" : "A list of buttons that should be hidden even if the default is to show them.",
+          "items" : {
+            "$ref" : "AssessmentObject.json#ButtonType"
+          }
+        },
+        "actions" : {
+          "type" : "object",
+          "description" : "A mapping of button action to content information for that button.",
+          "additionalProperties" : {
+            "$ref" : "ButtonActionInfo.json"
+          }
+        },
+        "nextStepIdentifier" : {
+          "$ref" : "ButtonActionInfo.json#NavigationIdentifier",
+          "description" : "Used in direct navigation to allow the node to indicate that the navigator should jump to the given node identifier."
+        },
+        "webConfig" : {
+          "description" : "A blob of JSON that can be used by a web-based survey building tool."
+        },
+        "title" : {
+          "type" : "string",
+          "description" : "The primary text to display for the node in a localized string. The UI should display this using a larger font."
+        },
+        "subtitle" : {
+          "type" : "string",
+          "description" : "A subtitle to display for the node in a localized string."
+        },
+        "detail" : {
+          "type" : "string",
+          "description" : "Detail text to display for the node in a localized string."
+        },
+        "image" : {
+          "$ref" : "ImageInfo.json",
+          "description" : "An image or animation to display with this node."
+        },
+        "spokenInstructions" : {
+          "type" : "object",
+          "description" : "A mapping of a localized spoken instruction to a key where the key is either 'start' or 'end'.",
+          "additionalProperties" : {
+            "type" : "string"
+          }
+        },
+        "duration" : {
+          "type" : "number",
+          "description" : "The duration of the coundown."
+        },
+        "fullInstructionsOnly" : {
+          "type" : "boolean",
+          "description" : "Should this instruction step be displayed when displaying full instructions only?",
+          "default" : false
+        }
+      },
+      "required" : [
+        "type"
+      ],
+      "allOf" : [
+        {
+          "$ref" : "#"
+        }
+      ],
+      "examples" : [
+        {
+          "type" : "countdown",
+          "identifier" : "example",
+          "duration" : 3
         }
       ]
     },
@@ -254,17 +345,17 @@
           "$ref" : "ImageInfo.json",
           "description" : "An image or animation to display with this node."
         },
-        "fullInstructionsOnly" : {
-          "type" : "boolean",
-          "description" : "Should this instruction step be displayed when displaying full instructions only?",
-          "default" : false
-        },
         "spokenInstructions" : {
           "type" : "object",
           "description" : "A mapping of a localized spoken instruction to a key where the key is either 'start' or 'end'.",
           "additionalProperties" : {
             "type" : "string"
           }
+        },
+        "fullInstructionsOnly" : {
+          "type" : "boolean",
+          "description" : "Should this instruction step be displayed when displaying full instructions only?",
+          "default" : false
         }
       },
       "required" : [
@@ -311,7 +402,6 @@
       "required" : [
         "text"
       ],
-      "additionalProperties" : false,
       "examples" : [
         {
           "value" : 1,
@@ -340,12 +430,37 @@
       "required" : [
         "skipToIdentifier"
       ],
-      "additionalProperties" : false,
       "examples" : [
         {
           "matchingAnswer" : "Stop",
           "skipToIdentifier" : "exit",
           "ruleOperator" : "eq"
+        }
+      ]
+    },
+    "OverviewIcon" : {
+      "$id" : "#OverviewIcon",
+      "type" : "object",
+      "title" : "OverviewIcon",
+      "description" : "",
+      "properties" : {
+        "icon" : {
+          "type" : "string",
+          "description" : "The name of the icon."
+        },
+        "title" : {
+          "type" : "string",
+          "description" : "The localized title for the icon."
+        }
+      },
+      "required" : [
+        "icon",
+        "title"
+      ],
+      "examples" : [
+        {
+          "icon" : "hello",
+          "title" : "Hello, World!"
         }
       ]
     },
@@ -406,6 +521,13 @@
           "items" : {
             "$ref" : "#/definitions/PermissionInfoObject"
           }
+        },
+        "icons" : {
+          "type" : "array",
+          "description" : "A list of icons associated with this overview screen.",
+          "items" : {
+            "$ref" : "#/definitions/OverviewIcon"
+          }
         }
       },
       "required" : [
@@ -450,7 +572,6 @@
       "required" : [
         "permissionType"
       ],
-      "additionalProperties" : false,
       "examples" : [
         {
           "permissionType" : "motion"
@@ -508,17 +629,17 @@
           "$ref" : "ImageInfo.json",
           "description" : "An image or animation to display with this node."
         },
-        "fullInstructionsOnly" : {
-          "type" : "boolean",
-          "description" : "Should this instruction step be displayed when displaying full instructions only?",
-          "default" : false
-        },
         "spokenInstructions" : {
           "type" : "object",
           "description" : "A mapping of a localized spoken instruction to a key where the key is either 'start' or 'end'.",
           "additionalProperties" : {
             "type" : "string"
           }
+        },
+        "fullInstructionsOnly" : {
+          "type" : "boolean",
+          "description" : "Should this instruction step be displayed when displaying full instructions only?",
+          "default" : false
         },
         "permissionType" : {
           "$ref" : "AsyncActionConfiguration.json#AsyncActionType",
@@ -561,12 +682,12 @@
       "title" : "QuestionUIHint",
       "description" : "",
       "examples" : [
-        "textfield",
-        "radioButton",
         "picker",
-        "likert",
         "multipleLine",
         "slider",
+        "textfield",
+        "radioButton",
+        "likert",
         "checkbox"
       ]
     },
@@ -670,12 +791,13 @@
       "examples" : [
         "assessment",
         "section",
-        "overview",
+        "completion",
         "instruction",
-        "permission",
+        "overview",
         "choiceQuestion",
         "simpleQuestion",
-        "completion"
+        "countdown",
+        "permission"
       ]
     },
     "SimpleQuestionStepObject" : {
