@@ -1,5 +1,5 @@
 {
-    "$id": "https://sage-bionetworks.github.io/mobile-client-json/schemas/v1/ArchiveMap.json",
+    "$id": "https://sage-bionetworks.github.io/mobile-client-json/schemas/v3/ArchiveMap.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
     "title": "ArchiveMap",
