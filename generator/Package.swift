@@ -12,15 +12,12 @@ let package = Package(
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
         // Dependencies declare other packages that this package depends on.
-        .package(name: "AssessmentModel",
-                 url: "https://github.com/Sage-Bionetworks/AssessmentModelKMM.git",
+        .package(url: "https://github.com/Sage-Bionetworks/AssessmentModelKMM.git",
                  from: "0.11.0"),
-        .package(name: "MobilePassiveData",
-                 url: "https://github.com/Sage-Bionetworks/MobilePassiveData-SDK.git",
-                 from: "1.5.3"),
-        .package(name: "JsonModel",
-                 url: "https://github.com/Sage-Bionetworks/JsonModel-Swift.git",
+        .package(url: "https://github.com/Sage-Bionetworks/JsonModel-Swift.git",
                  from: "2.1.1"),
+        .package(url: "https://github.com/Sage-Bionetworks/MotorControl-iOS.git",
+                 from: "5.0.0"),
     ],
     targets: [
         
@@ -29,8 +26,9 @@ let package = Package(
         .executableTarget(
             name: "generator",
             dependencies: [
-                .product(name: "AssessmentModel", package: "AssessmentModel"),
-                .product(name: "JsonModel", package: "JsonModel"),
+                .product(name: "AssessmentModel", package: "AssessmentModelKMM"),
+                .product(name: "JsonModel", package: "JsonModel-Swift"),
+                .product(name: "MotorControl", package: "MotorControl-iOS"),
             ]),
         .testTarget(
             name: "generatorTests",

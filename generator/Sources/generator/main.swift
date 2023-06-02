@@ -2,6 +2,7 @@ import Foundation
 import JsonModel
 import AssessmentModel
 import ResultModel
+import MotorControl
 
 func buildJson() {
     let factory = GeneratorFactory()
@@ -75,6 +76,10 @@ buildJson()
 class GeneratorFactory : AssessmentFactory {
     required init() {
         super.init()
+        
+        // manually add the tapping result object to the result serializer.
+        self.resultSerializer.add(TappingResultObject())
+        
         self.registerRootObject(ArchiveMetadata())
     }
 }

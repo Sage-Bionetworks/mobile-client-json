@@ -29,6 +29,15 @@
         }
       },
       {
+        "package": "MotorControl",
+        "repositoryURL": "https://github.com/Sage-Bionetworks/MotorControl-iOS.git",
+        "state": {
+          "branch": null,
+          "revision": "7eb00e8683b03d3d73bee3926c140ad16f17d8f9",
+          "version": "5.0.0"
+        }
+      },
+      {
         "package": "SharedMobileUI",
         "repositoryURL": "https://github.com/Sage-Bionetworks/SharedMobileUI-AppleOS.git",
         "state": {
