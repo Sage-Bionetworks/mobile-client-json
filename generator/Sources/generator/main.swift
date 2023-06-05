@@ -39,6 +39,12 @@ func buildJson() {
             try json.write(to: url)
             print(url)
             
+            let subdir = examplesDirectory.appendingPathComponent("\(doc.id.className)")
+            
+            if let examples = doc.root.examples {
+                try buildExampleFiles(examples: examples, subdir: subdir, className: doc.id.className, jsonType: doc.jsonType)
+            }
+            
             guard let definitions = doc.definitions?.values else {
                 print("Definitions is nil for \(doc.id)")
                 return
@@ -53,22 +59,33 @@ func buildJson() {
                 else {
                     return
                 }
-                
-                try examples.enumerated().forEach { (index, ex) in
-                    let example = ex.dictionary
-                    let subdir = examplesDirectory.appendingPathComponent("\(doc.id.className)")
-                    try fileManager.createDirectory(at: subdir, withIntermediateDirectories: true, attributes: nil)
-                    let filename = "\(className)_\(index).json"
-                    let url = subdir.appendingPathComponent(filename)
-                    let exampleJson = try JSONSerialization.data(withJSONObject: example, options: [.sortedKeys, .prettyPrinted, .withoutEscapingSlashes])
-                    try exampleJson.write(to: url)
-                    print(url)
-                }
+                try buildExampleFiles(examples: examples, subdir: subdir, className: className)
             }
         }
     } catch {
         fatalError("Failed to build the JsonSchema: \(error)")
     }
+}
+
+func buildExampleFiles(examples: [AnyCodableDictionary], subdir: URL, className: String, jsonType: JsonType = .object) throws {
+    let fileManager = FileManager.default
+    try fileManager.createDirectory(at: subdir, withIntermediateDirectories: true, attributes: nil)
+    if jsonType == .array {
+        try writeExample(examples.map { $0.dictionary }, subdir: subdir, className: className, index: 0)
+    }
+    else {
+        try examples.enumerated().forEach { (index, ex) in
+            try writeExample(ex.dictionary, subdir: subdir, className: className, index: index)
+        }
+    }
+}
+
+func writeExample(_ example: Any, subdir: URL, className: String, index: Int) throws {
+    let filename = "\(className)_\(index).json"
+    let url = subdir.appendingPathComponent(filename)
+    let exampleJson = try JSONSerialization.data(withJSONObject: example, options: [.sortedKeys, .prettyPrinted, .withoutEscapingSlashes])
+    try exampleJson.write(to: url)
+    print(url)
 }
 
 buildJson()

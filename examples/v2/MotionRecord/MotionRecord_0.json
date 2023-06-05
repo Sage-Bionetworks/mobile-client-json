@@ -1,0 +1,79 @@
+[
+  {
+    "sensorType" : "gyro",
+    "stepPath" : "step1",
+    "timestamp" : 0,
+    "uptime" : 2900726.355769,
+    "x" : 0.064788818359375,
+    "y" : -0.1324615478515625,
+    "z" : -0.9501953125
+  },
+  {
+    "sensorType" : "accelerometer",
+    "stepPath" : "step1",
+    "timestamp" : 0,
+    "uptime" : 2900726.355769,
+    "x" : 0.064788818359375,
+    "y" : -0.1324615478515625,
+    "z" : -0.9501953125
+  },
+  {
+    "sensorType" : "magnetometer",
+    "stepPath" : "step1",
+    "timestamp" : 0,
+    "uptime" : 2900726.355769,
+    "x" : 0.064788818359375,
+    "y" : -0.1324615478515625,
+    "z" : -0.9501953125
+  },
+  {
+    "sensorType" : "gravity",
+    "stepPath" : "step1",
+    "timestamp" : 0,
+    "uptime" : 2900726.355769,
+    "x" : 0.064788818359375,
+    "y" : -0.1324615478515625,
+    "z" : -0.9501953125
+  },
+  {
+    "sensorType" : "userAcceleration",
+    "stepPath" : "step1",
+    "timestamp" : 0,
+    "uptime" : 2900726.355769,
+    "x" : 0.064788818359375,
+    "y" : -0.1324615478515625,
+    "z" : -0.9501953125
+  },
+  {
+    "sensorType" : "userAcceleration",
+    "stepPath" : "step1",
+    "timestamp" : 0,
+    "uptime" : 2900726.355769,
+    "x" : 0.064788818359375,
+    "y" : -0.1324615478515625,
+    "z" : -0.9501953125
+  },
+  {
+    "referenceCoordinate" : "Z-Up",
+    "sensorType" : "attitude",
+    "stepPath" : "step1",
+    "timestamp" : 0,
+    "uptime" : 2900726.355769,
+    "w" : 1,
+    "x" : 0.064788818359375,
+    "y" : -0.1324615478515625,
+    "z" : -0.9501953125
+  },
+  {
+    "eventAccuracy" : 4,
+    "heading" : 270,
+    "sensorType" : "magneticField",
+    "stepPath" : "step1",
+    "timestamp" : 0,
+    "uptime" : 2900726.355769,
+    "w" : 1,
+    "x" : 0.064788818359375,
+    "y" : -0.1324615478515625,
+    "z" : -0.9501953125
+  }
+]

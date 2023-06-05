@@ -1,0 +1,15 @@
+{
+  "$schema" : "https://sage-bionetworks.github.io/mobile-client-json/schemas/v2/AssessmentObject.json",
+  "identifier" : "assessment",
+  "steps" : [
+    {
+      "identifier" : "favoriteColor",
+      "inputItem" : {
+        "type" : "string"
+      },
+      "title" : "What is your favorite color",
+      "type" : "simpleQuestion"
+    }
+  ],
+  "type" : "assessment"
+}
