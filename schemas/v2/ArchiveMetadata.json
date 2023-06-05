@@ -14,7 +14,7 @@
         "filename" : {
           "type" : "string",
           "description" : "The filename of the archive object. This should be unique within the manifest.",
-          "format" : "uri-relative"
+          "format" : "uri-reference"
         },
         "timestamp" : {
           "type" : "string",
