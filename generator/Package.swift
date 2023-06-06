@@ -15,7 +15,7 @@ let package = Package(
         .package(url: "https://github.com/Sage-Bionetworks/AssessmentModelKMM.git",
                  from: "0.11.0"),
         .package(url: "https://github.com/Sage-Bionetworks/JsonModel-Swift.git",
-                 from: "2.1.1"),
+                 from: "2.2.2"),
         .package(url: "https://github.com/Sage-Bionetworks/MotorControl-iOS.git",
                  from: "5.0.0"),
     ],
