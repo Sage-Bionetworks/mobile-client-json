@@ -12,8 +12,7 @@
       "description" : "",
       "properties" : {
         "type" : {
-          "const" : "answer",
-          "$ref" : "#/definitions/SerializableResultType"
+          "const" : "answer"
         },
         "answerType" : {
           "$ref" : "AnswerType.json",
@@ -213,8 +212,7 @@
       "description" : "",
       "properties" : {
         "type" : {
-          "const" : "section",
-          "$ref" : "#/definitions/SerializableResultType"
+          "const" : "section"
         },
         "stepHistory" : {
           "type" : "array",
@@ -476,8 +474,7 @@
       "description" : "",
       "properties" : {
         "type" : {
-          "const" : "collection",
-          "$ref" : "#/definitions/SerializableResultType"
+          "const" : "collection"
         },
         "children" : {
           "type" : "array",
@@ -679,8 +676,7 @@
       "description" : "",
       "properties" : {
         "type" : {
-          "const" : "error",
-          "$ref" : "#/definitions/SerializableResultType"
+          "const" : "error"
         },
         "errorDescription" : {
           "type" : "string",
@@ -724,8 +720,7 @@
       "description" : "",
       "properties" : {
         "type" : {
-          "const" : "file",
-          "$ref" : "#/definitions/SerializableResultType"
+          "const" : "file"
         },
         "relativePath" : {
           "type" : "string",
@@ -773,8 +768,7 @@
       "description" : "",
       "properties" : {
         "type" : {
-          "const" : "base",
-          "$ref" : "#/definitions/SerializableResultType"
+          "const" : "base"
         }
       },
       "allOf" : [
