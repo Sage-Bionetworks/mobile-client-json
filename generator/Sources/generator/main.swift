@@ -88,6 +88,7 @@ class GeneratorFactory : AssessmentFactory {
             }
         }
         
+        // print the validation mapping to the console - this can be copy/pasted into .github/workspaces/validation.yml
         validationMaps.forEach {
             print($0.yml)
         }
@@ -131,10 +132,3 @@ class GeneratorFactory : AssessmentFactory {
     }
 }
 
-let ymlTemplate = """
-      - name: Validate JSON
-        uses: docker://orrosenblatt/validate-json-action:latest
-        env:
-          INPUT_SCHEMA: /schemas/v2/ArchiveMetadata.json
-          INPUT_JSONS: /examples/v2/ArchiveMetadata/ArchiveMetadata_0.json
-"""
