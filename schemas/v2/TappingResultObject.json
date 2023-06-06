@@ -84,8 +84,7 @@
   },
   "properties" : {
     "type" : {
-      "const" : "tapping",
-      "$ref" : "ResultData.json#SerializableResultType"
+      "const" : "tapping"
     },
     "hand" : {
       "$ref" : "#/definitions/HandSelection",

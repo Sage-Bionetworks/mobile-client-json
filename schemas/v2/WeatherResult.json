@@ -194,8 +194,7 @@
       "type" : "string"
     },
     "type" : {
-      "const" : "weather",
-      "$ref" : "ResultData.json#SerializableResultType"
+      "const" : "weather"
     },
     "startDate" : {
       "type" : "string",

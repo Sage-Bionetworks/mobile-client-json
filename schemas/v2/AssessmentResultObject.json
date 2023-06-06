@@ -45,8 +45,7 @@
   },
   "properties" : {
     "type" : {
-      "const" : "assessment",
-      "$ref" : "ResultData.json#SerializableResultType"
+      "const" : "assessment"
     },
     "identifier" : {
       "type" : "string"
