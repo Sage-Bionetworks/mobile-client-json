@@ -7,8 +7,43 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: Validate JSON
+      - name: Validate JSON AudioLevelRecord
         uses: docker://orrosenblatt/validate-json-action:latest
         env:
-          INPUT_SCHEMA: /schemas/v2/ArchiveMetadata.json
-          INPUT_JSONS: /examples/v2/ArchiveMetadata/ArchiveMetadata_0.json
+          INPUT_SCHEMA: //schemas/v2/AudioLevelRecord.json
+          INPUT_JSONS: //examples/v2/AudioLevelRecord/AudioLevelRecord_0.json
+      - name: Validate JSON DistanceRecord
+        uses: docker://orrosenblatt/validate-json-action:latest
+        env:
+          INPUT_SCHEMA: //schemas/v2/DistanceRecord.json
+          INPUT_JSONS: //examples/v2/DistanceRecord/DistanceRecord_0.json
+      - name: Validate JSON MotionRecord
+        uses: docker://orrosenblatt/validate-json-action:latest
+        env:
+          INPUT_SCHEMA: //schemas/v2/MotionRecord.json
+          INPUT_JSONS: //examples/v2/MotionRecord/MotionRecord_0.json
+      - name: Validate JSON WeatherResult
+        uses: docker://orrosenblatt/validate-json-action:latest
+        env:
+          INPUT_SCHEMA: //schemas/v2/WeatherResult.json
+          INPUT_JSONS: //examples/v2/WeatherResult/WeatherResult_0.json
+      - name: Validate JSON AssessmentObject
+        uses: docker://orrosenblatt/validate-json-action:latest
+        env:
+          INPUT_SCHEMA: //schemas/v2/AssessmentObject.json
+          INPUT_JSONS: //examples/v2/AssessmentObject/AssessmentObject_0.json
+      - name: Validate JSON AssessmentResultObject
+        uses: docker://orrosenblatt/validate-json-action:latest
+        env:
+          INPUT_SCHEMA: //schemas/v2/AssessmentResultObject.json
+          INPUT_JSONS: //examples/v2/AssessmentResultObject/AssessmentResultObject_0.json
+      - name: Validate JSON ArchiveMetadata
+        uses: docker://orrosenblatt/validate-json-action:latest
+        env:
+          INPUT_SCHEMA: //schemas/v2/ArchiveMetadata.json
+          INPUT_JSONS: //examples/v2/ArchiveMetadata/ArchiveMetadata_0.json
+      - name: Validate JSON TappingResultObject
+        uses: docker://orrosenblatt/validate-json-action:latest
+        env:
+          INPUT_SCHEMA: //schemas/v2/TappingResultObject.json
+          INPUT_JSONS: //examples/v2/TappingResultObject/TappingResultObject_0.json
