@@ -12,8 +12,7 @@
       "description" : "",
       "properties" : {
         "type" : {
-          "const" : "choiceQuestion",
-          "$ref" : "#/definitions/SerializableNodeType"
+          "const" : "choiceQuestion"
         },
         "comment" : {
           "type" : "string",
@@ -143,8 +142,7 @@
       "description" : "",
       "properties" : {
         "type" : {
-          "const" : "completion",
-          "$ref" : "#/definitions/SerializableNodeType"
+          "const" : "completion"
         },
         "comment" : {
           "type" : "string",
@@ -217,8 +215,7 @@
       "description" : "",
       "properties" : {
         "type" : {
-          "const" : "countdown",
-          "$ref" : "#/definitions/SerializableNodeType"
+          "const" : "countdown"
         },
         "comment" : {
           "type" : "string",
@@ -301,8 +298,7 @@
       "description" : "",
       "properties" : {
         "type" : {
-          "const" : "instruction",
-          "$ref" : "#/definitions/SerializableNodeType"
+          "const" : "instruction"
         },
         "comment" : {
           "type" : "string",
@@ -471,8 +467,7 @@
       "description" : "",
       "properties" : {
         "type" : {
-          "const" : "overview",
-          "$ref" : "#/definitions/SerializableNodeType"
+          "const" : "overview"
         },
         "comment" : {
           "type" : "string",
@@ -585,8 +580,7 @@
       "description" : "",
       "properties" : {
         "type" : {
-          "const" : "permission",
-          "$ref" : "#/definitions/SerializableNodeType"
+          "const" : "permission"
         },
         "comment" : {
           "type" : "string",
@@ -682,13 +676,13 @@
       "title" : "QuestionUIHint",
       "description" : "",
       "examples" : [
-        "picker",
+        "likert",
+        "radioButton",
+        "checkbox",
         "multipleLine",
         "slider",
         "textfield",
-        "radioButton",
-        "likert",
-        "checkbox"
+        "picker"
       ]
     },
     "SectionObject" : {
@@ -698,8 +692,7 @@
       "description" : "",
       "properties" : {
         "type" : {
-          "const" : "section",
-          "$ref" : "#/definitions/SerializableNodeType"
+          "const" : "section"
         },
         "comment" : {
           "type" : "string",
@@ -807,8 +800,7 @@
       "description" : "",
       "properties" : {
         "type" : {
-          "const" : "simpleQuestion",
-          "$ref" : "#/definitions/SerializableNodeType"
+          "const" : "simpleQuestion"
         },
         "comment" : {
           "type" : "string",

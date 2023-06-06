@@ -24,8 +24,7 @@
       "description" : "",
       "properties" : {
         "type" : {
-          "const" : "microphone",
-          "$ref" : "#/definitions/AsyncActionType"
+          "const" : "microphone"
         },
         "startStepIdentifier" : {
           "type" : "string"
@@ -66,8 +65,7 @@
       "description" : "",
       "properties" : {
         "type" : {
-          "const" : "distance",
-          "$ref" : "#/definitions/AsyncActionType"
+          "const" : "distance"
         },
         "motionStepIdentifier" : {
           "type" : "string"
@@ -107,8 +105,7 @@
       "description" : "",
       "properties" : {
         "type" : {
-          "const" : "motion",
-          "$ref" : "#/definitions/AsyncActionType"
+          "const" : "motion"
         },
         "recorderTypes" : {
           "type" : "array",
@@ -179,8 +176,7 @@
       "description" : "",
       "properties" : {
         "type" : {
-          "const" : "weather",
-          "$ref" : "#/definitions/AsyncActionType"
+          "const" : "weather"
         },
         "startStepIdentifier" : {
           "type" : "string",
