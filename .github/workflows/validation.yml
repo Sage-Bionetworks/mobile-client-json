@@ -7,6 +7,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
+      - name: Validate JSON ArchiveMetadata
+        uses: docker://orrosenblatt/validate-json-action:latest
+        env:
+          INPUT_SCHEMA: //schemas/v2/ArchiveMetadata.json
+          INPUT_JSONS: //examples/v2/ArchiveMetadata/ArchiveMetadata_0.json
+      - name: Validate JSON AssessmentObject
+        uses: docker://orrosenblatt/validate-json-action:latest
+        env:
+          INPUT_SCHEMA: //schemas/v2/AssessmentObject.json
+          INPUT_JSONS: //examples/v2/AssessmentObject/AssessmentObject_0.json
+      - name: Validate JSON AssessmentResultObject
+        uses: docker://orrosenblatt/validate-json-action:latest
+        env:
+          INPUT_SCHEMA: //schemas/v2/AssessmentResultObject.json
+          INPUT_JSONS: //examples/v2/AssessmentResultObject/AssessmentResultObject_0.json
       - name: Validate JSON AudioLevelRecord
         uses: docker://orrosenblatt/validate-json-action:latest
         env:
@@ -22,21 +37,6 @@ jobs:
         env:
           INPUT_SCHEMA: //schemas/v2/MotionRecord.json
           INPUT_JSONS: //examples/v2/MotionRecord/MotionRecord_0.json
-      - name: Validate JSON AssessmentObject
-        uses: docker://orrosenblatt/validate-json-action:latest
-        env:
-          INPUT_SCHEMA: //schemas/v2/AssessmentObject.json
-          INPUT_JSONS: //examples/v2/AssessmentObject/AssessmentObject_0.json
-      - name: Validate JSON AssessmentResultObject
-        uses: docker://orrosenblatt/validate-json-action:latest
-        env:
-          INPUT_SCHEMA: //schemas/v2/AssessmentResultObject.json
-          INPUT_JSONS: //examples/v2/AssessmentResultObject/AssessmentResultObject_0.json
-      - name: Validate JSON ArchiveMetadata
-        uses: docker://orrosenblatt/validate-json-action:latest
-        env:
-          INPUT_SCHEMA: //schemas/v2/ArchiveMetadata.json
-          INPUT_JSONS: //examples/v2/ArchiveMetadata/ArchiveMetadata_0.json
       - name: Validate JSON TappingResultObject
         uses: docker://orrosenblatt/validate-json-action:latest
         env:

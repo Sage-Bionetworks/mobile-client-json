@@ -89,7 +89,7 @@ class GeneratorFactory : AssessmentFactory {
         }
         
         // print the validation mapping to the console - this can be copy/pasted into .github/workspaces/validation.yml
-        validationMaps.forEach {
+        validationMaps.sorted(by: { $0.className < $1.className }).forEach {
             print($0.yml)
         }
     }
