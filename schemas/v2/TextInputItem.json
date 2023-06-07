@@ -69,8 +69,7 @@
       "description" : "",
       "properties" : {
         "type" : {
-          "const" : "number",
-          "$ref" : "#/definitions/TextInputType"
+          "const" : "number"
         },
         "formatOptions" : {
           "$ref" : "#/definitions/DoubleFormatOptions",
@@ -98,8 +97,7 @@
       "description" : "",
       "properties" : {
         "type" : {
-          "const" : "number",
-          "$ref" : "#/definitions/TextInputType"
+          "const" : "number"
         },
         "displayUnits" : {
           "type" : "array",
@@ -183,8 +181,7 @@
       "description" : "",
       "properties" : {
         "type" : {
-          "const" : "integer",
-          "$ref" : "#/definitions/TextInputType"
+          "const" : "integer"
         },
         "formatOptions" : {
           "$ref" : "#/definitions/IntegerFormatOptions",
@@ -309,8 +306,7 @@
       "description" : "",
       "properties" : {
         "type" : {
-          "const" : "string",
-          "$ref" : "#/definitions/TextInputType"
+          "const" : "string"
         },
         "keyboardOptions" : {
           "$ref" : "#/definitions/KeyboardOptionsObject",
@@ -435,8 +431,7 @@
       "description" : "",
       "properties" : {
         "type" : {
-          "const" : "year",
-          "$ref" : "#/definitions/TextInputType"
+          "const" : "year"
         },
         "formatOptions" : {
           "$ref" : "#/definitions/TimeFormatOptions",
@@ -506,8 +501,7 @@
       "description" : "",
       "properties" : {
         "type" : {
-          "const" : "year",
-          "$ref" : "#/definitions/TextInputType"
+          "const" : "year"
         },
         "formatOptions" : {
           "$ref" : "#/definitions/YearFormatOptions",

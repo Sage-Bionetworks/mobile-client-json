@@ -1,0 +1,24 @@
+{
+  "airQuality" : {
+    "aqi" : 2,
+    "category" : {
+      "name" : "Moderate",
+      "number" : 2
+    },
+    "identifier" : "airQuality",
+    "provider" : "airNow",
+    "startDate" : "2023-06-05T15:47:38.577-07:00"
+  },
+  "endDate" : "2023-06-05T15:47:38.577-07:00",
+  "identifier" : "weather",
+  "startDate" : "2023-06-05T15:47:38.577-07:00",
+  "type" : "weather",
+  "weather" : {
+    "clouds" : 0.40000000000000002,
+    "humidity" : 0.90000000000000002,
+    "identifier" : "weather",
+    "provider" : "openWeather",
+    "startDate" : "2023-06-05T15:47:38.577-07:00",
+    "temperature" : 20
+  }
+}

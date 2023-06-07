@@ -12,8 +12,7 @@
       "description" : "",
       "properties" : {
         "type" : {
-          "const" : "animated",
-          "$ref" : "#/definitions/ImageInfoType"
+          "const" : "animated"
         },
         "imageNames" : {
           "type" : "array",
@@ -100,8 +99,7 @@
       "description" : "",
       "properties" : {
         "type" : {
-          "const" : "fetchable",
-          "$ref" : "#/definitions/ImageInfoType"
+          "const" : "fetchable"
         },
         "imageName" : {
           "type" : "string",
@@ -224,8 +222,7 @@
       "description" : "",
       "properties" : {
         "type" : {
-          "const" : "sageResource",
-          "$ref" : "#/definitions/ImageInfoType"
+          "const" : "sageResource"
         },
         "imageName" : {
           "$ref" : "#/definitions/Name",

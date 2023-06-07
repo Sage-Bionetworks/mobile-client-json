@@ -12,8 +12,7 @@
       "description" : "",
       "properties" : {
         "type" : {
-          "const" : "answer",
-          "$ref" : "#/definitions/SerializableResultType"
+          "const" : "answer"
         },
         "answerType" : {
           "$ref" : "AnswerType.json",
@@ -213,8 +212,7 @@
       "description" : "",
       "properties" : {
         "type" : {
-          "const" : "section",
-          "$ref" : "#/definitions/SerializableResultType"
+          "const" : "section"
         },
         "stepHistory" : {
           "type" : "array",
@@ -476,8 +474,7 @@
       "description" : "",
       "properties" : {
         "type" : {
-          "const" : "collection",
-          "$ref" : "#/definitions/SerializableResultType"
+          "const" : "collection"
         },
         "children" : {
           "type" : "array",
@@ -679,8 +676,7 @@
       "description" : "",
       "properties" : {
         "type" : {
-          "const" : "error",
-          "$ref" : "#/definitions/SerializableResultType"
+          "const" : "error"
         },
         "errorDescription" : {
           "type" : "string",
@@ -710,7 +706,7 @@
         {
           "type" : "error",
           "identifier" : "errorResult",
-          "startDate" : "2023-04-18T15:07:56.119-07:00",
+          "startDate" : "2023-06-06T16:14:52.551-07:00",
           "errorDescription" : "example error",
           "errorDomain" : "ExampleDomain",
           "errorCode" : 1
@@ -724,12 +720,12 @@
       "description" : "",
       "properties" : {
         "type" : {
-          "const" : "file",
-          "$ref" : "#/definitions/SerializableResultType"
+          "const" : "file"
         },
         "relativePath" : {
           "type" : "string",
-          "description" : "The relative path to the file-based result."
+          "description" : "The relative path to the file-based result.",
+          "format" : "uri-reference"
         },
         "contentType" : {
           "type" : "string",
@@ -773,8 +769,7 @@
       "description" : "",
       "properties" : {
         "type" : {
-          "const" : "base",
-          "$ref" : "#/definitions/SerializableResultType"
+          "const" : "base"
         }
       },
       "allOf" : [

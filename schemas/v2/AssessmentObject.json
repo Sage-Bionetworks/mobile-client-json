@@ -57,8 +57,7 @@
   },
   "properties" : {
     "type" : {
-      "const" : "assessment",
-      "$ref" : "Node.json#SerializableNodeType"
+      "const" : "assessment"
     },
     "identifier" : {
       "type" : "string"

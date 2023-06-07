@@ -12,8 +12,7 @@
       "description" : "",
       "properties" : {
         "type" : {
-          "const" : "array",
-          "$ref" : "#/definitions/AnswerTypeType"
+          "const" : "array"
         },
         "baseType" : {
           "$ref" : "#/definitions/JsonType",
@@ -55,8 +54,7 @@
       "description" : "",
       "properties" : {
         "type" : {
-          "const" : "boolean",
-          "$ref" : "#/definitions/AnswerTypeType"
+          "const" : "boolean"
         }
       },
       "required" : [
@@ -80,8 +78,7 @@
       "description" : "",
       "properties" : {
         "type" : {
-          "const" : "date-time",
-          "$ref" : "#/definitions/AnswerTypeType"
+          "const" : "date-time"
         },
         "codingFormat" : {
           "type" : "string",
@@ -118,8 +115,7 @@
       "description" : "",
       "properties" : {
         "type" : {
-          "const" : "duration",
-          "$ref" : "#/definitions/AnswerTypeType"
+          "const" : "duration"
         },
         "displayUnits" : {
           "type" : "array",
@@ -159,8 +155,7 @@
       "description" : "",
       "properties" : {
         "type" : {
-          "const" : "integer",
-          "$ref" : "#/definitions/AnswerTypeType"
+          "const" : "integer"
         }
       },
       "required" : [
@@ -184,8 +179,7 @@
       "description" : "",
       "properties" : {
         "type" : {
-          "const" : "measurement",
-          "$ref" : "#/definitions/AnswerTypeType"
+          "const" : "measurement"
         },
         "unit" : {
           "type" : "string",
@@ -218,8 +212,7 @@
       "description" : "",
       "properties" : {
         "type" : {
-          "const" : "number",
-          "$ref" : "#/definitions/AnswerTypeType"
+          "const" : "number"
         },
         "significantDigits" : {
           "type" : "number",
@@ -247,8 +240,7 @@
       "description" : "",
       "properties" : {
         "type" : {
-          "const" : "object",
-          "$ref" : "#/definitions/AnswerTypeType"
+          "const" : "object"
         }
       },
       "required" : [
@@ -272,8 +264,7 @@
       "description" : "",
       "properties" : {
         "type" : {
-          "const" : "string",
-          "$ref" : "#/definitions/AnswerTypeType"
+          "const" : "string"
         }
       },
       "required" : [
@@ -297,8 +288,7 @@
       "description" : "",
       "properties" : {
         "type" : {
-          "const" : "time",
-          "$ref" : "#/definitions/AnswerTypeType"
+          "const" : "time"
         },
         "codingFormat" : {
           "type" : "string",

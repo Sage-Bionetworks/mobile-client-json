@@ -1,0 +1,11 @@
+[
+  {
+    "average" : 40.5,
+    "peak" : 56.700000762939453,
+    "stepPath" : "foo/one",
+    "timeInterval" : 1,
+    "timestamp" : 0,
+    "unit" : "dbFS",
+    "uptime" : 1234567
+  }
+]

@@ -12,8 +12,7 @@
       "description" : "",
       "properties" : {
         "type" : {
-          "const" : "default",
-          "$ref" : "#/definitions/ButtonActionInfoType"
+          "const" : "default"
         }
       },
       "required" : [
@@ -52,8 +51,7 @@
       "description" : "",
       "properties" : {
         "type" : {
-          "const" : "navigation",
-          "$ref" : "#/definitions/ButtonActionInfoType"
+          "const" : "navigation"
         },
         "skipToIdentifier" : {
           "$ref" : "#/definitions/NavigationIdentifier",
