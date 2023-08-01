@@ -152,7 +152,7 @@
                     "description": "This is the default schema for NorthWestern assessments.",
                     "contentType": "application/json",
                     "isRequired": true,
-                    "jsonSchema": "https://raw.githubusercontent.com/MobileToolbox/MobileToolboxSchemas/0.9.5/OldCombinedSchema/taskData_combinedSchema.json"
+                    "jsonSchema": "https://raw.githubusercontent.com/MobileToolbox/MobileToolboxSchemas/0.9.7/OldCombinedSchema/taskData_combinedSchema.json"
                 }]
             }
         ],
