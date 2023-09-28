@@ -8,7 +8,7 @@ Json Schema Draft 7 documentation for the JSON model objects used to build the i
 Assessment Models. The [AssessmentModel][1] library used by all internally developed assessments 
 considers an assessment to be any measurement, including surveys, that can be run on a mobile
 device, provided that the library dependencies for a given app are set up to include it. 
-This repoitory includes the schemas used to define:
+This repository includes the schemas used to define:
 
 - [Result Archives](#result-archives): The output files for a single run of an assessment.
 - [Building a Survey](#building-a-survey): The [AssessmentConfig][3] for describing all the questions and branching logic for running a survey.
