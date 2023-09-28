@@ -1,5 +1,9 @@
 # mobile-client-json
 
+[1]: <https://github.com/BridgeDigitalHealth/AssessmentModelKMM> "AssessmentModelKMM"
+[2]: <https://www.figma.com/file/edCHqzwDQLgnBUXj7KoNl3/Surveys_ResearcherUI> "Surveys_ResearcherUI"
+[3]: <https://developer.sagebridge.org/model-browser.html#AssessmentConfig> "AssessmentConfig"
+
 Json Schema Draft 7 documentation for the JSON model objects used to build the iOS and Android 
 Assessment Models. The [AssessmentModel][1] library used by all internally developed assessments 
 considers an assessment to be any measurement, including surveys, that can be run on a mobile
@@ -7,10 +11,7 @@ device, provided that the library dependencies for a given app are set up to inc
 This repoitory includes the schemas used to define:
 
 - [Result Archives](#result-archives): The output files for a single run of an assessment.
-- [Building a Survey](#building-a-survey): The [AssessmentConfig][2] for describing all the questions and branching logic for running a survey.
-
-[1]: <https://github.com/BridgeDigitalHealth/AssessmentModelKMM> "AssessmentModelKMM"
-[2]: <https://developer.sagebridge.org/model-browser.html#AssessmentConfig> "AssessmentConfig"
+- [Building a Survey](#building-a-survey): The [AssessmentConfig][3] for describing all the questions and branching logic for running a survey.
 
 ## Result Archives
 
@@ -61,8 +62,6 @@ assessment.
 Each element in the survey is a `Node` where the root-level `Node` must also be a known `Assessment` type. 
 The [AssessmentModel][1] library has only one "type" key defined for an `Assessment`, but this key must be 
 included in the JSON or the serialization will fail.
-
-[1]: <https://github.com/BridgeDigitalHealth/AssessmentModelKMM> "AssessmentModelKMM"
 
 - Note: The terms "node" and "step" are used interchangably within this document and essentially mean 
 the same thing. This is for historical reasons wherein assessments are designed to conform to both the 
@@ -249,8 +248,6 @@ Currently, instruction steps can be:
 - [Instruction Steps](#instruction-steps)
 - [Permission Steps](#permission-steps)
 - [Completion Step](#completion-step)
-
-[2]: <https://www.figma.com/file/edCHqzwDQLgnBUXj7KoNl3/Surveys_ResearcherUI> "Surveys_ResearcherUI"
 
 #### Overview Step
 
