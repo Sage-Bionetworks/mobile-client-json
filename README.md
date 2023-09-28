@@ -25,20 +25,8 @@ All archives include the **required** "metadata.json" file that includes informa
 about the device, assessment schedule, and a manifest of all the other files in the 
 archive. 
 
-The json schema for this file is defined here: [ArchiveMetadata](/schemas/v2/ArchiveMetadata.json)
-
-As well as information about the device, app, and assessment schedule, the file also
-includes a manifest of the other files in the archive with the following properties:
-
-| Key         | Required | Description |
-|-------------|----------|-------------|
-| filename    | true     | The filename of the archive object. This should be unique within the manifest |
-| timestamp   | true     | The file creation date |
-| contentType | false    | The content type of the file |
-| jsonSchema  | false    | The uri for the json schema if the content type is 'application/json'. |
-
-Note: There are other fields in the manifest as described by the json schema, but these 
-are the fields that are most commonly asked about. syoung 09/27/2023
+- [Json Schema](/schemas/v2/ArchiveMetadata.json)
+- [Markdown Schema](/docs/v2/ArchiveMetadata.md)
 
 ### Primary Assessment Result
 
